@@ -1,0 +1,15 @@
+<ng-container *ngIf="isLoginRoute(); else appShell">
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-template #appShell>
+  <div class="shell">
+    <app-sidebar></app-sidebar>
+    <div class="main">
+      <app-topbar></app-topbar>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</ng-template>
