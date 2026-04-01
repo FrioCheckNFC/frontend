@@ -1,5 +1,5 @@
-<aside class="sidebar">
-  <div class="sb-logo">
+<aside class="sidebar" [class.collapsed]="collapsed">
+  <div class="sb-logo" *ngIf="!collapsed">
     <img [src]="logoLight" alt="FrioCheck Logo" class="logo-icon logo-light" />
     <img [src]="logoDark" alt="FrioCheck Logo" class="logo-icon logo-dark" />
   </div>
@@ -12,6 +12,7 @@
         [routerLink]="item.route"
         routerLinkActive="active"
         class="nav-item"
+        [title]="item.label"
       >
         <svg
           *ngIf="item.icon === 'home'"
@@ -147,8 +148,15 @@
           <circle cx="12" cy="7" r="4" />
         </svg>
 
-        <span>{{ item.label }}</span>
+        <span *ngIf="!collapsed">{{ item.label }}</span>
       </a>
     </ng-container>
   </nav>
+
+  <button class="sidebar-toggle" (click)="toggleCollapse()" [title]="collapsed ? 'Expandir' : 'Colapsar'">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline *ngIf="!collapsed" points="15 18 9 12 15 6" />
+      <polyline *ngIf="collapsed" points="9 18 15 12 9 6" />
+    </svg>
+  </button>
 </aside>

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, RouterOutlet, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Sidebar } from './components/sidebar/sidebar';
 import { Topbar } from './components/topbar/topbar';
+import { FilterService } from './core/services/filter.service';
 
 @Component({
   selector: 'app-root',
@@ -12,22 +13,37 @@ import { Topbar } from './components/topbar/topbar';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router) {}
+  sidebarCollapsed = false;
+  sidebarHidden = false;
+
+  constructor(
+    private router: Router,
+    private filterService: FilterService
+  ) {}
 
   ngOnInit() {
-    // TODO: Tema oscuro desactivado temporalmente
-    // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    // const savedTheme = localStorage.getItem('theme');
-
-    // if (savedTheme) {
-    //   document.documentElement.setAttribute('data-theme', savedTheme);
-    // } else if (prefersDark) {
-    //   document.documentElement.setAttribute('data-theme', 'dark');
-    // }
-
-    // Forzar tema claro
     document.documentElement.removeAttribute('data-theme');
     localStorage.setItem('theme', 'light');
+    this.checkScreenSize();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.checkScreenSize();
+  }
+
+  private checkScreenSize(): void {
+    const aspectRatio = window.innerWidth / window.innerHeight;
+    const width = window.innerWidth;
+    this.sidebarHidden = (width <= 1024 && aspectRatio > 0.75) || width <= 768;
+  }
+
+  toggleSidebar() {
+    this.sidebarCollapsed = !this.sidebarCollapsed;
+  }
+
+  showSidebar() {
+    this.sidebarCollapsed = false;
   }
 
   toggleTheme() {

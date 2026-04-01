@@ -1,12 +1,16 @@
 /* =========================
    TEMA CLARO (POR DEFECTO)
-========================= */
+ ========================= */
 :root {
   /* Colores de marca */
   --primary: #f26522;
   --primary-hover: #d9551d;
   --primary-light: #ff7a3c;
   --primary-dim: rgba(242, 101, 34, 0.12);
+
+  /* Dimensiones */
+  --sidebar-width: 240px;
+  --topbar-height: 60px;
 
   /* Estados */
   --error: #ba1a1a;

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FilterService, type FilterOption } from '../../core/services/filter.service';
 import { ChileLocationsService } from '../../core/services/chile-locations.service';
 
@@ -14,7 +16,7 @@ interface ActiveFilter {
 @Component({
   selector: 'app-filters',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatSelectModule, MatFormFieldModule],
   template: `
     <div class="filters-section" *ngIf="filters.length > 0 && !hidePrimary">
       <!-- Main Filter Bar -->
@@ -35,16 +37,17 @@ interface ActiveFilter {
             </div>
 
             <div *ngIf="filter.type === 'select'" class="filter-select-wrapper">
-              <select
-                class="filter-select"
-                [(ngModel)]="filterValues[filter.key]"
-                (change)="filter.key === 'region' ? onRegionChange() : applyFilters()"
-              >
-                <option value="">{{ filter.placeholder }}</option>
-                <option *ngFor="let opt of getFilterOptions(filter)" [value]="opt.value">
-                  {{ opt.label }}
-                </option>
-              </select>
+              <mat-form-field appearance="outline">
+                <mat-select
+                  [(ngModel)]="filterValues[filter.key]"
+                  (selectionChange)="filter.key === 'region' ? onRegionChange() : applyFilters()"
+                  [placeholder]="filter.placeholder || ''"
+                >
+                  <mat-option *ngFor="let opt of getFilterOptions(filter)" [value]="opt.value">
+                    {{ opt.label }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
 
             <div *ngIf="filter.type === 'date'" class="filter-date-wrapper">
@@ -98,16 +101,17 @@ interface ActiveFilter {
             </div>
 
             <div *ngIf="filter.type === 'select'" class="filter-select-wrapper">
-              <select
-                class="filter-select"
-                [(ngModel)]="filterValues[filter.key]"
-                (change)="filter.key === 'region' ? onRegionChange() : applyFilters()"
-              >
-                <option value="">{{ filter.placeholder }}</option>
-                <option *ngFor="let opt of getFilterOptions(filter)" [value]="opt.value">
-                  {{ opt.label }}
-                </option>
-              </select>
+              <mat-form-field appearance="outline">
+                <mat-select
+                  [(ngModel)]="filterValues[filter.key]"
+                  (selectionChange)="filter.key === 'region' ? onRegionChange() : applyFilters()"
+                  [placeholder]="filter.placeholder || ''"
+                >
+                  <mat-option *ngFor="let opt of getFilterOptions(filter)" [value]="opt.value">
+                    {{ opt.label }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
 
             <div *ngIf="filter.type === 'date'" class="filter-date-wrapper">
@@ -221,13 +225,39 @@ interface ActiveFilter {
         box-shadow: 0 0 0 3px rgba(242, 101, 34, 0.1);
       }
 
-      .filter-select {
-        cursor: pointer;
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f26522' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 0.5rem center;
-        padding-right: 1.75rem;
+      .filter-select-wrapper mat-form-field {
+        min-width: 160px;
+        --mat-form-field-container-height: 36px;
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+        display: none;
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-text-field-wrapper {
+        --mdc-filled-text-field-container-color: var(--surface-lowest);
+        --mdc-filled-text-field-label-text-color: var(--text-secondary);
+        --mdc-filled-text-field-input-text-color: var(--text-primary);
+        --mat-form-field-state-layer-bg: var(--surface-lowest);
+        background-color: var(--surface-lowest);
+        border-radius: 6px;
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-form-field-flex {
+        height: 36px;
+        padding: 0 8px;
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-select-value-text {
+        color: var(--text-primary);
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-select-arrow {
+        color: var(--primary);
+      }
+
+      [data-theme='dark'] .filter-select-wrapper ::ng-deep .mat-mdc-text-field-wrapper {
+        background-color: var(--surface);
       }
 
       .filters-actions {
@@ -412,6 +442,10 @@ interface ActiveFilter {
       [data-theme='dark'] .filter-date {
         background-color: var(--surface);
         color: var(--text-primary);
+      }
+
+      [data-theme='dark'] .filter-select-wrapper ::ng-deep .mat-mdc-text-field-wrapper {
+        background-color: var(--surface);
       }
 
       @media (max-width: 768px) {

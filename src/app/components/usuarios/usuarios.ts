@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FilterService } from '../../core/services/filter.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -8,4 +9,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './usuarios.html',
   styleUrls: ['./usuarios.css']
 })
-export class Usuarios {}
+export class Usuarios implements OnInit {
+  constructor(private filterService: FilterService) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView('usuarios');
+  }
+}

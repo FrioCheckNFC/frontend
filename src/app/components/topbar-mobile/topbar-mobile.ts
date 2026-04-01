@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { FilterService, type FilterOption, type ViewRoute } from '../../core/services/filter.service';
 import { ChileLocationsService } from '../../core/services/chile-locations.service';
-import { ClickOutsideDirective } from '../../directives/click-outside.directive';
-import { TopbarMobile } from '../topbar-mobile/topbar-mobile';
 
 interface Notification {
   id: number;
@@ -17,22 +15,22 @@ interface Notification {
 }
 
 @Component({
-  selector: 'app-topbar',
+  selector: 'app-topbar-mobile',
   standalone: true,
-  imports: [CommonModule, FormsModule, ClickOutsideDirective, TopbarMobile, RouterModule],
-  templateUrl: './topbar.html',
-  styleUrls: ['./topbar.css'],
+  imports: [CommonModule, FormsModule, RouterModule],
+  templateUrl: './topbar-mobile.html',
+  styleUrls: ['./topbar-mobile.css'],
 })
-export class Topbar implements OnInit {
+export class TopbarMobile implements OnInit {
+  @Output() closeMenu = new EventEmitter<void>();
+
   allFilters: FilterOption[] = [];
   filterValues: { [key: string]: string } = {};
   ciudadesOptions: Array<{ value: string; label: string }> = [];
   comunasOptions: Array<{ value: string; label: string }> = [];
-  showFiltersDropdown = false;
+  showFilters = false;
   showNotifications = false;
-  showMobileMenu = false;
   recentViews: ViewRoute[] = [];
-  private currentView = 'dashboard';
 
   notifications: Notification[] = [
     {
@@ -62,14 +60,12 @@ export class Topbar implements OnInit {
   ];
 
   constructor(
-    private router: Router,
     private filterService: FilterService,
     private chileLocations: ChileLocationsService
   ) {}
 
   ngOnInit(): void {
     this.filterService.activeView$.subscribe((view) => {
-      this.currentView = view;
       this.allFilters = this.filterService.getFiltersForView(view);
       this.filterValues = {};
       this.ciudadesOptions = this.chileLocations.getCiudadesSelect();
@@ -83,38 +79,20 @@ export class Topbar implements OnInit {
     this.recentViews = this.filterService.getRecentViews();
   }
 
-  isActiveRoute(route: string): boolean {
-    return this.router.url === route;
+  onClose(): void {
+    this.closeMenu.emit();
   }
 
-  toggleFiltersDropdown(): void {
-    this.showFiltersDropdown = !this.showFiltersDropdown;
-    this.showNotifications = false;
-  }
-
-  closeFiltersDropdown(): void {
-    this.showFiltersDropdown = false;
+  toggleFilters(): void {
+    this.showFilters = !this.showFilters;
   }
 
   toggleNotifications(): void {
     this.showNotifications = !this.showNotifications;
-    this.showFiltersDropdown = false;
-  }
-
-  closeNotifications(): void {
-    this.showNotifications = false;
   }
 
   markAllRead(): void {
     this.notifications.forEach((n) => (n.read = true));
-  }
-
-  toggleMobileMenu(): void {
-    this.showMobileMenu = !this.showMobileMenu;
-  }
-
-  closeMobileMenu(): void {
-    this.showMobileMenu = false;
   }
 
   getActiveFiltersCount(): number {
@@ -162,9 +140,5 @@ export class Topbar implements OnInit {
         {} as { [key: string]: string },
       );
     this.filterService.updateFilters(activeFilters);
-  }
-
-  logout() {
-    this.router.navigate(['/login']);
   }
 }

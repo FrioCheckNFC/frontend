@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { filter } from 'rxjs/operators';
 import { AuthService, type UserRole } from '../../core/services/auth.service';
+import { FilterService } from '../../core/services/filter.service';
 
 interface NavItem {
   label?: string;
@@ -18,12 +20,14 @@ interface NavItem {
   styleUrls: ['./sidebar.css'],
 })
 export class Sidebar implements OnInit {
+  @Input() collapsed = false;
+  @Output() collapseChange = new EventEmitter<boolean>();
+
   logoLight = '/imagenes/logos/FrioCheck.svg';
   logoDark = '/imagenes/logos/FrioCheckDark.svg';
   userRole: UserRole | null = null;
   navItems: NavItem[] = [];
 
-  // Items para Soporte
   private supportItems: NavItem[] = [
     { label: 'Panel', route: '/dashboard', icon: 'home' },
     { label: 'Tickets', route: '/tickets', icon: 'alert-circle' },
@@ -35,7 +39,6 @@ export class Sidebar implements OnInit {
     { label: 'Mi Perfil', route: '/perfil', icon: 'user' },
   ];
 
-  // Items para Admin
   private adminItems: NavItem[] = [
     { label: 'Panel', route: '/dashboard', icon: 'home' },
     { label: 'Activos NFC', route: '/activos', icon: 'layers' },
@@ -50,7 +53,11 @@ export class Sidebar implements OnInit {
     { label: 'Mi Perfil', route: '/perfil', icon: 'user' },
   ];
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private filterService: FilterService
+  ) {}
 
   ngOnInit(): void {
     this.userRole = this.authService.getRole();
@@ -60,6 +67,32 @@ export class Sidebar implements OnInit {
       this.userRole = role;
       this.updateNavItems();
     });
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      const url = event.urlAfterRedirects || event.url;
+      const viewName = this.getViewNameFromUrl(url);
+      if (viewName) {
+        this.filterService.addToHistory(viewName);
+      }
+    });
+  }
+
+  private getViewNameFromUrl(url: string): string | null {
+    const urlToViewName: { [key: string]: string } = {
+      '/dashboard': 'dashboard',
+      '/tickets': 'tickets',
+      '/visitas': 'visitas',
+      '/activos': 'activos',
+      '/reportes': 'reportes',
+      '/usuarios': 'usuarios',
+      '/pedidos': 'pedidos',
+      '/locales': 'locales',
+      '/configuracion': 'configuracion',
+      '/perfil': 'perfil',
+    };
+    return urlToViewName[url] || null;
   }
 
   private updateNavItems(): void {
@@ -70,5 +103,10 @@ export class Sidebar implements OnInit {
     } else {
       this.navItems = [];
     }
+  }
+
+  toggleCollapse() {
+    this.collapsed = !this.collapsed;
+    this.collapseChange.emit(this.collapsed);
   }
 }

@@ -20,14 +20,89 @@ export interface FilterResults {
   total: number;
 }
 
+export interface ViewRoute {
+  route: string;
+  label: string;
+  icon: string;
+}
+
+const VIEW_ROUTES: ViewRoute[] = [
+  { route: '/dashboard', label: 'Panel', icon: 'home' },
+  { route: '/tickets', label: 'Tickets', icon: 'alert-circle' },
+  { route: '/visitas', label: 'Visitas', icon: 'map-pin' },
+  { route: '/activos', label: 'Activos NFC', icon: 'layers' },
+  { route: '/reportes', label: 'Reportes', icon: 'bar-chart' },
+  { route: '/usuarios', label: 'Usuarios', icon: 'users' },
+  { route: '/perfil', label: 'Mi Perfil', icon: 'user' },
+  { route: '/pedidos', label: 'Pedidos', icon: 'package' },
+  { route: '/locales', label: 'Locales', icon: 'store' },
+  { route: '/configuracion', label: 'Configuración', icon: 'settings' },
+];
+
+const VIEW_NAME_MAP: { [route: string]: string } = {
+  '/dashboard': 'dashboard',
+  '/tickets': 'tickets',
+  '/visitas': 'visitas',
+  '/activos': 'activos',
+  '/reportes': 'reportes',
+  '/usuarios': 'usuarios',
+  '/perfil': 'perfil',
+  '/pedidos': 'pedidos',
+  '/locales': 'locales',
+  '/configuracion': 'configuracion',
+};
+
 @Injectable({
   providedIn: 'root',
 })
 export class FilterService {
   private filterConfigMap: FilterConfig = {};
+  private historyKey = 'viewHistory';
+  private maxHistoryItems = 3;
+  private historySubject = new BehaviorSubject<string[]>([]);
+  public history$ = this.historySubject.asObservable();
 
   constructor(private chileLocations: ChileLocationsService) {
     this.initializeFilterConfig();
+    this.loadHistory();
+  }
+
+  getViewRoute(viewName: string): ViewRoute | undefined {
+    return VIEW_ROUTES.find((v) => v.route === viewName || VIEW_NAME_MAP[v.route] === viewName);
+  }
+
+  getRouteFromViewName(viewName: string): string | undefined {
+    const route = VIEW_ROUTES.find((v) => VIEW_NAME_MAP[v.route] === viewName);
+    return route?.route;
+  }
+
+  getRecentViews(): ViewRoute[] {
+    const history = this.historySubject.value;
+    return history
+      .map((viewName) => this.getViewRoute(viewName))
+      .filter((v): v is ViewRoute => v !== undefined);
+  }
+
+  addToHistory(viewName: string): void {
+    if (viewName === 'none' || viewName === 'perfil' || viewName === 'configuracion') return;
+    
+    let history = this.historySubject.value.filter((v) => v !== viewName);
+    history.unshift(viewName);
+    history = history.slice(0, this.maxHistoryItems);
+    
+    this.historySubject.next(history);
+    localStorage.setItem(this.historyKey, JSON.stringify(history));
+  }
+
+  private loadHistory(): void {
+    const stored = localStorage.getItem(this.historyKey);
+    if (stored) {
+      try {
+        this.historySubject.next(JSON.parse(stored));
+      } catch {
+        this.historySubject.next([]);
+      }
+    }
   }
 
   private initializeFilterConfig(): void {
@@ -35,6 +110,7 @@ export class FilterService {
     const comunasOptions = this.chileLocations.getComunasSelect();
 
     this.filterConfigMap = {
+      none: [],
       tickets: [
         {
           label: 'Generador',
@@ -180,6 +256,7 @@ export class FilterService {
   public results$ = this.resultsSubject.asObservable();
 
   setActiveView(viewName: string): void {
+    this.addToHistory(viewName);
     this.activeViewSubject.next(viewName);
     this.filtersSubject.next({});
     this.resultsSubject.next({ filtered: 100, total: 100 });

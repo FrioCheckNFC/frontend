@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FilterService } from '../../core/services/filter.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -8,4 +9,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './pedidos.html',
   styleUrls: ['./pedidos.css']
 })
-export class Pedidos {}
+export class Pedidos implements OnInit {
+  constructor(private filterService: FilterService) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView('pedidos');
+  }
+}

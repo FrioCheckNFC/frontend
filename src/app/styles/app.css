@@ -37,10 +37,62 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
 }
 
 .btn:hover {
   background-color: var(--primary-hover);
+}
+
+/* Botón primary */
+.btn-primary {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--primary) !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 7px !important;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover) !important;
+}
+
+.btn-primary svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Botón secondary */
+.btn-secondary {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border) !important;
+  padding: 8px 16px !important;
+  border-radius: 7px !important;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+  background-color: var(--hover-bg) !important;
 }
 
 /* Cards */

@@ -14,7 +14,7 @@
 }
 
 .select-filter {
-  background-color: var(--bg-elevated);
+  background-color: var(--surface-lowest);
   color: var(--text-primary);
   border: 1px solid var(--border);
   padding: 0.5rem 0.8rem;
