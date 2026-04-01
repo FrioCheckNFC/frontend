@@ -15,35 +15,59 @@
       <input type="text" placeholder="Buscar código NFC, local o técnico..." />
     </div>
 
-    <div class="primary-filters-inline">
-      <div class="filter-item-inline" *ngFor="let filter of inlineFilters">
-        <label class="filter-label-inline">{{ filter.label }}</label>
-        <input
-          *ngIf="filter.type === 'input'"
-          type="text"
-          [placeholder]="filter.placeholder"
-          class="filter-input-inline"
-          [(ngModel)]="filterValues[filter.key]"
-          (change)="applyFilters()"
-        />
-        <select
-          *ngIf="filter.type === 'select'"
-          class="filter-select-inline"
-          [(ngModel)]="filterValues[filter.key]"
-          (change)="filter.key === 'region' ? onRegionChange() : applyFilters()"
-        >
-          <option value="">{{ filter.placeholder }}</option>
-          <option *ngFor="let opt of getFilterOptions(filter)" [value]="opt.value">
-            {{ opt.label }}
-          </option>
-        </select>
-        <input
-          *ngIf="filter.type === 'date'"
-          type="date"
-          class="filter-date-inline"
-          [(ngModel)]="filterValues[filter.key]"
-          (change)="applyFilters()"
-        />
+
+    <div class="filters-dropdown-container">
+      <button class="btn-filters-dropdown" (click)="toggleFiltersDropdown()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="18" x2="20" y2="18" />
+        </svg>
+        Filtros
+        <span class="badge-count" *ngIf="getActiveFiltersCount() > 0">{{ getActiveFiltersCount() }}</span>
+      </button>
+
+      <div class="filters-dropdown-panel" *ngIf="showFiltersDropdown" (clickOutside)="closeFiltersDropdown()">
+        <div class="filters-dropdown-header">
+          <span>Filtros disponibles</span>
+          <span class="filters-count" *ngIf="allFilters.length > 0">{{ allFilters.length }}</span>
+        </div>
+        <div class="filters-dropdown-grid">
+          <div class="filter-dropdown-item" *ngFor="let filter of allFilters">
+            <div class="filter-wrapper-dropdown" [class.has-value]="filterValues[filter.key]">
+              <span class="filter-label-dropdown">{{ filter.label }}</span>
+              <input
+                *ngIf="filter.type === 'input'"
+                type="text"
+                [placeholder]="filter.placeholder"
+                class="filter-input-dropdown"
+                [(ngModel)]="filterValues[filter.key]"
+                (change)="applyFilters()"
+              />
+              <select
+                *ngIf="filter.type === 'select'"
+                class="filter-select-dropdown"
+                [(ngModel)]="filterValues[filter.key]"
+                (change)="filter.key === 'region' ? onRegionChange() : applyFilters()"
+              >
+                <option value="" disabled selected>{{ filter.placeholder }}</option>
+                <option *ngFor="let opt of getFilterOptions(filter)" [value]="opt.value">
+                  {{ opt.label }}
+                </option>
+              </select>
+              <input
+                *ngIf="filter.type === 'date'"
+                type="date"
+                class="filter-date-dropdown"
+                [(ngModel)]="filterValues[filter.key]"
+                (change)="applyFilters()"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="filters-dropdown-actions">
+          <button class="btn-clear-filters" (click)="clearFilters()">Limpiar filtros</button>
+        </div>
       </div>
     </div>
 
@@ -72,5 +96,4 @@
     </div>
   </div>
 
-  <app-filters [hidePrimary]="true"></app-filters>
 </header>

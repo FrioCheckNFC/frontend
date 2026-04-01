@@ -2,22 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FiltersComponent } from '../filters/filters';
 import { FilterService, type FilterOption } from '../../core/services/filter.service';
 import { ChileLocationsService } from '../../core/services/chile-locations.service';
+import { ClickOutsideDirective } from '../../directives/click-outside.directive';
 
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [CommonModule, FormsModule, FiltersComponent],
+  imports: [CommonModule, FormsModule, ClickOutsideDirective],
   templateUrl: './topbar.html',
   styleUrls: ['./topbar.css'],
 })
 export class Topbar implements OnInit {
-  inlineFilters: FilterOption[] = [];
+  allFilters: FilterOption[] = [];
   filterValues: { [key: string]: string } = {};
   ciudadesOptions: Array<{ value: string; label: string }> = [];
   comunasOptions: Array<{ value: string; label: string }> = [];
+  showFiltersDropdown = false;
   private currentView = 'dashboard';
 
   constructor(
@@ -29,14 +30,30 @@ export class Topbar implements OnInit {
   ngOnInit(): void {
     this.filterService.activeView$.subscribe((view) => {
       this.currentView = view;
-      const allFilters = this.filterService.getFiltersForView(view);
-      // Tomamos solo los primeros 2 filtros para mostrar inline
-      this.inlineFilters = allFilters.slice(0, 2);
+      this.allFilters = this.filterService.getFiltersForView(view);
       this.filterValues = {};
-      // Inicializar opciones de Chile
       this.ciudadesOptions = this.chileLocations.getCiudadesSelect();
       this.comunasOptions = this.chileLocations.getComunasSelect();
     });
+  }
+
+  toggleFiltersDropdown(): void {
+    this.showFiltersDropdown = !this.showFiltersDropdown;
+  }
+
+  closeFiltersDropdown(): void {
+    this.showFiltersDropdown = false;
+  }
+
+  getActiveFiltersCount(): number {
+    return Object.values(this.filterValues).filter(
+      (v) => v !== '' && v !== null && v !== undefined
+    ).length;
+  }
+
+  clearFilters(): void {
+    this.filterValues = {};
+    this.filterService.updateFilters({});
   }
 
   onRegionChange() {
