@@ -1,0 +1,2216 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  TopbarMobile</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/topbar-mobile/topbar-mobile.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-topbar-mobile</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/router/RouterModule" target="_blank" >RouterModule</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./topbar-mobile.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./topbar-mobile.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isDarkTheme" >isDarkTheme</a>
+                            </li>
+                            <li>
+                                <a href="#notifications" >notifications</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#roleFallbackNames" >roleFallbackNames</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#roleLabels" >roleLabels</a>
+                            </li>
+                            <li>
+                                <a href="#showNotifications" >showNotifications</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#subscriptions" >subscriptions</a>
+                            </li>
+                            <li>
+                                <a href="#userInitials" >userInitials</a>
+                            </li>
+                            <li>
+                                <a href="#userName" >userName</a>
+                            </li>
+                            <li>
+                                <a href="#userRoleLabel" >userRoleLabel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applyTheme" >applyTheme</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#buildInitials" >buildInitials</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getStoredUserName" >getStoredUserName</a>
+                            </li>
+                            <li>
+                                <a href="#getUnreadCount" >getUnreadCount</a>
+                            </li>
+                            <li>
+                                <a href="#loadSavedTheme" >loadSavedTheme</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#markAllRead" >markAllRead</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onClose" >onClose</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#refreshUserInfo" >refreshUserInfo</a>
+                            </li>
+                            <li>
+                                <a href="#toggleNotifications" >toggleNotifications</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeMenu" >closeMenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeMenu"></a>
+                        <b>closeMenu</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:24</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyTheme"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>applyTheme</b></span>
+                        <a href="#applyTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildInitials"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>buildInitials</b></span>
+                        <a href="#buildInitials"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildInitials(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="156"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:156</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>name</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStoredUserName"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getStoredUserName</b></span>
+                        <a href="#getStoredUserName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getStoredUserName()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:145</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUnreadCount"></a>
+                    <span class="name">
+                        <span ><b>getUnreadCount</b></span>
+                        <a href="#getUnreadCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUnreadCount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadSavedTheme"></a>
+                    <span class="name">
+                        <span ><b>loadSavedTheme</b></span>
+                        <a href="#loadSavedTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadSavedTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="121"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:121</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markAllRead"></a>
+                    <span class="name">
+                        <span ><b>markAllRead</b></span>
+                        <a href="#markAllRead"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>markAllRead()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClose"></a>
+                    <span class="name">
+                        <span ><b>onClose</b></span>
+                        <a href="#onClose"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClose()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshUserInfo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>refreshUserInfo</b></span>
+                        <a href="#refreshUserInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshUserInfo(role: <a href="../miscellaneous/typealiases.html#UserRole" target="_self">UserRole | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>role</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#UserRole" target="_self" >UserRole | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleNotifications"></a>
+                    <span class="name">
+                        <span ><b>toggleNotifications</b></span>
+                        <a href="#toggleNotifications"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleNotifications()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDarkTheme"></a>
+                    <span class="name">
+                        <span ><b>isDarkTheme</b></span>
+                        <a href="#isDarkTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notifications"></a>
+                    <span class="name">
+                        <span ><b>notifications</b></span>
+                        <a href="#notifications"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Notification[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      id: 1,
+      title: &#x27;Alerta de temperatura&#x27;,
+      message: &#x27;El local &quot;Supermercado Central&quot; supera los 8°C&#x27;,
+      time: &#x27;Hace 5 minutos&#x27;,
+      type: &#x27;alert&#x27;,
+      read: false,
+    },
+    {
+      id: 2,
+      title: &#x27;Ticket resuelto&#x27;,
+      message: &#x27;El ticket #1234 ha sido resuelto&#x27;,
+      time: &#x27;Hace 1 hora&#x27;,
+      type: &#x27;success&#x27;,
+      read: false,
+    },
+    {
+      id: 3,
+      title: &#x27;Nueva visita programada&#x27;,
+      message: &#x27;Se programó visita para mañana a las 10:00&#x27;,
+      time: &#x27;Hace 2 horas&#x27;,
+      type: &#x27;info&#x27;,
+      read: true,
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roleFallbackNames"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>roleFallbackNames</b></span>
+                        <a href="#roleFallbackNames"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#UserRole" target="_self" >Record&lt;UserRole | string&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    admin: &#x27;Administrador Principal&#x27;,
+    support: &#x27;Soporte Técnico&#x27;,
+    &#x27;super-admin&#x27;: &#x27;Administrador Global&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roleLabels"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>roleLabels</b></span>
+                        <a href="#roleLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#UserRole" target="_self" >Record&lt;UserRole | string&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    admin: &#x27;Administrador&#x27;,
+    support: &#x27;Soporte&#x27;,
+    &#x27;super-admin&#x27;: &#x27;Super Administrador&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showNotifications"></a>
+                    <span class="name">
+                        <span ><b>showNotifications</b></span>
+                        <a href="#showNotifications"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>subscriptions</b></span>
+                        <a href="#subscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userInitials"></a>
+                    <span class="name">
+                        <span ><b>userInitials</b></span>
+                        <a href="#userInitials"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;US&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userName"></a>
+                    <span class="name">
+                        <span ><b>userName</b></span>
+                        <a href="#userName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Usuario&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userRoleLabel"></a>
+                    <span class="name">
+                        <span ><b>userRoleLabel</b></span>
+                        <a href="#userRoleLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Invitado&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/topbar-mobile/topbar-mobile.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Router, RouterModule } from &#x27;@angular/router&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { AuthService, type UserRole } from &#x27;../../core/services/auth.service&#x27;;
+
+interface Notification {
+  id: number;
+  title: string;
+  message: string;
+  time: string;
+  type: &#x27;alert&#x27; | &#x27;success&#x27; | &#x27;info&#x27;;
+  read: boolean;
+}
+
+@Component({
+  selector: &#x27;app-topbar-mobile&#x27;,
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: &#x27;./topbar-mobile.html&#x27;,
+  styleUrls: [&#x27;./topbar-mobile.css&#x27;],
+})
+export class TopbarMobile implements OnInit, OnDestroy {
+  @Output() closeMenu &#x3D; new EventEmitter&lt;void&gt;();
+
+  showNotifications &#x3D; false;
+  isDarkTheme &#x3D; false;
+  userName &#x3D; &#x27;Usuario&#x27;;
+  userRoleLabel &#x3D; &#x27;Invitado&#x27;;
+  userInitials &#x3D; &#x27;US&#x27;;
+
+  private subscriptions &#x3D; new Subscription();
+
+  private readonly roleLabels: Record&lt;UserRole, string&gt; &#x3D; {
+    admin: &#x27;Administrador&#x27;,
+    support: &#x27;Soporte&#x27;,
+    &#x27;super-admin&#x27;: &#x27;Super Administrador&#x27;,
+  };
+
+  private readonly roleFallbackNames: Record&lt;UserRole, string&gt; &#x3D; {
+    admin: &#x27;Administrador Principal&#x27;,
+    support: &#x27;Soporte Técnico&#x27;,
+    &#x27;super-admin&#x27;: &#x27;Administrador Global&#x27;,
+  };
+
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) {}
+
+  notifications: Notification[] &#x3D; [
+    {
+      id: 1,
+      title: &#x27;Alerta de temperatura&#x27;,
+      message: &#x27;El local &quot;Supermercado Central&quot; supera los 8°C&#x27;,
+      time: &#x27;Hace 5 minutos&#x27;,
+      type: &#x27;alert&#x27;,
+      read: false,
+    },
+    {
+      id: 2,
+      title: &#x27;Ticket resuelto&#x27;,
+      message: &#x27;El ticket #1234 ha sido resuelto&#x27;,
+      time: &#x27;Hace 1 hora&#x27;,
+      type: &#x27;success&#x27;,
+      read: false,
+    },
+    {
+      id: 3,
+      title: &#x27;Nueva visita programada&#x27;,
+      message: &#x27;Se programó visita para mañana a las 10:00&#x27;,
+      time: &#x27;Hace 2 horas&#x27;,
+      type: &#x27;info&#x27;,
+      read: true,
+    },
+  ];
+
+  ngOnInit(): void {
+    this.loadSavedTheme();
+
+    this.refreshUserInfo(this.authService.getRole());
+    this.subscriptions.add(
+      this.authService.role$.subscribe((role) &#x3D;&gt; {
+        this.refreshUserInfo(role);
+      }),
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  onClose(): void {
+    this.closeMenu.emit();
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.onClose();
+    this.router.navigate([&#x27;/login&#x27;]);
+  }
+
+  toggleNotifications(): void {
+    this.showNotifications &#x3D; !this.showNotifications;
+  }
+
+  markAllRead(): void {
+    this.notifications.forEach((n) &#x3D;&gt; (n.read &#x3D; true));
+  }
+
+  getUnreadCount(): number {
+    return this.notifications.filter((n) &#x3D;&gt; !n.read).length;
+  }
+
+  toggleTheme() {
+    this.isDarkTheme &#x3D; !this.isDarkTheme;
+    this.applyTheme();
+    localStorage.setItem(&#x27;theme&#x27;, this.isDarkTheme ? &#x27;dark&#x27; : &#x27;light&#x27;);
+  }
+
+  loadSavedTheme() {
+    const savedTheme &#x3D; localStorage.getItem(&#x27;theme&#x27;);
+    this.isDarkTheme &#x3D; savedTheme &#x3D;&#x3D;&#x3D; &#x27;dark&#x27;;
+    this.applyTheme();
+  }
+
+  private applyTheme() {
+    if (this.isDarkTheme) {
+      document.documentElement.setAttribute(&#x27;data-theme&#x27;, &#x27;dark&#x27;);
+    } else {
+      document.documentElement.removeAttribute(&#x27;data-theme&#x27;);
+    }
+  }
+
+  private refreshUserInfo(role: UserRole | null): void {
+    const displayRole &#x3D; role ? this.roleLabels[role] : &#x27;Invitado&#x27;;
+    const storedName &#x3D; this.getStoredUserName();
+    const fallbackName &#x3D; role ? this.roleFallbackNames[role] : &#x27;Usuario&#x27;;
+
+    this.userName &#x3D; storedName || fallbackName;
+    this.userRoleLabel &#x3D; displayRole;
+    this.userInitials &#x3D; this.buildInitials(this.userName);
+  }
+
+  private getStoredUserName(): string {
+    const keys &#x3D; [&#x27;userName&#x27;, &#x27;username&#x27;, &#x27;displayName&#x27;, &#x27;fullName&#x27;, &#x27;nombre&#x27;];
+    for (const key of keys) {
+      const value &#x3D; sessionStorage.getItem(key) ?? localStorage.getItem(key);
+      if (value &amp;&amp; value.trim()) {
+        return value.trim();
+      }
+    }
+    return &#x27;&#x27;;
+  }
+
+  private buildInitials(name: string): string {
+    const parts &#x3D; name
+      .split(/\s+/)
+      .map((part) &#x3D;&gt; part.trim())
+      .filter(Boolean);
+
+    if (parts.length &#x3D;&#x3D;&#x3D; 0) {
+      return &#x27;US&#x27;;
+    }
+
+    if (parts.length &#x3D;&#x3D;&#x3D; 1) {
+      return parts[0].slice(0, 2).toUpperCase();
+    }
+
+    return &#x60;${parts[0][0]}${parts[1][0]}&#x60;.toUpperCase();
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;mobile-topbar-overlay&quot; (click)&#x3D;&quot;onClose()&quot;&gt;&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;mobile-topbar&quot;&gt;
+  &lt;!-- Header --&gt;
+  &lt;div class&#x3D;&quot;mobile-header&quot;&gt;
+    &lt;button class&#x3D;&quot;close-btn&quot; (click)&#x3D;&quot;onClose()&quot;&gt;
+      &lt;svg viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+        &lt;line x1&#x3D;&quot;18&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;6&quot; y2&#x3D;&quot;18&quot; /&gt;
+        &lt;line x1&#x3D;&quot;6&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;18&quot; y2&#x3D;&quot;18&quot; /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;mobile-user-profile&quot;&gt;
+    &lt;div class&#x3D;&quot;avatar&quot;&gt;{{ userInitials }}&lt;/div&gt;
+    &lt;div class&#x3D;&quot;mobile-user-info&quot;&gt;
+      &lt;div class&#x3D;&quot;mobile-user-head&quot;&gt;
+        &lt;span class&#x3D;&quot;user-name&quot;&gt;{{ userName }}&lt;/span&gt;
+        &lt;button
+          class&#x3D;&quot;inline-theme-chip&quot;
+          type&#x3D;&quot;button&quot;
+          (click)&#x3D;&quot;toggleTheme()&quot;
+          [attr.aria-label]&#x3D;&quot;isDarkTheme ? &#x27;Cambiar a tema claro&#x27; : &#x27;Cambiar a tema oscuro&#x27;&quot;
+          title&#x3D;&quot;Cambiar tema&quot;
+        &gt;
+          &lt;svg
+            *ngIf&#x3D;&quot;!isDarkTheme&quot;
+            class&#x3D;&quot;theme-icon sun-icon&quot;
+            viewBox&#x3D;&quot;0 0 24 24&quot;
+            fill&#x3D;&quot;none&quot;
+            stroke&#x3D;&quot;currentColor&quot;
+            stroke-width&#x3D;&quot;2&quot;
+            stroke-linecap&#x3D;&quot;round&quot;
+            stroke-linejoin&#x3D;&quot;round&quot;
+          &gt;
+            &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;5&quot;&gt;&lt;/circle&gt;
+            &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;1&quot; x2&#x3D;&quot;12&quot; y2&#x3D;&quot;3&quot;&gt;&lt;/line&gt;
+            &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;12&quot; y2&#x3D;&quot;23&quot;&gt;&lt;/line&gt;
+            &lt;line x1&#x3D;&quot;4.22&quot; y1&#x3D;&quot;4.22&quot; x2&#x3D;&quot;5.64&quot; y2&#x3D;&quot;5.64&quot;&gt;&lt;/line&gt;
+            &lt;line x1&#x3D;&quot;18.36&quot; y1&#x3D;&quot;18.36&quot; x2&#x3D;&quot;19.78&quot; y2&#x3D;&quot;19.78&quot;&gt;&lt;/line&gt;
+            &lt;line x1&#x3D;&quot;1&quot; y1&#x3D;&quot;12&quot; x2&#x3D;&quot;3&quot; y2&#x3D;&quot;12&quot;&gt;&lt;/line&gt;
+            &lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;12&quot; x2&#x3D;&quot;23&quot; y2&#x3D;&quot;12&quot;&gt;&lt;/line&gt;
+            &lt;line x1&#x3D;&quot;4.22&quot; y1&#x3D;&quot;19.78&quot; x2&#x3D;&quot;5.64&quot; y2&#x3D;&quot;18.36&quot;&gt;&lt;/line&gt;
+            &lt;line x1&#x3D;&quot;18.36&quot; y1&#x3D;&quot;5.64&quot; x2&#x3D;&quot;19.78&quot; y2&#x3D;&quot;4.22&quot;&gt;&lt;/line&gt;
+          &lt;/svg&gt;
+          &lt;svg *ngIf&#x3D;&quot;isDarkTheme&quot; class&#x3D;&quot;theme-icon moon-icon&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+            &lt;path d&#x3D;&quot;M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z&quot;&gt;&lt;/path&gt;
+          &lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;span class&#x3D;&quot;user-role&quot;&gt;{{ userRoleLabel }}&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;mobile-menu-list&quot;&gt;
+
+    &lt;!-- Notifications Section --&gt;
+    &lt;div class&#x3D;&quot;mobile-section&quot;&gt;
+      &lt;button class&#x3D;&quot;mobile-menu-item&quot; (click)&#x3D;&quot;toggleNotifications()&quot;&gt;
+        &lt;svg viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+          &lt;path d&#x3D;&quot;M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9&quot; /&gt;
+          &lt;path d&#x3D;&quot;M13.73 21a2 2 0 0 1-3.46 0&quot; /&gt;
+        &lt;/svg&gt;
+        &lt;span&gt;Notificaciones&lt;/span&gt;
+        &lt;span class&#x3D;&quot;badge&quot; *ngIf&#x3D;&quot;getUnreadCount() &gt; 0&quot;&gt;{{ getUnreadCount() }}&lt;/span&gt;
+        &lt;svg class&#x3D;&quot;chevron&quot; [class.open]&#x3D;&quot;showNotifications&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+          &lt;polyline points&#x3D;&quot;6 9 12 15 18 9&quot; /&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+
+      &lt;div class&#x3D;&quot;mobile-notifications-panel&quot; *ngIf&#x3D;&quot;showNotifications&quot;&gt;
+        &lt;button class&#x3D;&quot;mark-read-btn&quot; (click)&#x3D;&quot;markAllRead()&quot;&gt;Marcar todo leído&lt;/button&gt;
+
+        &lt;div class&#x3D;&quot;notification-list&quot; *ngIf&#x3D;&quot;notifications.length &gt; 0&quot;&gt;
+          &lt;div class&#x3D;&quot;notification-item&quot; *ngFor&#x3D;&quot;let notif of notifications&quot; [class.unread]&#x3D;&quot;!notif.read&quot;&gt;
+            &lt;div class&#x3D;&quot;notif-icon&quot; [ngClass]&#x3D;&quot;notif.type&quot;&gt;
+              &lt;svg *ngIf&#x3D;&quot;notif.type &#x3D;&#x3D;&#x3D; &#x27;alert&#x27;&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+                &lt;path d&#x3D;&quot;M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z&quot; /&gt;
+                &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;9&quot; x2&#x3D;&quot;12&quot; y2&#x3D;&quot;13&quot; /&gt;
+                &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;17&quot; x2&#x3D;&quot;12.01&quot; y2&#x3D;&quot;17&quot; /&gt;
+              &lt;/svg&gt;
+              &lt;svg *ngIf&#x3D;&quot;notif.type &#x3D;&#x3D;&#x3D; &#x27;success&#x27;&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+                &lt;path d&#x3D;&quot;M22 11.08V12a10 10 0 1 1-5.93-9.14&quot; /&gt;
+                &lt;polyline points&#x3D;&quot;22 4 12 14.01 9 11.01&quot; /&gt;
+              &lt;/svg&gt;
+              &lt;svg *ngIf&#x3D;&quot;notif.type &#x3D;&#x3D;&#x3D; &#x27;info&#x27;&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+                &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;10&quot; /&gt;
+                &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;16&quot; x2&#x3D;&quot;12&quot; y2&#x3D;&quot;12&quot; /&gt;
+                &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;8&quot; x2&#x3D;&quot;12.01&quot; y2&#x3D;&quot;8&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;notif-content&quot;&gt;
+              &lt;div class&#x3D;&quot;notif-title&quot;&gt;{{ notif.title }}&lt;/div&gt;
+              &lt;div class&#x3D;&quot;notif-message&quot;&gt;{{ notif.message }}&lt;/div&gt;
+              &lt;div class&#x3D;&quot;notif-time&quot;&gt;{{ notif.time }}&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;empty-notifications&quot; *ngIf&#x3D;&quot;notifications.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+          No hay notificaciones
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;mobile-session-actions&quot;&gt;
+    &lt;button class&#x3D;&quot;mobile-logout-btn&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;logout()&quot; aria-label&#x3D;&quot;Cerrar sesión&quot;&gt;
+      &lt;span class&#x3D;&quot;mobile-logout-icon&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+        &lt;svg viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;&gt;
+          &lt;path d&#x3D;&quot;M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4&quot; /&gt;
+          &lt;polyline points&#x3D;&quot;16 17 21 12 16 7&quot; /&gt;
+          &lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;12&quot; x2&#x3D;&quot;9&quot; y2&#x3D;&quot;12&quot; /&gt;
+        &lt;/svg&gt;
+      &lt;/span&gt;
+      &lt;span class&#x3D;&quot;mobile-logout-copy&quot;&gt;
+        &lt;span class&#x3D;&quot;mobile-logout-label&quot;&gt;Cerrar sesión&lt;/span&gt;
+        &lt;span class&#x3D;&quot;mobile-logout-sub&quot;&gt;Salir de forma segura&lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./topbar-mobile.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.mobile-topbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mobile-topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 85vw;
+  background-color: var(--surface);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--surface-lowest);
+}
+
+.mobile-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--surface-lowest);
+}
+
+.mobile-user-profile .avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.mobile-user-profile .mobile-user-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.mobile-user-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.mobile-user-profile .user-name {
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.2;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mobile-user-profile .user-role {
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  line-height: 1.2;
+}
+
+.inline-theme-chip {
+  margin-left: auto;
+  width: 34px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: linear-gradient(140deg, var(--surface-lowest), var(--surface));
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.inline-theme-chip:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: linear-gradient(140deg, rgba(242, 101, 34, 0.12), var(--surface));
+}
+
+.inline-theme-chip:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.inline-theme-chip .theme-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.mobile-session-actions {
+  padding: 0.9rem 1rem 1rem;
+  border-top: 1px solid var(--border);
+  background-color: var(--surface-lowest);
+}
+
+.mobile-logout-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.52rem 0.85rem 0.52rem 0.52rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: linear-gradient(130deg, var(--surface-lowest), var(--surface));
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.mobile-logout-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.mobile-logout-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.mobile-logout-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.05;
+}
+
+.mobile-logout-label {
+  font-size: 0.79rem;
+  color: var(--text-primary);
+}
+
+.mobile-logout-sub {
+  font-size: 0.67rem;
+  color: var(--text-muted);
+}
+
+.mobile-logout-btn:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(130deg, var(--primary-dim), transparent 70%);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.mobile-logout-btn:hover .mobile-logout-icon {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: rgba(242, 101, 34, 0.08);
+}
+
+.mobile-logout-btn:active {
+  transform: translateY(0);
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  animation: themeIconFade 0.3s ease;
+}
+
+@keyframes themeIconFade {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sun-icon {
+  stroke: currentColor;
+}
+
+.moon-icon {
+  fill: currentColor;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background-color: var(--hover-bg);
+  color: var(--primary);
+}
+
+.close-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.mobile-menu-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.mobile-section {
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobile-menu-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.mobile-menu-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.mobile-menu-item .badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 0.4rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.mobile-menu-item .chevron {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.mobile-menu-item .chevron.open {
+  transform: rotate(180deg);
+}
+
+/* Notifications Panel */
+.mobile-notifications-panel {
+  padding: 0.75rem 1rem;
+  background-color: var(--surface-low);
+  animation: expandDown 0.2s ease;
+}
+
+@keyframes expandDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mark-read-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.notification-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background-color: var(--surface-lowest);
+  border-radius: 8px;
+}
+
+.notification-item.unread {
+  background-color: var(--primary-dim);
+}
+
+.notif-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notif-icon.alert {
+  background-color: var(--status-high-bg);
+  color: var(--status-high-text);
+}
+
+.notif-icon.success {
+  background-color: var(--status-done-bg);
+  color: var(--status-done-text);
+}
+
+.notif-icon.info {
+  background-color: var(--status-scheduled-bg);
+  color: var(--status-scheduled-text);
+}
+
+.notif-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.notif-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notif-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.notif-message {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notif-time {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.empty-notifications {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* User Section */
+.mobile-user-section {
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  background-color: var(--surface-lowest);
+}
+
+.mobile-user-section .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobile-user-section .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.mobile-user-section .user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-user-section .user-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.mobile-user-section .user-role {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .mobile-topbar {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  .inline-theme-chip {
+    width: 32px;
+    height: 26px;
+  }
+
+  .mobile-logout-sub {
+    display: none;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="mobile-topbar-overlay" (click)="onClose()"></div><div class="mobile-topbar">  <!-- Header -->  <div class="mobile-header">    <button class="close-btn" (click)="onClose()">      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">        <line x1="18" y1="6" x2="6" y2="18" />        <line x1="6" y1="6" x2="18" y2="18" />      </svg>    </button>  </div>  <div class="mobile-user-profile">    <div class="avatar">{{ userInitials }}</div>    <div class="mobile-user-info">      <div class="mobile-user-head">        <span class="user-name">{{ userName }}</span>        <button          class="inline-theme-chip"          type="button"          (click)="toggleTheme()"          [attr.aria-label]="isDarkTheme ? \'Cambiar a tema claro\' : \'Cambiar a tema oscuro\'"          title="Cambiar tema"        >          <svg            *ngIf="!isDarkTheme"            class="theme-icon sun-icon"            viewBox="0 0 24 24"            fill="none"            stroke="currentColor"            stroke-width="2"            stroke-linecap="round"            stroke-linejoin="round"          >            <circle cx="12" cy="12" r="5"></circle>            <line x1="12" y1="1" x2="12" y2="3"></line>            <line x1="12" y1="21" x2="12" y2="23"></line>            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>            <line x1="1" y1="12" x2="3" y2="12"></line>            <line x1="21" y1="12" x2="23" y2="12"></line>            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>          </svg>          <svg *ngIf="isDarkTheme" class="theme-icon moon-icon" viewBox="0 0 24 24" fill="currentColor">            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>          </svg>        </button>      </div>      <span class="user-role">{{ userRoleLabel }}</span>    </div>  </div>  <div class="mobile-menu-list">    <!-- Notifications Section -->    <div class="mobile-section">      <button class="mobile-menu-item" (click)="toggleNotifications()">        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />          <path d="M13.73 21a2 2 0 0 1-3.46 0" />        </svg>        <span>Notificaciones</span>        <span class="badge" *ngIf="getUnreadCount() > 0">{{ getUnreadCount() }}</span>        <svg class="chevron" [class.open]="showNotifications" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">          <polyline points="6 9 12 15 18 9" />        </svg>      </button>      <div class="mobile-notifications-panel" *ngIf="showNotifications">        <button class="mark-read-btn" (click)="markAllRead()">Marcar todo leído</button>        <div class="notification-list" *ngIf="notifications.length > 0">          <div class="notification-item" *ngFor="let notif of notifications" [class.unread]="!notif.read">            <div class="notif-icon" [ngClass]="notif.type">              <svg *ngIf="notif.type === \'alert\'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />                <line x1="12" y1="9" x2="12" y2="13" />                <line x1="12" y1="17" x2="12.01" y2="17" />              </svg>              <svg *ngIf="notif.type === \'success\'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />                <polyline points="22 4 12 14.01 9 11.01" />              </svg>              <svg *ngIf="notif.type === \'info\'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">                <circle cx="12" cy="12" r="10" />                <line x1="12" y1="16" x2="12" y2="12" />                <line x1="12" y1="8" x2="12.01" y2="8" />              </svg>            </div>            <div class="notif-content">              <div class="notif-title">{{ notif.title }}</div>              <div class="notif-message">{{ notif.message }}</div>              <div class="notif-time">{{ notif.time }}</div>            </div>          </div>        </div>        <div class="empty-notifications" *ngIf="notifications.length === 0">          No hay notificaciones        </div>      </div>    </div>  </div>  <div class="mobile-session-actions">    <button class="mobile-logout-btn" type="button" (click)="logout()" aria-label="Cerrar sesión">      <span class="mobile-logout-icon" aria-hidden="true">        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />          <polyline points="16 17 21 12 16 7" />          <line x1="21" y1="12" x2="9" y2="12" />        </svg>      </span>      <span class="mobile-logout-copy">        <span class="mobile-logout-label">Cerrar sesión</span>        <span class="mobile-logout-sub">Salir de forma segura</span>      </span>    </button>  </div></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'TopbarMobile'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TopbarMobile.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,757 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Ticket</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/components/tickets/tickets.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#asunto" 
+>
+                                            asunto
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#creacion" 
+>
+                                            creacion
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#descripcion" 
+>
+                                            descripcion
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#equipo" 
+>
+                                            equipo
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#estado" 
+>
+                                            estado
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#id" 
+>
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#prioridad" 
+>
+                                            prioridad
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="asunto"></a>
+                                        <span class="name "><b>asunto</b>
+                                            <a href="#asunto">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>asunto:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="creacion"></a>
+                                        <span class="name "><b>creacion</b>
+                                            <a href="#creacion">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>creacion:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="descripcion"></a>
+                                        <span class="name "><b>descripcion</b>
+                                            <a href="#descripcion">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>descripcion:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="equipo"></a>
+                                        <span class="name "><b>equipo</b>
+                                            <a href="#equipo">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>equipo:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="estado"></a>
+                                        <span class="name "><b>estado</b>
+                                            <a href="#estado">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>estado:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="prioridad"></a>
+                                        <span class="name "><b>prioridad</b>
+                                            <a href="#prioridad">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>prioridad:     <code>&quot;Alta&quot; | &quot;Media&quot; | &quot;Baja&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;Alta&quot; | &quot;Media&quot; | &quot;Baja&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FilterService } from &#x27;../../core/services/filter.service&#x27;;
+import { BackendTicket, TicketsService } from &#x27;../../core/services/tickets.service&#x27;;
+import { ViewSearchFiltersComponent } from &#x27;../view-search-filters/view-search-filters.component&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+
+interface Ticket {
+  id: string;
+  asunto: string;
+  prioridad: &#x27;Alta&#x27; | &#x27;Media&#x27; | &#x27;Baja&#x27;;
+  equipo: string;
+  creacion: string;
+  estado: string;
+  descripcion: string;
+}
+
+@Component({
+  selector: &#x27;app-tickets&#x27;,
+  standalone: true,
+  imports: [CommonModule, ViewSearchFiltersComponent],
+  templateUrl: &#x27;./tickets.html&#x27;,
+  styleUrls: [&#x27;./tickets.css&#x27;],
+})
+export class Tickets implements OnInit {
+  tickets: Ticket[] &#x3D; [];
+  private allTickets: Ticket[] &#x3D; [];
+  private readonly subscriptions &#x3D; new Subscription();
+
+  selectedTicket?: Ticket;
+
+  constructor(
+    private filterService: FilterService,
+    private ticketsService: TicketsService,
+  ) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView(&#x27;tickets&#x27;);
+
+    this.subscriptions.add(
+      this.filterService.filters$.subscribe((filters) &#x3D;&gt; {
+        this.applyActiveFilters(filters);
+      }),
+    );
+
+    this.loadTickets();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  selectTicket(ticket: Ticket): void {
+    if (this.selectedTicket?.id &#x3D;&#x3D;&#x3D; ticket.id) {
+      this.selectedTicket &#x3D; undefined;
+      return;
+    }
+
+    this.ticketsService.getTicketById(ticket.id).subscribe((backendTicket) &#x3D;&gt; {
+      this.selectedTicket &#x3D; backendTicket ? this.mapBackendTicket(backendTicket) : ticket;
+    });
+  }
+
+  private loadTickets(): void {
+    this.ticketsService.getTickets().subscribe((backendTickets) &#x3D;&gt; {
+      this.allTickets &#x3D; backendTickets.map((ticket) &#x3D;&gt; this.mapBackendTicket(ticket));
+      this.applyActiveFilters(this.filterService.getFilters());
+
+      if (this.selectedTicket) {
+        this.selectedTicket &#x3D; this.tickets.find((t) &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; this.selectedTicket?.id);
+      }
+    });
+  }
+
+  private applyActiveFilters(filters: { [key: string]: string }): void {
+    const normalizedSearch &#x3D; (filters[&#x27;search&#x27;] ?? &#x27;&#x27;).toLowerCase().trim();
+    const normalizedStatus &#x3D; (filters[&#x27;status&#x27;] ?? &#x27;&#x27;).toLowerCase().trim();
+    const normalizedPriority &#x3D; (filters[&#x27;priority&#x27;] ?? &#x27;&#x27;).toLowerCase().trim();
+
+    this.tickets &#x3D; this.allTickets.filter((ticket) &#x3D;&gt; {
+      const matchesSearch &#x3D;
+        !normalizedSearch ||
+        [
+          ticket.id,
+          ticket.asunto,
+          ticket.descripcion,
+          ticket.equipo,
+          ticket.estado,
+          ticket.prioridad,
+        ]
+          .join(&#x27; &#x27;)
+          .toLowerCase()
+          .includes(normalizedSearch);
+
+      const matchesStatus &#x3D;
+        !normalizedStatus ||
+        this.matchesStatusFilter(ticket.estado, normalizedStatus);
+
+      const matchesPriority &#x3D;
+        !normalizedPriority ||
+        this.matchesPriorityFilter(ticket.prioridad, normalizedPriority);
+
+      return matchesSearch &amp;&amp; matchesStatus &amp;&amp; matchesPriority;
+    });
+
+    if (this.selectedTicket &amp;&amp; !this.tickets.some((ticket) &#x3D;&gt; ticket.id &#x3D;&#x3D;&#x3D; this.selectedTicket?.id)) {
+      this.selectedTicket &#x3D; undefined;
+    }
+  }
+
+  private matchesStatusFilter(currentStatus: string, filterValue: string): boolean {
+    const normalizedCurrent &#x3D; currentStatus.toLowerCase();
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;sin-resolver&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;abierto&#x27; || normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;en-proceso&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;en progreso&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;resuelto&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;cerrado&#x27;;
+    }
+
+    return normalizedCurrent &#x3D;&#x3D;&#x3D; filterValue;
+  }
+
+  private matchesPriorityFilter(currentPriority: Ticket[&#x27;prioridad&#x27;], filterValue: string): boolean {
+    const normalizedCurrent &#x3D; currentPriority.toLowerCase();
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;alta&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;alta&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;media&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;media&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;baja&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;baja&#x27;;
+    }
+
+    return normalizedCurrent &#x3D;&#x3D;&#x3D; filterValue;
+  }
+
+  private mapBackendTicket(ticket: BackendTicket): Ticket {
+    return {
+      id: ticket.id,
+      asunto: ticket.title,
+      prioridad: this.mapPriority(ticket.priority),
+      equipo: ticket.machineId,
+      creacion: this.toRelativeDate(ticket.createdAt),
+      estado: this.mapStatus(ticket.status),
+      descripcion: ticket.description,
+    };
+  }
+
+  private mapPriority(priority: string): Ticket[&#x27;prioridad&#x27;] {
+    switch ((priority ?? &#x27;&#x27;).toLowerCase()) {
+      case &#x27;high&#x27;:
+        return &#x27;Alta&#x27;;
+      case &#x27;low&#x27;:
+        return &#x27;Baja&#x27;;
+      default:
+        return &#x27;Media&#x27;;
+    }
+  }
+
+  private mapStatus(status: string): string {
+    switch ((status ?? &#x27;&#x27;).toLowerCase()) {
+      case &#x27;open&#x27;:
+        return &#x27;Abierto&#x27;;
+      case &#x27;in_progress&#x27;:
+      case &#x27;in-progress&#x27;:
+        return &#x27;En Progreso&#x27;;
+      case &#x27;pending&#x27;:
+        return &#x27;Pendiente&#x27;;
+      case &#x27;closed&#x27;:
+        return &#x27;Cerrado&#x27;;
+      default:
+        return status || &#x27;Sin estado&#x27;;
+    }
+  }
+
+  private toRelativeDate(dateIso: string): string {
+    const date &#x3D; new Date(dateIso);
+    if (Number.isNaN(date.getTime())) {
+      return &#x27;Fecha desconocida&#x27;;
+    }
+
+    const now &#x3D; new Date();
+    const diffMs &#x3D; date.getTime() - now.getTime();
+    const diffSeconds &#x3D; Math.round(diffMs / 1000);
+    const absSeconds &#x3D; Math.abs(diffSeconds);
+
+    const rtf &#x3D; new Intl.RelativeTimeFormat(&#x27;es-CL&#x27;, { numeric: &#x27;auto&#x27; });
+
+    if (absSeconds &lt; 60) {
+      return rtf.format(diffSeconds, &#x27;second&#x27;);
+    }
+
+    const diffMinutes &#x3D; Math.round(diffSeconds / 60);
+    if (Math.abs(diffMinutes) &lt; 60) {
+      return rtf.format(diffMinutes, &#x27;minute&#x27;);
+    }
+
+    const diffHours &#x3D; Math.round(diffMinutes / 60);
+    if (Math.abs(diffHours) &lt; 24) {
+      return rtf.format(diffHours, &#x27;hour&#x27;);
+    }
+
+    const diffDays &#x3D; Math.round(diffHours / 24);
+    if (Math.abs(diffDays) &lt; 30) {
+      return rtf.format(diffDays, &#x27;day&#x27;);
+    }
+
+    const diffMonths &#x3D; Math.round(diffDays / 30);
+    if (Math.abs(diffMonths) &lt; 12) {
+      return rtf.format(diffMonths, &#x27;month&#x27;);
+    }
+
+    const diffYears &#x3D; Math.round(diffMonths / 12);
+    return rtf.format(diffYears, &#x27;year&#x27;);
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Ticket.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

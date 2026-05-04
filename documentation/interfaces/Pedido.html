@@ -1,0 +1,925 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Pedido</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/components/pedidos/pedidos.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#cantidad" 
+>
+                                            cantidad
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#estado" 
+>
+                                            estado
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#fechaISO" 
+>
+                                            fechaISO
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#fechaSolicitud" 
+>
+                                            fechaSolicitud
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#material" 
+>
+                                            material
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#observaciones" 
+>
+                                            observaciones
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#orden" 
+>
+                                            orden
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#prioridad" 
+>
+                                            prioridad
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#tipo" 
+>
+                                            tipo
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#unidad" 
+>
+                                            unidad
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="cantidad"></a>
+                                        <span class="name "><b>cantidad</b>
+                                            <a href="#cantidad">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>cantidad:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="estado"></a>
+                                        <span class="name "><b>estado</b>
+                                            <a href="#estado">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>estado:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fechaISO"></a>
+                                        <span class="name "><b>fechaISO</b>
+                                            <a href="#fechaISO">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fechaISO:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fechaSolicitud"></a>
+                                        <span class="name "><b>fechaSolicitud</b>
+                                            <a href="#fechaSolicitud">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fechaSolicitud:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="material"></a>
+                                        <span class="name "><b>material</b>
+                                            <a href="#material">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>material:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="observaciones"></a>
+                                        <span class="name "><b>observaciones</b>
+                                            <a href="#observaciones">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>observaciones:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="orden"></a>
+                                        <span class="name "><b>orden</b>
+                                            <a href="#orden">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>orden:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="prioridad"></a>
+                                        <span class="name "><b>prioridad</b>
+                                            <a href="#prioridad">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>prioridad:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="tipo"></a>
+                                        <span class="name "><b>tipo</b>
+                                            <a href="#tipo">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>tipo:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="unidad"></a>
+                                        <span class="name "><b>unidad</b>
+                                            <a href="#unidad">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>unidad:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { FilterService } from &#x27;../../core/services/filter.service&#x27;;
+import { ViewSearchFiltersComponent } from &#x27;../view-search-filters/view-search-filters.component&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { BackendSale, SalesService } from &#x27;../../core/services/sales.service&#x27;;
+
+interface Pedido {
+  orden: string;
+  material: string;
+  cantidad: number;
+  unidad: string;
+  prioridad: string;
+  fechaSolicitud: string;
+  estado: string;
+  observaciones?: string;
+  tipo?: string;
+  fechaISO?: string;
+}
+
+@Component({
+  selector: &#x27;app-pedidos&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, ViewSearchFiltersComponent],
+  templateUrl: &#x27;./pedidos.html&#x27;,
+  styleUrls: [&#x27;./pedidos.css&#x27;]
+})
+export class Pedidos implements OnInit, OnDestroy {
+  activeTab &#x3D; &#x27;list&#x27;;
+  pedidos: Pedido[] &#x3D; [];
+  private allPedidos: Pedido[] &#x3D; [];
+  private readonly subscriptions &#x3D; new Subscription();
+
+  newPedido: Partial&lt;Pedido&gt; &#x3D; {
+    material: &#x27;&#x27;,
+    cantidad: 0,
+    unidad: &#x27;uds&#x27;,
+    prioridad: &#x27;Media&#x27;,
+    fechaSolicitud: new Date().toLocaleDateString(&#x27;es-ES&#x27;, { day: &#x27;2-digit&#x27;, month: &#x27;short&#x27;, year: &#x27;numeric&#x27; }),
+    observaciones: &#x27;&#x27;
+  };
+
+  unidades &#x3D; [&#x27;uds&#x27;, &#x27;kg&#x27;, &#x27;m&#x27;, &#x27;l&#x27;, &#x27;m²&#x27;, &#x27;m³&#x27;];
+  prioridades &#x3D; [&#x27;Baja&#x27;, &#x27;Media&#x27;, &#x27;Alta&#x27;, &#x27;Urgente&#x27;];
+  selectedPedido?: Pedido;
+
+  constructor(
+    private filterService: FilterService,
+    private salesService: SalesService,
+  ) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView(&#x27;pedidos&#x27;);
+
+    this.subscriptions.add(
+      this.filterService.filters$.subscribe((filters) &#x3D;&gt; {
+        this.applyActiveFilters(filters);
+      }),
+    );
+
+    this.loadSales();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  setActiveTab(tab: string): void {
+    this.activeTab &#x3D; tab;
+  }
+
+  selectPedido(pedido: Pedido): void {
+    this.selectedPedido &#x3D; this.selectedPedido?.orden &#x3D;&#x3D;&#x3D; pedido.orden ? undefined : pedido;
+  }
+
+  createPedido(): void {
+    if (!this.newPedido.material || !this.newPedido.cantidad) {
+      return;
+    }
+
+    const orden &#x3D; this.generateOrden();
+    const pedido: Pedido &#x3D; {
+      orden,
+      material: this.newPedido.material,
+      cantidad: this.newPedido.cantidad,
+      unidad: this.newPedido.unidad || &#x27;uds&#x27;,
+      prioridad: this.newPedido.prioridad || &#x27;Media&#x27;,
+      fechaSolicitud: this.newPedido.fechaSolicitud || new Date().toLocaleDateString(&#x27;es-ES&#x27;, { day: &#x27;2-digit&#x27;, month: &#x27;short&#x27;, year: &#x27;numeric&#x27; }),
+      estado: &#x27;Pendiente&#x27;,
+      observaciones: this.newPedido.observaciones
+    };
+
+    this.pedidos.unshift(pedido);
+    this.allPedidos.unshift(pedido);
+    this.applyActiveFilters(this.filterService.getFilters());
+    this.resetForm();
+    this.setActiveTab(&#x27;list&#x27;);
+  }
+
+  private loadSales(): void {
+    this.salesService.getSales().subscribe((sales) &#x3D;&gt; {
+      this.allPedidos &#x3D; sales.map((sale) &#x3D;&gt; this.mapSaleToPedido(sale));
+      this.applyActiveFilters(this.filterService.getFilters());
+
+      if (this.selectedPedido) {
+        this.selectedPedido &#x3D; this.pedidos.find((p) &#x3D;&gt; p.orden &#x3D;&#x3D;&#x3D; this.selectedPedido?.orden);
+      }
+    });
+  }
+
+  private mapSaleToPedido(sale: BackendSale): Pedido {
+    const description &#x3D; sale.description?.trim();
+    const detailParts: string[] &#x3D; [];
+
+    if (sale.tenantName) {
+      detailParts.push(&#x60;Tenant: ${sale.tenantName}&#x60;);
+    }
+
+    if (sale.machineId) {
+      detailParts.push(&#x60;Maquina ID: ${sale.machineId}&#x60;);
+    }
+
+    if (sale.vendorId) {
+      detailParts.push(&#x60;Vendedor ID: ${sale.vendorId}&#x60;);
+    }
+
+    return {
+      orden: sale.id,
+      material: description &amp;&amp; description.length &gt; 0 ? description : &#x60;Venta ${sale.id.slice(0, 8)}&#x60;,
+      cantidad: sale.amount,
+      unidad: &#x27;CLP&#x27;,
+      prioridad: this.mapPriorityByAmount(sale.amount),
+      fechaSolicitud: this.toDisplayDate(sale.saleDate),
+      estado: &#x27;Entregado&#x27;,
+      observaciones: detailParts.join(&#x27; | &#x27;),
+      tipo: &#x27;venta&#x27;,
+      fechaISO: sale.saleDate,
+    };
+  }
+
+  private mapPriorityByAmount(amount: number): string {
+    if (amount &gt;&#x3D; 100000) {
+      return &#x27;Alta&#x27;;
+    }
+
+    if (amount &gt;&#x3D; 30000) {
+      return &#x27;Media&#x27;;
+    }
+
+    return &#x27;Baja&#x27;;
+  }
+
+  private toDisplayDate(dateIso: string): string {
+    const date &#x3D; new Date(dateIso);
+    if (Number.isNaN(date.getTime())) {
+      return &#x27;Fecha desconocida&#x27;;
+    }
+
+    return date.toLocaleDateString(&#x27;es-CL&#x27;, {
+      day: &#x27;2-digit&#x27;,
+      month: &#x27;short&#x27;,
+      year: &#x27;numeric&#x27;,
+    });
+  }
+
+  private applyActiveFilters(filters: { [key: string]: string }): void {
+    const normalizedSearch &#x3D; (filters[&#x27;search&#x27;] ?? &#x27;&#x27;).toLowerCase().trim();
+    const normalizedStatus &#x3D; (filters[&#x27;status&#x27;] ?? &#x27;&#x27;).toLowerCase().trim();
+    const normalizedType &#x3D; (filters[&#x27;type&#x27;] ?? &#x27;&#x27;).toLowerCase().trim();
+    const dateFilter &#x3D; (filters[&#x27;date&#x27;] ?? &#x27;&#x27;).trim();
+
+    this.pedidos &#x3D; this.allPedidos.filter((pedido) &#x3D;&gt; {
+      const matchesSearch &#x3D;
+        !normalizedSearch ||
+        [pedido.orden, pedido.material, pedido.observaciones ?? &#x27;&#x27;, pedido.estado, pedido.prioridad]
+          .join(&#x27; &#x27;)
+          .toLowerCase()
+          .includes(normalizedSearch);
+
+      const matchesStatus &#x3D;
+        !normalizedStatus || this.matchesStatusFilter(pedido.estado, normalizedStatus);
+
+      const matchesType &#x3D; !normalizedType || this.matchesTypeFilter(pedido.tipo ?? &#x27;&#x27;, normalizedType);
+
+      const matchesDate &#x3D; !dateFilter || this.matchesDateFilter(pedido.fechaISO, dateFilter);
+
+      return matchesSearch &amp;&amp; matchesStatus &amp;&amp; matchesType &amp;&amp; matchesDate;
+    });
+
+    if (this.selectedPedido &amp;&amp; !this.pedidos.some((pedido) &#x3D;&gt; pedido.orden &#x3D;&#x3D;&#x3D; this.selectedPedido?.orden)) {
+      this.selectedPedido &#x3D; undefined;
+    }
+  }
+
+  private matchesStatusFilter(currentStatus: string, filterValue: string): boolean {
+    const normalizedCurrent &#x3D; currentStatus.toLowerCase();
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;en-proceso&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;en proceso&#x27; || normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;en camino&#x27;;
+    }
+
+    return normalizedCurrent &#x3D;&#x3D;&#x3D; filterValue;
+  }
+
+  private matchesTypeFilter(currentType: string, filterValue: string): boolean {
+    const normalizedCurrent &#x3D; currentType.toLowerCase();
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;venta&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;venta&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;compra&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;compra&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;servicio&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;servicio&#x27;;
+    }
+
+    return normalizedCurrent &#x3D;&#x3D;&#x3D; filterValue;
+  }
+
+  private matchesDateFilter(dateIso: string | undefined, dateFilter: string): boolean {
+    if (!dateIso) {
+      return false;
+    }
+
+    const date &#x3D; new Date(dateIso);
+    if (Number.isNaN(date.getTime())) {
+      return false;
+    }
+
+    const year &#x3D; date.getFullYear();
+    const month &#x3D; String(date.getMonth() + 1).padStart(2, &#x27;0&#x27;);
+    const day &#x3D; String(date.getDate()).padStart(2, &#x27;0&#x27;);
+    const normalizedDate &#x3D; &#x60;${year}-${month}-${day}&#x60;;
+
+    return normalizedDate &#x3D;&#x3D;&#x3D; dateFilter;
+  }
+
+  private generateOrden(): string {
+    const maxOrden &#x3D; this.pedidos
+      .map(p &#x3D;&gt; parseInt(p.orden.split(&#x27;-&#x27;)[1]))
+      .reduce((max, num) &#x3D;&gt; Math.max(max, num), 0);
+    return &#x60;ORD-${String(maxOrden + 1).padStart(4, &#x27;0&#x27;)}&#x60;;
+  }
+
+  private resetForm(): void {
+    this.newPedido &#x3D; {
+      material: &#x27;&#x27;,
+      cantidad: 0,
+      unidad: &#x27;uds&#x27;,
+      prioridad: &#x27;Media&#x27;,
+      fechaSolicitud: new Date().toLocaleDateString(&#x27;es-ES&#x27;, { day: &#x27;2-digit&#x27;, month: &#x27;short&#x27;, year: &#x27;numeric&#x27; }),
+      observaciones: &#x27;&#x27;
+    };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Pedido.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

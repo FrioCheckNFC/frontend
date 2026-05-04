@@ -1,0 +1,3263 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Dashboard</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/dashboard/dashboard.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dashboard</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                            <code>MatCardModule</code>
+                            <code>MatTableModule</code>
+                            <code>MatIconModule</code>
+                            <code>MatButtonModule</code>
+                            <code>MatMenuModule</code>
+                            <code>MatProgressBarModule</code>
+                                <code><a href="../components/MapaLocalesComponent.html" target="_self" >MapaLocalesComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./dashboard.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dashboard.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#barChart" >barChart</a>
+                            </li>
+                            <li>
+                                <a href="#categorias" >categorias</a>
+                            </li>
+                            <li>
+                                <a href="#columnasTabla" >columnasTabla</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#donutChart" >donutChart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#lineChart" >lineChart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#mapaLocalesComponent" >mapaLocalesComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#meses" >meses</a>
+                            </li>
+                            <li>
+                                <a href="#metricas" >metricas</a>
+                            </li>
+                            <li>
+                                <a href="#metricasVisibles" >metricasVisibles</a>
+                            </li>
+                            <li>
+                                <a href="#registrosRecientes" >registrosRecientes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#subscriptions" >subscriptions</a>
+                            </li>
+                            <li>
+                                <a href="#tenantsPorEstado" >tenantsPorEstado</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#widgetRoutes" >widgetRoutes</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#actualizarMetricasPorRol" >actualizarMetricasPorRol</a>
+                            </li>
+                            <li>
+                                <a href="#getBadgeClass" >getBadgeClass</a>
+                            </li>
+                            <li>
+                                <a href="#getCategoriaClass" >getCategoriaClass</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initBarChart" >initBarChart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initDonutChart" >initDonutChart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initLineChart" >initLineChart</a>
+                            </li>
+                            <li>
+                                <a href="#irModulo" >irModulo</a>
+                            </li>
+                            <li>
+                                <a href="#irVista" >irVista</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#pctActivos" >pctActivos</a>
+                            </li>
+                            <li>
+                                <a href="#pctInactivos" >pctInactivos</a>
+                            </li>
+                            <li>
+                                <a href="#pctMantenimiento" >pctMantenimiento</a>
+                            </li>
+                            <li>
+                                <a href="#refrescarWidget" >refrescarWidget</a>
+                            </li>
+                            <li>
+                                <a href="#verDetalle" >verDetalle</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#totalActivos" >totalActivos</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, dashboardRealtimeService: <a href="../injectables/DashboardRealtimeService.html" target="_self">DashboardRealtimeService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/components/dashboard/dashboard.ts:116</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dashboardRealtimeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DashboardRealtimeService.html" target="_self" >DashboardRealtimeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarMetricasPorRol"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>actualizarMetricasPorRol</b></span>
+                        <a href="#actualizarMetricasPorRol"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>actualizarMetricasPorRol(role: <a href="../miscellaneous/typealiases.html#UserRole" target="_self">UserRole | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="291"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:291</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>role</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#UserRole" target="_self" >UserRole | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBadgeClass"></a>
+                    <span class="name">
+                        <span ><b>getBadgeClass</b></span>
+                        <a href="#getBadgeClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBadgeClass(estado: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>estado</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCategoriaClass"></a>
+                    <span class="name">
+                        <span ><b>getCategoriaClass</b></span>
+                        <a href="#getCategoriaClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCategoriaClass(cat: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="238"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:238</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cat</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initBarChart"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initBarChart</b></span>
+                        <a href="#initBarChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initBarChart()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initDonutChart"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initDonutChart</b></span>
+                        <a href="#initDonutChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initDonutChart()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="183"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:183</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initLineChart"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initLineChart</b></span>
+                        <a href="#initLineChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initLineChart()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="205"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:205</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="irModulo"></a>
+                    <span class="name">
+                        <span ><b>irModulo</b></span>
+                        <a href="#irModulo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>irModulo(widget: <a href="../miscellaneous/typealiases.html#DashboardWidget" target="_self">DashboardWidget</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="254"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:254</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>widget</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#DashboardWidget" target="_self" >DashboardWidget</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="irVista"></a>
+                    <span class="name">
+                        <span ><b>irVista</b></span>
+                        <a href="#irVista"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>irVista(route: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, queryParams: Record<string | string>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="259"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:259</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>route</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>queryParams</td>
+                                            <td>
+                                                        <code>Record&lt;string | string&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>{}</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pctActivos"></a>
+                    <span class="name">
+                        <span ><b>pctActivos</b></span>
+                        <a href="#pctActivos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pctActivos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pctInactivos"></a>
+                    <span class="name">
+                        <span ><b>pctInactivos</b></span>
+                        <a href="#pctInactivos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pctInactivos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pctMantenimiento"></a>
+                    <span class="name">
+                        <span ><b>pctMantenimiento</b></span>
+                        <a href="#pctMantenimiento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pctMantenimiento()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refrescarWidget"></a>
+                    <span class="name">
+                        <span ><b>refrescarWidget</b></span>
+                        <a href="#refrescarWidget"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refrescarWidget(widget: <a href="../miscellaneous/typealiases.html#DashboardWidget" target="_self">DashboardWidget</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="269"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:269</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>widget</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#DashboardWidget" target="_self" >DashboardWidget</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verDetalle"></a>
+                    <span class="name">
+                        <span ><b>verDetalle</b></span>
+                        <a href="#verDetalle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>verDetalle(widget: <a href="../miscellaneous/typealiases.html#DashboardWidget" target="_self">DashboardWidget</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="249"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.ts:249</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>widget</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#DashboardWidget" target="_self" >DashboardWidget</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="barChart"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>barChart</b></span>
+                        <a href="#barChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Chart</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/dashboard/dashboard.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categorias"></a>
+                    <span class="name">
+                        <span ><b>categorias</b></span>
+                        <a href="#categorias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { nombre: &#x27;Tenants&#x27;, valor: &#x27;1,284&#x27;, pct: 100, icono: &quot;domain&quot;,                 color: &#x27;#185FA5&#x27;, pbClass: &#x27;pb-primary&#x27; },
+    { nombre: &#x27;Visitas&#x27;,     valor: &#x27;8,421&#x27;, pct: 66,  icono: &#x27;visibility&#x27;,          color: &#x27;#639922&#x27;, pbClass: &#x27;pb-green&#x27;   },
+    { nombre: &#x27;Tickets&#x27;,     valor: &#x27;47&#x27;,    pct: 4,   icono: &#x27;confirmation_number&#x27;, color: &#x27;#BA7517&#x27;, pbClass: &#x27;pb-amber&#x27;   },
+    { nombre: &#x27;Pedidos&#x27;,     valor: &#x27;312&#x27;,   pct: 24,  icono: &#x27;shopping_cart&#x27;,       color: &#x27;#3B6D11&#x27;, pbClass: &#x27;pb-green&#x27;   },
+    { nombre: &#x27;Locales&#x27;,     valor: &#x27;63&#x27;,    pct: 5,   icono: &#x27;store&#x27;,               color: &#x27;#534AB7&#x27;, pbClass: &#x27;pb-purple&#x27;  },
+    { nombre: &#x27;Usuarios&#x27;,    valor: &#x27;5,902&#x27;, pct: 46,  icono: &#x27;group&#x27;,               color: &#x27;#993556&#x27;, pbClass: &#x27;pb-pink&#x27;    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/components/dashboard/dashboard.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnasTabla"></a>
+                    <span class="name">
+                        <span ><b>columnasTabla</b></span>
+                        <a href="#columnasTabla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;id&#x27;, &#x27;nombre&#x27;, &#x27;categoria&#x27;, &#x27;estado&#x27;, &#x27;ubicacion&#x27;, &#x27;fecha&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/components/dashboard/dashboard.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="donutChart"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>donutChart</b></span>
+                        <a href="#donutChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Chart</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/dashboard/dashboard.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lineChart"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>lineChart</b></span>
+                        <a href="#lineChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Chart</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/components/dashboard/dashboard.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapaLocalesComponent"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>mapaLocalesComponent</b></span>
+                        <a href="#mapaLocalesComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/MapaLocalesComponent.html" target="_self" >MapaLocalesComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MapaLocalesComponent)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/dashboard/dashboard.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="meses"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>meses</b></span>
+                        <a href="#meses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Ene&#x27;,&#x27;Feb&#x27;,&#x27;Mar&#x27;,&#x27;Abr&#x27;,&#x27;May&#x27;,&#x27;Jun&#x27;,&#x27;Jul&#x27;,&#x27;Ago&#x27;,&#x27;Sep&#x27;,&#x27;Oct&#x27;,&#x27;Nov&#x27;,&#x27;Dic&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/components/dashboard/dashboard.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="metricas"></a>
+                    <span class="name">
+                        <span ><b>metricas</b></span>
+                        <a href="#metricas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MetricaCard.html" target="_self" >MetricaCard[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;Total Tenants&#x27;, valor: &#x27;1,284&#x27;, subvalor: &#x27;↑ 12 nuevos este mes&#x27;,        icono: &quot;domain&quot;,                 color: &#x27;primary&#x27;  },
+    { label: &#x27;Visitas&#x27;,           valor: &#x27;8,421&#x27;, subvalor: &#x27;↑ 12.4% esta semana&#x27;,   icono: &#x27;visibility&#x27;,          color: &#x27;accent&#x27;   },
+    { label: &#x27;Tickets abiertos&#x27;,  valor: &#x27;47&#x27;,    subvalor: &#x27;↓ 5 resueltos hoy&#x27;,     icono: &#x27;confirmation_number&#x27;, color: &#x27;warn&#x27;     },
+    { label: &#x27;Pedidos activos&#x27;,   valor: &#x27;312&#x27;,   subvalor: &#x27;↑ 8.1% vs ayer&#x27;,        icono: &#x27;shopping_cart&#x27;,       color: &#x27;success&#x27;  },
+    { label: &#x27;Locales&#x27;,           valor: &#x27;63&#x27;,    subvalor: &#x27;4 sin tenants&#x27;,      icono: &#x27;store&#x27;,               color: &#x27;info&#x27;     },
+    { label: &#x27;Usuarios&#x27;,          valor: &#x27;5,902&#x27;, subvalor: &#x27;↑ 4.7% este mes&#x27;,       icono: &#x27;group&#x27;,               color: &#x27;purple&#x27;   },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/components/dashboard/dashboard.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="metricasVisibles"></a>
+                    <span class="name">
+                        <span ><b>metricasVisibles</b></span>
+                        <a href="#metricasVisibles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MetricaCard.html" target="_self" >MetricaCard[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/components/dashboard/dashboard.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registrosRecientes"></a>
+                    <span class="name">
+                        <span ><b>registrosRecientes</b></span>
+                        <a href="#registrosRecientes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Activo.html" target="_self" >Activo[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { id: &#x27;TNT-0842&#x27;, nombre: &#x27;Empresa Soluciones SpA&#x27;,  categoria: &#x27;Tenant&#x27;,  estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Local Centro&#x27;,   fecha: &#x27;01 abr 2026&#x27; },
+    { id: &#x27;TNT-0841&#x27;, nombre: &#x27;Comercial Norte Ltda.&#x27;,   categoria: &#x27;Tenant&#x27;,  estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Local Norte&#x27;,    fecha: &#x27;01 abr 2026&#x27; },
+    { id: &#x27;TKT-1203&#x27;, nombre: &#x27;Ticket soporte red&#x27;,      categoria: &#x27;Ticket&#x27;,  estado: &#x27;Mantenimiento&#x27;, ubicacion: &#x27;Local Sur&#x27;,      fecha: &#x27;31 mar 2026&#x27; },
+    { id: &#x27;PED-5541&#x27;, nombre: &#x27;Pedido mayorista&#x27;,        categoria: &#x27;Pedido&#x27;,  estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Bodega Central&#x27;, fecha: &#x27;31 mar 2026&#x27; },
+    { id: &#x27;TNT-0839&#x27;, nombre: &#x27;Distribuidora Oriente&#x27;,   categoria: &#x27;Tenant&#x27;,  estado: &#x27;Inactivo&#x27;,      ubicacion: &#x27;Local Oriente&#x27;,  fecha: &#x27;30 mar 2026&#x27; },
+    { id: &#x27;USR-0210&#x27;, nombre: &#x27;Juan Pérez&#x27;,              categoria: &#x27;Usuario&#x27;, estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Admin&#x27;,          fecha: &#x27;30 mar 2026&#x27; },
+    { id: &#x27;LOC-0018&#x27;, nombre: &#x27;Local Las Condes&#x27;,        categoria: &#x27;Local&#x27;,   estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Santiago&#x27;,       fecha: &#x27;29 mar 2026&#x27; },
+    { id: &#x27;TKT-1198&#x27;, nombre: &#x27;Falla acceso tenant&#x27;,     categoria: &#x27;Ticket&#x27;,  estado: &#x27;Inactivo&#x27;,      ubicacion: &#x27;Local Centro&#x27;,   fecha: &#x27;29 mar 2026&#x27; },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/components/dashboard/dashboard.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>subscriptions</b></span>
+                        <a href="#subscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/components/dashboard/dashboard.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tenantsPorEstado"></a>
+                    <span class="name">
+                        <span ><b>tenantsPorEstado</b></span>
+                        <a href="#tenantsPorEstado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ activos: 874, inactivos: 287, mantenimiento: 123 }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/components/dashboard/dashboard.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="widgetRoutes"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>widgetRoutes</b></span>
+                        <a href="#widgetRoutes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/Dashboard.html" target="_self" >Record&lt;DashboardWidget | literal type&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    visitas: { detail: &#x27;/visitas&#x27;, module: &#x27;/visitas&#x27; },
+    estado: { detail: &#x27;/tenants&#x27;, module: &#x27;/tenants&#x27; },
+    pedidos: { detail: &#x27;/reportes&#x27;, module: &#x27;/pedidos&#x27; },
+    mapa: { detail: &#x27;/reportes&#x27;, module: &#x27;/locales&#x27; },
+    registros: { detail: &#x27;/activos&#x27;, module: &#x27;/tickets&#x27; },
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/components/dashboard/dashboard.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="totalActivos"></a>
+                        <span class="name"><b>totalActivos</b><a href="#totalActivos"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>totalActivos()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/components/dashboard/dashboard.ts:84</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatTableModule } from &#x27;@angular/material/table&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatMenuModule } from &#x27;@angular/material/menu&#x27;;
+import { MatProgressBarModule } from &#x27;@angular/material/progress-bar&#x27;;
+import { Chart, registerables } from &#x27;chart.js&#x27;;
+import { MapaLocalesComponent } from &#x27;../mapa-locales/mapa-locales.component&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { AuthService, type UserRole } from &#x27;../../core/services/auth.service&#x27;;
+import { DashboardRealtimeService, type DashboardMetrics } from &#x27;../../core/services/dashboard-realtime.service&#x27;;
+
+Chart.register(...registerables);
+
+export interface Activo {
+  id: string;
+  nombre: string;
+  categoria: string;
+  estado: &#x27;Activo&#x27; | &#x27;Inactivo&#x27; | &#x27;Mantenimiento&#x27;;
+  ubicacion: string;
+  fecha: string;
+}
+
+export interface MetricaCard {
+  label: string;
+  valor: string | number;
+  subvalor: string;
+  icono: string;
+  color: string;
+}
+
+type DashboardWidget &#x3D; &#x27;visitas&#x27; | &#x27;estado&#x27; | &#x27;pedidos&#x27; | &#x27;mapa&#x27; | &#x27;registros&#x27;;
+
+@Component({
+  selector: &#x27;app-dashboard&#x27;,
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MapaLocalesComponent,
+  ],
+  templateUrl: &#x27;./dashboard.html&#x27;,
+  styleUrls: [&#x27;./dashboard.css&#x27;]
+})
+export class Dashboard implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild(MapaLocalesComponent) mapaLocalesComponent?: MapaLocalesComponent;
+
+  private barChart?: Chart;
+  private donutChart?: Chart;
+  private lineChart?: Chart;
+
+  // ── Métricas resumen ──────────────────────────────────────────
+  metricas: MetricaCard[] &#x3D; [
+    { label: &#x27;Total Tenants&#x27;, valor: &#x27;1,284&#x27;, subvalor: &#x27;↑ 12 nuevos este mes&#x27;,        icono: &quot;domain&quot;,                 color: &#x27;primary&#x27;  },
+    { label: &#x27;Visitas&#x27;,           valor: &#x27;8,421&#x27;, subvalor: &#x27;↑ 12.4% esta semana&#x27;,   icono: &#x27;visibility&#x27;,          color: &#x27;accent&#x27;   },
+    { label: &#x27;Tickets abiertos&#x27;,  valor: &#x27;47&#x27;,    subvalor: &#x27;↓ 5 resueltos hoy&#x27;,     icono: &#x27;confirmation_number&#x27;, color: &#x27;warn&#x27;     },
+    { label: &#x27;Pedidos activos&#x27;,   valor: &#x27;312&#x27;,   subvalor: &#x27;↑ 8.1% vs ayer&#x27;,        icono: &#x27;shopping_cart&#x27;,       color: &#x27;success&#x27;  },
+    { label: &#x27;Locales&#x27;,           valor: &#x27;63&#x27;,    subvalor: &#x27;4 sin tenants&#x27;,      icono: &#x27;store&#x27;,               color: &#x27;info&#x27;     },
+    { label: &#x27;Usuarios&#x27;,          valor: &#x27;5,902&#x27;, subvalor: &#x27;↑ 4.7% este mes&#x27;,       icono: &#x27;group&#x27;,               color: &#x27;purple&#x27;   },
+  ];
+  metricasVisibles: MetricaCard[] &#x3D; [];
+
+  private readonly subscriptions &#x3D; new Subscription();
+
+  private readonly widgetRoutes: Record&lt;DashboardWidget, { detail: string; module: string }&gt; &#x3D; {
+    visitas: { detail: &#x27;/visitas&#x27;, module: &#x27;/visitas&#x27; },
+    estado: { detail: &#x27;/tenants&#x27;, module: &#x27;/tenants&#x27; },
+    pedidos: { detail: &#x27;/reportes&#x27;, module: &#x27;/pedidos&#x27; },
+    mapa: { detail: &#x27;/reportes&#x27;, module: &#x27;/locales&#x27; },
+    registros: { detail: &#x27;/activos&#x27;, module: &#x27;/tickets&#x27; },
+  };
+
+  // ── Activos por estado ────────────────────────────────────────
+  tenantsPorEstado &#x3D; { activos: 874, inactivos: 287, mantenimiento: 123 };
+
+  get totalActivos(): number {
+    return this.tenantsPorEstado.activos + this.tenantsPorEstado.inactivos + this.tenantsPorEstado.mantenimiento;
+  }
+
+  pctActivos():       number { return Math.round((this.tenantsPorEstado.activos       / this.totalActivos) * 100); }
+  pctInactivos():     number { return Math.round((this.tenantsPorEstado.inactivos     / this.totalActivos) * 100); }
+  pctMantenimiento(): number { return Math.round((this.tenantsPorEstado.mantenimiento / this.totalActivos) * 100); }
+
+  // ── Tabla activos recientes ───────────────────────────────────
+  columnasTabla: string[] &#x3D; [&#x27;id&#x27;, &#x27;nombre&#x27;, &#x27;categoria&#x27;, &#x27;estado&#x27;, &#x27;ubicacion&#x27;, &#x27;fecha&#x27;];
+
+  registrosRecientes: Activo[] &#x3D; [
+    { id: &#x27;TNT-0842&#x27;, nombre: &#x27;Empresa Soluciones SpA&#x27;,  categoria: &#x27;Tenant&#x27;,  estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Local Centro&#x27;,   fecha: &#x27;01 abr 2026&#x27; },
+    { id: &#x27;TNT-0841&#x27;, nombre: &#x27;Comercial Norte Ltda.&#x27;,   categoria: &#x27;Tenant&#x27;,  estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Local Norte&#x27;,    fecha: &#x27;01 abr 2026&#x27; },
+    { id: &#x27;TKT-1203&#x27;, nombre: &#x27;Ticket soporte red&#x27;,      categoria: &#x27;Ticket&#x27;,  estado: &#x27;Mantenimiento&#x27;, ubicacion: &#x27;Local Sur&#x27;,      fecha: &#x27;31 mar 2026&#x27; },
+    { id: &#x27;PED-5541&#x27;, nombre: &#x27;Pedido mayorista&#x27;,        categoria: &#x27;Pedido&#x27;,  estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Bodega Central&#x27;, fecha: &#x27;31 mar 2026&#x27; },
+    { id: &#x27;TNT-0839&#x27;, nombre: &#x27;Distribuidora Oriente&#x27;,   categoria: &#x27;Tenant&#x27;,  estado: &#x27;Inactivo&#x27;,      ubicacion: &#x27;Local Oriente&#x27;,  fecha: &#x27;30 mar 2026&#x27; },
+    { id: &#x27;USR-0210&#x27;, nombre: &#x27;Juan Pérez&#x27;,              categoria: &#x27;Usuario&#x27;, estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Admin&#x27;,          fecha: &#x27;30 mar 2026&#x27; },
+    { id: &#x27;LOC-0018&#x27;, nombre: &#x27;Local Las Condes&#x27;,        categoria: &#x27;Local&#x27;,   estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Santiago&#x27;,       fecha: &#x27;29 mar 2026&#x27; },
+    { id: &#x27;TKT-1198&#x27;, nombre: &#x27;Falla acceso tenant&#x27;,     categoria: &#x27;Ticket&#x27;,  estado: &#x27;Inactivo&#x27;,      ubicacion: &#x27;Local Centro&#x27;,   fecha: &#x27;29 mar 2026&#x27; },
+  ];
+
+  // ── Categorías con barra de progreso ─────────────────────────
+  categorias &#x3D; [
+    { nombre: &#x27;Tenants&#x27;, valor: &#x27;1,284&#x27;, pct: 100, icono: &quot;domain&quot;,                 color: &#x27;#185FA5&#x27;, pbClass: &#x27;pb-primary&#x27; },
+    { nombre: &#x27;Visitas&#x27;,     valor: &#x27;8,421&#x27;, pct: 66,  icono: &#x27;visibility&#x27;,          color: &#x27;#639922&#x27;, pbClass: &#x27;pb-green&#x27;   },
+    { nombre: &#x27;Tickets&#x27;,     valor: &#x27;47&#x27;,    pct: 4,   icono: &#x27;confirmation_number&#x27;, color: &#x27;#BA7517&#x27;, pbClass: &#x27;pb-amber&#x27;   },
+    { nombre: &#x27;Pedidos&#x27;,     valor: &#x27;312&#x27;,   pct: 24,  icono: &#x27;shopping_cart&#x27;,       color: &#x27;#3B6D11&#x27;, pbClass: &#x27;pb-green&#x27;   },
+    { nombre: &#x27;Locales&#x27;,     valor: &#x27;63&#x27;,    pct: 5,   icono: &#x27;store&#x27;,               color: &#x27;#534AB7&#x27;, pbClass: &#x27;pb-purple&#x27;  },
+    { nombre: &#x27;Usuarios&#x27;,    valor: &#x27;5,902&#x27;, pct: 46,  icono: &#x27;group&#x27;,               color: &#x27;#993556&#x27;, pbClass: &#x27;pb-pink&#x27;    },
+  ];
+
+  private meses &#x3D; [&#x27;Ene&#x27;,&#x27;Feb&#x27;,&#x27;Mar&#x27;,&#x27;Abr&#x27;,&#x27;May&#x27;,&#x27;Jun&#x27;,&#x27;Jul&#x27;,&#x27;Ago&#x27;,&#x27;Sep&#x27;,&#x27;Oct&#x27;,&#x27;Nov&#x27;,&#x27;Dic&#x27;];
+
+  constructor(private authService: AuthService, private router: Router, private dashboardRealtimeService: DashboardRealtimeService) {}
+
+  ngOnInit(): void {
+    this.actualizarMetricasPorRol(this.authService.getRole());
+    this.subscriptions.add(
+      this.authService.role$.subscribe((role) &#x3D;&gt; {
+        this.actualizarMetricasPorRol(role);
+      }),
+    );
+
+    // Suscribirse a las métricas en tiempo real
+    this.subscriptions.add(
+      this.dashboardRealtimeService.connect().subscribe((metrics: DashboardMetrics) &#x3D;&gt; {
+        this.metricas &#x3D; [
+          { label: &#x27;Total Tenants&#x27;, valor: metrics.totalTenants.toLocaleString(), subvalor: &#x60;↑ ${metrics.newTenantsThisMonth} nuevos este mes&#x60;, icono: &quot;domain&quot;, color: &#x27;primary&#x27; },
+          { label: &#x27;Visitas&#x27;, valor: metrics.visits.toLocaleString(), subvalor: &#x60;↑ ${metrics.visitsWeeklyGrowth}% esta semana&#x60;, icono: &#x27;visibility&#x27;, color: &#x27;accent&#x27; },
+          { label: &#x27;Tickets abiertos&#x27;, valor: metrics.openTickets, subvalor: &#x60;↓ ${metrics.ticketsResolvedToday} resueltos hoy&#x60;, icono: &#x27;confirmation_number&#x27;, color: &#x27;warn&#x27; },
+          { label: &#x27;Pedidos activos&#x27;, valor: metrics.activeOrders, subvalor: &#x60;↑ ${metrics.ordersDailyGrowth}% vs ayer&#x60;, icono: &#x27;shopping_cart&#x27;, color: &#x27;success&#x27; },
+          { label: &#x27;Locales&#x27;, valor: metrics.locals, subvalor: &#x60;${metrics.localsWithoutTenants} sin tenants&#x60;, icono: &#x27;store&#x27;, color: &#x27;info&#x27; },
+          { label: &#x27;Usuarios&#x27;, valor: metrics.users.toLocaleString(), subvalor: &#x60;↑ ${metrics.usersMonthlyGrowth}% este mes&#x60;, icono: &#x27;group&#x27;, color: &#x27;purple&#x27; },
+        ];
+        this.actualizarMetricasPorRol(this.authService.getRole());
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+    this.barChart?.destroy();
+    this.donutChart?.destroy();
+    this.lineChart?.destroy();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() &#x3D;&gt; {
+      this.initBarChart();
+      this.initDonutChart();
+      this.initLineChart();
+    }, 0);
+  }
+
+  private initBarChart(): void {
+    const ctx &#x3D; document.getElementById(&#x27;barChart&#x27;) as HTMLCanvasElement;
+    if (!ctx) return;
+    this.barChart?.destroy();
+    this.barChart &#x3D; new Chart(ctx, {
+      type: &#x27;bar&#x27;,
+      data: {
+        labels: this.meses,
+        datasets: [
+          { label: &#x27;2025&#x27;, data: [3200,2900,4100,3800,4700,4300,5100,4800,5600,5200,6000,6400], backgroundColor: &#x27;#b5d4f4&#x27;, borderRadius: 5 },
+          { label: &#x27;2026&#x27;, data: [3900,3500,5200,8421,null,null,null,null,null,null,null,null],  backgroundColor: &#x27;#185FA5&#x27;, borderRadius: 5 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 11 }, color: &#x27;#888&#x27; } },
+          y: { grid: { color: &#x27;rgba(0,0,0,0.04)&#x27; }, ticks: { font: { size: 11 }, color: &#x27;#888&#x27;, callback: (v: string | number) &#x3D;&gt; typeof v &#x3D;&#x3D;&#x3D; &#x27;number&#x27; ? &#x60;${v/1000}k&#x60; : v } }
+        }
+      }
+    });
+  }
+
+  private initDonutChart(): void {
+    const ctx &#x3D; document.getElementById(&#x27;donutChart&#x27;) as HTMLCanvasElement;
+    if (!ctx) return;
+    this.donutChart?.destroy();
+    this.donutChart &#x3D; new Chart(ctx, {
+      type: &#x27;doughnut&#x27;,
+      data: {
+        labels: [&#x27;Activos&#x27;,&#x27;Inactivos&#x27;,&#x27;Mantenimiento&#x27;],
+        datasets: [{
+          data: [this.tenantsPorEstado.activos, this.tenantsPorEstado.inactivos, this.tenantsPorEstado.mantenimiento],
+          backgroundColor: [&#x27;#185FA5&#x27;,&#x27;#E24B4A&#x27;,&#x27;#EF9F27&#x27;],
+          borderWidth: 0, hoverOffset: 6
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        cutout: &#x27;70%&#x27;,
+        plugins: { legend: { display: false } }
+      }
+    });
+  }
+
+  private initLineChart(): void {
+    const ctx &#x3D; document.getElementById(&#x27;lineChart&#x27;) as HTMLCanvasElement;
+    if (!ctx) return;
+    this.lineChart?.destroy();
+    this.lineChart &#x3D; new Chart(ctx, {
+      type: &#x27;line&#x27;,
+      data: {
+        labels: [&#x27;Ene&#x27;,&#x27;Feb&#x27;,&#x27;Mar&#x27;,&#x27;Abr&#x27;],
+        datasets: [
+          { label: &#x27;Pedidos&#x27;, data: [210,245,289,312], borderColor: &#x27;#185FA5&#x27;, backgroundColor: &#x27;rgba(24,95,165,0.08)&#x27;,  tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: &#x27;#185FA5&#x27; },
+          { label: &#x27;Tickets&#x27;, data: [65,58,71,47],     borderColor: &#x27;#E24B4A&#x27;, backgroundColor: &#x27;rgba(226,75,74,0.08)&#x27;, tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: &#x27;#E24B4A&#x27; }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 11 }, color: &#x27;#888&#x27; } },
+          y: { grid: { color: &#x27;rgba(0,0,0,0.04)&#x27; }, ticks: { font: { size: 11 }, color: &#x27;#888&#x27; } }
+        }
+      }
+    });
+  }
+
+  getBadgeClass(estado: string): string {
+    const map: Record&lt;string, string&gt; &#x3D; {
+      &#x27;Activo&#x27;:        &#x27;badge-activo&#x27;,
+      &#x27;Inactivo&#x27;:      &#x27;badge-inactivo&#x27;,
+      &#x27;Mantenimiento&#x27;: &#x27;badge-mant&#x27;,
+    };
+    return map[estado] ?? &#x27;&#x27;;
+  }
+
+  getCategoriaClass(cat: string): string {
+    const map: Record&lt;string, string&gt; &#x3D; {
+      &#x27;Tenant&#x27;:     &#x27;cat-tenant&#x27;,
+      &#x27;Ticket&#x27;:  &#x27;cat-ticket&#x27;,
+      &#x27;Pedido&#x27;:  &#x27;cat-pedido&#x27;,
+      &#x27;Usuario&#x27;: &#x27;cat-usuario&#x27;,
+      &#x27;Local&#x27;:   &#x27;cat-local&#x27;,
+    };
+    return map[cat] ?? &#x27;&#x27;;
+  }
+
+  verDetalle(widget: DashboardWidget): void {
+    const route &#x3D; this.widgetRoutes[widget].detail;
+    this.router.navigate([route], { queryParams: { from: &#x27;dashboard&#x27;, widget } });
+  }
+
+  irModulo(widget: DashboardWidget): void {
+    const route &#x3D; this.widgetRoutes[widget].module;
+    this.router.navigate([route], { queryParams: { from: &#x27;dashboard&#x27; } });
+  }
+
+  irVista(route: string, queryParams: Record&lt;string, string&gt; &#x3D; {}): void {
+    const normalizedRoute &#x3D; route.startsWith(&#x27;/&#x27;) ? route : &#x60;/${route}&#x60;;
+    this.router.navigate([normalizedRoute], {
+      queryParams: {
+        from: &#x27;dashboard&#x27;,
+        ...queryParams,
+      },
+    });
+  }
+
+  refrescarWidget(widget: DashboardWidget): void {
+    switch (widget) {
+      case &#x27;visitas&#x27;:
+        this.initBarChart();
+        break;
+      case &#x27;estado&#x27;:
+        this.initDonutChart();
+        break;
+      case &#x27;pedidos&#x27;:
+        this.initLineChart();
+        break;
+      case &#x27;mapa&#x27;:
+        this.mapaLocalesComponent?.refresh();
+        break;
+      case &#x27;registros&#x27;:
+        this.registrosRecientes &#x3D; [...this.registrosRecientes];
+        break;
+      default:
+        break;
+    }
+  }
+
+  private actualizarMetricasPorRol(role: UserRole | null): void {
+    const esSuperAdmin &#x3D; role &#x3D;&#x3D;&#x3D; &#x27;super-admin&#x27;;
+    this.metricasVisibles &#x3D; this.metricas.filter((m) &#x3D;&gt; esSuperAdmin || m.label !&#x3D;&#x3D; &#x27;Total Tenants&#x27;);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">﻿&lt;div class&#x3D;&quot;db-wrapper&quot;&gt;
+
+  &lt;!-- ── Encabezado ──────────────────────────────────────────── --&gt;
+  &lt;div class&#x3D;&quot;db-header&quot;&gt;
+    &lt;div&gt;
+      &lt;h1 class&#x3D;&quot;db-title&quot;&gt;Dashboard&lt;/h1&gt;
+      &lt;p class&#x3D;&quot;db-subtitle&quot;&gt;Resumen general de activos · Abril 2026&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;span class&#x3D;&quot;chip-live&quot;&gt;
+      &lt;span class&#x3D;&quot;live-dot&quot;&gt;&lt;/span&gt; En tiempo real
+    &lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ── Tarjetas métricas ────────────────────────────────────── --&gt;
+  &lt;div class&#x3D;&quot;metrics-grid&quot;&gt;
+    &lt;mat-card *ngFor&#x3D;&quot;let m of metricasVisibles&quot; class&#x3D;&quot;metric-card mat-elevation-z0&quot; [ngClass]&#x3D;&quot;&#x27;border-&#x27; + m.color&quot;&gt;
+      &lt;mat-card-content class&#x3D;&quot;metric-content&quot;&gt;
+        &lt;div class&#x3D;&quot;metric-top&quot;&gt;
+          &lt;span class&#x3D;&quot;metric-label&quot;&gt;{{ m.label }}&lt;/span&gt;
+          &lt;mat-icon class&#x3D;&quot;metric-icon&quot; [ngClass]&#x3D;&quot;&#x27;icon-&#x27; + m.color&quot;&gt;{{ m.icono }}&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;p class&#x3D;&quot;metric-value&quot;&gt;{{ m.valor }}&lt;/p&gt;
+        &lt;p class&#x3D;&quot;metric-sub&quot;&gt;{{ m.subvalor }}&lt;/p&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ── Fila 1: Barras + Donut ───────────────────────────────── --&gt;
+  &lt;div class&#x3D;&quot;charts-row&quot;&gt;
+
+    &lt;mat-card class&#x3D;&quot;chart-card mat-elevation-z0&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;card-head&quot;&gt;
+        &lt;mat-card-title class&#x3D;&quot;chart-title&quot;&gt;Visitas por mes&lt;/mat-card-title&gt;
+        &lt;button mat-icon-button class&#x3D;&quot;kebab-btn&quot; [matMenuTriggerFor]&#x3D;&quot;menuVisitas&quot; aria-label&#x3D;&quot;Acciones de visitas&quot;&gt;
+          &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
+        &lt;/button&gt;
+      &lt;/mat-card-header&gt;
+      &lt;mat-card-content&gt;
+        &lt;div class&#x3D;&quot;legend-row&quot;&gt;
+          &lt;span class&#x3D;&quot;leg-item&quot;&gt;&lt;span class&#x3D;&quot;leg-dot&quot; style&#x3D;&quot;background:#b5d4f4&quot;&gt;&lt;/span&gt;2025&lt;/span&gt;
+          &lt;span class&#x3D;&quot;leg-item&quot;&gt;&lt;span class&#x3D;&quot;leg-dot&quot; style&#x3D;&quot;background:#185FA5&quot;&gt;&lt;/span&gt;2026&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;chart-container&quot; style&#x3D;&quot;height:210px;&quot;&gt;
+          &lt;canvas id&#x3D;&quot;barChart&quot;&gt;&lt;/canvas&gt;
+        &lt;/div&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+
+    &lt;mat-menu #menuVisitas&#x3D;&quot;matMenu&quot; panelClass&#x3D;&quot;widget-menu-panel&quot;&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/visitas&#x27;, { accion: &#x27;hoy&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;today&lt;/mat-icon&gt;
+        &lt;span&gt;Ver visitas de hoy&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/visitas&#x27;, { accion: &#x27;por-local&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;storefront&lt;/mat-icon&gt;
+        &lt;span&gt;Visitas por local&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/reportes&#x27;, { seccion: &#x27;visitas&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;analytics&lt;/mat-icon&gt;
+        &lt;span&gt;Reporte de visitas&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/mat-menu&gt;
+
+    &lt;mat-card class&#x3D;&quot;chart-card mat-elevation-z0&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;card-head&quot;&gt;
+        &lt;mat-card-title class&#x3D;&quot;chart-title&quot;&gt;Estado de Tenants&lt;/mat-card-title&gt;
+        &lt;button mat-icon-button class&#x3D;&quot;kebab-btn&quot; [matMenuTriggerFor]&#x3D;&quot;menuEstado&quot; aria-label&#x3D;&quot;Acciones de estado&quot;&gt;
+          &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
+        &lt;/button&gt;
+      &lt;/mat-card-header&gt;
+      &lt;mat-card-content&gt;
+        &lt;div class&#x3D;&quot;chart-container&quot; style&#x3D;&quot;height:170px;&quot;&gt;
+          &lt;canvas id&#x3D;&quot;donutChart&quot;&gt;&lt;/canvas&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;donut-stats&quot;&gt;
+          &lt;div class&#x3D;&quot;donut-stat&quot;&gt;
+            &lt;span class&#x3D;&quot;ds-dot ds-activo&quot;&gt;&lt;/span&gt;
+            &lt;div&gt;
+              &lt;p class&#x3D;&quot;ds-val&quot;&gt;{{ tenantsPorEstado.activos }}&lt;/p&gt;
+              &lt;p class&#x3D;&quot;ds-lbl&quot;&gt;Activos ({{ pctActivos() }}%)&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;donut-stat&quot;&gt;
+            &lt;span class&#x3D;&quot;ds-dot ds-inactivo&quot;&gt;&lt;/span&gt;
+            &lt;div&gt;
+              &lt;p class&#x3D;&quot;ds-val&quot;&gt;{{ tenantsPorEstado.inactivos }}&lt;/p&gt;
+              &lt;p class&#x3D;&quot;ds-lbl&quot;&gt;Inactivos ({{ pctInactivos() }}%)&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;donut-stat&quot;&gt;
+            &lt;span class&#x3D;&quot;ds-dot ds-mant&quot;&gt;&lt;/span&gt;
+            &lt;div&gt;
+              &lt;p class&#x3D;&quot;ds-val&quot;&gt;{{ tenantsPorEstado.mantenimiento }}&lt;/p&gt;
+              &lt;p class&#x3D;&quot;ds-lbl&quot;&gt;Mant. ({{ pctMantenimiento() }}%)&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+
+    &lt;mat-menu #menuEstado&#x3D;&quot;matMenu&quot; panelClass&#x3D;&quot;widget-menu-panel&quot;&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/activos&#x27;, { estado: &#x27;Operativo&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;check_circle&lt;/mat-icon&gt;
+        &lt;span&gt;Revisar activos operativos&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/activos&#x27;, { estado: &#x27;Mantenimiento&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;build_circle&lt;/mat-icon&gt;
+        &lt;span&gt;Ver en mantenimiento&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/reportes&#x27;, { seccion: &#x27;estado&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;insights&lt;/mat-icon&gt;
+        &lt;span&gt;Reporte de estado general&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/mat-menu&gt;
+
+  &lt;/div&gt;
+
+  &lt;!-- ── Fila 2: Línea + Categorías ──────────────────────────── --&gt;
+  &lt;div class&#x3D;&quot;charts-row charts-row--32&quot;&gt;
+
+    &lt;mat-card class&#x3D;&quot;chart-card mat-elevation-z0&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;card-head&quot;&gt;
+        &lt;mat-card-title class&#x3D;&quot;chart-title&quot;&gt;Pedidos vs Tickets (2026)&lt;/mat-card-title&gt;
+        &lt;button mat-icon-button class&#x3D;&quot;kebab-btn&quot; [matMenuTriggerFor]&#x3D;&quot;menuPedidos&quot; aria-label&#x3D;&quot;Acciones de pedidos&quot;&gt;
+          &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
+        &lt;/button&gt;
+      &lt;/mat-card-header&gt;
+      &lt;mat-card-content&gt;
+        &lt;div class&#x3D;&quot;legend-row&quot;&gt;
+          &lt;span class&#x3D;&quot;leg-item&quot;&gt;&lt;span class&#x3D;&quot;leg-dot&quot; style&#x3D;&quot;background:#185FA5&quot;&gt;&lt;/span&gt;Pedidos&lt;/span&gt;
+          &lt;span class&#x3D;&quot;leg-item&quot;&gt;&lt;span class&#x3D;&quot;leg-dot&quot; style&#x3D;&quot;background:#E24B4A&quot;&gt;&lt;/span&gt;Tickets&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;chart-container&quot; style&#x3D;&quot;height:185px;&quot;&gt;
+          &lt;canvas id&#x3D;&quot;lineChart&quot;&gt;&lt;/canvas&gt;
+        &lt;/div&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+
+    &lt;mat-menu #menuPedidos&#x3D;&quot;matMenu&quot; panelClass&#x3D;&quot;widget-menu-panel&quot;&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/pedidos&#x27;, { accion: &#x27;crear&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;add_shopping_cart&lt;/mat-icon&gt;
+        &lt;span&gt;Crear pedido&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/pedidos&#x27;, { accion: &#x27;listar&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;shopping_cart&lt;/mat-icon&gt;
+        &lt;span&gt;Ver pedidos activos&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/tickets&#x27;, { estado: &#x27;sin-resolver&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;support_agent&lt;/mat-icon&gt;
+        &lt;span&gt;Resolver tickets pendientes&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/mat-menu&gt;
+
+    &lt;mat-card class&#x3D;&quot;chart-card mat-elevation-z0&quot;&gt;
+      &lt;mat-card-header&gt;
+        &lt;mat-card-title class&#x3D;&quot;chart-title&quot;&gt;Total por categoría&lt;/mat-card-title&gt;
+      &lt;/mat-card-header&gt;
+      &lt;mat-card-content&gt;
+        &lt;div class&#x3D;&quot;cat-list&quot;&gt;
+          &lt;div class&#x3D;&quot;cat-row&quot; *ngFor&#x3D;&quot;let c of categorias&quot;&gt;
+            &lt;div class&#x3D;&quot;cat-info&quot;&gt;
+              &lt;mat-icon class&#x3D;&quot;cat-icon&quot; [style.color]&#x3D;&quot;c.color&quot;&gt;{{ c.icono }}&lt;/mat-icon&gt;
+              &lt;span class&#x3D;&quot;cat-name&quot;&gt;{{ c.nombre }}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;cat-right&quot;&gt;
+              &lt;span class&#x3D;&quot;cat-num&quot;&gt;{{ c.valor }}&lt;/span&gt;
+              &lt;mat-progress-bar
+                mode&#x3D;&quot;determinate&quot;
+                [value]&#x3D;&quot;c.pct&quot;
+                [ngClass]&#x3D;&quot;c.pbClass&quot;&gt;
+              &lt;/mat-progress-bar&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;map-records-row&quot;&gt;
+    &lt;!-- ── Mapa de locales con NFC ────────────────────────────── --&gt;
+    &lt;mat-card class&#x3D;&quot;map-card mat-elevation-z0&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;card-head&quot;&gt;
+        &lt;mat-card-title class&#x3D;&quot;chart-title&quot;&gt;Mapa de locales&lt;/mat-card-title&gt;
+        &lt;button mat-icon-button class&#x3D;&quot;kebab-btn&quot; [matMenuTriggerFor]&#x3D;&quot;menuMapa&quot; aria-label&#x3D;&quot;Acciones de mapa&quot;&gt;
+          &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
+        &lt;/button&gt;
+      &lt;/mat-card-header&gt;
+      &lt;mat-card-content&gt;
+        &lt;app-mapa-locales&gt;&lt;/app-mapa-locales&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+
+    &lt;mat-menu #menuMapa&#x3D;&quot;matMenu&quot; panelClass&#x3D;&quot;widget-menu-panel&quot;&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/locales&#x27;, { vista: &#x27;mapa&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;map&lt;/mat-icon&gt;
+        &lt;span&gt;Gestionar locales en mapa&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/activos&#x27;, { vista: &#x27;mapa&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;memory&lt;/mat-icon&gt;
+        &lt;span&gt;Ver activos por ubicación&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/reportes&#x27;, { seccion: &#x27;geografico&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;public&lt;/mat-icon&gt;
+        &lt;span&gt;Reporte geográfico&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/mat-menu&gt;
+
+    &lt;!-- ── Tabla activos recientes ──────────────────────────────── --&gt;
+    &lt;mat-card class&#x3D;&quot;table-card mat-elevation-z0&quot;&gt;
+      &lt;mat-card-header class&#x3D;&quot;table-head&quot;&gt;
+        &lt;mat-card-title class&#x3D;&quot;chart-title&quot;&gt;Registros recientes&lt;/mat-card-title&gt;
+        &lt;div class&#x3D;&quot;table-head-actions&quot;&gt;
+          &lt;button mat-stroked-button color&#x3D;&quot;primary&quot; class&#x3D;&quot;ver-btn&quot; (click)&#x3D;&quot;irModulo(&#x27;registros&#x27;)&quot;&gt;
+            &lt;mat-icon&gt;open_in_new&lt;/mat-icon&gt; Ver todo
+          &lt;/button&gt;
+          &lt;button mat-icon-button class&#x3D;&quot;kebab-btn&quot; [matMenuTriggerFor]&#x3D;&quot;menuRegistros&quot; aria-label&#x3D;&quot;Acciones de registros&quot;&gt;
+            &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/mat-card-header&gt;
+      &lt;mat-card-content&gt;
+        &lt;div class&#x3D;&quot;table-scroll&quot;&gt;
+          &lt;table mat-table [dataSource]&#x3D;&quot;registrosRecientes&quot; class&#x3D;&quot;db-table&quot;&gt;
+
+          &lt;ng-container matColumnDef&#x3D;&quot;id&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;ID&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let a&quot;&gt;&lt;code class&#x3D;&quot;id-code&quot;&gt;{{ a.id }}&lt;/code&gt;&lt;/td&gt;
+          &lt;/ng-container&gt;
+
+          &lt;ng-container matColumnDef&#x3D;&quot;nombre&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Nombre&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let a&quot;&gt;{{ a.nombre }}&lt;/td&gt;
+          &lt;/ng-container&gt;
+
+          &lt;ng-container matColumnDef&#x3D;&quot;categoria&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Categoría&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let a&quot;&gt;
+              &lt;span class&#x3D;&quot;cat-badge&quot; [ngClass]&#x3D;&quot;getCategoriaClass(a.categoria)&quot;&gt;{{ a.categoria }}&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/ng-container&gt;
+
+          &lt;ng-container matColumnDef&#x3D;&quot;estado&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Estado&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let a&quot;&gt;
+              &lt;span class&#x3D;&quot;badge&quot; [ngClass]&#x3D;&quot;getBadgeClass(a.estado)&quot;&gt;{{ a.estado }}&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/ng-container&gt;
+
+          &lt;ng-container matColumnDef&#x3D;&quot;ubicacion&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Ubicación&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let a&quot;&gt;
+              &lt;span class&#x3D;&quot;ubicacion-txt&quot;&gt;
+                &lt;mat-icon class&#x3D;&quot;loc-icon&quot;&gt;location_on&lt;/mat-icon&gt;{{ a.ubicacion }}
+              &lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/ng-container&gt;
+
+          &lt;ng-container matColumnDef&#x3D;&quot;fecha&quot;&gt;
+            &lt;th mat-header-cell *matHeaderCellDef&gt;Fecha&lt;/th&gt;
+            &lt;td mat-cell *matCellDef&#x3D;&quot;let a&quot; class&#x3D;&quot;fecha-txt&quot;&gt;{{ a.fecha }}&lt;/td&gt;
+          &lt;/ng-container&gt;
+
+            &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;columnasTabla&quot;&gt;&lt;/tr&gt;
+            &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: columnasTabla;&quot; class&#x3D;&quot;db-row&quot;&gt;&lt;/tr&gt;
+
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/mat-card-content&gt;
+    &lt;/mat-card&gt;
+
+    &lt;mat-menu #menuRegistros&#x3D;&quot;matMenu&quot; panelClass&#x3D;&quot;widget-menu-panel&quot;&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/activos&#x27;, { accion: &#x27;crear&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;add_box&lt;/mat-icon&gt;
+        &lt;span&gt;Registrar activo&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/tickets&#x27;, { accion: &#x27;crear&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;add_alert&lt;/mat-icon&gt;
+        &lt;span&gt;Crear ticket&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button mat-menu-item (click)&#x3D;&quot;irVista(&#x27;/usuarios&#x27;, { accion: &#x27;gestionar&#x27; })&quot;&gt;
+        &lt;mat-icon&gt;manage_accounts&lt;/mat-icon&gt;
+        &lt;span&gt;Gestionar usuarios&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/mat-menu&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./dashboard.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">﻿/* ══════════════════════════════════════════════════
+   DASHBOARD — Estilos
+   ══════════════════════════════════════════════════ */
+
+.db-wrapper {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: var(--surface);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+  .db-wrapper {
+    padding: 16px;
+  }
+}
+
+/* Forzar fondo consistente en todas las cards del dashboard */
+.db-wrapper .mat-card {
+  background-color: var(--surface-lowest) !important;
+}
+
+/* ── Encabezado ──────────────────────────────────── */
+.db-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.db-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.db-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 4px 0 0;
+}
+
+.chip-live {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ── Grid métricas ───────────────────────────────── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 1200px) { .metrics-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px)  { .metrics-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.metric-card {
+  border-radius: 8px !important;
+  border: 1px solid var(--border) !important;
+  border-left-width: 3px !important;
+  background-color: var(--surface-lowest) !important;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.metric-card:hover {
+  background-color: rgba(249, 115, 22, 0.05) !important;
+}
+
+.border-primary  { border-left-color: var(--primary) !important; }
+.border-accent   { border-left-color: #10B981 !important; }
+.border-warn     { border-left-color: #EF4444 !important; }
+.border-success  { border-left-color: #8B5CF6 !important; }
+.border-info     { border-left-color: #3B82F6 !important; }
+.border-purple   { border-left-color: #EC4899 !important; }
+
+.metric-content {
+  padding: 14px 16px 14px !important;
+}
+
+.metric-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.metric-icon {
+  font-size: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+  opacity: 0.75;
+}
+
+.icon-primary  { color: #185FA5; }
+.icon-accent   { color: #1D9E75; }
+.icon-warn     { color: #E24B4A; }
+.icon-success  { color: #639922; }
+.icon-info     { color: #534AB7; }
+.icon-purple   { color: #D4537E; }
+
+.metric-value {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+
+.metric-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── Filas de gráficos ───────────────────────────── */
+.charts-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.charts-row--32 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .charts-row,
+  .charts-row--32 { grid-template-columns: 1fr; }
+}
+
+.chart-card {
+  border-radius: 8px !important;
+  border: 1px solid var(--border) !important;
+  background-color: var(--surface-lowest) !important;
+  min-width: 0;
+  height: auto;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 16px 8px !important;
+}
+
+.card-head .mat-mdc-card-header-text {
+  margin: 0;
+  min-width: 0;
+}
+
+.card-head .chart-title {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kebab-btn {
+  width: 30px;
+  height: 30px;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  border-radius: 10px !important;
+  background: linear-gradient(150deg, rgba(24, 95, 165, 0.14), rgba(255, 255, 255, 0)) !important;
+  color: var(--text-muted) !important;
+  transition: all 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kebab-btn:hover {
+  background: linear-gradient(150deg, rgba(24, 95, 165, 0.22), rgba(255, 255, 255, 0)) !important;
+  color: var(--primary) !important;
+  border-color: rgba(24, 95, 165, 0.42) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.14);
+}
+
+.kebab-btn .mat-icon {
+  font-size: 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+  line-height: 16px !important;
+  margin: 0 !important;
+}
+
+.chart-title {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Leyendas ────────────────────────────────────── */
+.legend-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.leg-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Donut stats ─────────────────────────────────── */
+.donut-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 14px;
+}
+
+.donut-stat {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.ds-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.ds-activo   { background: var(--primary); }
+.ds-inactivo { background: #EF4444; }
+.ds-mant     { background: #8B5CF6; }
+
+.ds-val {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.ds-lbl {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── Lista categorías ────────────────────────────── */
+.cat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.cat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cat-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 130px;
+}
+
+.cat-icon {
+  font-size: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.cat-name {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.cat-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cat-num {
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 46px;
+  text-align: right;
+  color: var(--text-primary);
+}
+
+mat-progress-bar {
+  flex: 1;
+  border-radius: 4px !important;
+}
+
+/* Progress bar colors — Angular Material MDC */
+.pb-primary  ::ng-deep .mdc-linear-progress__bar-inner { border-color: var(--primary) !important; }
+.pb-green    ::ng-deep .mdc-linear-progress__bar-inner { border-color: #10B981 !important; }
+.pb-amber    ::ng-deep .mdc-linear-progress__bar-inner { border-color: #8B5CF6 !important; }
+.pb-purple   ::ng-deep .mdc-linear-progress__bar-inner { border-color: #3B82F6 !important; }
+.pb-pink     ::ng-deep .mdc-linear-progress__bar-inner { border-color: #EC4899 !important; }
+
+/* ── Mapa + Registros ───────────────────────────── */
+.map-records-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .map-records-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Fix: map-card y table-card usan la misma variable que el resto ──────────
+   Se eliminó el bloque :host-context dark que sobreescribía el fondo con
+   #0f172a hardcodeado. Ahora background-color: var(--surface-lowest) responde
+   automáticamente al tema activo igual que las demás cards.
+────────────────────────────────────────────────────────────────────────────── */
+.map-card,
+.table-card {
+  border-radius: 8px !important;
+  border: 1px solid var(--border) !important;
+  background-color: var(--surface-lowest) !important;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.mat-elevation-z0 {
+  background-color: var(--surface-lowest) !important;
+}
+
+.map-card mat-card-content,
+.table-card mat-card-content {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.table-card mat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-card app-mapa-locales {
+  display: block;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+@media (max-width: 1100px) {
+  .charts-row,
+  .charts-row--32,
+  .map-records-row {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card,
+  .map-card,
+  .table-card {
+    width: 100%;
+  }
+
+  .chart-card mat-card-content,
+  .map-card mat-card-content,
+  .table-card mat-card-content {
+    min-height: 0;
+  }
+}
+
+/* ── Tabla ───────────────────────────────────────── */
+.table-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px 10px !important;
+}
+
+.table-head .mat-mdc-card-header-text {
+  margin: 0;
+  min-width: 0;
+}
+
+.table-head .chart-title {
+  margin: 0;
+}
+
+.table-head-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.ver-btn {
+  font-size: 12px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0 12px !important;
+}
+
+.ver-btn mat-icon {
+  font-size: 14px !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin-right: 4px;
+}
+
+@media (max-width: 680px) {
+  .table-head {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .table-head-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+.table-scroll {
+  overflow: auto;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: clamp(280px, 42vh, 460px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.2) transparent;
+}
+
+.table-scroll::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.32);
+}
+
+@media (max-width: 1100px) {
+  .table-scroll {
+    max-height: clamp(240px, 38vh, 380px);
+  }
+}
+
+@media (min-width: 1101px) {
+  .table-scroll {
+    max-height: none;
+  }
+}
+
+.db-table {
+  width: max-content;
+  min-width: 100%;
+  table-layout: auto;
+  font-size: 13px;
+}
+
+.db-table th,
+.db-table td {
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.db-table th {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: var(--text-muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.db-row:hover { background-color: var(--surface-low) !important; }
+
+.id-code {
+  font-family: monospace;
+  font-size: 12px;
+  background: var(--surface-low);
+  color: var(--text-secondary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+/* ── Menú acciones minimalista ───────────────────── */
+
+/* Overlay real del mat-menu: estilo semitransparente sofisticado */
+.cdk-overlay-pane .widget-menu-panel {
+  --mat-menu-container-color: rgba(255, 255, 255, 0.72);
+  --mdc-menu-container-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 0.5px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden;
+}
+
+.cdk-overlay-pane .widget-menu-panel .mat-mdc-menu-content {
+  padding: 6px;
+  background: transparent !important;
+}
+
+.cdk-overlay-pane .widget-menu-panel .mat-mdc-menu-item {
+  min-height: 40px;
+  border-radius: 9px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cdk-overlay-pane .widget-menu-panel .mat-mdc-menu-item .mat-icon {
+  color: var(--primary);
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.cdk-overlay-pane .widget-menu-panel .mat-mdc-menu-item:hover {
+  background: linear-gradient(120deg, rgba(242, 101, 34, 0.12), rgba(242, 101, 34, 0.06));
+}
+
+.cdk-overlay-pane .widget-menu-panel .mat-mdc-menu-item:hover .mat-icon {
+  color: var(--primary-hover);
+}
+
+/* Tema oscuro */
+[data-theme&#x3D;&#x27;dark&#x27;] .cdk-overlay-pane .widget-menu-panel {
+  --mat-menu-container-color: rgba(30, 42, 58, 0.88);
+  --mdc-menu-container-color: rgba(30, 42, 58, 0.88);
+  background: rgba(30, 42, 58, 0.88) !important;
+  border: 0.5px solid rgba(78, 99, 125, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme&#x3D;&#x27;dark&#x27;] .cdk-overlay-pane .widget-menu-panel .mat-mdc-menu-item {
+  color: #FFFFFF;
+}
+
+[data-theme&#x3D;&#x27;dark&#x27;] .cdk-overlay-pane .widget-menu-panel .mat-mdc-menu-item .mat-icon {
+  color: #FB923C;
+}
+
+[data-theme&#x3D;&#x27;dark&#x27;] .cdk-overlay-pane .widget-menu-panel .mat-mdc-menu-item:hover {
+  background: linear-gradient(120deg, rgba(249, 115, 22, 0.2), rgba(249, 115, 22, 0.1));
+}
+
+[data-theme&#x3D;&#x27;dark&#x27;] .cdk-overlay-pane .widget-menu-panel .mat-mdc-menu-item:hover .mat-icon {
+  color: #FBBF24;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .db-table {
+  color: var(--text-primary);
+  background-color: var(--surface-lowest);
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .db-table th {
+  color: var(--text-secondary) !important;
+  background-color: var(--surface-lowest) !important;
+  border-bottom: 1px solid var(--border) !important;
+  font-weight: 700 !important;
+  padding: 16px 12px !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .db-table td {
+  color: var(--text-primary) !important;
+  background-color: var(--surface-lowest) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 14px 12px !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .db-row {
+  background-color: var(--surface-lowest) !important;
+  transition: background-color 0.2s ease !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .db-row:hover {
+  background-color: var(--surface-low) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .id-code {
+  background: var(--surface-low);
+  color: var(--text-secondary);
+  border-color: var(--border);
+  font-weight: 500;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .ubicacion-txt {
+  color: var(--text-secondary) !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .loc-icon {
+  color: var(--text-muted) !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .fecha-txt {
+  color: var(--text-secondary) !important;
+}
+
+/* ── Badges estado en dark mode ───────────────────── */
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .badge-activo {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #4ade80 !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .badge-inactivo {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #f87171 !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .badge-mant {
+  background: rgba(139, 92, 246, 0.15) !important;
+  color: #a78bfa !important;
+  border-color: rgba(139, 92, 246, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+/* ── Badges categoría en dark mode ────────────────── */
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .cat-badge {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--border) !important;
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .cat-tenant {
+  background: rgba(249, 115, 22, 0.15) !important;
+  color: #fb923c !important;
+  border-color: rgba(249, 115, 22, 0.4) !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .cat-ticket {
+  background: rgba(251, 146, 60, 0.15) !important;
+  color: #fb923c !important;
+  border-color: rgba(251, 146, 60, 0.4) !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .cat-pedido {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #4ade80 !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .cat-usuario {
+  background: rgba(59, 130, 246, 0.15) !important;
+  color: #60a5fa !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+:host-context(html[data-theme&#x3D;&#x27;dark&#x27;]) .cat-local {
+  background: rgba(139, 92, 246, 0.15) !important;
+  color: #a78bfa !important;
+  border-color: rgba(139, 92, 246, 0.4) !important;
+}
+
+.ubicacion-txt {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-secondary);
+}
+
+.loc-icon {
+  font-size: 14px !important;
+  width: 14px !important;
+  height: 14px !important;
+  color: var(--text-muted) !important;
+}
+
+.fecha-txt { color: var(--text-secondary); }
+
+/* ── Badges estado ───────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.badge-activo   { background: rgba(16, 185, 129, 0.1); color: #10B981; border-color: rgba(16, 185, 129, 0.3); }
+.badge-inactivo { background: rgba(239, 68, 68, 0.1); color: #EF4444; border-color: rgba(239, 68, 68, 0.3); }
+.badge-mant     { background: rgba(139, 92, 246, 0.1); color: #8B5CF6; border-color: rgba(139, 92, 246, 0.3); }
+
+/* ── Badges categoría ────────────────────────────── */
+.cat-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.cat-tenant     { background: rgba(249, 115, 22, 0.1); color: var(--primary); border-color: rgba(249, 115, 22, 0.3); }
+.cat-ticket     { background: rgba(251, 146, 60, 0.1); color: #FB923C; border-color: rgba(251, 146, 60, 0.3); }
+.cat-pedido     { background: rgba(16, 185, 129, 0.1); color: #10B981; border-color: rgba(16, 185, 129, 0.3); }
+.cat-usuario    { background: rgba(59, 130, 246, 0.1); color: #3B82F6; border-color: rgba(59, 130, 246, 0.3); }
+.cat-local      { background: rgba(139, 92, 246, 0.1); color: #8B5CF6; border-color: rgba(139, 92, 246, 0.3); }
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE — Estilos limpiados (colores base ya en CSS vars)
+   ═══════════════════════════════════════════════════════════ */
+
+:where([data-theme&#x3D;&#x27;dark&#x27;]) .metric-card:hover {
+  background-color: rgba(249, 115, 22, 0.05) !important;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>﻿<div class="db-wrapper">  <!-- ── Encabezado ──────────────────────────────────────────── -->  <div class="db-header">    <div>      <h1 class="db-title">Dashboard</h1>      <p class="db-subtitle">Resumen general de activos · Abril 2026</p>    </div>    <span class="chip-live">      <span class="live-dot"></span> En tiempo real    </span>  </div>  <!-- ── Tarjetas métricas ────────────────────────────────────── -->  <div class="metrics-grid">    <mat-card *ngFor="let m of metricasVisibles" class="metric-card mat-elevation-z0" [ngClass]="\'border-\' + m.color">      <mat-card-content class="metric-content">        <div class="metric-top">          <span class="metric-label">{{ m.label }}</span>          <mat-icon class="metric-icon" [ngClass]="\'icon-\' + m.color">{{ m.icono }}</mat-icon>        </div>        <p class="metric-value">{{ m.valor }}</p>        <p class="metric-sub">{{ m.subvalor }}</p>      </mat-card-content>    </mat-card>  </div>  <!-- ── Fila 1: Barras + Donut ───────────────────────────────── -->  <div class="charts-row">    <mat-card class="chart-card mat-elevation-z0">      <mat-card-header class="card-head">        <mat-card-title class="chart-title">Visitas por mes</mat-card-title>        <button mat-icon-button class="kebab-btn" [matMenuTriggerFor]="menuVisitas" aria-label="Acciones de visitas">          <mat-icon>more_vert</mat-icon>        </button>      </mat-card-header>      <mat-card-content>        <div class="legend-row">          <span class="leg-item"><span class="leg-dot" style="background:#b5d4f4"></span>2025</span>          <span class="leg-item"><span class="leg-dot" style="background:#185FA5"></span>2026</span>        </div>        <div class="chart-container" style="height:210px;">          <canvas id="barChart"></canvas>        </div>      </mat-card-content>    </mat-card>    <mat-menu #menuVisitas="matMenu" panelClass="widget-menu-panel">      <button mat-menu-item (click)="irVista(\'/visitas\', { accion: \'hoy\' })">        <mat-icon>today</mat-icon>        <span>Ver visitas de hoy</span>      </button>      <button mat-menu-item (click)="irVista(\'/visitas\', { accion: \'por-local\' })">        <mat-icon>storefront</mat-icon>        <span>Visitas por local</span>      </button>      <button mat-menu-item (click)="irVista(\'/reportes\', { seccion: \'visitas\' })">        <mat-icon>analytics</mat-icon>        <span>Reporte de visitas</span>      </button>    </mat-menu>    <mat-card class="chart-card mat-elevation-z0">      <mat-card-header class="card-head">        <mat-card-title class="chart-title">Estado de Tenants</mat-card-title>        <button mat-icon-button class="kebab-btn" [matMenuTriggerFor]="menuEstado" aria-label="Acciones de estado">          <mat-icon>more_vert</mat-icon>        </button>      </mat-card-header>      <mat-card-content>        <div class="chart-container" style="height:170px;">          <canvas id="donutChart"></canvas>        </div>        <div class="donut-stats">          <div class="donut-stat">            <span class="ds-dot ds-activo"></span>            <div>              <p class="ds-val">{{ tenantsPorEstado.activos }}</p>              <p class="ds-lbl">Activos ({{ pctActivos() }}%)</p>            </div>          </div>          <div class="donut-stat">            <span class="ds-dot ds-inactivo"></span>            <div>              <p class="ds-val">{{ tenantsPorEstado.inactivos }}</p>              <p class="ds-lbl">Inactivos ({{ pctInactivos() }}%)</p>            </div>          </div>          <div class="donut-stat">            <span class="ds-dot ds-mant"></span>            <div>              <p class="ds-val">{{ tenantsPorEstado.mantenimiento }}</p>              <p class="ds-lbl">Mant. ({{ pctMantenimiento() }}%)</p>            </div>          </div>        </div>      </mat-card-content>    </mat-card>    <mat-menu #menuEstado="matMenu" panelClass="widget-menu-panel">      <button mat-menu-item (click)="irVista(\'/activos\', { estado: \'Operativo\' })">        <mat-icon>check_circle</mat-icon>        <span>Revisar activos operativos</span>      </button>      <button mat-menu-item (click)="irVista(\'/activos\', { estado: \'Mantenimiento\' })">        <mat-icon>build_circle</mat-icon>        <span>Ver en mantenimiento</span>      </button>      <button mat-menu-item (click)="irVista(\'/reportes\', { seccion: \'estado\' })">        <mat-icon>insights</mat-icon>        <span>Reporte de estado general</span>      </button>    </mat-menu>  </div>  <!-- ── Fila 2: Línea + Categorías ──────────────────────────── -->  <div class="charts-row charts-row--32">    <mat-card class="chart-card mat-elevation-z0">      <mat-card-header class="card-head">        <mat-card-title class="chart-title">Pedidos vs Tickets (2026)</mat-card-title>        <button mat-icon-button class="kebab-btn" [matMenuTriggerFor]="menuPedidos" aria-label="Acciones de pedidos">          <mat-icon>more_vert</mat-icon>        </button>      </mat-card-header>      <mat-card-content>        <div class="legend-row">          <span class="leg-item"><span class="leg-dot" style="background:#185FA5"></span>Pedidos</span>          <span class="leg-item"><span class="leg-dot" style="background:#E24B4A"></span>Tickets</span>        </div>        <div class="chart-container" style="height:185px;">          <canvas id="lineChart"></canvas>        </div>      </mat-card-content>    </mat-card>    <mat-menu #menuPedidos="matMenu" panelClass="widget-menu-panel">      <button mat-menu-item (click)="irVista(\'/pedidos\', { accion: \'crear\' })">        <mat-icon>add_shopping_cart</mat-icon>        <span>Crear pedido</span>      </button>      <button mat-menu-item (click)="irVista(\'/pedidos\', { accion: \'listar\' })">        <mat-icon>shopping_cart</mat-icon>        <span>Ver pedidos activos</span>      </button>      <button mat-menu-item (click)="irVista(\'/tickets\', { estado: \'sin-resolver\' })">        <mat-icon>support_agent</mat-icon>        <span>Resolver tickets pendientes</span>      </button>    </mat-menu>    <mat-card class="chart-card mat-elevation-z0">      <mat-card-header>        <mat-card-title class="chart-title">Total por categoría</mat-card-title>      </mat-card-header>      <mat-card-content>        <div class="cat-list">          <div class="cat-row" *ngFor="let c of categorias">            <div class="cat-info">              <mat-icon class="cat-icon" [style.color]="c.color">{{ c.icono }}</mat-icon>              <span class="cat-name">{{ c.nombre }}</span>            </div>            <div class="cat-right">              <span class="cat-num">{{ c.valor }}</span>              <mat-progress-bar                mode="determinate"                [value]="c.pct"                [ngClass]="c.pbClass">              </mat-progress-bar>            </div>          </div>        </div>      </mat-card-content>    </mat-card>  </div>  <div class="map-records-row">    <!-- ── Mapa de locales con NFC ────────────────────────────── -->    <mat-card class="map-card mat-elevation-z0">      <mat-card-header class="card-head">        <mat-card-title class="chart-title">Mapa de locales</mat-card-title>        <button mat-icon-button class="kebab-btn" [matMenuTriggerFor]="menuMapa" aria-label="Acciones de mapa">          <mat-icon>more_vert</mat-icon>        </button>      </mat-card-header>      <mat-card-content>        <app-mapa-locales></app-mapa-locales>      </mat-card-content>    </mat-card>    <mat-menu #menuMapa="matMenu" panelClass="widget-menu-panel">      <button mat-menu-item (click)="irVista(\'/locales\', { vista: \'mapa\' })">        <mat-icon>map</mat-icon>        <span>Gestionar locales en mapa</span>      </button>      <button mat-menu-item (click)="irVista(\'/activos\', { vista: \'mapa\' })">        <mat-icon>memory</mat-icon>        <span>Ver activos por ubicación</span>      </button>      <button mat-menu-item (click)="irVista(\'/reportes\', { seccion: \'geografico\' })">        <mat-icon>public</mat-icon>        <span>Reporte geográfico</span>      </button>    </mat-menu>    <!-- ── Tabla activos recientes ──────────────────────────────── -->    <mat-card class="table-card mat-elevation-z0">      <mat-card-header class="table-head">        <mat-card-title class="chart-title">Registros recientes</mat-card-title>        <div class="table-head-actions">          <button mat-stroked-button color="primary" class="ver-btn" (click)="irModulo(\'registros\')">            <mat-icon>open_in_new</mat-icon> Ver todo          </button>          <button mat-icon-button class="kebab-btn" [matMenuTriggerFor]="menuRegistros" aria-label="Acciones de registros">            <mat-icon>more_vert</mat-icon>          </button>        </div>      </mat-card-header>      <mat-card-content>        <div class="table-scroll">          <table mat-table [dataSource]="registrosRecientes" class="db-table">          <ng-container matColumnDef="id">            <th mat-header-cell *matHeaderCellDef>ID</th>            <td mat-cell *matCellDef="let a"><code class="id-code">{{ a.id }}</code></td>          </ng-container>          <ng-container matColumnDef="nombre">            <th mat-header-cell *matHeaderCellDef>Nombre</th>            <td mat-cell *matCellDef="let a">{{ a.nombre }}</td>          </ng-container>          <ng-container matColumnDef="categoria">            <th mat-header-cell *matHeaderCellDef>Categoría</th>            <td mat-cell *matCellDef="let a">              <span class="cat-badge" [ngClass]="getCategoriaClass(a.categoria)">{{ a.categoria }}</span>            </td>          </ng-container>          <ng-container matColumnDef="estado">            <th mat-header-cell *matHeaderCellDef>Estado</th>            <td mat-cell *matCellDef="let a">              <span class="badge" [ngClass]="getBadgeClass(a.estado)">{{ a.estado }}</span>            </td>          </ng-container>          <ng-container matColumnDef="ubicacion">            <th mat-header-cell *matHeaderCellDef>Ubicación</th>            <td mat-cell *matCellDef="let a">              <span class="ubicacion-txt">                <mat-icon class="loc-icon">location_on</mat-icon>{{ a.ubicacion }}              </span>            </td>          </ng-container>          <ng-container matColumnDef="fecha">            <th mat-header-cell *matHeaderCellDef>Fecha</th>            <td mat-cell *matCellDef="let a" class="fecha-txt">{{ a.fecha }}</td>          </ng-container>            <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>            <tr mat-row *matRowDef="let row; columns: columnasTabla;" class="db-row"></tr>          </table>        </div>      </mat-card-content>    </mat-card>    <mat-menu #menuRegistros="matMenu" panelClass="widget-menu-panel">      <button mat-menu-item (click)="irVista(\'/activos\', { accion: \'crear\' })">        <mat-icon>add_box</mat-icon>        <span>Registrar activo</span>      </button>      <button mat-menu-item (click)="irVista(\'/tickets\', { accion: \'crear\' })">        <mat-icon>add_alert</mat-icon>        <span>Crear ticket</span>      </button>      <button mat-menu-item (click)="irVista(\'/usuarios\', { accion: \'gestionar\' })">        <mat-icon>manage_accounts</mat-icon>        <span>Gestionar usuarios</span>      </button>    </mat-menu>  </div></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'Dashboard'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Dashboard.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

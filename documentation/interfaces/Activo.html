@@ -1,0 +1,786 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Activo</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/components/dashboard/dashboard.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#categoria" 
+>
+                                            categoria
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#estado" 
+>
+                                            estado
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#fecha" 
+>
+                                            fecha
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#id" 
+>
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#nombre" 
+>
+                                            nombre
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#ubicacion" 
+>
+                                            ubicacion
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="categoria"></a>
+                                        <span class="name "><b>categoria</b>
+                                            <a href="#categoria">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>categoria:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="estado"></a>
+                                        <span class="name "><b>estado</b>
+                                            <a href="#estado">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>estado:         <code><a href="../interfaces/Activo.html" target="_self" >&quot;Activo&quot; | &quot;Inactivo&quot; | &quot;Mantenimiento&quot;</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/Activo.html" target="_self" >&quot;Activo&quot; | &quot;Inactivo&quot; | &quot;Mantenimiento&quot;</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fecha"></a>
+                                        <span class="name "><b>fecha</b>
+                                            <a href="#fecha">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fecha:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="nombre"></a>
+                                        <span class="name "><b>nombre</b>
+                                            <a href="#nombre">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>nombre:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="ubicacion"></a>
+                                        <span class="name "><b>ubicacion</b>
+                                            <a href="#ubicacion">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>ubicacion:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatTableModule } from &#x27;@angular/material/table&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatMenuModule } from &#x27;@angular/material/menu&#x27;;
+import { MatProgressBarModule } from &#x27;@angular/material/progress-bar&#x27;;
+import { Chart, registerables } from &#x27;chart.js&#x27;;
+import { MapaLocalesComponent } from &#x27;../mapa-locales/mapa-locales.component&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { AuthService, type UserRole } from &#x27;../../core/services/auth.service&#x27;;
+import { DashboardRealtimeService, type DashboardMetrics } from &#x27;../../core/services/dashboard-realtime.service&#x27;;
+
+Chart.register(...registerables);
+
+export interface Activo {
+  id: string;
+  nombre: string;
+  categoria: string;
+  estado: &#x27;Activo&#x27; | &#x27;Inactivo&#x27; | &#x27;Mantenimiento&#x27;;
+  ubicacion: string;
+  fecha: string;
+}
+
+export interface MetricaCard {
+  label: string;
+  valor: string | number;
+  subvalor: string;
+  icono: string;
+  color: string;
+}
+
+type DashboardWidget &#x3D; &#x27;visitas&#x27; | &#x27;estado&#x27; | &#x27;pedidos&#x27; | &#x27;mapa&#x27; | &#x27;registros&#x27;;
+
+@Component({
+  selector: &#x27;app-dashboard&#x27;,
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MapaLocalesComponent,
+  ],
+  templateUrl: &#x27;./dashboard.html&#x27;,
+  styleUrls: [&#x27;./dashboard.css&#x27;]
+})
+export class Dashboard implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild(MapaLocalesComponent) mapaLocalesComponent?: MapaLocalesComponent;
+
+  private barChart?: Chart;
+  private donutChart?: Chart;
+  private lineChart?: Chart;
+
+  // ── Métricas resumen ──────────────────────────────────────────
+  metricas: MetricaCard[] &#x3D; [
+    { label: &#x27;Total Tenants&#x27;, valor: &#x27;1,284&#x27;, subvalor: &#x27;↑ 12 nuevos este mes&#x27;,        icono: &quot;domain&quot;,                 color: &#x27;primary&#x27;  },
+    { label: &#x27;Visitas&#x27;,           valor: &#x27;8,421&#x27;, subvalor: &#x27;↑ 12.4% esta semana&#x27;,   icono: &#x27;visibility&#x27;,          color: &#x27;accent&#x27;   },
+    { label: &#x27;Tickets abiertos&#x27;,  valor: &#x27;47&#x27;,    subvalor: &#x27;↓ 5 resueltos hoy&#x27;,     icono: &#x27;confirmation_number&#x27;, color: &#x27;warn&#x27;     },
+    { label: &#x27;Pedidos activos&#x27;,   valor: &#x27;312&#x27;,   subvalor: &#x27;↑ 8.1% vs ayer&#x27;,        icono: &#x27;shopping_cart&#x27;,       color: &#x27;success&#x27;  },
+    { label: &#x27;Locales&#x27;,           valor: &#x27;63&#x27;,    subvalor: &#x27;4 sin tenants&#x27;,      icono: &#x27;store&#x27;,               color: &#x27;info&#x27;     },
+    { label: &#x27;Usuarios&#x27;,          valor: &#x27;5,902&#x27;, subvalor: &#x27;↑ 4.7% este mes&#x27;,       icono: &#x27;group&#x27;,               color: &#x27;purple&#x27;   },
+  ];
+  metricasVisibles: MetricaCard[] &#x3D; [];
+
+  private readonly subscriptions &#x3D; new Subscription();
+
+  private readonly widgetRoutes: Record&lt;DashboardWidget, { detail: string; module: string }&gt; &#x3D; {
+    visitas: { detail: &#x27;/visitas&#x27;, module: &#x27;/visitas&#x27; },
+    estado: { detail: &#x27;/tenants&#x27;, module: &#x27;/tenants&#x27; },
+    pedidos: { detail: &#x27;/reportes&#x27;, module: &#x27;/pedidos&#x27; },
+    mapa: { detail: &#x27;/reportes&#x27;, module: &#x27;/locales&#x27; },
+    registros: { detail: &#x27;/activos&#x27;, module: &#x27;/tickets&#x27; },
+  };
+
+  // ── Activos por estado ────────────────────────────────────────
+  tenantsPorEstado &#x3D; { activos: 874, inactivos: 287, mantenimiento: 123 };
+
+  get totalActivos(): number {
+    return this.tenantsPorEstado.activos + this.tenantsPorEstado.inactivos + this.tenantsPorEstado.mantenimiento;
+  }
+
+  pctActivos():       number { return Math.round((this.tenantsPorEstado.activos       / this.totalActivos) * 100); }
+  pctInactivos():     number { return Math.round((this.tenantsPorEstado.inactivos     / this.totalActivos) * 100); }
+  pctMantenimiento(): number { return Math.round((this.tenantsPorEstado.mantenimiento / this.totalActivos) * 100); }
+
+  // ── Tabla activos recientes ───────────────────────────────────
+  columnasTabla: string[] &#x3D; [&#x27;id&#x27;, &#x27;nombre&#x27;, &#x27;categoria&#x27;, &#x27;estado&#x27;, &#x27;ubicacion&#x27;, &#x27;fecha&#x27;];
+
+  registrosRecientes: Activo[] &#x3D; [
+    { id: &#x27;TNT-0842&#x27;, nombre: &#x27;Empresa Soluciones SpA&#x27;,  categoria: &#x27;Tenant&#x27;,  estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Local Centro&#x27;,   fecha: &#x27;01 abr 2026&#x27; },
+    { id: &#x27;TNT-0841&#x27;, nombre: &#x27;Comercial Norte Ltda.&#x27;,   categoria: &#x27;Tenant&#x27;,  estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Local Norte&#x27;,    fecha: &#x27;01 abr 2026&#x27; },
+    { id: &#x27;TKT-1203&#x27;, nombre: &#x27;Ticket soporte red&#x27;,      categoria: &#x27;Ticket&#x27;,  estado: &#x27;Mantenimiento&#x27;, ubicacion: &#x27;Local Sur&#x27;,      fecha: &#x27;31 mar 2026&#x27; },
+    { id: &#x27;PED-5541&#x27;, nombre: &#x27;Pedido mayorista&#x27;,        categoria: &#x27;Pedido&#x27;,  estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Bodega Central&#x27;, fecha: &#x27;31 mar 2026&#x27; },
+    { id: &#x27;TNT-0839&#x27;, nombre: &#x27;Distribuidora Oriente&#x27;,   categoria: &#x27;Tenant&#x27;,  estado: &#x27;Inactivo&#x27;,      ubicacion: &#x27;Local Oriente&#x27;,  fecha: &#x27;30 mar 2026&#x27; },
+    { id: &#x27;USR-0210&#x27;, nombre: &#x27;Juan Pérez&#x27;,              categoria: &#x27;Usuario&#x27;, estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Admin&#x27;,          fecha: &#x27;30 mar 2026&#x27; },
+    { id: &#x27;LOC-0018&#x27;, nombre: &#x27;Local Las Condes&#x27;,        categoria: &#x27;Local&#x27;,   estado: &#x27;Activo&#x27;,        ubicacion: &#x27;Santiago&#x27;,       fecha: &#x27;29 mar 2026&#x27; },
+    { id: &#x27;TKT-1198&#x27;, nombre: &#x27;Falla acceso tenant&#x27;,     categoria: &#x27;Ticket&#x27;,  estado: &#x27;Inactivo&#x27;,      ubicacion: &#x27;Local Centro&#x27;,   fecha: &#x27;29 mar 2026&#x27; },
+  ];
+
+  // ── Categorías con barra de progreso ─────────────────────────
+  categorias &#x3D; [
+    { nombre: &#x27;Tenants&#x27;, valor: &#x27;1,284&#x27;, pct: 100, icono: &quot;domain&quot;,                 color: &#x27;#185FA5&#x27;, pbClass: &#x27;pb-primary&#x27; },
+    { nombre: &#x27;Visitas&#x27;,     valor: &#x27;8,421&#x27;, pct: 66,  icono: &#x27;visibility&#x27;,          color: &#x27;#639922&#x27;, pbClass: &#x27;pb-green&#x27;   },
+    { nombre: &#x27;Tickets&#x27;,     valor: &#x27;47&#x27;,    pct: 4,   icono: &#x27;confirmation_number&#x27;, color: &#x27;#BA7517&#x27;, pbClass: &#x27;pb-amber&#x27;   },
+    { nombre: &#x27;Pedidos&#x27;,     valor: &#x27;312&#x27;,   pct: 24,  icono: &#x27;shopping_cart&#x27;,       color: &#x27;#3B6D11&#x27;, pbClass: &#x27;pb-green&#x27;   },
+    { nombre: &#x27;Locales&#x27;,     valor: &#x27;63&#x27;,    pct: 5,   icono: &#x27;store&#x27;,               color: &#x27;#534AB7&#x27;, pbClass: &#x27;pb-purple&#x27;  },
+    { nombre: &#x27;Usuarios&#x27;,    valor: &#x27;5,902&#x27;, pct: 46,  icono: &#x27;group&#x27;,               color: &#x27;#993556&#x27;, pbClass: &#x27;pb-pink&#x27;    },
+  ];
+
+  private meses &#x3D; [&#x27;Ene&#x27;,&#x27;Feb&#x27;,&#x27;Mar&#x27;,&#x27;Abr&#x27;,&#x27;May&#x27;,&#x27;Jun&#x27;,&#x27;Jul&#x27;,&#x27;Ago&#x27;,&#x27;Sep&#x27;,&#x27;Oct&#x27;,&#x27;Nov&#x27;,&#x27;Dic&#x27;];
+
+  constructor(private authService: AuthService, private router: Router, private dashboardRealtimeService: DashboardRealtimeService) {}
+
+  ngOnInit(): void {
+    this.actualizarMetricasPorRol(this.authService.getRole());
+    this.subscriptions.add(
+      this.authService.role$.subscribe((role) &#x3D;&gt; {
+        this.actualizarMetricasPorRol(role);
+      }),
+    );
+
+    // Suscribirse a las métricas en tiempo real
+    this.subscriptions.add(
+      this.dashboardRealtimeService.connect().subscribe((metrics: DashboardMetrics) &#x3D;&gt; {
+        this.metricas &#x3D; [
+          { label: &#x27;Total Tenants&#x27;, valor: metrics.totalTenants.toLocaleString(), subvalor: &#x60;↑ ${metrics.newTenantsThisMonth} nuevos este mes&#x60;, icono: &quot;domain&quot;, color: &#x27;primary&#x27; },
+          { label: &#x27;Visitas&#x27;, valor: metrics.visits.toLocaleString(), subvalor: &#x60;↑ ${metrics.visitsWeeklyGrowth}% esta semana&#x60;, icono: &#x27;visibility&#x27;, color: &#x27;accent&#x27; },
+          { label: &#x27;Tickets abiertos&#x27;, valor: metrics.openTickets, subvalor: &#x60;↓ ${metrics.ticketsResolvedToday} resueltos hoy&#x60;, icono: &#x27;confirmation_number&#x27;, color: &#x27;warn&#x27; },
+          { label: &#x27;Pedidos activos&#x27;, valor: metrics.activeOrders, subvalor: &#x60;↑ ${metrics.ordersDailyGrowth}% vs ayer&#x60;, icono: &#x27;shopping_cart&#x27;, color: &#x27;success&#x27; },
+          { label: &#x27;Locales&#x27;, valor: metrics.locals, subvalor: &#x60;${metrics.localsWithoutTenants} sin tenants&#x60;, icono: &#x27;store&#x27;, color: &#x27;info&#x27; },
+          { label: &#x27;Usuarios&#x27;, valor: metrics.users.toLocaleString(), subvalor: &#x60;↑ ${metrics.usersMonthlyGrowth}% este mes&#x60;, icono: &#x27;group&#x27;, color: &#x27;purple&#x27; },
+        ];
+        this.actualizarMetricasPorRol(this.authService.getRole());
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+    this.barChart?.destroy();
+    this.donutChart?.destroy();
+    this.lineChart?.destroy();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() &#x3D;&gt; {
+      this.initBarChart();
+      this.initDonutChart();
+      this.initLineChart();
+    }, 0);
+  }
+
+  private initBarChart(): void {
+    const ctx &#x3D; document.getElementById(&#x27;barChart&#x27;) as HTMLCanvasElement;
+    if (!ctx) return;
+    this.barChart?.destroy();
+    this.barChart &#x3D; new Chart(ctx, {
+      type: &#x27;bar&#x27;,
+      data: {
+        labels: this.meses,
+        datasets: [
+          { label: &#x27;2025&#x27;, data: [3200,2900,4100,3800,4700,4300,5100,4800,5600,5200,6000,6400], backgroundColor: &#x27;#b5d4f4&#x27;, borderRadius: 5 },
+          { label: &#x27;2026&#x27;, data: [3900,3500,5200,8421,null,null,null,null,null,null,null,null],  backgroundColor: &#x27;#185FA5&#x27;, borderRadius: 5 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 11 }, color: &#x27;#888&#x27; } },
+          y: { grid: { color: &#x27;rgba(0,0,0,0.04)&#x27; }, ticks: { font: { size: 11 }, color: &#x27;#888&#x27;, callback: (v: string | number) &#x3D;&gt; typeof v &#x3D;&#x3D;&#x3D; &#x27;number&#x27; ? &#x60;${v/1000}k&#x60; : v } }
+        }
+      }
+    });
+  }
+
+  private initDonutChart(): void {
+    const ctx &#x3D; document.getElementById(&#x27;donutChart&#x27;) as HTMLCanvasElement;
+    if (!ctx) return;
+    this.donutChart?.destroy();
+    this.donutChart &#x3D; new Chart(ctx, {
+      type: &#x27;doughnut&#x27;,
+      data: {
+        labels: [&#x27;Activos&#x27;,&#x27;Inactivos&#x27;,&#x27;Mantenimiento&#x27;],
+        datasets: [{
+          data: [this.tenantsPorEstado.activos, this.tenantsPorEstado.inactivos, this.tenantsPorEstado.mantenimiento],
+          backgroundColor: [&#x27;#185FA5&#x27;,&#x27;#E24B4A&#x27;,&#x27;#EF9F27&#x27;],
+          borderWidth: 0, hoverOffset: 6
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        cutout: &#x27;70%&#x27;,
+        plugins: { legend: { display: false } }
+      }
+    });
+  }
+
+  private initLineChart(): void {
+    const ctx &#x3D; document.getElementById(&#x27;lineChart&#x27;) as HTMLCanvasElement;
+    if (!ctx) return;
+    this.lineChart?.destroy();
+    this.lineChart &#x3D; new Chart(ctx, {
+      type: &#x27;line&#x27;,
+      data: {
+        labels: [&#x27;Ene&#x27;,&#x27;Feb&#x27;,&#x27;Mar&#x27;,&#x27;Abr&#x27;],
+        datasets: [
+          { label: &#x27;Pedidos&#x27;, data: [210,245,289,312], borderColor: &#x27;#185FA5&#x27;, backgroundColor: &#x27;rgba(24,95,165,0.08)&#x27;,  tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: &#x27;#185FA5&#x27; },
+          { label: &#x27;Tickets&#x27;, data: [65,58,71,47],     borderColor: &#x27;#E24B4A&#x27;, backgroundColor: &#x27;rgba(226,75,74,0.08)&#x27;, tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: &#x27;#E24B4A&#x27; }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 11 }, color: &#x27;#888&#x27; } },
+          y: { grid: { color: &#x27;rgba(0,0,0,0.04)&#x27; }, ticks: { font: { size: 11 }, color: &#x27;#888&#x27; } }
+        }
+      }
+    });
+  }
+
+  getBadgeClass(estado: string): string {
+    const map: Record&lt;string, string&gt; &#x3D; {
+      &#x27;Activo&#x27;:        &#x27;badge-activo&#x27;,
+      &#x27;Inactivo&#x27;:      &#x27;badge-inactivo&#x27;,
+      &#x27;Mantenimiento&#x27;: &#x27;badge-mant&#x27;,
+    };
+    return map[estado] ?? &#x27;&#x27;;
+  }
+
+  getCategoriaClass(cat: string): string {
+    const map: Record&lt;string, string&gt; &#x3D; {
+      &#x27;Tenant&#x27;:     &#x27;cat-tenant&#x27;,
+      &#x27;Ticket&#x27;:  &#x27;cat-ticket&#x27;,
+      &#x27;Pedido&#x27;:  &#x27;cat-pedido&#x27;,
+      &#x27;Usuario&#x27;: &#x27;cat-usuario&#x27;,
+      &#x27;Local&#x27;:   &#x27;cat-local&#x27;,
+    };
+    return map[cat] ?? &#x27;&#x27;;
+  }
+
+  verDetalle(widget: DashboardWidget): void {
+    const route &#x3D; this.widgetRoutes[widget].detail;
+    this.router.navigate([route], { queryParams: { from: &#x27;dashboard&#x27;, widget } });
+  }
+
+  irModulo(widget: DashboardWidget): void {
+    const route &#x3D; this.widgetRoutes[widget].module;
+    this.router.navigate([route], { queryParams: { from: &#x27;dashboard&#x27; } });
+  }
+
+  irVista(route: string, queryParams: Record&lt;string, string&gt; &#x3D; {}): void {
+    const normalizedRoute &#x3D; route.startsWith(&#x27;/&#x27;) ? route : &#x60;/${route}&#x60;;
+    this.router.navigate([normalizedRoute], {
+      queryParams: {
+        from: &#x27;dashboard&#x27;,
+        ...queryParams,
+      },
+    });
+  }
+
+  refrescarWidget(widget: DashboardWidget): void {
+    switch (widget) {
+      case &#x27;visitas&#x27;:
+        this.initBarChart();
+        break;
+      case &#x27;estado&#x27;:
+        this.initDonutChart();
+        break;
+      case &#x27;pedidos&#x27;:
+        this.initLineChart();
+        break;
+      case &#x27;mapa&#x27;:
+        this.mapaLocalesComponent?.refresh();
+        break;
+      case &#x27;registros&#x27;:
+        this.registrosRecientes &#x3D; [...this.registrosRecientes];
+        break;
+      default:
+        break;
+    }
+  }
+
+  private actualizarMetricasPorRol(role: UserRole | null): void {
+    const esSuperAdmin &#x3D; role &#x3D;&#x3D;&#x3D; &#x27;super-admin&#x27;;
+    this.metricasVisibles &#x3D; this.metricas.filter((m) &#x3D;&gt; esSuperAdmin || m.label !&#x3D;&#x3D; &#x27;Total Tenants&#x27;);
+  }
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Activo.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

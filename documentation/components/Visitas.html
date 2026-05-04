@@ -1,0 +1,1898 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Visitas</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/visitas/visitas.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-visitas</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/forms/FormsModule" target="_blank" >FormsModule</a></code>
+                                <code><a href="../components/ViewSearchFiltersComponent.html" target="_self" >ViewSearchFiltersComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./visitas.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./visitas.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeTab" >activeTab</a>
+                            </li>
+                            <li>
+                                <a href="#dias" >dias</a>
+                            </li>
+                            <li>
+                                <a href="#editingIndex" >editingIndex</a>
+                            </li>
+                            <li>
+                                <a href="#estados" >estados</a>
+                            </li>
+                            <li>
+                                <a href="#isEditing" >isEditing</a>
+                            </li>
+                            <li>
+                                <a href="#newVisita" >newVisita</a>
+                            </li>
+                            <li>
+                                <a href="#tecnicos" >tecnicos</a>
+                            </li>
+                            <li>
+                                <a href="#visitas" >visitas</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancelEdit" >cancelEdit</a>
+                            </li>
+                            <li>
+                                <a href="#createVisita" >createVisita</a>
+                            </li>
+                            <li>
+                                <a href="#deleteVisita" >deleteVisita</a>
+                            </li>
+                            <li>
+                                <a href="#editVisita" >editVisita</a>
+                            </li>
+                            <li>
+                                <a href="#getStatusClass" >getStatusClass</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#resetForm" >resetForm</a>
+                            </li>
+                            <li>
+                                <a href="#setActiveTab" >setActiveTab</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/components/visitas/visitas.ts:66</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelEdit"></a>
+                    <span class="name">
+                        <span ><b>cancelEdit</b></span>
+                        <a href="#cancelEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancelEdit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/components/visitas/visitas.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createVisita"></a>
+                    <span class="name">
+                        <span ><b>createVisita</b></span>
+                        <a href="#createVisita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createVisita()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/components/visitas/visitas.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteVisita"></a>
+                    <span class="name">
+                        <span ><b>deleteVisita</b></span>
+                        <a href="#deleteVisita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteVisita(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/components/visitas/visitas.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editVisita"></a>
+                    <span class="name">
+                        <span ><b>editVisita</b></span>
+                        <a href="#editVisita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editVisita(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/components/visitas/visitas.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStatusClass"></a>
+                    <span class="name">
+                        <span ><b>getStatusClass</b></span>
+                        <a href="#getStatusClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStatusClass(estado: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/components/visitas/visitas.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>estado</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/components/visitas/visitas.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetForm"></a>
+                    <span class="name">
+                        <span ><b>resetForm</b></span>
+                        <a href="#resetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/components/visitas/visitas.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setActiveTab"></a>
+                    <span class="name">
+                        <span ><b>setActiveTab</b></span>
+                        <a href="#setActiveTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setActiveTab(tab: "list" | "create")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/components/visitas/visitas.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tab</td>
+                                            <td>
+                                                        <code>&quot;list&quot; | &quot;create&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeTab"></a>
+                    <span class="name">
+                        <span ><b>activeTab</b></span>
+                        <a href="#activeTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;list&quot; | &quot;create&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;list&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/visitas/visitas.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dias"></a>
+                    <span class="name">
+                        <span ><b>dias</b></span>
+                        <a href="#dias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Hoy&#x27;, &#x27;Mañana&#x27;, &#x27;En 2 días&#x27;, &#x27;En 3 días&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/visitas/visitas.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingIndex"></a>
+                    <span class="name">
+                        <span ><b>editingIndex</b></span>
+                        <a href="#editingIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/visitas/visitas.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estados"></a>
+                    <span class="name">
+                        <span ><b>estados</b></span>
+                        <a href="#estados"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Pendiente&#x27;, &#x27;Completada&#x27;, &#x27;Programada&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/visitas/visitas.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditing"></a>
+                    <span class="name">
+                        <span ><b>isEditing</b></span>
+                        <a href="#isEditing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/visitas/visitas.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newVisita"></a>
+                    <span class="name">
+                        <span ><b>newVisita</b></span>
+                        <a href="#newVisita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Visita.html" target="_self" >Visita</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    tiempo: &#x27;&#x27;,
+    dia: &#x27;&#x27;,
+    titulo: &#x27;&#x27;,
+    local: &#x27;&#x27;,
+    tecnico: &#x27;&#x27;,
+    estado: &#x27;Pendiente&#x27;
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/visitas/visitas.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tecnicos"></a>
+                    <span class="name">
+                        <span ><b>tecnicos</b></span>
+                        <a href="#tecnicos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Carlos M.&#x27;, &#x27;Luis A.&#x27;, &#x27;Pedro V.&#x27;, &#x27;Juan D.&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/visitas/visitas.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visitas"></a>
+                    <span class="name">
+                        <span ><b>visitas</b></span>
+                        <a href="#visitas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Visita.html" target="_self" >Visita[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      tiempo: &#x27;09:00&#x27;,
+      dia: &#x27;Hoy&#x27;,
+      titulo: &#x27;Mantenimiento Preventivo&#x27;,
+      local: &#x27;Bodegón El Sol&#x27;,
+      tecnico: &#x27;Carlos M.&#x27;,
+      estado: &#x27;Pendiente&#x27;
+    },
+    {
+      tiempo: &#x27;07:30&#x27;,
+      dia: &#x27;Hoy&#x27;,
+      titulo: &#x27;Revisión de Compresor&#x27;,
+      local: &#x27;Supermercado Norte&#x27;,
+      tecnico: &#x27;Luis A.&#x27;,
+      estado: &#x27;Completada&#x27;
+    },
+    {
+      tiempo: &#x27;11:30&#x27;,
+      dia: &#x27;Mañana&#x27;,
+      titulo: &#x27;Instalación NFC Tag&#x27;,
+      local: &#x27;Minimarket Central&#x27;,
+      tecnico: &#x27;Pedro V.&#x27;,
+      estado: &#x27;Programada&#x27;
+    }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/visitas/visitas.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { FilterService } from &#x27;../../core/services/filter.service&#x27;;
+import { ViewSearchFiltersComponent } from &#x27;../view-search-filters/view-search-filters.component&#x27;;
+
+interface Visita {
+  tiempo: string;
+  dia: string;
+  titulo: string;
+  local: string;
+  tecnico: string;
+  estado: &#x27;Pendiente&#x27; | &#x27;Completada&#x27; | &#x27;Programada&#x27;;
+}
+
+@Component({
+  selector: &#x27;app-visitas&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, ViewSearchFiltersComponent],
+  templateUrl: &#x27;./visitas.html&#x27;,
+  styleUrls: [&#x27;./visitas.css&#x27;],
+})
+export class Visitas implements OnInit {
+  activeTab: &#x27;list&#x27; | &#x27;create&#x27; &#x3D; &#x27;list&#x27;;
+  isEditing &#x3D; false;
+  editingIndex: number | null &#x3D; null;
+
+  visitas: Visita[] &#x3D; [
+    {
+      tiempo: &#x27;09:00&#x27;,
+      dia: &#x27;Hoy&#x27;,
+      titulo: &#x27;Mantenimiento Preventivo&#x27;,
+      local: &#x27;Bodegón El Sol&#x27;,
+      tecnico: &#x27;Carlos M.&#x27;,
+      estado: &#x27;Pendiente&#x27;
+    },
+    {
+      tiempo: &#x27;07:30&#x27;,
+      dia: &#x27;Hoy&#x27;,
+      titulo: &#x27;Revisión de Compresor&#x27;,
+      local: &#x27;Supermercado Norte&#x27;,
+      tecnico: &#x27;Luis A.&#x27;,
+      estado: &#x27;Completada&#x27;
+    },
+    {
+      tiempo: &#x27;11:30&#x27;,
+      dia: &#x27;Mañana&#x27;,
+      titulo: &#x27;Instalación NFC Tag&#x27;,
+      local: &#x27;Minimarket Central&#x27;,
+      tecnico: &#x27;Pedro V.&#x27;,
+      estado: &#x27;Programada&#x27;
+    }
+  ];
+
+  estados &#x3D; [&#x27;Pendiente&#x27;, &#x27;Completada&#x27;, &#x27;Programada&#x27;];
+  dias &#x3D; [&#x27;Hoy&#x27;, &#x27;Mañana&#x27;, &#x27;En 2 días&#x27;, &#x27;En 3 días&#x27;];
+  tecnicos &#x3D; [&#x27;Carlos M.&#x27;, &#x27;Luis A.&#x27;, &#x27;Pedro V.&#x27;, &#x27;Juan D.&#x27;];
+
+  newVisita: Visita &#x3D; {
+    tiempo: &#x27;&#x27;,
+    dia: &#x27;&#x27;,
+    titulo: &#x27;&#x27;,
+    local: &#x27;&#x27;,
+    tecnico: &#x27;&#x27;,
+    estado: &#x27;Pendiente&#x27;
+  };
+
+  constructor(private filterService: FilterService) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView(&#x27;visitas&#x27;);
+  }
+
+  setActiveTab(tab: &#x27;list&#x27; | &#x27;create&#x27;): void {
+    this.activeTab &#x3D; tab;
+    if (tab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;) {
+      this.cancelEdit();
+    } else if (tab &#x3D;&#x3D;&#x3D; &#x27;create&#x27; &amp;&amp; !this.isEditing) {
+      this.resetForm();
+    }
+  }
+
+  createVisita(): void {
+    if (this.newVisita.tiempo &amp;&amp; this.newVisita.titulo &amp;&amp; this.newVisita.local &amp;&amp; this.newVisita.tecnico) {
+      if (this.isEditing &amp;&amp; this.editingIndex !&#x3D;&#x3D; null) {
+        this.visitas[this.editingIndex] &#x3D; { ...this.newVisita };
+        this.cancelEdit();
+      } else {
+        this.visitas.push({ ...this.newVisita });
+        this.resetForm();
+      }
+      this.activeTab &#x3D; &#x27;list&#x27;;
+    }
+  }
+
+  editVisita(index: number): void {
+    this.newVisita &#x3D; { ...this.visitas[index] };
+    this.isEditing &#x3D; true;
+    this.editingIndex &#x3D; index;
+    this.activeTab &#x3D; &#x27;create&#x27;;
+  }
+
+  deleteVisita(index: number): void {
+    if (confirm(&#x27;¿Estás seguro de que deseas eliminar esta visita? Esta acción no puede deshacerse.&#x27;)) {
+      this.visitas.splice(index, 1);
+    }
+  }
+
+  cancelEdit(): void {
+    this.resetForm();
+    this.isEditing &#x3D; false;
+    this.editingIndex &#x3D; null;
+  }
+
+  resetForm(): void {
+    this.newVisita &#x3D; {
+      tiempo: &#x27;&#x27;,
+      dia: &#x27;&#x27;,
+      titulo: &#x27;&#x27;,
+      local: &#x27;&#x27;,
+      tecnico: &#x27;&#x27;,
+      estado: &#x27;Pendiente&#x27;
+    };
+  }
+
+  getStatusClass(estado: string): string {
+    const map: Record&lt;string, string&gt; &#x3D; {
+      &#x27;Pendiente&#x27;: &#x27;pending&#x27;,
+      &#x27;Completada&#x27;: &#x27;done&#x27;,
+      &#x27;Programada&#x27;: &#x27;scheduled&#x27;
+    };
+    return map[estado] ?? &#x27;&#x27;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-container&quot;&gt;
+  &lt;div class&#x3D;&quot;page-header&quot;&gt;
+    &lt;h2&gt;Agenda de Visitas&lt;/h2&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Search and Filters --&gt;
+  &lt;app-view-search-filters&gt;&lt;/app-view-search-filters&gt;
+
+  &lt;!-- Pestañas --&gt;
+  &lt;div class&#x3D;&quot;tabs-container&quot;&gt;
+    &lt;button 
+      class&#x3D;&quot;tab-button&quot; 
+      [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;&quot;
+      (click)&#x3D;&quot;setActiveTab(&#x27;list&#x27;)&quot;&gt;
+      Lista de Visitas
+    &lt;/button&gt;
+    &lt;button 
+      class&#x3D;&quot;tab-button&quot; 
+      [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;create&#x27;&quot;
+      (click)&#x3D;&quot;setActiveTab(&#x27;create&#x27;)&quot;&gt;
+      Programar Visita
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Pestaña: Lista de Visitas --&gt;
+  &lt;div class&#x3D;&quot;tab-content&quot; *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;&quot;&gt;
+    &lt;div class&#x3D;&quot;visits-list&quot;&gt;
+      &lt;div class&#x3D;&quot;visit-card&quot; *ngFor&#x3D;&quot;let visita of visitas; let i &#x3D; index&quot; [class.completed]&#x3D;&quot;visita.estado &#x3D;&#x3D;&#x3D; &#x27;Completada&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;visit-time&quot;&gt;
+          &lt;h3&gt;{{ visita.tiempo }}&lt;/h3&gt;
+          &lt;span&gt;{{ visita.dia }}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;visit-info&quot;&gt;
+          &lt;h4&gt;{{ visita.titulo }}&lt;/h4&gt;
+          &lt;p&gt;Local: {{ visita.local }} &amp;mdash; Técnico: {{ visita.tecnico }}&lt;/p&gt;
+          &lt;span class&#x3D;&quot;status&quot; [ngClass]&#x3D;&quot;getStatusClass(visita.estado)&quot;&gt;{{ visita.estado }}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;visit-actions&quot;&gt;
+          &lt;button class&#x3D;&quot;btn-action btn-edit&quot; (click)&#x3D;&quot;editVisita(i)&quot; title&#x3D;&quot;Editar visita&quot;&gt;✏️ Editar&lt;/button&gt;
+          &lt;button class&#x3D;&quot;btn-action btn-delete&quot; (click)&#x3D;&quot;deleteVisita(i)&quot; title&#x3D;&quot;Eliminar visita&quot;&gt;🗑️ Eliminar&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Pestaña: Crear/Editar Visita --&gt;
+  &lt;div class&#x3D;&quot;tab-content&quot; *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;create&#x27;&quot;&gt;
+    &lt;form class&#x3D;&quot;create-form&quot;&gt;
+      &lt;div class&#x3D;&quot;form-header&quot; *ngIf&#x3D;&quot;isEditing&quot;&gt;
+        &lt;p class&#x3D;&quot;edit-notice&quot;&gt;Editando visita&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;tiempo&quot;&gt;Hora *&lt;/label&gt;
+        &lt;input 
+          type&#x3D;&quot;time&quot; 
+          id&#x3D;&quot;tiempo&quot; 
+          [(ngModel)]&#x3D;&quot;newVisita.tiempo&quot;
+          name&#x3D;&quot;tiempo&quot;
+          required&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;dia&quot;&gt;Día *&lt;/label&gt;
+        &lt;select 
+          id&#x3D;&quot;dia&quot; 
+          [(ngModel)]&#x3D;&quot;newVisita.dia&quot;
+          name&#x3D;&quot;dia&quot;
+          required&gt;
+          &lt;option value&#x3D;&quot;&quot;&gt;Seleccione un día&lt;/option&gt;
+          &lt;option *ngFor&#x3D;&quot;let dia of dias&quot; [value]&#x3D;&quot;dia&quot;&gt;{{ dia }}&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;titulo&quot;&gt;Descripción de la Visita *&lt;/label&gt;
+        &lt;input 
+          type&#x3D;&quot;text&quot; 
+          id&#x3D;&quot;titulo&quot; 
+          [(ngModel)]&#x3D;&quot;newVisita.titulo&quot;
+          name&#x3D;&quot;titulo&quot;
+          placeholder&#x3D;&quot;Ej: Mantenimiento Preventivo&quot;
+          required&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;local&quot;&gt;Local/Ubicación *&lt;/label&gt;
+        &lt;input 
+          type&#x3D;&quot;text&quot; 
+          id&#x3D;&quot;local&quot; 
+          [(ngModel)]&#x3D;&quot;newVisita.local&quot;
+          name&#x3D;&quot;local&quot;
+          placeholder&#x3D;&quot;Ej: Bodegón El Sol&quot;
+          required&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;tecnico&quot;&gt;Técnico Asignado *&lt;/label&gt;
+        &lt;select 
+          id&#x3D;&quot;tecnico&quot; 
+          [(ngModel)]&#x3D;&quot;newVisita.tecnico&quot;
+          name&#x3D;&quot;tecnico&quot;
+          required&gt;
+          &lt;option value&#x3D;&quot;&quot;&gt;Seleccione un técnico&lt;/option&gt;
+          &lt;option *ngFor&#x3D;&quot;let tecnico of tecnicos&quot; [value]&#x3D;&quot;tecnico&quot;&gt;{{ tecnico }}&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;estado&quot;&gt;Estado&lt;/label&gt;
+        &lt;select 
+          id&#x3D;&quot;estado&quot; 
+          [(ngModel)]&#x3D;&quot;newVisita.estado&quot;
+          name&#x3D;&quot;estado&quot;&gt;
+          &lt;option *ngFor&#x3D;&quot;let estado of estados&quot; [value]&#x3D;&quot;estado&quot;&gt;{{ estado }}&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-actions&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-primary&quot; (click)&#x3D;&quot;createVisita()&quot;&gt;
+          {{ isEditing ? &#x27;Actualizar Visita&#x27; : &#x27;Programar Visita&#x27; }}
+        &lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-secondary&quot; (click)&#x3D;&quot;isEditing ? cancelEdit() : setActiveTab(&#x27;list&#x27;)&quot;&gt;
+          {{ isEditing ? &#x27;Cancelar Edición&#x27; : &#x27;Cancelar&#x27; }}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./visitas.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.page-container {
+  padding: 2rem;
+}
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+.page-header h2 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab-button:hover {
+  color: var(--text-primary);
+}
+
+.tab-button.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tab-content {
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--hover-overlay-3);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--hover-overlay-4);
+}
+
+/* Form Styles */
+.create-form {
+  max-width: 600px;
+  background-color: var(--surface-lowest);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.form-header {
+  margin-bottom: 1.5rem;
+}
+
+.edit-notice {
+  margin: 0;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background-color: var(--surface-lowest);
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-dim);
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+.visits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.visit-card {
+  background-color: var(--surface-lowest);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.2s;
+}
+.visit-card:hover {
+  border-color: var(--hover-overlay-7);
+}
+.visit-card.completed {
+  opacity: 0.55;
+}
+
+.visit-time {
+  min-width: 75px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  padding-right: 1.5rem;
+  flex-shrink: 0;
+}
+.visit-time h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.visit-time span {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.visit-info {
+  flex-grow: 1;
+}
+.visit-info h4 {
+  margin: 0 0 0.35rem 0;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+.visit-info p {
+  margin: 0 0 0.75rem 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.visit-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+}
+
+.btn-action {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.btn-edit {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-edit:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-delete {
+  color: #E24B4A;
+  border-color: #E24B4A;
+}
+
+.btn-delete:hover {
+  background-color: #E24B4A;
+  color: white;
+}
+
+.status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.status.pending {
+  background: var(--status-pending-bg);
+  color: var(--status-pending-text);
+  border: 1px solid var(--status-pending-border);
+}
+.status.done {
+  background: var(--status-done-bg);
+  color: var(--status-done-text);
+  border: 1px solid var(--status-done-border);
+}
+.status.scheduled {
+  background: var(--status-scheduled-bg);
+  color: var(--status-scheduled-text);
+  border: 1px solid var(--status-scheduled-border);
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .visit-card {
+    gap: 1.25rem;
+    padding: 1.15rem 1.25rem;
+  }
+
+  .visit-time {
+    min-width: 65px;
+    padding-right: 1.25rem;
+  }
+
+  .visit-time h3 {
+    font-size: 1rem;
+  }
+
+  .btn-action {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1.5rem;
+  }
+
+  .page-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .page-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .tabs-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .tab-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .create-form {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .visit-card {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .visit-time {
+    min-width: 60px;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    text-align: left;
+  }
+
+  .visit-time h3 {
+    font-size: 0.95rem;
+  }
+
+  .visit-time span {
+    font-size: 0.7rem;
+  }
+
+  .visit-info {
+    width: 100%;
+  }
+
+  .visit-actions {
+    width: 100%;
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-top: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-actions {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .page-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .tab-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .create-form {
+    padding: 1rem;
+  }
+
+  .visit-card {
+    padding: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .visit-time {
+    min-width: 50px;
+    margin-bottom: 0.5rem;
+  }
+
+  .visit-time h3 {
+    font-size: 0.9rem;
+  }
+
+  .visit-info h4 {
+    font-size: 0.85rem;
+  }
+
+  .visit-info p {
+    font-size: 0.75rem;
+  }
+
+  .btn-action {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 16px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="page-container">  <div class="page-header">    <h2>Agenda de Visitas</h2>  </div>  <!-- Search and Filters -->  <app-view-search-filters></app-view-search-filters>  <!-- Pestañas -->  <div class="tabs-container">    <button       class="tab-button"       [class.active]="activeTab === \'list\'"      (click)="setActiveTab(\'list\')">      Lista de Visitas    </button>    <button       class="tab-button"       [class.active]="activeTab === \'create\'"      (click)="setActiveTab(\'create\')">      Programar Visita    </button>  </div>  <!-- Pestaña: Lista de Visitas -->  <div class="tab-content" *ngIf="activeTab === \'list\'">    <div class="visits-list">      <div class="visit-card" *ngFor="let visita of visitas; let i = index" [class.completed]="visita.estado === \'Completada\'">        <div class="visit-time">          <h3>{{ visita.tiempo }}</h3>          <span>{{ visita.dia }}</span>        </div>        <div class="visit-info">          <h4>{{ visita.titulo }}</h4>          <p>Local: {{ visita.local }} &mdash; Técnico: {{ visita.tecnico }}</p>          <span class="status" [ngClass]="getStatusClass(visita.estado)">{{ visita.estado }}</span>        </div>        <div class="visit-actions">          <button class="btn-action btn-edit" (click)="editVisita(i)" title="Editar visita">✏️ Editar</button>          <button class="btn-action btn-delete" (click)="deleteVisita(i)" title="Eliminar visita">🗑️ Eliminar</button>        </div>      </div>    </div>  </div>  <!-- Pestaña: Crear/Editar Visita -->  <div class="tab-content" *ngIf="activeTab === \'create\'">    <form class="create-form">      <div class="form-header" *ngIf="isEditing">        <p class="edit-notice">Editando visita</p>      </div>      <div class="form-group">        <label for="tiempo">Hora *</label>        <input           type="time"           id="tiempo"           [(ngModel)]="newVisita.tiempo"          name="tiempo"          required>      </div>      <div class="form-group">        <label for="dia">Día *</label>        <select           id="dia"           [(ngModel)]="newVisita.dia"          name="dia"          required>          <option value="">Seleccione un día</option>          <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>        </select>      </div>      <div class="form-group">        <label for="titulo">Descripción de la Visita *</label>        <input           type="text"           id="titulo"           [(ngModel)]="newVisita.titulo"          name="titulo"          placeholder="Ej: Mantenimiento Preventivo"          required>      </div>      <div class="form-group">        <label for="local">Local/Ubicación *</label>        <input           type="text"           id="local"           [(ngModel)]="newVisita.local"          name="local"          placeholder="Ej: Bodegón El Sol"          required>      </div>      <div class="form-group">        <label for="tecnico">Técnico Asignado *</label>        <select           id="tecnico"           [(ngModel)]="newVisita.tecnico"          name="tecnico"          required>          <option value="">Seleccione un técnico</option>          <option *ngFor="let tecnico of tecnicos" [value]="tecnico">{{ tecnico }}</option>        </select>      </div>      <div class="form-group">        <label for="estado">Estado</label>        <select           id="estado"           [(ngModel)]="newVisita.estado"          name="estado">          <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>        </select>      </div>      <div class="form-actions">        <button type="button" class="btn-primary" (click)="createVisita()">          {{ isEditing ? \'Actualizar Visita\' : \'Programar Visita\' }}        </button>        <button type="button" class="btn-secondary" (click)="isEditing ? cancelEdit() : setActiveTab(\'list\')">          {{ isEditing ? \'Cancelar Edición\' : \'Cancelar\' }}        </button>      </div>    </form>  </div></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'Visitas'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Visitas.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

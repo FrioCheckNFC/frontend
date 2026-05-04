@@ -1,0 +1,3443 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Usuarios</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/usuarios/usuarios.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-usuarios</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/forms/FormsModule" target="_blank" >FormsModule</a></code>
+                                <code><a href="../components/ViewSearchFiltersComponent.html" target="_self" >ViewSearchFiltersComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./usuarios.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./usuarios.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionError" >actionError</a>
+                            </li>
+                            <li>
+                                <a href="#activeTab" >activeTab</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#allUsuarios" >allUsuarios</a>
+                            </li>
+                            <li>
+                                <a href="#createError" >createError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#currentSearchQuery" >currentSearchQuery</a>
+                            </li>
+                            <li>
+                                <a href="#deletingUserId" >deletingUserId</a>
+                            </li>
+                            <li>
+                                <a href="#editingIndex" >editingIndex</a>
+                            </li>
+                            <li>
+                                <a href="#isCreating" >isCreating</a>
+                            </li>
+                            <li>
+                                <a href="#isEditing" >isEditing</a>
+                            </li>
+                            <li>
+                                <a href="#loadError" >loadError</a>
+                            </li>
+                            <li>
+                                <a href="#newUsuario" >newUsuario</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#roleLabels" >roleLabels</a>
+                            </li>
+                            <li>
+                                <a href="#roles" >roles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#subscriptions" >subscriptions</a>
+                            </li>
+                            <li>
+                                <a href="#usuarios" >usuarios</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applySearchFilter" >applySearchFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#buildLoadErrorMessage" >buildLoadErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#cancelEdit" >cancelEdit</a>
+                            </li>
+                            <li>
+                                <a href="#createUsuario" >createUsuario</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteUsuario" >deleteUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#editUsuario" >editUsuario</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#extractRoleCodes" >extractRoleCodes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#flattenRoleValues" >flattenRoleValues</a>
+                            </li>
+                            <li>
+                                <a href="#getInitials" >getInitials</a>
+                            </li>
+                            <li>
+                                <a href="#getRoleLabel" >getRoleLabel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#humanizeRole" >humanizeRole</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadUsers" >loadUsers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapBackendUserToTableUser" >mapBackendUserToTableUser</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#normalizeRoleCode" >normalizeRoleCode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#normalizeSearchQuery" >normalizeSearchQuery</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#normalizeText" >normalizeText</a>
+                            </li>
+                            <li>
+                                <a href="#resetForm" >resetForm</a>
+                            </li>
+                            <li>
+                                <a href="#setActiveTab" >setActiveTab</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>, usersService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, confirmDialog: <a href="../injectables/ConfirmDialogService.html" target="_self">ConfirmDialogService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/components/usuarios/usuarios.ts:72</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>usersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>confirmDialog</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfirmDialogService.html" target="_self" >ConfirmDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applySearchFilter"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>applySearchFilter</b></span>
+                        <a href="#applySearchFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applySearchFilter(searchQuery: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="268"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:268</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>searchQuery</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildLoadErrorMessage"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>buildLoadErrorMessage</b></span>
+                        <a href="#buildLoadErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildLoadErrorMessage(error: <a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank">HttpErrorResponse</a>, resource: "usuarios" | "tenants")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                            <code><a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank" >HttpErrorResponse</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>resource</td>
+                                            <td>
+                                                        <code>&quot;usuarios&quot; | &quot;tenants&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelEdit"></a>
+                    <span class="name">
+                        <span ><b>cancelEdit</b></span>
+                        <a href="#cancelEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancelEdit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="440"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:440</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createUsuario"></a>
+                    <span class="name">
+                        <span ><b>createUsuario</b></span>
+                        <a href="#createUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createUsuario()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="295"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:295</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUsuario"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>deleteUsuario</b></span>
+                        <a href="#deleteUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteUsuario(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="404"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:404</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editUsuario"></a>
+                    <span class="name">
+                        <span ><b>editUsuario</b></span>
+                        <a href="#editUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editUsuario(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="388"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:388</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractRoleCodes"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>extractRoleCodes</b></span>
+                        <a href="#extractRoleCodes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractRoleCodes(user: <a href="../interfaces/BackendUser.html" target="_self">BackendUser</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="202"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:202</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BackendUser.html" target="_self" >BackendUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flattenRoleValues"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>flattenRoleValues</b></span>
+                        <a href="#flattenRoleValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>flattenRoleValues(value: unknown)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:215</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInitials"></a>
+                    <span class="name">
+                        <span ><b>getInitials</b></span>
+                        <a href="#getInitials"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInitials(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="460"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:460</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>name</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRoleLabel"></a>
+                    <span class="name">
+                        <span ><b>getRoleLabel</b></span>
+                        <a href="#getRoleLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRoleLabel(roleCode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>roleCode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="humanizeRole"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>humanizeRole</b></span>
+                        <a href="#humanizeRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>humanizeRole(roleCode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="255"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:255</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>roleCode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUsers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadUsers</b></span>
+                        <a href="#loadUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadUsers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapBackendUserToTableUser"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapBackendUserToTableUser</b></span>
+                        <a href="#mapBackendUserToTableUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapBackendUserToTableUser(user: <a href="../interfaces/BackendUser.html" target="_self">BackendUser</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BackendUser.html" target="_self" >BackendUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Usuario.html" target="_self" >Usuario</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="normalizeRoleCode"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>normalizeRoleCode</b></span>
+                        <a href="#normalizeRoleCode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>normalizeRoleCode(roleValue: string | null | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="243"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:243</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>roleValue</td>
+                                            <td>
+                                                        <code>string | null | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="normalizeSearchQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>normalizeSearchQuery</b></span>
+                        <a href="#normalizeSearchQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>normalizeSearchQuery(value: unknown)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="283"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:283</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="normalizeText"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>normalizeText</b></span>
+                        <a href="#normalizeText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>normalizeText(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="287"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:287</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetForm"></a>
+                    <span class="name">
+                        <span ><b>resetForm</b></span>
+                        <a href="#resetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="446"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:446</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setActiveTab"></a>
+                    <span class="name">
+                        <span ><b>setActiveTab</b></span>
+                        <a href="#setActiveTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setActiveTab(tab: "list" | "create")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="263"
+                                    class="link-to-prism">src/app/components/usuarios/usuarios.ts:263</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tab</td>
+                                            <td>
+                                                        <code>&quot;list&quot; | &quot;create&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionError"></a>
+                    <span class="name">
+                        <span ><b>actionError</b></span>
+                        <a href="#actionError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/usuarios/usuarios.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeTab"></a>
+                    <span class="name">
+                        <span ><b>activeTab</b></span>
+                        <a href="#activeTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;list&quot; | &quot;create&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;list&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/usuarios/usuarios.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allUsuarios"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>allUsuarios</b></span>
+                        <a href="#allUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Usuario.html" target="_self" >Usuario[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/usuarios/usuarios.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createError"></a>
+                    <span class="name">
+                        <span ><b>createError</b></span>
+                        <a href="#createError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/usuarios/usuarios.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentSearchQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>currentSearchQuery</b></span>
+                        <a href="#currentSearchQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/usuarios/usuarios.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deletingUserId"></a>
+                    <span class="name">
+                        <span ><b>deletingUserId</b></span>
+                        <a href="#deletingUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/usuarios/usuarios.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingIndex"></a>
+                    <span class="name">
+                        <span ><b>editingIndex</b></span>
+                        <a href="#editingIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/usuarios/usuarios.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isCreating"></a>
+                    <span class="name">
+                        <span ><b>isCreating</b></span>
+                        <a href="#isCreating"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/usuarios/usuarios.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditing"></a>
+                    <span class="name">
+                        <span ><b>isEditing</b></span>
+                        <a href="#isEditing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/usuarios/usuarios.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadError"></a>
+                    <span class="name">
+                        <span ><b>loadError</b></span>
+                        <a href="#loadError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/usuarios/usuarios.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newUsuario"></a>
+                    <span class="name">
+                        <span ><b>newUsuario</b></span>
+                        <a href="#newUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Usuario.html" target="_self" >Usuario</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: &#x27;&#x27;,
+    name: &#x27;&#x27;,
+    email: &#x27;&#x27;,
+    password: &#x27;&#x27;,
+    phone: &#x27;&#x27;,
+    role: &#x27;&#x27;,
+    roleLabel: &#x27;&#x27;,
+    status: &#x27;Activo&#x27;
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/usuarios/usuarios.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roleLabels"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>roleLabels</b></span>
+                        <a href="#roleLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Record&lt;string | string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    TECHNICIAN: &#x27;Tecnico&#x27;,
+    DRIVER: &#x27;Conductor&#x27;,
+    VENDOR: &#x27;Vendedor&#x27;,
+    RETAILER: &#x27;Retail&#x27;,
+    SUPPORT: &#x27;Soporte&#x27;,
+    ADMIN: &#x27;Administrador&#x27;,
+    TENANT_ADMIN: &#x27;Administrador&#x27;,
+    SUPER_ADMIN: &#x27;Super Administrador&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/components/usuarios/usuarios.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roles"></a>
+                    <span class="name">
+                        <span ><b>roles</b></span>
+                        <a href="#roles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;TECHNICIAN&#x27;, &#x27;DRIVER&#x27;, &#x27;VENDOR&#x27;, &#x27;RETAILER&#x27;, &#x27;SUPPORT&#x27;, &#x27;ADMIN&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/components/usuarios/usuarios.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>subscriptions</b></span>
+                        <a href="#subscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/usuarios/usuarios.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios"></a>
+                    <span class="name">
+                        <span ><b>usuarios</b></span>
+                        <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Usuario.html" target="_self" >Usuario[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/usuarios/usuarios.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
+import { Subscription, debounceTime, distinctUntilChanged, finalize, map } from &#x27;rxjs&#x27;;
+import { FilterService } from &#x27;../../core/services/filter.service&#x27;;
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
+import {
+  UsersService,
+  type BackendUser,
+  type CreateUserRequest,
+  type UpdateUserRequest,
+} from &#x27;../../core/services/users.service&#x27;;
+import { ConfirmDialogService } from &#x27;../../core/services/confirm-dialog.service&#x27;;
+import { ViewSearchFiltersComponent } from &#x27;../view-search-filters/view-search-filters.component&#x27;;
+
+interface Usuario {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  phone: string;
+  role: string;
+  roleLabel: string;
+  status: &#x27;Activo&#x27; | &#x27;Inactivo&#x27;;
+}
+
+@Component({
+  selector: &#x27;app-usuarios&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, ViewSearchFiltersComponent],
+  templateUrl: &#x27;./usuarios.html&#x27;,
+  styleUrls: [&#x27;./usuarios.css&#x27;]
+})
+export class Usuarios implements OnInit, OnDestroy {
+  activeTab: &#x27;list&#x27; | &#x27;create&#x27; &#x3D; &#x27;list&#x27;;
+  isEditing &#x3D; false;
+  editingIndex: number | null &#x3D; null;
+  private readonly subscriptions &#x3D; new Subscription();
+  private allUsuarios: Usuario[] &#x3D; [];
+  private currentSearchQuery &#x3D; &#x27;&#x27;;
+  
+  usuarios: Usuario[] &#x3D; [];
+  loadError: string | null &#x3D; null;
+  createError: string | null &#x3D; null;
+  actionError: string | null &#x3D; null;
+  isCreating &#x3D; false;
+  deletingUserId: string | null &#x3D; null;
+
+  newUsuario: Usuario &#x3D; {
+    id: &#x27;&#x27;,
+    name: &#x27;&#x27;,
+    email: &#x27;&#x27;,
+    password: &#x27;&#x27;,
+    phone: &#x27;&#x27;,
+    role: &#x27;&#x27;,
+    roleLabel: &#x27;&#x27;,
+    status: &#x27;Activo&#x27;
+  };
+
+  roles: string[] &#x3D; [&#x27;TECHNICIAN&#x27;, &#x27;DRIVER&#x27;, &#x27;VENDOR&#x27;, &#x27;RETAILER&#x27;, &#x27;SUPPORT&#x27;, &#x27;ADMIN&#x27;];
+
+  private readonly roleLabels: Record&lt;string, string&gt; &#x3D; {
+    TECHNICIAN: &#x27;Tecnico&#x27;,
+    DRIVER: &#x27;Conductor&#x27;,
+    VENDOR: &#x27;Vendedor&#x27;,
+    RETAILER: &#x27;Retail&#x27;,
+    SUPPORT: &#x27;Soporte&#x27;,
+    ADMIN: &#x27;Administrador&#x27;,
+    TENANT_ADMIN: &#x27;Administrador&#x27;,
+    SUPER_ADMIN: &#x27;Super Administrador&#x27;,
+  };
+
+  constructor(
+    private filterService: FilterService,
+    private usersService: UsersService,
+    private authService: AuthService,
+    private confirmDialog: ConfirmDialogService,
+  ) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView(&#x27;usuarios&#x27;);
+    this.subscriptions.add(
+      this.filterService.filters$
+        .pipe(
+          map((filters) &#x3D;&gt; this.normalizeSearchQuery(filters[&#x27;search&#x27;])),
+          debounceTime(200),
+          distinctUntilChanged(),
+        )
+        .subscribe((query) &#x3D;&gt; {
+          this.applySearchFilter(query);
+        }),
+    );
+
+    this.loadUsers();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  private loadUsers(): void {
+    this.loadError &#x3D; null;
+    this.actionError &#x3D; null;
+
+    this.subscriptions.add(this.usersService.getUsers().subscribe({
+      next: (users) &#x3D;&gt; {
+        this.allUsuarios &#x3D; users.map((user) &#x3D;&gt; this.mapBackendUserToTableUser(user));
+        this.applySearchFilter(this.currentSearchQuery);
+      },
+      error: (error: HttpErrorResponse) &#x3D;&gt; {
+        this.allUsuarios &#x3D; [];
+        this.usuarios &#x3D; [];
+        this.loadError &#x3D; this.buildLoadErrorMessage(error, &#x27;usuarios&#x27;);
+      },
+    }));
+  }
+
+  private buildLoadErrorMessage(error: HttpErrorResponse, resource: &#x27;usuarios&#x27; | &#x27;tenants&#x27;): string {
+    const backendMessage &#x3D;
+      (typeof error.error?.message &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; error.error.message.trim()) ||
+      (typeof error.error &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; error.error.trim()) ||
+      &#x27;&#x27;;
+
+    if (error.status &#x3D;&#x3D;&#x3D; 403) {
+      const detail &#x3D; backendMessage ? &#x60; Detalle backend: ${backendMessage}.&#x60; : &#x27;&#x27;;
+      return &#x60;No tienes permisos para cargar ${resource} con el rol o tenant actual.${detail}&#x60;;
+    }
+
+    if (backendMessage) {
+      return &#x60;No fue posible cargar ${resource}. Detalle backend: ${backendMessage}.&#x60;;
+    }
+
+    return &#x60;No fue posible cargar ${resource}. Intenta nuevamente.&#x60;;
+  }
+
+  private mapBackendUserToTableUser(user: BackendUser): Usuario {
+    const fullName &#x3D; &#x60;${user.firstName ?? &#x27;&#x27;} ${user.lastName ?? &#x27;&#x27;}&#x60;.trim();
+    const roleCodes &#x3D; this.extractRoleCodes(user);
+
+    return {
+      id: user.id,
+      name: fullName || user.email,
+      email: user.email,
+      password: &#x27;&#x27;,
+      phone: user.phone ?? &#x27;&#x27;,
+      role: roleCodes[0] ?? &#x27;&#x27;,
+      roleLabel: roleCodes.length ? roleCodes.map((role) &#x3D;&gt; this.getRoleLabel(role)).join(&#x27;, &#x27;) : &#x27;Sin rol&#x27;,
+      status: user.active ? &#x27;Activo&#x27; : &#x27;Inactivo&#x27;,
+    };
+  }
+
+  getRoleLabel(roleCode: string): string {
+    const normalizedRole &#x3D; this.normalizeRoleCode(roleCode);
+    if (!normalizedRole) {
+      return &#x27;Sin rol&#x27;;
+    }
+
+    const directLabel &#x3D; this.roleLabels[normalizedRole];
+    if (directLabel) {
+      return directLabel;
+    }
+
+    if (normalizedRole.includes(&#x27;SUPER&#x27;) &amp;&amp; normalizedRole.includes(&#x27;ADMIN&#x27;)) {
+      return &#x27;Super Administrador&#x27;;
+    }
+
+    if (normalizedRole.includes(&#x27;ADMIN&#x27;)) {
+      return &#x27;Administrador&#x27;;
+    }
+
+    if (normalizedRole.includes(&#x27;SUPPORT&#x27;) 
+    ) {
+      return &#x27;Soporte&#x27;;
+    }
+
+    if (normalizedRole.includes(&#x27;TECH&#x27;) 
+    ) {
+      return &#x27;Tecnico&#x27;;
+    }
+
+    if (
+      normalizedRole.includes(&#x27;DRIVER&#x27;)
+    ) {
+      return &#x27;Conductor&#x27;;
+    }
+
+    if (
+      normalizedRole.includes(&#x27;VENDOR&#x27;)
+    ) {
+      return &#x27;Vendedor&#x27;;
+    }
+
+    if (normalizedRole.includes(&#x27;RETAIL&#x27;) 
+    ) {
+      return &#x27;Retail&#x27;;
+    }
+
+    return this.humanizeRole(normalizedRole);
+  }
+
+  private extractRoleCodes(user: BackendUser): string[] {
+    const roleValues &#x3D; [
+      ...this.flattenRoleValues(user.role),
+      ...this.flattenRoleValues(user.roles),
+    ];
+
+    const normalizedRoles &#x3D; roleValues
+      .map((role) &#x3D;&gt; this.normalizeRoleCode(role))
+      .filter((role): role is string &#x3D;&gt; !!role);
+
+    return Array.from(new Set(normalizedRoles));
+  }
+
+  private flattenRoleValues(value: unknown): string[] {
+    if (!value) {
+      return [];
+    }
+
+    if (typeof value &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+      const trimmed &#x3D; value.trim();
+      return trimmed ? [trimmed] : [];
+    }
+
+    if (Array.isArray(value)) {
+      return value.flatMap((item) &#x3D;&gt; this.flattenRoleValues(item));
+    }
+
+    if (typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+      const record &#x3D; value as Record&lt;string, unknown&gt;;
+      return [
+        ...this.flattenRoleValues(record[&#x27;role&#x27;]),
+        ...this.flattenRoleValues(record[&#x27;roles&#x27;]),
+        ...this.flattenRoleValues(record[&#x27;name&#x27;]),
+        ...this.flattenRoleValues(record[&#x27;code&#x27;]),
+        ...this.flattenRoleValues(record[&#x27;value&#x27;]),
+      ];
+    }
+
+    return [];
+  }
+
+  private normalizeRoleCode(roleValue: string | null | undefined): string {
+    if (!roleValue) {
+      return &#x27;&#x27;;
+    }
+
+    return roleValue
+      .trim()
+      .toUpperCase()
+      .replace(/^ROLE_/, &#x27;&#x27;)
+      .replace(/[\s-]+/g, &#x27;_&#x27;);
+  }
+
+  private humanizeRole(roleCode: string): string {
+    return roleCode
+      .split(&#x27;_&#x27;)
+      .filter(Boolean)
+      .map((word) &#x3D;&gt; word.charAt(0) + word.slice(1).toLowerCase())
+      .join(&#x27; &#x27;);
+  }
+
+  setActiveTab(tab: &#x27;list&#x27; | &#x27;create&#x27;): void {
+    this.activeTab &#x3D; tab;
+    this.createError &#x3D; null;
+  }
+
+  private applySearchFilter(searchQuery: string): void {
+    this.currentSearchQuery &#x3D; searchQuery;
+
+    if (!searchQuery) {
+      this.usuarios &#x3D; [...this.allUsuarios];
+      return;
+    }
+
+    const normalizedQuery &#x3D; this.normalizeText(searchQuery);
+    this.usuarios &#x3D; this.allUsuarios.filter((user) &#x3D;&gt; {
+      const values &#x3D; [user.name, user.email, user.phone, user.roleLabel, user.status, user.id];
+      return values.some((value) &#x3D;&gt; this.normalizeText(value).includes(normalizedQuery));
+    });
+  }
+
+  private normalizeSearchQuery(value: unknown): string {
+    return typeof value &#x3D;&#x3D;&#x3D; &#x27;string&#x27; ? value.trim() : &#x27;&#x27;;
+  }
+
+  private normalizeText(value: string): string {
+    return value
+      .normalize(&#x27;NFD&#x27;)
+      .replace(/[\u0300-\u036f]/g, &#x27;&#x27;)
+      .toLowerCase()
+      .trim();
+  }
+
+  createUsuario(): void {
+    if (this.isEditing &amp;&amp; this.editingIndex !&#x3D;&#x3D; null) {
+      const editingUser &#x3D; this.usuarios[this.editingIndex];
+
+      if (!editingUser?.id) {
+        this.createError &#x3D; &#x27;No se pudo identificar el usuario a editar.&#x27;;
+        return;
+      }
+
+      const name &#x3D; this.newUsuario.name.trim();
+      const email &#x3D; this.newUsuario.email.trim();
+      const phone &#x3D; this.newUsuario.phone.trim();
+      const normalizedRole &#x3D; this.normalizeRoleCode(this.newUsuario.role);
+
+      if (!name || !email || !phone || !normalizedRole) {
+        this.createError &#x3D; &#x27;Debes completar Nombre, Email, Teléfono y Rol.&#x27;;
+        return;
+      }
+
+      const [firstName, ...lastNameParts] &#x3D; name.split(/\s+/);
+      const lastName &#x3D; lastNameParts.join(&#x27; &#x27;).trim();
+
+      const payload: UpdateUserRequest &#x3D; {
+        email,
+        firstName: firstName ?? &#x27;&#x27;,
+        lastName,
+        phone,
+        role: normalizedRole,
+        active: this.newUsuario.status &#x3D;&#x3D;&#x3D; &#x27;Activo&#x27;,
+      };
+
+      this.createError &#x3D; null;
+      this.isCreating &#x3D; true;
+
+      this.usersService
+        .updateUser(editingUser.id, payload)
+        .pipe(finalize(() &#x3D;&gt; (this.isCreating &#x3D; false)))
+        .subscribe({
+          next: () &#x3D;&gt; {
+            this.cancelEdit();
+            this.activeTab &#x3D; &#x27;list&#x27;;
+            this.loadUsers();
+          },
+          error: (error: HttpErrorResponse) &#x3D;&gt; {
+            this.createError &#x3D; this.buildLoadErrorMessage(error, &#x27;usuarios&#x27;);
+          },
+        });
+
+      return;
+    }
+
+    const name &#x3D; this.newUsuario.name.trim();
+    const email &#x3D; this.newUsuario.email.trim();
+    const password &#x3D; this.newUsuario.password;
+    const phone &#x3D; this.newUsuario.phone.trim();
+    const role &#x3D; this.normalizeRoleCode(this.newUsuario.role);
+
+    if (!name || !email || !password || !role || !phone) {
+      this.createError &#x3D; &#x27;Debes completar Nombre, Email, Password, Teléfono y Rol.&#x27;;
+      return;
+    }
+
+    const [firstName, ...lastNameParts] &#x3D; name.split(/\s+/);
+    const lastName &#x3D; lastNameParts.join(&#x27; &#x27;).trim();
+
+    const payload: CreateUserRequest &#x3D; {
+      email,
+      password,
+      firstName: firstName ?? &#x27;&#x27;,
+      lastName,
+      role,
+      tenantId: this.authService.getTenantId() ?? undefined,
+      phone,
+    };
+
+    this.createError &#x3D; null;
+    this.isCreating &#x3D; true;
+
+    this.usersService
+      .createUser(payload)
+      .pipe(finalize(() &#x3D;&gt; (this.isCreating &#x3D; false)))
+      .subscribe({
+        next: () &#x3D;&gt; {
+          this.resetForm();
+          this.activeTab &#x3D; &#x27;list&#x27;;
+          this.loadUsers();
+        },
+        error: (error: HttpErrorResponse) &#x3D;&gt; {
+          this.createError &#x3D; this.buildLoadErrorMessage(error, &#x27;usuarios&#x27;);
+        },
+      });
+  }
+
+  editUsuario(index: number): void {
+    this.actionError &#x3D; null;
+
+    const usuario &#x3D; this.usuarios[index];
+    this.newUsuario &#x3D; {
+      ...usuario,
+      password: &#x27;&#x27;,
+      roleLabel: this.getRoleLabel(usuario.role),
+    };
+
+    this.isEditing &#x3D; true;
+    this.editingIndex &#x3D; index;
+    this.activeTab &#x3D; &#x27;create&#x27;;
+    this.createError &#x3D; null;
+  }
+
+  async deleteUsuario(index: number): Promise&lt;void&gt; {
+    const usuario &#x3D; this.usuarios[index];
+
+    if (!usuario?.id) {
+      this.actionError &#x3D; &#x27;No se pudo identificar el usuario a desactivar.&#x27;;
+      return;
+    }
+
+    const confirmed &#x3D; await this.confirmDialog.confirm({
+      title: &#x27;Desactivar usuario&#x27;,
+      message: &#x27;El usuario dejara de tener acceso al sistema hasta que sea reactivado.&#x27;,
+      confirmText: &#x27;Desactivar&#x27;,
+      cancelText: &#x27;Cancelar&#x27;,
+      variant: &#x27;warning&#x27;,
+    });
+
+    if (!confirmed) {
+      return;
+    }
+
+    this.actionError &#x3D; null;
+    this.deletingUserId &#x3D; usuario.id;
+
+    this.usersService
+      .deactivateUser(usuario.id)
+      .pipe(finalize(() &#x3D;&gt; (this.deletingUserId &#x3D; null)))
+      .subscribe({
+        next: () &#x3D;&gt; {
+          this.loadUsers();
+        },
+        error: (error: HttpErrorResponse) &#x3D;&gt; {
+          this.actionError &#x3D; this.buildLoadErrorMessage(error, &#x27;usuarios&#x27;);
+        },
+      });
+  }
+
+  cancelEdit(): void {
+    this.resetForm();
+    this.isEditing &#x3D; false;
+    this.editingIndex &#x3D; null;
+  }
+
+  resetForm(): void {
+    this.newUsuario &#x3D; {
+      id: &#x27;&#x27;,
+      name: &#x27;&#x27;,
+      email: &#x27;&#x27;,
+      password: &#x27;&#x27;,
+      phone: &#x27;&#x27;,
+      role: &#x27;&#x27;,
+      roleLabel: &#x27;&#x27;,
+      status: &#x27;Activo&#x27;
+    };
+    this.createError &#x3D; null;
+  }
+
+  getInitials(name: string): string {
+    return name
+      .split(&#x27; &#x27;)
+      .map(word &#x3D;&gt; word.charAt(0))
+      .join(&#x27;&#x27;)
+      .toUpperCase();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-container&quot;&gt;
+  &lt;div class&#x3D;&quot;page-header&quot;&gt;
+    &lt;h2&gt;Gestión de Personal&lt;/h2&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Search and Filters --&gt;
+  &lt;app-view-search-filters&gt;&lt;/app-view-search-filters&gt;
+
+  &lt;!-- Pestañas --&gt;
+  &lt;div class&#x3D;&quot;tabs-container&quot;&gt;
+    &lt;button 
+      class&#x3D;&quot;tab-button&quot; 
+      [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;&quot;
+      (click)&#x3D;&quot;setActiveTab(&#x27;list&#x27;)&quot;&gt;
+      Lista de Usuarios
+    &lt;/button&gt;
+    &lt;button 
+      class&#x3D;&quot;tab-button&quot; 
+      [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;create&#x27;&quot;
+      (click)&#x3D;&quot;setActiveTab(&#x27;create&#x27;)&quot;&gt;
+      Crear Usuario
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Pestaña: Lista de Usuarios --&gt;
+  &lt;div class&#x3D;&quot;tab-content&quot; *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;&quot;&gt;
+    &lt;div class&#x3D;&quot;load-error&quot; *ngIf&#x3D;&quot;loadError&quot;&gt;{{ loadError }}&lt;/div&gt;
+    &lt;div class&#x3D;&quot;load-error&quot; *ngIf&#x3D;&quot;actionError&quot;&gt;{{ actionError }}&lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;table-container&quot;&gt;
+      &lt;div class&#x3D;&quot;table-scroll&quot;&gt;
+        &lt;table class&#x3D;&quot;data-table&quot;&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th&gt;Nombre&lt;/th&gt;
+              &lt;th&gt;Rol&lt;/th&gt;
+              &lt;th&gt;Estado&lt;/th&gt;
+              &lt;th&gt;Acciones&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr *ngFor&#x3D;&quot;let usuario of usuarios; let i &#x3D; index&quot;&gt;
+              &lt;td&gt;{{ usuario.name }}&lt;/td&gt;
+              &lt;td&gt;{{ usuario.roleLabel }}&lt;/td&gt;
+              &lt;td&gt;
+                &lt;span class&#x3D;&quot;badge&quot; [class.active]&#x3D;&quot;usuario.status &#x3D;&#x3D;&#x3D; &#x27;Activo&#x27;&quot; [class.inactive]&#x3D;&quot;usuario.status &#x3D;&#x3D;&#x3D; &#x27;Inactivo&#x27;&quot;&gt;
+                  {{ usuario.status }}
+                &lt;/span&gt;
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;div class&#x3D;&quot;action-buttons&quot;&gt;
+                  &lt;button
+                    class&#x3D;&quot;btn-action btn-edit&quot;
+                    (click)&#x3D;&quot;editUsuario(i)&quot;
+                    [disabled]&#x3D;&quot;isCreating || deletingUserId &#x3D;&#x3D;&#x3D; usuario.id&quot;
+                    title&#x3D;&quot;Editar usuario&quot;&gt;
+                    ✏️
+                  &lt;/button&gt;
+                  &lt;button
+                    class&#x3D;&quot;btn-action btn-delete&quot;
+                    (click)&#x3D;&quot;deleteUsuario(i)&quot;
+                    [disabled]&#x3D;&quot;isCreating || deletingUserId &#x3D;&#x3D;&#x3D; usuario.id&quot;
+                    title&#x3D;&quot;Desactivar usuario&quot;&gt;
+                    {{ deletingUserId &#x3D;&#x3D;&#x3D; usuario.id ? &#x27;...&#x27; : &#x27;🗑️&#x27; }}
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Pestaña: Crear/Editar Usuario --&gt;
+  &lt;div class&#x3D;&quot;tab-content&quot; *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;create&#x27;&quot;&gt;
+    &lt;form class&#x3D;&quot;create-form&quot;&gt;
+      &lt;div class&#x3D;&quot;form-header&quot; *ngIf&#x3D;&quot;isEditing&quot;&gt;
+        &lt;p class&#x3D;&quot;edit-notice&quot;&gt;Editando usuario&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;load-error&quot; *ngIf&#x3D;&quot;createError&quot;&gt;{{ createError }}&lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;name&quot;&gt;Nombre Completo *&lt;/label&gt;
+        &lt;input 
+          type&#x3D;&quot;text&quot; 
+          id&#x3D;&quot;name&quot; 
+          [(ngModel)]&#x3D;&quot;newUsuario.name&quot;
+          name&#x3D;&quot;name&quot;
+          placeholder&#x3D;&quot;Ingrese nombre completo&quot;
+          required&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;email&quot;&gt;Email *&lt;/label&gt;
+        &lt;input
+          type&#x3D;&quot;email&quot;
+          id&#x3D;&quot;email&quot;
+          [(ngModel)]&#x3D;&quot;newUsuario.email&quot;
+          name&#x3D;&quot;email&quot;
+          placeholder&#x3D;&quot;usuario@empresa.com&quot;
+          required&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot; *ngIf&#x3D;&quot;!isEditing&quot;&gt;
+        &lt;label for&#x3D;&quot;password&quot;&gt;Password *&lt;/label&gt;
+        &lt;input
+          type&#x3D;&quot;password&quot;
+          id&#x3D;&quot;password&quot;
+          [(ngModel)]&#x3D;&quot;newUsuario.password&quot;
+          name&#x3D;&quot;password&quot;
+          placeholder&#x3D;&quot;Ingresa contraseña&quot;
+          required&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;phone&quot;&gt;Teléfono *&lt;/label&gt;
+        &lt;input
+          type&#x3D;&quot;tel&quot;
+          id&#x3D;&quot;phone&quot;
+          [(ngModel)]&#x3D;&quot;newUsuario.phone&quot;
+          name&#x3D;&quot;phone&quot;
+          placeholder&#x3D;&quot;+56998765432&quot;
+          required&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;role&quot;&gt;Rol *&lt;/label&gt;
+        &lt;select 
+          id&#x3D;&quot;role&quot; 
+          [(ngModel)]&#x3D;&quot;newUsuario.role&quot;
+          name&#x3D;&quot;role&quot;
+          required&gt;
+          &lt;option value&#x3D;&quot;&quot;&gt;Seleccione un rol&lt;/option&gt;
+          &lt;option *ngFor&#x3D;&quot;let role of roles&quot; [value]&#x3D;&quot;role&quot;&gt;{{ getRoleLabel(role) }}&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;status&quot;&gt;Estado&lt;/label&gt;
+        &lt;select 
+          id&#x3D;&quot;status&quot; 
+          [(ngModel)]&#x3D;&quot;newUsuario.status&quot;
+          name&#x3D;&quot;status&quot;&gt;
+          &lt;option value&#x3D;&quot;Activo&quot;&gt;Activo&lt;/option&gt;
+          &lt;option value&#x3D;&quot;Inactivo&quot;&gt;Inactivo&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-actions&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-primary&quot; (click)&#x3D;&quot;createUsuario()&quot; [disabled]&#x3D;&quot;isCreating&quot;&gt;
+          {{ isCreating ? (isEditing ? &#x27;Actualizando...&#x27; : &#x27;Creando...&#x27;) : (isEditing ? &#x27;Actualizar Usuario&#x27; : &#x27;Crear Usuario&#x27;) }}
+        &lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-secondary&quot; (click)&#x3D;&quot;isEditing ? cancelEdit() : setActiveTab(&#x27;list&#x27;)&quot;&gt;
+          {{ isEditing ? &#x27;Cancelar Edición&#x27; : &#x27;Cancelar&#x27; }}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./usuarios.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.page-container {
+  padding: 2rem;
+}
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+.page-header h2 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab-button:hover {
+  color: var(--text-primary);
+}
+
+.tab-button.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tab-content {
+  animation: fadeIn 0.2s ease-in;
+}
+
+.load-error {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--status-high-border);
+  color: var(--status-high-text);
+  background: var(--status-high-bg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--hover-overlay-3);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--hover-overlay-4);
+}
+
+/* Form Styles */
+.create-form {
+  max-width: 600px;
+  background-color: var(--surface-lowest);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background-color: var(--surface-lowest);
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-dim);
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+.form-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.edit-notice {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Table Styles */
+.table-container {
+  background-color: var(--surface-lowest);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-scroll {
+  overflow: auto;
+  width: 100%;
+  max-height: clamp(260px, 40vh, 460px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.2) transparent;
+}
+
+.table-scroll::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.32);
+}
+
+.data-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.data-table thead th {
+  background-color: var(--hover-overlay-2);
+  padding: 0.85rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table thead th:nth-child(1) { /* Nombre */
+  width: 35%;
+}
+
+.data-table thead th:nth-child(2) { /* Rol */
+  width: 30%;
+}
+
+.data-table thead th:nth-child(3) { /* Estado */
+  width: 20%;
+  text-align: center;
+}
+
+.data-table thead th:nth-child(4) { /* Acciones */
+  width: 15%;
+  text-align: center;
+}
+
+.data-table tbody td {
+  padding: 0.9rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.data-table tbody td:nth-child(3) { /* Estado */
+  text-align: center;
+}
+
+.data-table tbody td:nth-child(4) { /* Acciones */
+  text-align: center;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--hover-overlay-1);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-action {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-action:hover {
+  background-color: var(--hover-bg);
+}
+
+.btn-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  background-color: transparent;
+}
+
+.btn-edit:hover {
+  color: var(--primary);
+}
+
+.btn-delete:hover {
+  color: var(--status-high-text);
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.badge.active {
+  background: var(--status-done-bg);
+  color: var(--status-done-text);
+  border: 1px solid var(--status-done-border);
+}
+
+.badge.inactive {
+  background: var(--status-high-bg);
+  color: var(--status-high-text);
+  border: 1px solid var(--status-high-border);
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btn-action {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn-edit {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-edit:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-delete {
+  color: #E24B4A;
+  border-color: #E24B4A;
+}
+
+.btn-delete:hover {
+  background-color: #E24B4A;
+  color: white;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.badge.active {
+  background: var(--status-done-bg);
+  color: var(--status-done-text);
+  border: 1px solid var(--status-done-border);
+}
+.badge.inactive {
+  background: var(--hover-overlay-3);
+  color: var(--text-dark);
+  border: 1px solid var(--border);
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1.5rem;
+  }
+
+  .page-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .page-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .tabs-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .tab-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .create-form {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .tabs-container {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .user-card {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .card-actions {
+    width: 100%;
+    margin-top: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-actions {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .page-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .tab-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .create-form {
+    padding: 1rem;
+  }
+
+  .users-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .user-card {
+    padding: 0.85rem;
+  }
+
+  .card-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 0.75rem;
+  }
+
+  .card-info h3 {
+    font-size: 0.85rem;
+  }
+
+  .card-info p {
+    font-size: 0.7rem;
+  }
+
+  .btn-action {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 16px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="page-container">  <div class="page-header">    <h2>Gestión de Personal</h2>  </div>  <!-- Search and Filters -->  <app-view-search-filters></app-view-search-filters>  <!-- Pestañas -->  <div class="tabs-container">    <button       class="tab-button"       [class.active]="activeTab === \'list\'"      (click)="setActiveTab(\'list\')">      Lista de Usuarios    </button>    <button       class="tab-button"       [class.active]="activeTab === \'create\'"      (click)="setActiveTab(\'create\')">      Crear Usuario    </button>  </div>  <!-- Pestaña: Lista de Usuarios -->  <div class="tab-content" *ngIf="activeTab === \'list\'">    <div class="load-error" *ngIf="loadError">{{ loadError }}</div>    <div class="load-error" *ngIf="actionError">{{ actionError }}</div>    <div class="table-container">      <div class="table-scroll">        <table class="data-table">          <thead>            <tr>              <th>Nombre</th>              <th>Rol</th>              <th>Estado</th>              <th>Acciones</th>            </tr>          </thead>          <tbody>            <tr *ngFor="let usuario of usuarios; let i = index">              <td>{{ usuario.name }}</td>              <td>{{ usuario.roleLabel }}</td>              <td>                <span class="badge" [class.active]="usuario.status === \'Activo\'" [class.inactive]="usuario.status === \'Inactivo\'">                  {{ usuario.status }}                </span>              </td>              <td>                <div class="action-buttons">                  <button                    class="btn-action btn-edit"                    (click)="editUsuario(i)"                    [disabled]="isCreating || deletingUserId === usuario.id"                    title="Editar usuario">                    ✏️                  </button>                  <button                    class="btn-action btn-delete"                    (click)="deleteUsuario(i)"                    [disabled]="isCreating || deletingUserId === usuario.id"                    title="Desactivar usuario">                    {{ deletingUserId === usuario.id ? \'...\' : \'🗑️\' }}                  </button>                </div>              </td>            </tr>          </tbody>        </table>      </div>    </div>  </div>  <!-- Pestaña: Crear/Editar Usuario -->  <div class="tab-content" *ngIf="activeTab === \'create\'">    <form class="create-form">      <div class="form-header" *ngIf="isEditing">        <p class="edit-notice">Editando usuario</p>      </div>      <div class="load-error" *ngIf="createError">{{ createError }}</div>      <div class="form-group">        <label for="name">Nombre Completo *</label>        <input           type="text"           id="name"           [(ngModel)]="newUsuario.name"          name="name"          placeholder="Ingrese nombre completo"          required>      </div>      <div class="form-group">        <label for="email">Email *</label>        <input          type="email"          id="email"          [(ngModel)]="newUsuario.email"          name="email"          placeholder="usuario@empresa.com"          required>      </div>      <div class="form-group" *ngIf="!isEditing">        <label for="password">Password *</label>        <input          type="password"          id="password"          [(ngModel)]="newUsuario.password"          name="password"          placeholder="Ingresa contraseña"          required>      </div>      <div class="form-group">        <label for="phone">Teléfono *</label>        <input          type="tel"          id="phone"          [(ngModel)]="newUsuario.phone"          name="phone"          placeholder="+56998765432"          required>      </div>      <div class="form-group">        <label for="role">Rol *</label>        <select           id="role"           [(ngModel)]="newUsuario.role"          name="role"          required>          <option value="">Seleccione un rol</option>          <option *ngFor="let role of roles" [value]="role">{{ getRoleLabel(role) }}</option>        </select>      </div>      <div class="form-group">        <label for="status">Estado</label>        <select           id="status"           [(ngModel)]="newUsuario.status"          name="status">          <option value="Activo">Activo</option>          <option value="Inactivo">Inactivo</option>        </select>      </div>      <div class="form-actions">        <button type="button" class="btn-primary" (click)="createUsuario()" [disabled]="isCreating">          {{ isCreating ? (isEditing ? \'Actualizando...\' : \'Creando...\') : (isEditing ? \'Actualizar Usuario\' : \'Crear Usuario\') }}        </button>        <button type="button" class="btn-secondary" (click)="isEditing ? cancelEdit() : setActiveTab(\'list\')">          {{ isEditing ? \'Cancelar Edición\' : \'Cancelar\' }}        </button>      </div>    </form>  </div></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'Usuarios'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Usuarios.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,2860 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Activos</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/activos/activos.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-activos</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/forms/FormsModule" target="_blank" >FormsModule</a></code>
+                                <code><a href="../components/ViewSearchFiltersComponent.html" target="_self" >ViewSearchFiltersComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./activos.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./activos.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeTab" >activeTab</a>
+                            </li>
+                            <li>
+                                <a href="#activos" >activos</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#currentSearchQuery" >currentSearchQuery</a>
+                            </li>
+                            <li>
+                                <a href="#editingActivoId" >editingActivoId</a>
+                            </li>
+                            <li>
+                                <a href="#equipos" >equipos</a>
+                            </li>
+                            <li>
+                                <a href="#estados" >estados</a>
+                            </li>
+                            <li>
+                                <a href="#isEditing" >isEditing</a>
+                            </li>
+                            <li>
+                                <a href="#newActivo" >newActivo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#subscriptions" >subscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#todosLosActivos" >todosLosActivos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applySearchFilter" >applySearchFilter</a>
+                            </li>
+                            <li>
+                                <a href="#cancelEdit" >cancelEdit</a>
+                            </li>
+                            <li>
+                                <a href="#createActivo" >createActivo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteActivo" >deleteActivo</a>
+                            </li>
+                            <li>
+                                <a href="#editActivo" >editActivo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#formatDateTime" >formatDateTime</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#generateActivoId" >generateActivoId</a>
+                            </li>
+                            <li>
+                                <a href="#generateCodigo" >generateCodigo</a>
+                            </li>
+                            <li>
+                                <a href="#generateCodigoAuto" >generateCodigoAuto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadActivosFromBackend" >loadActivosFromBackend</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapEstado" >mapEstado</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapTagToActivo" >mapTagToActivo</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#normalizeSearchQuery" >normalizeSearchQuery</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#normalizeText" >normalizeText</a>
+                            </li>
+                            <li>
+                                <a href="#resetForm" >resetForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resolveEquipo" >resolveEquipo</a>
+                            </li>
+                            <li>
+                                <a href="#setActiveTab" >setActiveTab</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>, nfcTagsService: <a href="../injectables/NfcTagsService.html" target="_self">NfcTagsService</a>, confirmDialog: <a href="../injectables/ConfirmDialogService.html" target="_self">ConfirmDialogService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/components/activos/activos.ts:89</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>nfcTagsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NfcTagsService.html" target="_self" >NfcTagsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>confirmDialog</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfirmDialogService.html" target="_self" >ConfirmDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applySearchFilter"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>applySearchFilter</b></span>
+                        <a href="#applySearchFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applySearchFilter(searchQuery: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="290"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:290</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>searchQuery</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelEdit"></a>
+                    <span class="name">
+                        <span ><b>cancelEdit</b></span>
+                        <a href="#cancelEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancelEdit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createActivo"></a>
+                    <span class="name">
+                        <span ><b>createActivo</b></span>
+                        <a href="#createActivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createActivo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteActivo"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>deleteActivo</b></span>
+                        <a href="#deleteActivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteActivo(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editActivo"></a>
+                    <span class="name">
+                        <span ><b>editActivo</b></span>
+                        <a href="#editActivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editActivo(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatDateTime"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>formatDateTime</b></span>
+                        <a href="#formatDateTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>formatDateTime(value?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="274"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:274</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateActivoId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>generateActivoId</b></span>
+                        <a href="#generateActivoId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateActivoId()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="318"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:318</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateCodigo"></a>
+                    <span class="name">
+                        <span ><b>generateCodigo</b></span>
+                        <a href="#generateCodigo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateCodigo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateCodigoAuto"></a>
+                    <span class="name">
+                        <span ><b>generateCodigoAuto</b></span>
+                        <a href="#generateCodigoAuto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateCodigoAuto()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="213"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:213</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadActivosFromBackend"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadActivosFromBackend</b></span>
+                        <a href="#loadActivosFromBackend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadActivosFromBackend()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapEstado"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapEstado</b></span>
+                        <a href="#mapEstado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapEstado(tag: <a href="../interfaces/BackendNfcTag.html" target="_self">BackendNfcTag</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="262"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:262</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tag</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BackendNfcTag.html" target="_self" >BackendNfcTag</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapTagToActivo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapTagToActivo</b></span>
+                        <a href="#mapTagToActivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapTagToActivo(tag: <a href="../interfaces/BackendNfcTag.html" target="_self">BackendNfcTag</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="232"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:232</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tag</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BackendNfcTag.html" target="_self" >BackendNfcTag</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ActivoNFC.html" target="_self" >ActivoNFC</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="normalizeSearchQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>normalizeSearchQuery</b></span>
+                        <a href="#normalizeSearchQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>normalizeSearchQuery(value: unknown)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="306"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:306</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="normalizeText"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>normalizeText</b></span>
+                        <a href="#normalizeText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>normalizeText(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="310"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:310</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetForm"></a>
+                    <span class="name">
+                        <span ><b>resetForm</b></span>
+                        <a href="#resetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:203</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resolveEquipo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resolveEquipo</b></span>
+                        <a href="#resolveEquipo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resolveEquipo(tag: <a href="../interfaces/BackendNfcTag.html" target="_self">BackendNfcTag</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="242"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:242</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tag</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BackendNfcTag.html" target="_self" >BackendNfcTag</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setActiveTab"></a>
+                    <span class="name">
+                        <span ><b>setActiveTab</b></span>
+                        <a href="#setActiveTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setActiveTab(tab: "list" | "create")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/components/activos/activos.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tab</td>
+                                            <td>
+                                                        <code>&quot;list&quot; | &quot;create&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeTab"></a>
+                    <span class="name">
+                        <span ><b>activeTab</b></span>
+                        <a href="#activeTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;list&quot; | &quot;create&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;list&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/components/activos/activos.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activos"></a>
+                    <span class="name">
+                        <span ><b>activos</b></span>
+                        <a href="#activos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ActivoNFC[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[...DATOS_ACTIVOS]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/components/activos/activos.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentSearchQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>currentSearchQuery</b></span>
+                        <a href="#currentSearchQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/components/activos/activos.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingActivoId"></a>
+                    <span class="name">
+                        <span ><b>editingActivoId</b></span>
+                        <a href="#editingActivoId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/components/activos/activos.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="equipos"></a>
+                    <span class="name">
+                        <span ><b>equipos</b></span>
+                        <a href="#equipos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;Conservadora Vertical A1&#x27;,
+    &#x27;Vitrina Exhibidora&#x27;,
+    &#x27;Cámara Frigorífica 02&#x27;,
+    &#x27;Conservadora Horizontal B&#x27;,
+    &#x27;Vitrina Pastelería&#x27;,
+    &#x27;Otro (especificar)&#x27;
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/components/activos/activos.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estados"></a>
+                    <span class="name">
+                        <span ><b>estados</b></span>
+                        <a href="#estados"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Operativo&#x27;, &#x27;Mantenimiento&#x27;, &#x27;Alerta&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/components/activos/activos.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditing"></a>
+                    <span class="name">
+                        <span ><b>isEditing</b></span>
+                        <a href="#isEditing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/components/activos/activos.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newActivo"></a>
+                    <span class="name">
+                        <span ><b>newActivo</b></span>
+                        <a href="#newActivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ActivoNFC.html" target="_self" >ActivoNFC</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: &#x27;&#x27;,
+    codigo: &#x27;&#x27;,
+    equipo: &#x27;&#x27;,
+    estado: &#x27;Operativo&#x27;,
+    ultimaRevision: new Date().toLocaleString(&#x27;es-ES&#x27;)
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/components/activos/activos.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>subscriptions</b></span>
+                        <a href="#subscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/components/activos/activos.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="todosLosActivos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>todosLosActivos</b></span>
+                        <a href="#todosLosActivos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ActivoNFC[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[...DATOS_ACTIVOS]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/components/activos/activos.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { Subscription, debounceTime, distinctUntilChanged, map } from &#x27;rxjs&#x27;;
+import { FilterService } from &#x27;../../core/services/filter.service&#x27;;
+import { NfcTagsService, type BackendNfcTag } from &#x27;../../core/services/nfc-tags.service&#x27;;
+import { ConfirmDialogService } from &#x27;../../core/services/confirm-dialog.service&#x27;;
+import { ViewSearchFiltersComponent } from &#x27;../view-search-filters/view-search-filters.component&#x27;;
+
+export interface ActivoNFC {
+  id: string;
+  codigo: string;
+  equipo: string;
+  estado: string;
+  ultimaRevision: string;
+}
+
+const DATOS_ACTIVOS: ActivoNFC[] &#x3D; [
+  {
+    id: &#x27;mock-8472&#x27;,
+    codigo: &#x27;NFC-8472&#x27;,
+    equipo: &#x27;Conservadora Vertical A1&#x27;,
+    estado: &#x27;Operativo&#x27;,
+    ultimaRevision: &#x27;25 Mar 2026, 14:30&#x27;,
+  },
+  {
+    id: &#x27;mock-1933&#x27;,
+    codigo: &#x27;NFC-1933&#x27;,
+    equipo: &#x27;Vitrina Exhibidora&#x27;,
+    estado: &#x27;Mantenimiento&#x27;,
+    ultimaRevision: &#x27;24 Mar 2026, 09:15&#x27;,
+  },
+  {
+    id: &#x27;mock-2044&#x27;,
+    codigo: &#x27;NFC-2044&#x27;,
+    equipo: &#x27;Cámara Frigorífica 02&#x27;,
+    estado: &#x27;Alerta&#x27;,
+    ultimaRevision: &#x27;25 Mar 2026, 16:00&#x27;,
+  },
+  {
+    id: &#x27;mock-3311&#x27;,
+    codigo: &#x27;NFC-3311&#x27;,
+    equipo: &#x27;Conservadora Horizontal B&#x27;,
+    estado: &#x27;Operativo&#x27;,
+    ultimaRevision: &#x27;25 Mar 2026, 11:40&#x27;,
+  },
+  {
+    id: &#x27;mock-0099&#x27;,
+    codigo: &#x27;NFC-0099&#x27;,
+    equipo: &#x27;Vitrina Pastelería&#x27;,
+    estado: &#x27;Operativo&#x27;,
+    ultimaRevision: &#x27;24 Mar 2026, 17:00&#x27;,
+  },
+];
+
+@Component({
+  selector: &#x27;app-activos&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, ViewSearchFiltersComponent],
+  templateUrl: &#x27;./activos.html&#x27;,
+  styleUrls: [&#x27;./activos.css&#x27;],
+})
+export class Activos implements OnInit, OnDestroy {
+  activeTab: &#x27;list&#x27; | &#x27;create&#x27; &#x3D; &#x27;list&#x27;;
+  isEditing &#x3D; false;
+  editingActivoId: string | null &#x3D; null;
+  private readonly subscriptions &#x3D; new Subscription();
+  private currentSearchQuery &#x3D; &#x27;&#x27;;
+
+  activos: ActivoNFC[] &#x3D; [...DATOS_ACTIVOS];
+  private todosLosActivos: ActivoNFC[] &#x3D; [...DATOS_ACTIVOS];
+
+  estados &#x3D; [&#x27;Operativo&#x27;, &#x27;Mantenimiento&#x27;, &#x27;Alerta&#x27;];
+  equipos &#x3D; [
+    &#x27;Conservadora Vertical A1&#x27;,
+    &#x27;Vitrina Exhibidora&#x27;,
+    &#x27;Cámara Frigorífica 02&#x27;,
+    &#x27;Conservadora Horizontal B&#x27;,
+    &#x27;Vitrina Pastelería&#x27;,
+    &#x27;Otro (especificar)&#x27;
+  ];
+
+  newActivo: ActivoNFC &#x3D; {
+    id: &#x27;&#x27;,
+    codigo: &#x27;&#x27;,
+    equipo: &#x27;&#x27;,
+    estado: &#x27;Operativo&#x27;,
+    ultimaRevision: new Date().toLocaleString(&#x27;es-ES&#x27;)
+  };
+
+  constructor(
+    private filterService: FilterService,
+    private nfcTagsService: NfcTagsService,
+    private confirmDialog: ConfirmDialogService,
+  ) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView(&#x27;activos&#x27;);
+
+    this.subscriptions.add(
+      this.filterService.filters$
+        .pipe(
+          map((filters) &#x3D;&gt; this.normalizeSearchQuery(filters[&#x27;search&#x27;])),
+          debounceTime(200),
+          distinctUntilChanged(),
+        )
+        .subscribe((searchQuery) &#x3D;&gt; {
+          this.applySearchFilter(searchQuery);
+        }),
+    );
+
+    this.loadActivosFromBackend();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  setActiveTab(tab: &#x27;list&#x27; | &#x27;create&#x27;): void {
+    this.activeTab &#x3D; tab;
+    if (tab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;) {
+      this.cancelEdit();
+    } else if (tab &#x3D;&#x3D;&#x3D; &#x27;create&#x27; &amp;&amp; !this.isEditing) {
+      this.resetForm();
+    }
+  }
+
+  generateCodigo(): string {
+    const numAleatorio &#x3D; Math.floor(Math.random() * 9999).toString().padStart(4, &#x27;0&#x27;);
+    return &#x60;NFC-${numAleatorio}&#x60;;
+  }
+
+  createActivo(): void {
+    if (this.newActivo.codigo &amp;&amp; this.newActivo.equipo) {
+      if (this.isEditing &amp;&amp; this.editingActivoId) {
+        const index &#x3D; this.todosLosActivos.findIndex((activo) &#x3D;&gt; activo.id &#x3D;&#x3D;&#x3D; this.editingActivoId);
+
+        if (index &gt;&#x3D; 0) {
+          this.todosLosActivos[index] &#x3D; {
+            ...this.newActivo,
+            id: this.editingActivoId,
+            ultimaRevision: new Date().toLocaleString(&#x27;es-ES&#x27;),
+          };
+        }
+
+        this.applySearchFilter(this.currentSearchQuery);
+        this.cancelEdit();
+      } else {
+        const activoNuevo: ActivoNFC &#x3D; {
+          ...this.newActivo,
+          id: this.generateActivoId(),
+          codigo: this.newActivo.codigo || this.generateCodigo(),
+          ultimaRevision: new Date().toLocaleString(&#x27;es-ES&#x27;)
+        };
+
+        this.todosLosActivos.push(activoNuevo);
+        this.applySearchFilter(this.currentSearchQuery);
+        this.resetForm();
+      }
+
+      this.activeTab &#x3D; &#x27;list&#x27;;
+    }
+  }
+
+  editActivo(index: number): void {
+    const activo &#x3D; this.activos[index];
+    if (!activo) {
+      return;
+    }
+
+    this.newActivo &#x3D; { ...activo };
+    this.isEditing &#x3D; true;
+    this.editingActivoId &#x3D; activo.id;
+    this.activeTab &#x3D; &#x27;create&#x27;;
+  }
+
+  async deleteActivo(index: number): Promise&lt;void&gt; {
+    const activo &#x3D; this.activos[index];
+    if (!activo) {
+      return;
+    }
+
+    const confirmed &#x3D; await this.confirmDialog.confirm({
+      title: &#x27;Eliminar activo NFC&#x27;,
+      message: &#x27;Esta accion no se puede deshacer. Se eliminara definitivamente el activo seleccionado.&#x27;,
+      confirmText: &#x27;Eliminar&#x27;,
+      cancelText: &#x27;Cancelar&#x27;,
+      variant: &#x27;danger&#x27;,
+    });
+
+    if (confirmed) {
+      this.todosLosActivos &#x3D; this.todosLosActivos.filter((item) &#x3D;&gt; item.id !&#x3D;&#x3D; activo.id);
+      this.applySearchFilter(this.currentSearchQuery);
+    }
+  }
+
+  cancelEdit(): void {
+    this.resetForm();
+    this.isEditing &#x3D; false;
+    this.editingActivoId &#x3D; null;
+  }
+
+  resetForm(): void {
+    this.newActivo &#x3D; {
+      id: &#x27;&#x27;,
+      codigo: &#x27;&#x27;,
+      equipo: &#x27;&#x27;,
+      estado: &#x27;Operativo&#x27;,
+      ultimaRevision: new Date().toLocaleString(&#x27;es-ES&#x27;)
+    };
+  }
+
+  generateCodigoAuto(): void {
+    this.newActivo.codigo &#x3D; this.generateCodigo();
+  }
+
+  private loadActivosFromBackend(): void {
+    this.subscriptions.add(
+      this.nfcTagsService.getNfcTags().subscribe((tags) &#x3D;&gt; {
+        if (!tags.length) {
+          this.todosLosActivos &#x3D; [...DATOS_ACTIVOS];
+          this.applySearchFilter(this.currentSearchQuery);
+          return;
+        }
+
+        this.todosLosActivos &#x3D; tags.map((tag) &#x3D;&gt; this.mapTagToActivo(tag));
+        this.applySearchFilter(this.currentSearchQuery);
+      }),
+    );
+  }
+
+  private mapTagToActivo(tag: BackendNfcTag): ActivoNFC {
+    return {
+      id: tag.id,
+      codigo: tag.uid?.trim() || &#x60;NFC-${tag.id.slice(0, 6).toUpperCase()}&#x60;,
+      equipo: this.resolveEquipo(tag),
+      estado: this.mapEstado(tag),
+      ultimaRevision: this.formatDateTime(tag.updatedAt ?? tag.createdAt),
+    };
+  }
+
+  private resolveEquipo(tag: BackendNfcTag): string {
+    if (tag.machineSerialId?.trim()) {
+      return tag.machineSerialId.trim();
+    }
+
+    if (tag.hardwareModel?.trim()) {
+      return tag.hardwareModel.trim();
+    }
+
+    if (tag.tagModel?.trim()) {
+      return tag.tagModel.trim();
+    }
+
+    if (tag.machineId?.trim()) {
+      return &#x60;Maquina ${tag.machineId.slice(0, 8)}&#x60;;
+    }
+
+    return &#x27;Sin equipo asociado&#x27;;
+  }
+
+  private mapEstado(tag: BackendNfcTag): string {
+    if (tag.isActive &#x3D;&#x3D;&#x3D; false) {
+      return &#x27;Alerta&#x27;;
+    }
+
+    if (tag.isLocked) {
+      return &#x27;Mantenimiento&#x27;;
+    }
+
+    return &#x27;Operativo&#x27;;
+  }
+
+  private formatDateTime(value?: string): string {
+    if (!value) {
+      return &#x27;-&#x27;;
+    }
+
+    const date &#x3D; new Date(value);
+    if (Number.isNaN(date.getTime())) {
+      return &#x27;-&#x27;;
+    }
+
+    return new Intl.DateTimeFormat(&#x27;es-CL&#x27;, {
+      dateStyle: &#x27;medium&#x27;,
+      timeStyle: &#x27;short&#x27;,
+    }).format(date);
+  }
+
+  private applySearchFilter(searchQuery: string): void {
+    this.currentSearchQuery &#x3D; searchQuery;
+
+    if (!searchQuery) {
+      this.activos &#x3D; [...this.todosLosActivos];
+      return;
+    }
+
+    const normalizedQuery &#x3D; this.normalizeText(searchQuery);
+
+    this.activos &#x3D; this.todosLosActivos.filter((activo) &#x3D;&gt; {
+      const values &#x3D; [activo.codigo, activo.equipo, activo.estado, activo.ultimaRevision];
+      return values.some((value) &#x3D;&gt; this.normalizeText(value).includes(normalizedQuery));
+    });
+  }
+
+  private normalizeSearchQuery(value: unknown): string {
+    return typeof value &#x3D;&#x3D;&#x3D; &#x27;string&#x27; ? value.trim() : &#x27;&#x27;;
+  }
+
+  private normalizeText(value: string): string {
+    return value
+      .normalize(&#x27;NFD&#x27;)
+      .replace(/[\u0300-\u036f]/g, &#x27;&#x27;)
+      .toLowerCase()
+      .trim();
+  }
+
+  private generateActivoId(): string {
+    const random &#x3D; Math.floor(Math.random() * 100000).toString(16);
+    return &#x60;activo-${Date.now()}-${random}&#x60;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-container&quot;&gt;
+  &lt;div class&#x3D;&quot;page-header&quot;&gt;
+    &lt;h2&gt;Gestión de Activos&lt;/h2&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Search and Filters --&gt;
+  &lt;app-view-search-filters&gt;&lt;/app-view-search-filters&gt;
+
+  &lt;!-- Pestañas --&gt;
+  &lt;div class&#x3D;&quot;tabs-container&quot;&gt;
+    &lt;button 
+      class&#x3D;&quot;tab-button&quot; 
+      [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;&quot;
+      (click)&#x3D;&quot;setActiveTab(&#x27;list&#x27;)&quot;&gt;
+      Lista de Activos
+    &lt;/button&gt;
+    &lt;button 
+      class&#x3D;&quot;tab-button&quot; 
+      [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;create&#x27;&quot;
+      (click)&#x3D;&quot;setActiveTab(&#x27;create&#x27;)&quot;&gt;
+      Registrar Activo
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Pestaña: Lista de Activos --&gt;
+  &lt;div class&#x3D;&quot;tab-content&quot; *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;&quot;&gt;
+    &lt;div class&#x3D;&quot;table-container&quot;&gt;
+      &lt;table class&#x3D;&quot;data-table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Código NFC&lt;/th&gt;
+            &lt;th&gt;Equipo&lt;/th&gt;
+            &lt;th&gt;Estado Actual&lt;/th&gt;
+            &lt;th&gt;Última Revisión&lt;/th&gt;
+            &lt;th&gt;Acciones&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr *ngFor&#x3D;&quot;let activo of activos; let i &#x3D; index&quot;&gt;
+            &lt;td&gt;&lt;strong&gt;{{ activo.codigo }}&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;{{ activo.equipo }}&lt;/td&gt;
+            &lt;td&gt;
+              &lt;span class&#x3D;&quot;status-badge&quot; [ngClass]&#x3D;&quot;activo.estado.toLowerCase()&quot;&gt;
+                {{ activo.estado }}
+              &lt;/span&gt;
+            &lt;/td&gt;
+            &lt;td class&#x3D;&quot;muted&quot;&gt;{{ activo.ultimaRevision }}&lt;/td&gt;
+            &lt;td&gt;
+              &lt;div class&#x3D;&quot;action-buttons&quot;&gt;
+                &lt;button class&#x3D;&quot;btn-action btn-edit&quot; (click)&#x3D;&quot;editActivo(i)&quot; title&#x3D;&quot;Editar activo&quot;&gt;✏️&lt;/button&gt;
+                &lt;button class&#x3D;&quot;btn-action btn-delete&quot; (click)&#x3D;&quot;deleteActivo(i)&quot; title&#x3D;&quot;Eliminar activo&quot;&gt;🗑️&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Pestaña: Crear/Editar Activo --&gt;
+  &lt;div class&#x3D;&quot;tab-content&quot; *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;create&#x27;&quot;&gt;
+    &lt;form class&#x3D;&quot;create-form&quot;&gt;
+      &lt;div class&#x3D;&quot;form-header&quot; *ngIf&#x3D;&quot;isEditing&quot;&gt;
+        &lt;p class&#x3D;&quot;edit-notice&quot;&gt;Editando activo NFC&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;codigo&quot;&gt;Código NFC *&lt;/label&gt;
+          &lt;div class&#x3D;&quot;input-with-button&quot;&gt;
+            &lt;input 
+              type&#x3D;&quot;text&quot; 
+              id&#x3D;&quot;codigo&quot; 
+              [(ngModel)]&#x3D;&quot;newActivo.codigo&quot;
+              name&#x3D;&quot;codigo&quot;
+              placeholder&#x3D;&quot;Ej: NFC-8472&quot;
+              required&gt;
+            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-generate&quot; (click)&#x3D;&quot;generateCodigoAuto()&quot; *ngIf&#x3D;&quot;!isEditing&quot; title&#x3D;&quot;Generar código automático&quot;&gt;
+              🔄
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;estado&quot;&gt;Estado&lt;/label&gt;
+          &lt;select 
+            id&#x3D;&quot;estado&quot; 
+            [(ngModel)]&#x3D;&quot;newActivo.estado&quot;
+            name&#x3D;&quot;estado&quot;&gt;
+            &lt;option *ngFor&#x3D;&quot;let estado of estados&quot; [value]&#x3D;&quot;estado&quot;&gt;{{ estado }}&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;equipo&quot;&gt;Equipo Asociado *&lt;/label&gt;
+        &lt;select 
+          id&#x3D;&quot;equipo&quot; 
+          [(ngModel)]&#x3D;&quot;newActivo.equipo&quot;
+          name&#x3D;&quot;equipo&quot;
+          required&gt;
+          &lt;option value&#x3D;&quot;&quot;&gt;Seleccione un equipo&lt;/option&gt;
+          &lt;option *ngFor&#x3D;&quot;let equipo of equipos&quot; [value]&#x3D;&quot;equipo&quot;&gt;{{ equipo }}&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-actions&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-primary&quot; (click)&#x3D;&quot;createActivo()&quot;&gt;
+          {{ isEditing ? &#x27;Actualizar Activo&#x27; : &#x27;Registrar Activo&#x27; }}
+        &lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-secondary&quot; (click)&#x3D;&quot;isEditing ? cancelEdit() : setActiveTab(&#x27;list&#x27;)&quot;&gt;
+          {{ isEditing ? &#x27;Cancelar Edición&#x27; : &#x27;Cancelar&#x27; }}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./activos.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.page-container {
+  padding: 2rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+
+.page-header h2 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab-button:hover {
+  color: var(--text-primary);
+}
+
+.tab-button.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tab-content {
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-primary svg {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-secondary {
+  background-color: var(--hover-overlay-3);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--hover-overlay-4);
+}
+
+/* Form Styles */
+.create-form {
+  max-width: 600px;
+  background-color: var(--surface-lowest);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.form-header {
+  margin-bottom: 1.5rem;
+}
+
+.edit-notice {
+  margin: 0;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background-color: var(--surface-lowest);
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-dim);
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.input-with-button {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-with-button input {
+  flex: 1;
+}
+
+.btn-generate {
+  padding: 0.75rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background-color: var(--hover-overlay-2);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.btn-generate:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+.table-container {
+  background-color: var(--surface-lowest);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table thead th {
+  background-color: var(--hover-overlay-2);
+  padding: 0.85rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table tbody td {
+  padding: 0.9rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.data-table tbody tr:hover {
+  background-color: var(--hover-overlay-1);
+}
+
+.muted {
+  color: var(--text-muted) !important;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-badge.operativo {
+  background-color: var(--status-done-bg);
+  color: var(--status-done-text);
+  border: 1px solid var(--status-done-border);
+}
+
+.status-badge.mantenimiento {
+  background-color: var(--status-medium-bg);
+  color: var(--status-medium-text);
+  border: 1px solid var(--status-medium-border);
+}
+
+.status-badge.alerta {
+  background-color: var(--status-high-bg);
+  color: var(--status-high-text);
+  border: 1px solid var(--status-high-border);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-action {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn-edit {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-edit:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-delete {
+  color: #E24B4A;
+  border-color: #E24B4A;
+}
+
+.btn-delete:hover {
+  background-color: #E24B4A;
+  color: white;
+}
+
+.btn-icon-sm {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-icon-sm:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: var(--primary-dim);
+}
+
+.btn-icon-sm svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .data-table thead th {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .data-table tbody td {
+    padding: 0.8rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-action {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1.5rem;
+  }
+
+  .page-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .page-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .tabs-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .tab-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .create-form {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .input-with-button {
+    flex-direction: column;
+  }
+
+  .input-with-button input {
+    flex: none;
+    width: 100%;
+  }
+
+  .btn-generate {
+    width: 100%;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .data-table {
+    min-width: 600px;
+  }
+
+  .data-table thead th {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.65rem;
+  }
+
+  .data-table tbody td {
+    padding: 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-actions {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .page-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .tab-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .create-form {
+    padding: 1rem;
+  }
+
+  .table-container {
+    border-radius: 8px;
+  }
+
+  .data-table {
+    min-width: 100%;
+    font-size: 0.75rem;
+  }
+
+  .data-table thead th {
+    padding: 0.5rem;
+    font-size: 0.6rem;
+  }
+
+  .data-table tbody td {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .action-buttons {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .btn-action {
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 16px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="page-container">  <div class="page-header">    <h2>Gestión de Activos</h2>  </div>  <!-- Search and Filters -->  <app-view-search-filters></app-view-search-filters>  <!-- Pestañas -->  <div class="tabs-container">    <button       class="tab-button"       [class.active]="activeTab === \'list\'"      (click)="setActiveTab(\'list\')">      Lista de Activos    </button>    <button       class="tab-button"       [class.active]="activeTab === \'create\'"      (click)="setActiveTab(\'create\')">      Registrar Activo    </button>  </div>  <!-- Pestaña: Lista de Activos -->  <div class="tab-content" *ngIf="activeTab === \'list\'">    <div class="table-container">      <table class="data-table">        <thead>          <tr>            <th>Código NFC</th>            <th>Equipo</th>            <th>Estado Actual</th>            <th>Última Revisión</th>            <th>Acciones</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let activo of activos; let i = index">            <td><strong>{{ activo.codigo }}</strong></td>            <td>{{ activo.equipo }}</td>            <td>              <span class="status-badge" [ngClass]="activo.estado.toLowerCase()">                {{ activo.estado }}              </span>            </td>            <td class="muted">{{ activo.ultimaRevision }}</td>            <td>              <div class="action-buttons">                <button class="btn-action btn-edit" (click)="editActivo(i)" title="Editar activo">✏️</button>                <button class="btn-action btn-delete" (click)="deleteActivo(i)" title="Eliminar activo">🗑️</button>              </div>            </td>          </tr>        </tbody>      </table>    </div>  </div>  <!-- Pestaña: Crear/Editar Activo -->  <div class="tab-content" *ngIf="activeTab === \'create\'">    <form class="create-form">      <div class="form-header" *ngIf="isEditing">        <p class="edit-notice">Editando activo NFC</p>      </div>      <div class="form-row">        <div class="form-group">          <label for="codigo">Código NFC *</label>          <div class="input-with-button">            <input               type="text"               id="codigo"               [(ngModel)]="newActivo.codigo"              name="codigo"              placeholder="Ej: NFC-8472"              required>            <button type="button" class="btn-generate" (click)="generateCodigoAuto()" *ngIf="!isEditing" title="Generar código automático">              🔄            </button>          </div>        </div>        <div class="form-group">          <label for="estado">Estado</label>          <select             id="estado"             [(ngModel)]="newActivo.estado"            name="estado">            <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>          </select>        </div>      </div>      <div class="form-group">        <label for="equipo">Equipo Asociado *</label>        <select           id="equipo"           [(ngModel)]="newActivo.equipo"          name="equipo"          required>          <option value="">Seleccione un equipo</option>          <option *ngFor="let equipo of equipos" [value]="equipo">{{ equipo }}</option>        </select>      </div>      <div class="form-actions">        <button type="button" class="btn-primary" (click)="createActivo()">          {{ isEditing ? \'Actualizar Activo\' : \'Registrar Activo\' }}        </button>        <button type="button" class="btn-secondary" (click)="isEditing ? cancelEdit() : setActiveTab(\'list\')">          {{ isEditing ? \'Cancelar Edición\' : \'Cancelar\' }}        </button>      </div>    </form>  </div></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'Activos'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Activos.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

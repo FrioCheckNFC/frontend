@@ -1,0 +1,2074 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Tenants</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/tenants/tenants.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-tenants</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/forms/FormsModule" target="_blank" >FormsModule</a></code>
+                                <code><a href="https://angular.io/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./tenants.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./tenants.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeTab" >activeTab</a>
+                            </li>
+                            <li>
+                                <a href="#columnas" >columnas</a>
+                            </li>
+                            <li>
+                                <a href="#createError" >createError</a>
+                            </li>
+                            <li>
+                                <a href="#loadError" >loadError</a>
+                            </li>
+                            <li>
+                                <a href="#newTenant" >newTenant</a>
+                            </li>
+                            <li>
+                                <a href="#tenants" >tenants</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#buildLoadErrorMessage" >buildLoadErrorMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#countUsersByTenantId" >countUsersByTenantId</a>
+                            </li>
+                            <li>
+                                <a href="#createTenant" >createTenant</a>
+                            </li>
+                            <li>
+                                <a href="#getEstadoClass" >getEstadoClass</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadTenants" >loadTenants</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapBackendTenantToTableTenant" >mapBackendTenantToTableTenant</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapStatus" >mapStatus</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#setActiveTab" >setActiveTab</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#toDateOnly" >toDateOnly</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>, tenantsService: <a href="../injectables/TenantsService.html" target="_self">TenantsService</a>, usersService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/tenants/tenants.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>tenantsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TenantsService.html" target="_self" >TenantsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>usersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildLoadErrorMessage"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>buildLoadErrorMessage</b></span>
+                        <a href="#buildLoadErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildLoadErrorMessage(error: <a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank">HttpErrorResponse</a>, resource: "usuarios" | "tenants")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                            <code><a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank" >HttpErrorResponse</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>resource</td>
+                                            <td>
+                                                        <code>&quot;usuarios&quot; | &quot;tenants&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countUsersByTenantId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>countUsersByTenantId</b></span>
+                        <a href="#countUsersByTenantId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>countUsersByTenantId(users: <a href="../interfaces/BackendUser.html" target="_self">BackendUser[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>users</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BackendUser.html" target="_self" >BackendUser[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Map&lt;string, number&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTenant"></a>
+                    <span class="name">
+                        <span ><b>createTenant</b></span>
+                        <a href="#createTenant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTenant()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="170"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEstadoClass"></a>
+                    <span class="name">
+                        <span ><b>getEstadoClass</b></span>
+                        <a href="#getEstadoClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEstadoClass(estado: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="208"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:208</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>estado</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTenants"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadTenants</b></span>
+                        <a href="#loadTenants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadTenants()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapBackendTenantToTableTenant"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapBackendTenantToTableTenant</b></span>
+                        <a href="#mapBackendTenantToTableTenant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapBackendTenantToTableTenant(tenant: <a href="../interfaces/BackendTenant.html" target="_self">BackendTenant</a>, usersCountByTenantId: Map<string | number>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tenant</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BackendTenant.html" target="_self" >BackendTenant</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>usersCountByTenantId</td>
+                                            <td>
+                                                        <code>Map&lt;string | number&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Tenant.html" target="_self" >Tenant</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapStatus</b></span>
+                        <a href="#mapStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapStatus(active?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, status?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>active</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setActiveTab"></a>
+                    <span class="name">
+                        <span ><b>setActiveTab</b></span>
+                        <a href="#setActiveTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setActiveTab(tab: "list" | "create")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tab</td>
+                                            <td>
+                                                        <code>&quot;list&quot; | &quot;create&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toDateOnly"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>toDateOnly</b></span>
+                        <a href="#toDateOnly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toDateOnly(dateValue?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/components/tenants/tenants.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dateValue</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeTab"></a>
+                    <span class="name">
+                        <span ><b>activeTab</b></span>
+                        <a href="#activeTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;list&quot; | &quot;create&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;list&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/tenants/tenants.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnas"></a>
+                    <span class="name">
+                        <span ><b>columnas</b></span>
+                        <a href="#columnas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;id&#x27;, &#x27;nombre&#x27;, &#x27;usuarios&#x27;, &#x27;estado&#x27;, &#x27;fecha&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/tenants/tenants.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createError"></a>
+                    <span class="name">
+                        <span ><b>createError</b></span>
+                        <a href="#createError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/tenants/tenants.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadError"></a>
+                    <span class="name">
+                        <span ><b>loadError</b></span>
+                        <a href="#loadError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/tenants/tenants.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newTenant"></a>
+                    <span class="name">
+                        <span ><b>newTenant</b></span>
+                        <a href="#newTenant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CreateTenantForm.html" target="_self" >CreateTenantForm</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    name: &#x27;&#x27;,
+    slug: &#x27;&#x27;,
+    description: &#x27;&#x27;,
+    logoUrl: &#x27;&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/tenants/tenants.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tenants"></a>
+                    <span class="name">
+                        <span ><b>tenants</b></span>
+                        <a href="#tenants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Tenant.html" target="_self" >Tenant[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/tenants/tenants.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
+import { catchError, forkJoin, of } from &#x27;rxjs&#x27;;
+import { RouterLink } from &#x27;@angular/router&#x27;;
+import { FilterService } from &#x27;../../core/services/filter.service&#x27;;
+import {
+  TenantsService,
+  type BackendTenant,
+  type CreateTenantRequest,
+} from &#x27;../../core/services/tenants.service&#x27;;
+import { UsersService, type BackendUser } from &#x27;../../core/services/users.service&#x27;;
+
+interface Tenant {
+  id: string;
+  nombre: string;
+  plan: string;
+  usuarios: number;
+  estado: string;
+  fecha: string;
+}
+
+interface CreateTenantForm {
+  name: string;
+  slug: string;
+  description: string;
+  logoUrl: string;
+}
+
+@Component({
+  selector: &#x27;app-tenants&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterLink],
+  templateUrl: &#x27;./tenants.html&#x27;,
+  styleUrls: [&#x27;./tenants.css&#x27;]
+})
+export class Tenants implements OnInit {
+  activeTab: &#x27;list&#x27; | &#x27;create&#x27; &#x3D; &#x27;list&#x27;;
+
+  tenants: Tenant[] &#x3D; [];
+  loadError: string | null &#x3D; null;
+  createError: string | null &#x3D; null;
+
+  columnas &#x3D; [&#x27;id&#x27;, &#x27;nombre&#x27;, &#x27;usuarios&#x27;, &#x27;estado&#x27;, &#x27;fecha&#x27;];
+
+  newTenant: CreateTenantForm &#x3D; {
+    name: &#x27;&#x27;,
+    slug: &#x27;&#x27;,
+    description: &#x27;&#x27;,
+    logoUrl: &#x27;&#x27;,
+  };
+
+  constructor(
+    private filterService: FilterService,
+    private tenantsService: TenantsService,
+    private usersService: UsersService,
+  ) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView(&#x27;tenants&#x27;);
+    this.loadTenants();
+  }
+
+  private loadTenants(): void {
+    this.loadError &#x3D; null;
+
+    forkJoin({
+      tenants: this.tenantsService.getTenants(),
+      users: this.usersService.getUsers().pipe(catchError(() &#x3D;&gt; of&lt;BackendUser[]&gt;([]))),
+    }).subscribe({
+      next: ({ tenants, users }) &#x3D;&gt; {
+        const usersCountByTenantId &#x3D; this.countUsersByTenantId(users);
+        this.tenants &#x3D; tenants.map((tenant) &#x3D;&gt; this.mapBackendTenantToTableTenant(tenant, usersCountByTenantId));
+      },
+      error: (error: HttpErrorResponse) &#x3D;&gt; {
+        this.tenants &#x3D; [];
+        this.loadError &#x3D; this.buildLoadErrorMessage(error, &#x27;tenants&#x27;);
+      },
+    });
+  }
+
+  private countUsersByTenantId(users: BackendUser[]): Map&lt;string, number&gt; {
+    const counts &#x3D; new Map&lt;string, number&gt;();
+
+    for (const user of users) {
+      if (!user.tenantId) {
+        continue;
+      }
+
+      counts.set(user.tenantId, (counts.get(user.tenantId) ?? 0) + 1);
+    }
+
+    return counts;
+  }
+
+  private buildLoadErrorMessage(error: HttpErrorResponse, resource: &#x27;usuarios&#x27; | &#x27;tenants&#x27;): string {
+    const backendMessage &#x3D;
+      (typeof error.error?.message &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; error.error.message.trim()) ||
+      (typeof error.error &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; error.error.trim()) ||
+      &#x27;&#x27;;
+
+    if (error.status &#x3D;&#x3D;&#x3D; 403) {
+      const detail &#x3D; backendMessage ? &#x60; Detalle backend: ${backendMessage}.&#x60; : &#x27;&#x27;;
+      return &#x60;No tienes permisos para cargar ${resource} con el rol o tenant actual.${detail}&#x60;;
+    }
+
+    if (backendMessage) {
+      return &#x60;No fue posible cargar ${resource}. Detalle backend: ${backendMessage}.&#x60;;
+    }
+
+    return &#x60;No fue posible cargar ${resource}. Intenta nuevamente.&#x60;;
+  }
+
+  private mapBackendTenantToTableTenant(tenant: BackendTenant, usersCountByTenantId: Map&lt;string, number&gt;): Tenant {
+    const status &#x3D; this.mapStatus(tenant.active ?? tenant.isActive, tenant.status);
+    const usersFromTenantList &#x3D; usersCountByTenantId.get(tenant.id);
+    const users &#x3D; usersFromTenantList ?? tenant.usersCount ?? tenant.userCount ?? tenant.usuarios ?? 0;
+
+    return {
+      id: tenant.id,
+      nombre: tenant.name ?? tenant.nombre ?? tenant.id,
+      plan: &#x27;&#x27;,
+      usuarios: users,
+      estado: status,
+      fecha: this.toDateOnly(tenant.createdAt),
+    };
+  }
+
+  private mapStatus(active?: boolean, status?: string): string {
+    if (status) {
+      const normalized &#x3D; status.trim().toLowerCase();
+      const statusMap: Record&lt;string, string&gt; &#x3D; {
+        activo: &#x27;Activo&#x27;,
+        active: &#x27;Activo&#x27;,
+        inactivo: &#x27;Inactivo&#x27;,
+        inactive: &#x27;Inactivo&#x27;,
+        mantenimiento: &#x27;Mantenimiento&#x27;,
+        maintenance: &#x27;Mantenimiento&#x27;,
+      };
+
+      if (statusMap[normalized]) {
+        return statusMap[normalized];
+      }
+    }
+
+    return active &#x3D;&#x3D;&#x3D; false ? &#x27;Inactivo&#x27; : &#x27;Activo&#x27;;
+  }
+
+  private toDateOnly(dateValue?: string): string {
+    if (!dateValue) {
+      return &#x27;&#x27;;
+    }
+
+    const parsed &#x3D; new Date(dateValue);
+    if (Number.isNaN(parsed.getTime())) {
+      return &#x27;&#x27;;
+    }
+
+    return parsed.toISOString().split(&#x27;T&#x27;)[0];
+  }
+
+  setActiveTab(tab: &#x27;list&#x27; | &#x27;create&#x27;): void {
+    this.activeTab &#x3D; tab;
+    if (tab &#x3D;&#x3D;&#x3D; &#x27;create&#x27;) {
+      this.createError &#x3D; null;
+    }
+  }
+
+  createTenant(): void {
+    const name &#x3D; this.newTenant.name.trim();
+    const slug &#x3D; this.newTenant.slug.trim();
+    const description &#x3D; this.newTenant.description.trim();
+    const logoUrl &#x3D; this.newTenant.logoUrl.trim();
+
+    if (!name || !slug) {
+      this.createError &#x3D; &#x27;Debes ingresar al menos name y slug.&#x27;;
+      return;
+    }
+
+    this.createError &#x3D; null;
+
+    const payload: CreateTenantRequest &#x3D; {
+      name,
+      slug,
+      description: description || undefined,
+      logoUrl: logoUrl || undefined,
+    };
+
+    this.tenantsService.createTenant(payload).subscribe({
+      next: () &#x3D;&gt; {
+        this.newTenant &#x3D; {
+          name: &#x27;&#x27;,
+          slug: &#x27;&#x27;,
+          description: &#x27;&#x27;,
+          logoUrl: &#x27;&#x27;,
+        };
+
+        this.activeTab &#x3D; &#x27;list&#x27;;
+        this.loadTenants();
+      },
+      error: (error: HttpErrorResponse) &#x3D;&gt; {
+        this.createError &#x3D; this.buildLoadErrorMessage(error, &#x27;tenants&#x27;);
+      },
+    });
+  }
+
+  getEstadoClass(estado: string): string {
+    const map: Record&lt;string, string&gt; &#x3D; {
+      &#x27;Activo&#x27;: &#x27;badge-activo&#x27;,
+      &#x27;Inactivo&#x27;: &#x27;badge-inactivo&#x27;,
+      &#x27;Mantenimiento&#x27;: &#x27;badge-mant&#x27;,
+    };
+    return map[estado] ?? &#x27;&#x27;;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;tenants-wrapper&quot;&gt;
+
+  &lt;div class&#x3D;&quot;tenants-header&quot;&gt;
+    &lt;div&gt;
+      &lt;h1 class&#x3D;&quot;tenants-title&quot;&gt;Tenants&lt;/h1&gt;
+      &lt;p class&#x3D;&quot;tenants-subtitle&quot;&gt;Gestión global de organizaciones&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Pestañas --&gt;
+  &lt;div class&#x3D;&quot;tabs-container&quot;&gt;
+    &lt;button 
+      class&#x3D;&quot;tab-button&quot; 
+      [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;&quot;
+      (click)&#x3D;&quot;setActiveTab(&#x27;list&#x27;)&quot;&gt;
+      Lista de Tenants
+    &lt;/button&gt;
+    &lt;button 
+      class&#x3D;&quot;tab-button&quot; 
+      [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;create&#x27;&quot;
+      (click)&#x3D;&quot;setActiveTab(&#x27;create&#x27;)&quot;&gt;
+      Crear Tenant
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Pestaña: Lista de Tenants --&gt;
+  &lt;div class&#x3D;&quot;tab-content&quot; *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;&quot;&gt;
+    &lt;div class&#x3D;&quot;load-error&quot; *ngIf&#x3D;&quot;loadError&quot;&gt;{{ loadError }}&lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;stats-row&quot;&gt;
+      &lt;div class&#x3D;&quot;stat-card&quot;&gt;
+        &lt;span class&#x3D;&quot;stat-label&quot;&gt;Total Tenants&lt;/span&gt;
+        &lt;span class&#x3D;&quot;stat-value&quot;&gt;{{ tenants.length }}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;stat-card&quot;&gt;
+        &lt;span class&#x3D;&quot;stat-label&quot;&gt;Activos&lt;/span&gt;
+        &lt;span class&#x3D;&quot;stat-value stat-activo&quot;&gt;{{ tenants.filter(t &#x3D;&gt; t.estado &#x3D;&#x3D;&#x3D; &#x27;Activo&#x27;).length }}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;stat-card&quot;&gt;
+        &lt;span class&#x3D;&quot;stat-label&quot;&gt;Inactivos&lt;/span&gt;
+        &lt;span class&#x3D;&quot;stat-value stat-inactivo&quot;&gt;{{ tenants.filter(t &#x3D;&gt; t.estado &#x3D;&#x3D;&#x3D; &#x27;Inactivo&#x27;).length }}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;stat-card&quot;&gt;
+        &lt;span class&#x3D;&quot;stat-label&quot;&gt;En Mantenimiento&lt;/span&gt;
+        &lt;span class&#x3D;&quot;stat-value stat-mant&quot;&gt;{{ tenants.filter(t &#x3D;&gt; t.estado &#x3D;&#x3D;&#x3D; &#x27;Mantenimiento&#x27;).length }}&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;table-card&quot;&gt;
+      &lt;table class&#x3D;&quot;tenants-table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;ID&lt;/th&gt;
+            &lt;th&gt;Nombre&lt;/th&gt;
+            &lt;th&gt;Usuarios&lt;/th&gt;
+            &lt;th&gt;Estado&lt;/th&gt;
+            &lt;th&gt;Fecha alta&lt;/th&gt;
+            &lt;th&gt;Acciones&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr *ngFor&#x3D;&quot;let t of tenants&quot;&gt;
+            &lt;td&gt;&lt;code class&#x3D;&quot;id-code&quot;&gt;{{ t.id }}&lt;/code&gt;&lt;/td&gt;
+            &lt;td class&#x3D;&quot;nombre-cell&quot;&gt;{{ t.nombre }}&lt;/td&gt;
+            &lt;td&gt;{{ t.usuarios }}&lt;/td&gt;
+            &lt;td&gt;&lt;span class&#x3D;&quot;estado-badge&quot; [ngClass]&#x3D;&quot;getEstadoClass(t.estado)&quot;&gt;{{ t.estado }}&lt;/span&gt;&lt;/td&gt;
+            &lt;td class&#x3D;&quot;fecha-cell&quot;&gt;{{ t.fecha }}&lt;/td&gt;
+            &lt;td&gt;
+              &lt;a class&#x3D;&quot;btn-accion&quot; [routerLink]&#x3D;&quot;[&#x27;/tenants&#x27;, t.id]&quot;&gt;Ver&lt;/a&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Pestaña: Crear Tenant --&gt;
+  &lt;div class&#x3D;&quot;tab-content&quot; *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;create&#x27;&quot;&gt;
+    &lt;form class&#x3D;&quot;create-form&quot;&gt;
+      &lt;div class&#x3D;&quot;load-error&quot; *ngIf&#x3D;&quot;createError&quot;&gt;{{ createError }}&lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;name&quot;&gt;Name *&lt;/label&gt;
+        &lt;input 
+          type&#x3D;&quot;text&quot; 
+          id&#x3D;&quot;name&quot; 
+          [(ngModel)]&#x3D;&quot;newTenant.name&quot;
+          name&#x3D;&quot;name&quot;
+          placeholder&#x3D;&quot;Ej: Bresler Chile&quot;
+          required&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;slug&quot;&gt;Slug *&lt;/label&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          id&#x3D;&quot;slug&quot;
+          [(ngModel)]&#x3D;&quot;newTenant.slug&quot;
+          name&#x3D;&quot;slug&quot;
+          placeholder&#x3D;&quot;Ej: bresler-chile&quot;
+          required&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;description&quot;&gt;Description&lt;/label&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          id&#x3D;&quot;description&quot;
+          [(ngModel)]&#x3D;&quot;newTenant.description&quot;
+          name&#x3D;&quot;description&quot;
+          placeholder&#x3D;&quot;Ej: Empresa de refrigeracion industrial&quot;&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;logoUrl&quot;&gt;Logo URL&lt;/label&gt;
+        &lt;input
+          type&#x3D;&quot;url&quot;
+          id&#x3D;&quot;logoUrl&quot;
+          [(ngModel)]&#x3D;&quot;newTenant.logoUrl&quot;
+          name&#x3D;&quot;logoUrl&quot;
+          placeholder&#x3D;&quot;https://ejemplo.com/logo.png&quot;&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;form-actions&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-primary&quot; (click)&#x3D;&quot;createTenant()&quot;&gt;
+          Crear Tenant
+        &lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-secondary&quot; (click)&#x3D;&quot;setActiveTab(&#x27;list&#x27;)&quot;&gt;
+          Cancelar
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./tenants.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tenants-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tenants-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tenants-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.75rem;
+  color: var(--text-primary);
+}
+
+.tenants-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab-button:hover {
+  color: var(--text-primary);
+}
+
+.tab-button.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tab-content {
+  animation: fadeIn 0.2s ease-in;
+}
+
+.load-error {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--status-high-border);
+  color: var(--status-high-text);
+  background: var(--status-high-bg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-nuevo {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--hover-overlay-3);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--hover-overlay-4);
+}
+
+/* Form Styles */
+.create-form {
+  max-width: 600px;
+  background-color: var(--surface-lowest);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background-color: var(--surface-lowest);
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-dim);
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--surface-lowest);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stat-activo { color: #1D9E75; }
+.stat-inactivo { color: #E24B4A; }
+.stat-mant { color: #EF9F27; }
+
+.table-card {
+  background: var(--surface-lowest);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tenants-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tenants-table th {
+  background: var(--surface);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.tenants-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.tenants-table tr:last-child td {
+  border-bottom: none;
+}
+
+.id-code {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.nombre-cell { font-weight: 500; }
+.fecha-cell { color: var(--text-secondary); font-size: 0.85rem; }
+
+.plan-badge, .estado-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.plan-basic    { background: #F1EFE8; color: #444441; }
+.plan-pro      { background: #E6F1FB; color: #0C447C; }
+.plan-enterprise { background: #EEEDFE; color: #3C3489; }
+
+.badge-activo  { background: #E1F5EE; color: #0F6E56; }
+.badge-inactivo { background: #FCEBEB; color: #A32D2D; }
+.badge-mant    { background: #FAEEDA; color: #854F0B; }
+
+.btn-accion {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+
+.btn-accion:hover {
+  background: var(--hover-bg-light);
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--surface-lowest);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stat-activo { color: #1D9E75; }
+.stat-inactivo { color: #E24B4A; }
+.stat-mant { color: #EF9F27; }
+
+.table-card {
+  background: var(--surface-lowest);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tenants-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tenants-table th {
+  background: var(--surface);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.tenants-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.tenants-table tr:last-child td {
+  border-bottom: none;
+}
+
+.id-code {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.nombre-cell { font-weight: 500; }
+.fecha-cell { color: var(--text-secondary); font-size: 0.85rem; }
+
+.plan-badge, .estado-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.plan-basic    { background: #F1EFE8; color: #444441; }
+.plan-pro      { background: #E6F1FB; color: #0C447C; }
+.plan-enterprise { background: #EEEDFE; color: #3C3489; }
+
+.badge-activo  { background: #E1F5EE; color: #0F6E56; }
+.badge-inactivo { background: #FCEBEB; color: #A32D2D; }
+.badge-mant    { background: #FAEEDA; color: #854F0B; }
+
+.btn-accion {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+
+.btn-accion:hover {
+  background: var(--hover-bg-light);
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="tenants-wrapper">  <div class="tenants-header">    <div>      <h1 class="tenants-title">Tenants</h1>      <p class="tenants-subtitle">Gestión global de organizaciones</p>    </div>  </div>  <!-- Pestañas -->  <div class="tabs-container">    <button       class="tab-button"       [class.active]="activeTab === \'list\'"      (click)="setActiveTab(\'list\')">      Lista de Tenants    </button>    <button       class="tab-button"       [class.active]="activeTab === \'create\'"      (click)="setActiveTab(\'create\')">      Crear Tenant    </button>  </div>  <!-- Pestaña: Lista de Tenants -->  <div class="tab-content" *ngIf="activeTab === \'list\'">    <div class="load-error" *ngIf="loadError">{{ loadError }}</div>    <div class="stats-row">      <div class="stat-card">        <span class="stat-label">Total Tenants</span>        <span class="stat-value">{{ tenants.length }}</span>      </div>      <div class="stat-card">        <span class="stat-label">Activos</span>        <span class="stat-value stat-activo">{{ tenants.filter(t => t.estado === \'Activo\').length }}</span>      </div>      <div class="stat-card">        <span class="stat-label">Inactivos</span>        <span class="stat-value stat-inactivo">{{ tenants.filter(t => t.estado === \'Inactivo\').length }}</span>      </div>      <div class="stat-card">        <span class="stat-label">En Mantenimiento</span>        <span class="stat-value stat-mant">{{ tenants.filter(t => t.estado === \'Mantenimiento\').length }}</span>      </div>    </div>    <div class="table-card">      <table class="tenants-table">        <thead>          <tr>            <th>ID</th>            <th>Nombre</th>            <th>Usuarios</th>            <th>Estado</th>            <th>Fecha alta</th>            <th>Acciones</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let t of tenants">            <td><code class="id-code">{{ t.id }}</code></td>            <td class="nombre-cell">{{ t.nombre }}</td>            <td>{{ t.usuarios }}</td>            <td><span class="estado-badge" [ngClass]="getEstadoClass(t.estado)">{{ t.estado }}</span></td>            <td class="fecha-cell">{{ t.fecha }}</td>            <td>              <a class="btn-accion" [routerLink]="[\'/tenants\', t.id]">Ver</a>            </td>          </tr>        </tbody>      </table>    </div>  </div>  <!-- Pestaña: Crear Tenant -->  <div class="tab-content" *ngIf="activeTab === \'create\'">    <form class="create-form">      <div class="load-error" *ngIf="createError">{{ createError }}</div>      <div class="form-group">        <label for="name">Name *</label>        <input           type="text"           id="name"           [(ngModel)]="newTenant.name"          name="name"          placeholder="Ej: Bresler Chile"          required>      </div>      <div class="form-group">        <label for="slug">Slug *</label>        <input          type="text"          id="slug"          [(ngModel)]="newTenant.slug"          name="slug"          placeholder="Ej: bresler-chile"          required>      </div>      <div class="form-group">        <label for="description">Description</label>        <input          type="text"          id="description"          [(ngModel)]="newTenant.description"          name="description"          placeholder="Ej: Empresa de refrigeracion industrial">      </div>      <div class="form-group">        <label for="logoUrl">Logo URL</label>        <input          type="url"          id="logoUrl"          [(ngModel)]="newTenant.logoUrl"          name="logoUrl"          placeholder="https://ejemplo.com/logo.png">      </div>      <div class="form-actions">        <button type="button" class="btn-primary" (click)="createTenant()">          Crear Tenant        </button>        <button type="button" class="btn-secondary" (click)="setActiveTab(\'list\')">          Cancelar        </button>      </div>    </form>  </div></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'Tenants'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Tenants.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

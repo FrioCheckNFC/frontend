@@ -1,0 +1,777 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ThemeSwitcher</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/theme-switcher/theme-switcher.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-theme-switcher</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./theme-switcher.css</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;theme-switcher&quot;&gt;
+  &lt;button
+    class&#x3D;&quot;theme-toggle-btn&quot;
+    (click)&#x3D;&quot;toggleTheme()&quot;
+    [attr.aria-label]&#x3D;&quot;isDarkTheme ? &#x27;Cambiar a tema claro&#x27; : &#x27;Cambiar a tema oscuro&#x27;&quot;
+  &gt;
+    &lt;span class&#x3D;&quot;theme-label&quot;&gt;
+      {{ isDarkTheme ? &#x27;Claro&#x27; : &#x27;Oscuro&#x27; }}
+    &lt;/span&gt;
+
+    &lt;!-- Sol (visible en tema claro) --&gt;
+    &lt;svg
+      *ngIf&#x3D;&quot;!isDarkTheme&quot;
+      class&#x3D;&quot;icon sun-icon&quot;
+      viewBox&#x3D;&quot;0 0 24 24&quot;
+      fill&#x3D;&quot;none&quot;
+      stroke&#x3D;&quot;currentColor&quot;
+      stroke-width&#x3D;&quot;2&quot;
+      stroke-linecap&#x3D;&quot;round&quot;
+      stroke-linejoin&#x3D;&quot;round&quot;
+    &gt;
+      &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;5&quot;&gt;&lt;/circle&gt;
+      &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;1&quot; x2&#x3D;&quot;12&quot; y2&#x3D;&quot;3&quot;&gt;&lt;/line&gt;
+      &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;12&quot; y2&#x3D;&quot;23&quot;&gt;&lt;/line&gt;
+      &lt;line x1&#x3D;&quot;4.22&quot; y1&#x3D;&quot;4.22&quot; x2&#x3D;&quot;5.64&quot; y2&#x3D;&quot;5.64&quot;&gt;&lt;/line&gt;
+      &lt;line x1&#x3D;&quot;18.36&quot; y1&#x3D;&quot;18.36&quot; x2&#x3D;&quot;19.78&quot; y2&#x3D;&quot;19.78&quot;&gt;&lt;/line&gt;
+      &lt;line x1&#x3D;&quot;1&quot; y1&#x3D;&quot;12&quot; x2&#x3D;&quot;3&quot; y2&#x3D;&quot;12&quot;&gt;&lt;/line&gt;
+      &lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;12&quot; x2&#x3D;&quot;23&quot; y2&#x3D;&quot;12&quot;&gt;&lt;/line&gt;
+      &lt;line x1&#x3D;&quot;4.22&quot; y1&#x3D;&quot;19.78&quot; x2&#x3D;&quot;5.64&quot; y2&#x3D;&quot;18.36&quot;&gt;&lt;/line&gt;
+      &lt;line x1&#x3D;&quot;18.36&quot; y1&#x3D;&quot;5.64&quot; x2&#x3D;&quot;19.78&quot; y2&#x3D;&quot;4.22&quot;&gt;&lt;/line&gt;
+    &lt;/svg&gt;
+
+    &lt;!-- Luna (visible en tema oscuro) --&gt;
+    &lt;svg *ngIf&#x3D;&quot;isDarkTheme&quot; class&#x3D;&quot;icon moon-icon&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+      &lt;path d&#x3D;&quot;M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z&quot;&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+</code></pre></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isDarkTheme" >isDarkTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applyTheme" >applyTheme</a>
+                            </li>
+                            <li>
+                                <a href="#loadSavedTheme" >loadSavedTheme</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyTheme"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>applyTheme</b></span>
+                        <a href="#applyTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/app/components/theme-switcher/theme-switcher.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadSavedTheme"></a>
+                    <span class="name">
+                        <span ><b>loadSavedTheme</b></span>
+                        <a href="#loadSavedTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadSavedTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/components/theme-switcher/theme-switcher.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/components/theme-switcher/theme-switcher.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/components/theme-switcher/theme-switcher.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDarkTheme"></a>
+                    <span class="name">
+                        <span ><b>isDarkTheme</b></span>
+                        <a href="#isDarkTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/theme-switcher/theme-switcher.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+
+@Component({
+  selector: &#x27;app-theme-switcher&#x27;,
+  standalone: true,
+  imports: [CommonModule],
+  template: &#x60;
+    &lt;div class&#x3D;&quot;theme-switcher&quot;&gt;
+      &lt;button
+        class&#x3D;&quot;theme-toggle-btn&quot;
+        (click)&#x3D;&quot;toggleTheme()&quot;
+        [attr.aria-label]&#x3D;&quot;isDarkTheme ? &#x27;Cambiar a tema claro&#x27; : &#x27;Cambiar a tema oscuro&#x27;&quot;
+      &gt;
+        &lt;span class&#x3D;&quot;theme-label&quot;&gt;
+          {{ isDarkTheme ? &#x27;Claro&#x27; : &#x27;Oscuro&#x27; }}
+        &lt;/span&gt;
+
+        &lt;!-- Sol (visible en tema claro) --&gt;
+        &lt;svg
+          *ngIf&#x3D;&quot;!isDarkTheme&quot;
+          class&#x3D;&quot;icon sun-icon&quot;
+          viewBox&#x3D;&quot;0 0 24 24&quot;
+          fill&#x3D;&quot;none&quot;
+          stroke&#x3D;&quot;currentColor&quot;
+          stroke-width&#x3D;&quot;2&quot;
+          stroke-linecap&#x3D;&quot;round&quot;
+          stroke-linejoin&#x3D;&quot;round&quot;
+        &gt;
+          &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;5&quot;&gt;&lt;/circle&gt;
+          &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;1&quot; x2&#x3D;&quot;12&quot; y2&#x3D;&quot;3&quot;&gt;&lt;/line&gt;
+          &lt;line x1&#x3D;&quot;12&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;12&quot; y2&#x3D;&quot;23&quot;&gt;&lt;/line&gt;
+          &lt;line x1&#x3D;&quot;4.22&quot; y1&#x3D;&quot;4.22&quot; x2&#x3D;&quot;5.64&quot; y2&#x3D;&quot;5.64&quot;&gt;&lt;/line&gt;
+          &lt;line x1&#x3D;&quot;18.36&quot; y1&#x3D;&quot;18.36&quot; x2&#x3D;&quot;19.78&quot; y2&#x3D;&quot;19.78&quot;&gt;&lt;/line&gt;
+          &lt;line x1&#x3D;&quot;1&quot; y1&#x3D;&quot;12&quot; x2&#x3D;&quot;3&quot; y2&#x3D;&quot;12&quot;&gt;&lt;/line&gt;
+          &lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;12&quot; x2&#x3D;&quot;23&quot; y2&#x3D;&quot;12&quot;&gt;&lt;/line&gt;
+          &lt;line x1&#x3D;&quot;4.22&quot; y1&#x3D;&quot;19.78&quot; x2&#x3D;&quot;5.64&quot; y2&#x3D;&quot;18.36&quot;&gt;&lt;/line&gt;
+          &lt;line x1&#x3D;&quot;18.36&quot; y1&#x3D;&quot;5.64&quot; x2&#x3D;&quot;19.78&quot; y2&#x3D;&quot;4.22&quot;&gt;&lt;/line&gt;
+        &lt;/svg&gt;
+
+        &lt;!-- Luna (visible en tema oscuro) --&gt;
+        &lt;svg *ngIf&#x3D;&quot;isDarkTheme&quot; class&#x3D;&quot;icon moon-icon&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+          &lt;path d&#x3D;&quot;M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z&quot;&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &#x60;,
+  styleUrls: [&#x27;./theme-switcher.css&#x27;],
+})
+export class ThemeSwitcher implements OnInit {
+  isDarkTheme &#x3D; false;
+
+  ngOnInit() {
+    this.loadSavedTheme();
+  }
+
+  toggleTheme() {
+    this.isDarkTheme &#x3D; !this.isDarkTheme;
+    this.applyTheme();
+    localStorage.setItem(&#x27;theme&#x27;, this.isDarkTheme ? &#x27;dark&#x27; : &#x27;light&#x27;);
+  }
+
+  loadSavedTheme() {
+    const savedTheme &#x3D; localStorage.getItem(&#x27;theme&#x27;);
+    this.isDarkTheme &#x3D; savedTheme &#x3D;&#x3D;&#x3D; &#x27;dark&#x27;;
+    this.applyTheme();
+  }
+
+  private applyTheme() {
+    if (this.isDarkTheme) {
+      document.documentElement.setAttribute(&#x27;data-theme&#x27;, &#x27;dark&#x27;);
+    } else {
+      document.documentElement.removeAttribute(&#x27;data-theme&#x27;);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./theme-switcher.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;../../styles/colors.css&#x27;;
+
+.theme-switcher {
+  width: 100%;
+}
+
+.theme-toggle-btn {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: var(--primary);
+  color: var(--text-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+
+  &amp;:hover {
+    background-color: var(--primary-hover);
+  }
+
+  &amp;:active {
+    transform: scale(0.99);
+  }
+}
+
+.theme-label {
+  flex: 1;
+  text-align: left;
+  font-weight: 600;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  animation: fadeInOut 0.3s ease;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sun-icon {
+  stroke: white;
+}
+
+.moon-icon {
+  fill: white;
+}
+
+/* Tema oscuro */
+:where([data-theme&#x3D;&#x27;dark&#x27;]) .theme-toggle-btn {
+  background-color: var(--primary);
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="theme-switcher">  <button    class="theme-toggle-btn"    (click)="toggleTheme()"    [attr.aria-label]="isDarkTheme ? \'Cambiar a tema claro\' : \'Cambiar a tema oscuro\'"  >    <span class="theme-label">      {{ isDarkTheme ? \'Claro\' : \'Oscuro\' }}    </span>    <!-- Sol (visible en tema claro) -->    <svg      *ngIf="!isDarkTheme"      class="icon sun-icon"      viewBox="0 0 24 24"      fill="none"      stroke="currentColor"      stroke-width="2"      stroke-linecap="round"      stroke-linejoin="round"    >      <circle cx="12" cy="12" r="5"></circle>      <line x1="12" y1="1" x2="12" y2="3"></line>      <line x1="12" y1="21" x2="12" y2="23"></line>      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>      <line x1="1" y1="12" x2="3" y2="12"></line>      <line x1="21" y1="12" x2="23" y2="12"></line>      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>    </svg>    <!-- Luna (visible en tema oscuro) -->    <svg *ngIf="isDarkTheme" class="icon moon-icon" viewBox="0 0 24 24" fill="currentColor">      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>    </svg>  </button></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'ThemeSwitcher'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ThemeSwitcher.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

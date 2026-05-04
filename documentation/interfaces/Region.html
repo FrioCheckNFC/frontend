@@ -1,0 +1,908 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Region</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/services/chile-locations.service.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#comunas" 
+>
+                                            comunas
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#id" 
+>
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#nombre" 
+>
+                                            nombre
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="comunas"></a>
+                                        <span class="name "><b>comunas</b>
+                                            <a href="#comunas">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>comunas:         <code><a href="../interfaces/Comuna.html" target="_self" >Comuna[]</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/Comuna.html" target="_self" >Comuna[]</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="nombre"></a>
+                                        <span class="name "><b>nombre</b>
+                                            <a href="#nombre">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>nombre:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
+export interface Region {
+  id: string;
+  nombre: string;
+  comunas: Comuna[];
+}
+
+export interface Comuna {
+  id: string;
+  nombre: string;
+  ciudad?: string;
+}
+
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class ChileLocationsService {
+  private regiones: Region[] &#x3D; [
+    {
+      id: &#x27;01&#x27;,
+      nombre: &#x27;Arica y Parinacota&#x27;,
+      comunas: [
+        { id: &#x27;0101&#x27;, nombre: &#x27;Arica&#x27;, ciudad: &#x27;Arica&#x27; },
+        { id: &#x27;0102&#x27;, nombre: &#x27;Camarones&#x27;, ciudad: &#x27;Arica&#x27; },
+        { id: &#x27;0103&#x27;, nombre: &#x27;Putre&#x27;, ciudad: &#x27;Putre&#x27; },
+        { id: &#x27;0104&#x27;, nombre: &#x27;General Lagos&#x27;, ciudad: &#x27;Visviri&#x27; },
+      ],
+    },
+    {
+      id: &#x27;02&#x27;,
+      nombre: &#x27;Tarapacá&#x27;,
+      comunas: [
+        { id: &#x27;0201&#x27;, nombre: &#x27;Iquique&#x27;, ciudad: &#x27;Iquique&#x27; },
+        { id: &#x27;0202&#x27;, nombre: &#x27;Alto Hospicio&#x27;, ciudad: &#x27;Alto Hospicio&#x27; },
+        { id: &#x27;0203&#x27;, nombre: &#x27;Pozo Almonte&#x27;, ciudad: &#x27;Pozo Almonte&#x27; },
+        { id: &#x27;0204&#x27;, nombre: &#x27;Camiña&#x27;, ciudad: &#x27;Camiña&#x27; },
+        { id: &#x27;0205&#x27;, nombre: &#x27;Colchane&#x27;, ciudad: &#x27;Colchane&#x27; },
+        { id: &#x27;0206&#x27;, nombre: &#x27;Huara&#x27;, ciudad: &#x27;Huara&#x27; },
+        { id: &#x27;0207&#x27;, nombre: &#x27;Pica&#x27;, ciudad: &#x27;Pica&#x27; },
+      ],
+    },
+    {
+      id: &#x27;03&#x27;,
+      nombre: &#x27;Antofagasta&#x27;,
+      comunas: [
+        { id: &#x27;0301&#x27;, nombre: &#x27;Antofagasta&#x27;, ciudad: &#x27;Antofagasta&#x27; },
+        { id: &#x27;0302&#x27;, nombre: &#x27;Mejillones&#x27;, ciudad: &#x27;Mejillones&#x27; },
+        { id: &#x27;0303&#x27;, nombre: &#x27;Sierra Gorda&#x27;, ciudad: &#x27;Sierra Gorda&#x27; },
+        { id: &#x27;0304&#x27;, nombre: &#x27;Taltal&#x27;, ciudad: &#x27;Taltal&#x27; },
+        { id: &#x27;0305&#x27;, nombre: &#x27;Calama&#x27;, ciudad: &#x27;Calama&#x27; },
+        { id: &#x27;0306&#x27;, nombre: &#x27;Ollagüe&#x27;, ciudad: &#x27;Ollagüe&#x27; },
+        { id: &#x27;0307&#x27;, nombre: &#x27;San Pedro de Atacama&#x27;, ciudad: &#x27;San Pedro de Atacama&#x27; },
+        { id: &#x27;0308&#x27;, nombre: &#x27;Tocopilla&#x27;, ciudad: &#x27;Tocopilla&#x27; },
+        { id: &#x27;0309&#x27;, nombre: &#x27;María Elena&#x27;, ciudad: &#x27;María Elena&#x27; },
+      ],
+    },
+    {
+      id: &#x27;04&#x27;,
+      nombre: &#x27;Atacama&#x27;,
+      comunas: [
+        { id: &#x27;0401&#x27;, nombre: &#x27;Copiapó&#x27;, ciudad: &#x27;Copiapó&#x27; },
+        { id: &#x27;0402&#x27;, nombre: &#x27;Caldera&#x27;, ciudad: &#x27;Caldera&#x27; },
+        { id: &#x27;0403&#x27;, nombre: &#x27;Tierra Amarilla&#x27;, ciudad: &#x27;Tierra Amarilla&#x27; },
+        { id: &#x27;0404&#x27;, nombre: &#x27;Chañaral&#x27;, ciudad: &#x27;Chañaral&#x27; },
+        { id: &#x27;0405&#x27;, nombre: &#x27;Diego de Almagro&#x27;, ciudad: &#x27;Diego de Almagro&#x27; },
+        { id: &#x27;0406&#x27;, nombre: &#x27;Vallenar&#x27;, ciudad: &#x27;Vallenar&#x27; },
+        { id: &#x27;0407&#x27;, nombre: &#x27;Alto del Carmen&#x27;, ciudad: &#x27;Alto del Carmen&#x27; },
+        { id: &#x27;0408&#x27;, nombre: &#x27;Freirina&#x27;, ciudad: &#x27;Freirina&#x27; },
+        { id: &#x27;0409&#x27;, nombre: &#x27;Huasco&#x27;, ciudad: &#x27;Huasco&#x27; },
+      ],
+    },
+    {
+      id: &#x27;05&#x27;,
+      nombre: &#x27;Coquimbo&#x27;,
+      comunas: [
+        { id: &#x27;0501&#x27;, nombre: &#x27;La Serena&#x27;, ciudad: &#x27;La Serena&#x27; },
+        { id: &#x27;0502&#x27;, nombre: &#x27;Coquimbo&#x27;, ciudad: &#x27;Coquimbo&#x27; },
+        { id: &#x27;0503&#x27;, nombre: &#x27;Andacollo&#x27;, ciudad: &#x27;Andacollo&#x27; },
+        { id: &#x27;0504&#x27;, nombre: &#x27;La Higuera&#x27;, ciudad: &#x27;La Higuera&#x27; },
+        { id: &#x27;0505&#x27;, nombre: &#x27;Paihuano&#x27;, ciudad: &#x27;Paihuano&#x27; },
+        { id: &#x27;0506&#x27;, nombre: &#x27;Vicuña&#x27;, ciudad: &#x27;Vicuña&#x27; },
+        { id: &#x27;0507&#x27;, nombre: &#x27;Illapel&#x27;, ciudad: &#x27;Illapel&#x27; },
+        { id: &#x27;0508&#x27;, nombre: &#x27;Canela&#x27;, ciudad: &#x27;Canela&#x27; },
+        { id: &#x27;0509&#x27;, nombre: &#x27;Los Vilos&#x27;, ciudad: &#x27;Los Vilos&#x27; },
+        { id: &#x27;0510&#x27;, nombre: &#x27;Salamanca&#x27;, ciudad: &#x27;Salamanca&#x27; },
+        { id: &#x27;0511&#x27;, nombre: &#x27;Ovalle&#x27;, ciudad: &#x27;Ovalle&#x27; },
+        { id: &#x27;0512&#x27;, nombre: &#x27;Combarbalá&#x27;, ciudad: &#x27;Combarbalá&#x27; },
+        { id: &#x27;0513&#x27;, nombre: &#x27;Monte Patria&#x27;, ciudad: &#x27;Monte Patria&#x27; },
+        { id: &#x27;0514&#x27;, nombre: &#x27;Punitaqui&#x27;, ciudad: &#x27;Punitaqui&#x27; },
+        { id: &#x27;0515&#x27;, nombre: &#x27;Río Hurtado&#x27;, ciudad: &#x27;Río Hurtado&#x27; },
+      ],
+    },
+    {
+      id: &#x27;06&#x27;,
+      nombre: &#x27;Valparaíso&#x27;,
+      comunas: [
+        { id: &#x27;0601&#x27;, nombre: &#x27;Valparaíso&#x27;, ciudad: &#x27;Valparaíso&#x27; },
+        { id: &#x27;0602&#x27;, nombre: &#x27;Casablanca&#x27;, ciudad: &#x27;Casablanca&#x27; },
+        { id: &#x27;0603&#x27;, nombre: &#x27;Concón&#x27;, ciudad: &#x27;Concón&#x27; },
+        { id: &#x27;0604&#x27;, nombre: &#x27;Juan Fernández&#x27;, ciudad: &#x27;Juan Fernández&#x27; },
+        { id: &#x27;0605&#x27;, nombre: &#x27;Puchuncaví&#x27;, ciudad: &#x27;Puchuncaví&#x27; },
+        { id: &#x27;0606&#x27;, nombre: &#x27;Quintero&#x27;, ciudad: &#x27;Quintero&#x27; },
+        { id: &#x27;0607&#x27;, nombre: &#x27;Viña del Mar&#x27;, ciudad: &#x27;Viña del Mar&#x27; },
+        { id: &#x27;0608&#x27;, nombre: &#x27;Isla de Pascua&#x27;, ciudad: &#x27;Hanga Roa&#x27; },
+        { id: &#x27;0609&#x27;, nombre: &#x27;Los Andes&#x27;, ciudad: &#x27;Los Andes&#x27; },
+        { id: &#x27;0610&#x27;, nombre: &#x27;Calle Larga&#x27;, ciudad: &#x27;Calle Larga&#x27; },
+        { id: &#x27;0611&#x27;, nombre: &#x27;Rinconada&#x27;, ciudad: &#x27;Rinconada&#x27; },
+        { id: &#x27;0612&#x27;, nombre: &#x27;San Esteban&#x27;, ciudad: &#x27;San Esteban&#x27; },
+        { id: &#x27;0613&#x27;, nombre: &#x27;La Ligua&#x27;, ciudad: &#x27;La Ligua&#x27; },
+        { id: &#x27;0614&#x27;, nombre: &#x27;Cabildo&#x27;, ciudad: &#x27;Cabildo&#x27; },
+        { id: &#x27;0615&#x27;, nombre: &#x27;Papudo&#x27;, ciudad: &#x27;Papudo&#x27; },
+        { id: &#x27;0616&#x27;, nombre: &#x27;Petorca&#x27;, ciudad: &#x27;Petorca&#x27; },
+        { id: &#x27;0617&#x27;, nombre: &#x27;Zapallar&#x27;, ciudad: &#x27;Zapallar&#x27; },
+        { id: &#x27;0618&#x27;, nombre: &#x27;Quillota&#x27;, ciudad: &#x27;Quillota&#x27; },
+        { id: &#x27;0619&#x27;, nombre: &#x27;Calera&#x27;, ciudad: &#x27;La Calera&#x27; },
+        { id: &#x27;0620&#x27;, nombre: &#x27;Hijuelas&#x27;, ciudad: &#x27;Hijuelas&#x27; },
+        { id: &#x27;0621&#x27;, nombre: &#x27;La Cruz&#x27;, ciudad: &#x27;La Cruz&#x27; },
+        { id: &#x27;0622&#x27;, nombre: &#x27;Nogales&#x27;, ciudad: &#x27;Nogales&#x27; },
+        { id: &#x27;0623&#x27;, nombre: &#x27;San Antonio&#x27;, ciudad: &#x27;San Antonio&#x27; },
+        { id: &#x27;0624&#x27;, nombre: &#x27;Algarrobo&#x27;, ciudad: &#x27;Algarrobo&#x27; },
+        { id: &#x27;0625&#x27;, nombre: &#x27;Cartagena&#x27;, ciudad: &#x27;Cartagena&#x27; },
+        { id: &#x27;0626&#x27;, nombre: &#x27;El Quisco&#x27;, ciudad: &#x27;El Quisco&#x27; },
+        { id: &#x27;0627&#x27;, nombre: &#x27;El Tabo&#x27;, ciudad: &#x27;El Tabo&#x27; },
+        { id: &#x27;0628&#x27;, nombre: &#x27;Santo Domingo&#x27;, ciudad: &#x27;Santo Domingo&#x27; },
+        { id: &#x27;0629&#x27;, nombre: &#x27;San Felipe&#x27;, ciudad: &#x27;San Felipe&#x27; },
+        { id: &#x27;0630&#x27;, nombre: &#x27;Catemu&#x27;, ciudad: &#x27;Catemu&#x27; },
+        { id: &#x27;0631&#x27;, nombre: &#x27;Llaillay&#x27;, ciudad: &#x27;Llaillay&#x27; },
+        { id: &#x27;0632&#x27;, nombre: &#x27;Panquehue&#x27;, ciudad: &#x27;Panquehue&#x27; },
+        { id: &#x27;0633&#x27;, nombre: &#x27;Putaendo&#x27;, ciudad: &#x27;Putaendo&#x27; },
+        { id: &#x27;0634&#x27;, nombre: &#x27;Santa María&#x27;, ciudad: &#x27;Santa María&#x27; },
+        { id: &#x27;0635&#x27;, nombre: &#x27;Quilpué&#x27;, ciudad: &#x27;Quilpué&#x27; },
+        { id: &#x27;0636&#x27;, nombre: &#x27;Limache&#x27;, ciudad: &#x27;Limache&#x27; },
+        { id: &#x27;0637&#x27;, nombre: &#x27;Olmué&#x27;, ciudad: &#x27;Olmué&#x27; },
+        { id: &#x27;0638&#x27;, nombre: &#x27;Villa Alemana&#x27;, ciudad: &#x27;Villa Alemana&#x27; },
+      ],
+    },
+    {
+      id: &#x27;07&#x27;,
+      nombre: &#x27;Metropolitana de Santiago&#x27;,
+      comunas: [
+        { id: &#x27;0701&#x27;, nombre: &#x27;Cerrillos&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0702&#x27;, nombre: &#x27;Cerro Navia&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0703&#x27;, nombre: &#x27;Conchalí&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0704&#x27;, nombre: &#x27;El Bosque&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0705&#x27;, nombre: &#x27;Estación Central&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0706&#x27;, nombre: &#x27;Huechuraba&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0707&#x27;, nombre: &#x27;Independencia&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0708&#x27;, nombre: &#x27;La Cisterna&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0709&#x27;, nombre: &#x27;La Florida&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0710&#x27;, nombre: &#x27;La Granja&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0711&#x27;, nombre: &#x27;La Pintana&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0712&#x27;, nombre: &#x27;La Reina&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0713&#x27;, nombre: &#x27;Las Condes&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0714&#x27;, nombre: &#x27;Lo Barnechea&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0715&#x27;, nombre: &#x27;Lo Espejo&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0716&#x27;, nombre: &#x27;Lo Prado&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0717&#x27;, nombre: &#x27;Macul&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0718&#x27;, nombre: &#x27;Maipú&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0719&#x27;, nombre: &#x27;Ñuñoa&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0720&#x27;, nombre: &#x27;Pedro Aguirre Cerda&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0721&#x27;, nombre: &#x27;Peñalolén&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0722&#x27;, nombre: &#x27;Providencia&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0723&#x27;, nombre: &#x27;Pudahuel&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0724&#x27;, nombre: &#x27;Quilicura&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0725&#x27;, nombre: &#x27;Quinta Normal&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0726&#x27;, nombre: &#x27;Recoleta&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0727&#x27;, nombre: &#x27;Renca&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0728&#x27;, nombre: &#x27;San Joaquín&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0729&#x27;, nombre: &#x27;San Miguel&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0730&#x27;, nombre: &#x27;San Ramón&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0731&#x27;, nombre: &#x27;Santiago&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0732&#x27;, nombre: &#x27;Vitacura&#x27;, ciudad: &#x27;Santiago&#x27; },
+        { id: &#x27;0733&#x27;, nombre: &#x27;Puente Alto&#x27;, ciudad: &#x27;Puente Alto&#x27; },
+        { id: &#x27;0734&#x27;, nombre: &#x27;Pirque&#x27;, ciudad: &#x27;Pirque&#x27; },
+        { id: &#x27;0735&#x27;, nombre: &#x27;San José de Maipo&#x27;, ciudad: &#x27;San José de Maipo&#x27; },
+        { id: &#x27;0736&#x27;, nombre: &#x27;Colina&#x27;, ciudad: &#x27;Colina&#x27; },
+        { id: &#x27;0737&#x27;, nombre: &#x27;Lampa&#x27;, ciudad: &#x27;Lampa&#x27; },
+        { id: &#x27;0738&#x27;, nombre: &#x27;Tiltil&#x27;, ciudad: &#x27;Tiltil&#x27; },
+        { id: &#x27;0739&#x27;, nombre: &#x27;San Bernardo&#x27;, ciudad: &#x27;San Bernardo&#x27; },
+        { id: &#x27;0740&#x27;, nombre: &#x27;Buin&#x27;, ciudad: &#x27;Buin&#x27; },
+        { id: &#x27;0741&#x27;, nombre: &#x27;Calera de Tango&#x27;, ciudad: &#x27;Calera de Tango&#x27; },
+        { id: &#x27;0742&#x27;, nombre: &#x27;Paine&#x27;, ciudad: &#x27;Paine&#x27; },
+        { id: &#x27;0743&#x27;, nombre: &#x27;Melipilla&#x27;, ciudad: &#x27;Melipilla&#x27; },
+        { id: &#x27;0744&#x27;, nombre: &#x27;Alhué&#x27;, ciudad: &#x27;Alhué&#x27; },
+        { id: &#x27;0745&#x27;, nombre: &#x27;Curacaví&#x27;, ciudad: &#x27;Curacaví&#x27; },
+        { id: &#x27;0746&#x27;, nombre: &#x27;María Pinto&#x27;, ciudad: &#x27;María Pinto&#x27; },
+        { id: &#x27;0747&#x27;, nombre: &#x27;San Pedro&#x27;, ciudad: &#x27;San Pedro&#x27; },
+        { id: &#x27;0748&#x27;, nombre: &#x27;Talagante&#x27;, ciudad: &#x27;Talagante&#x27; },
+        { id: &#x27;0749&#x27;, nombre: &#x27;El Monte&#x27;, ciudad: &#x27;El Monte&#x27; },
+        { id: &#x27;0750&#x27;, nombre: &#x27;Isla de Maipo&#x27;, ciudad: &#x27;Isla de Maipo&#x27; },
+        { id: &#x27;0751&#x27;, nombre: &#x27;Padre Hurtado&#x27;, ciudad: &#x27;Padre Hurtado&#x27; },
+        { id: &#x27;0752&#x27;, nombre: &#x27;Peñaflor&#x27;, ciudad: &#x27;Peñaflor&#x27; },
+      ],
+    },
+    {
+      id: &#x27;08&#x27;,
+      nombre: &#x27;Libertador General Bernardo O\&#x27;Higgins&#x27;,
+      comunas: [
+        { id: &#x27;0801&#x27;, nombre: &#x27;Rancagua&#x27;, ciudad: &#x27;Rancagua&#x27; },
+        { id: &#x27;0802&#x27;, nombre: &#x27;Codegua&#x27;, ciudad: &#x27;Codegua&#x27; },
+        { id: &#x27;0803&#x27;, nombre: &#x27;Coinco&#x27;, ciudad: &#x27;Coinco&#x27; },
+        { id: &#x27;0804&#x27;, nombre: &#x27;Coltauco&#x27;, ciudad: &#x27;Coltauco&#x27; },
+        { id: &#x27;0805&#x27;, nombre: &#x27;Doñihue&#x27;, ciudad: &#x27;Doñihue&#x27; },
+        { id: &#x27;0806&#x27;, nombre: &#x27;Graneros&#x27;, ciudad: &#x27;Graneros&#x27; },
+        { id: &#x27;0807&#x27;, nombre: &#x27;Las Cabras&#x27;, ciudad: &#x27;Las Cabras&#x27; },
+        { id: &#x27;0808&#x27;, nombre: &#x27;Machalí&#x27;, ciudad: &#x27;Machalí&#x27; },
+        { id: &#x27;0809&#x27;, nombre: &#x27;Malloa&#x27;, ciudad: &#x27;Malloa&#x27; },
+        { id: &#x27;0810&#x27;, nombre: &#x27;Mostazal&#x27;, ciudad: &#x27;Mostazal&#x27; },
+        { id: &#x27;0811&#x27;, nombre: &#x27;Olivar&#x27;, ciudad: &#x27;Olivar&#x27; },
+        { id: &#x27;0812&#x27;, nombre: &#x27;Peumo&#x27;, ciudad: &#x27;Peumo&#x27; },
+        { id: &#x27;0813&#x27;, nombre: &#x27;Pichidegua&#x27;, ciudad: &#x27;Pichidegua&#x27; },
+        { id: &#x27;0814&#x27;, nombre: &#x27;Quinta de Tilcoco&#x27;, ciudad: &#x27;Quinta de Tilcoco&#x27; },
+        { id: &#x27;0815&#x27;, nombre: &#x27;Rengo&#x27;, ciudad: &#x27;Rengo&#x27; },
+        { id: &#x27;0816&#x27;, nombre: &#x27;Requínoa&#x27;, ciudad: &#x27;Requínoa&#x27; },
+        { id: &#x27;0817&#x27;, nombre: &#x27;San Vicente&#x27;, ciudad: &#x27;San Vicente&#x27; },
+        { id: &#x27;0818&#x27;, nombre: &#x27;Pichilemu&#x27;, ciudad: &#x27;Pichilemu&#x27; },
+        { id: &#x27;0819&#x27;, nombre: &#x27;La Estrella&#x27;, ciudad: &#x27;La Estrella&#x27; },
+        { id: &#x27;0820&#x27;, nombre: &#x27;Litueche&#x27;, ciudad: &#x27;Litueche&#x27; },
+        { id: &#x27;0821&#x27;, nombre: &#x27;Marchihue&#x27;, ciudad: &#x27;Marchihue&#x27; },
+        { id: &#x27;0822&#x27;, nombre: &#x27;Navidad&#x27;, ciudad: &#x27;Navidad&#x27; },
+        { id: &#x27;0823&#x27;, nombre: &#x27;Paredones&#x27;, ciudad: &#x27;Paredones&#x27; },
+        { id: &#x27;0824&#x27;, nombre: &#x27;San Fernando&#x27;, ciudad: &#x27;San Fernando&#x27; },
+        { id: &#x27;0825&#x27;, nombre: &#x27;Chépica&#x27;, ciudad: &#x27;Chépica&#x27; },
+        { id: &#x27;0826&#x27;, nombre: &#x27;Chimbarongo&#x27;, ciudad: &#x27;Chimbarongo&#x27; },
+        { id: &#x27;0827&#x27;, nombre: &#x27;Lolol&#x27;, ciudad: &#x27;Lolol&#x27; },
+        { id: &#x27;0828&#x27;, nombre: &#x27;Nancagua&#x27;, ciudad: &#x27;Nancagua&#x27; },
+        { id: &#x27;0829&#x27;, nombre: &#x27;Palmilla&#x27;, ciudad: &#x27;Palmilla&#x27; },
+        { id: &#x27;0830&#x27;, nombre: &#x27;Peralillo&#x27;, ciudad: &#x27;Peralillo&#x27; },
+        { id: &#x27;0831&#x27;, nombre: &#x27;Placilla&#x27;, ciudad: &#x27;Placilla&#x27; },
+        { id: &#x27;0832&#x27;, nombre: &#x27;Pumanque&#x27;, ciudad: &#x27;Pumanque&#x27; },
+        { id: &#x27;0833&#x27;, nombre: &#x27;Santa Cruz&#x27;, ciudad: &#x27;Santa Cruz&#x27; },
+      ],
+    },
+    {
+      id: &#x27;09&#x27;,
+      nombre: &#x27;Maule&#x27;,
+      comunas: [
+        { id: &#x27;0901&#x27;, nombre: &#x27;Talca&#x27;, ciudad: &#x27;Talca&#x27; },
+        { id: &#x27;0902&#x27;, nombre: &#x27;Constitución&#x27;, ciudad: &#x27;Constitución&#x27; },
+        { id: &#x27;0903&#x27;, nombre: &#x27;Curepto&#x27;, ciudad: &#x27;Curepto&#x27; },
+        { id: &#x27;0904&#x27;, nombre: &#x27;Empedrado&#x27;, ciudad: &#x27;Empedrado&#x27; },
+        { id: &#x27;0905&#x27;, nombre: &#x27;Maule&#x27;, ciudad: &#x27;Maule&#x27; },
+        { id: &#x27;0906&#x27;, nombre: &#x27;Pelarco&#x27;, ciudad: &#x27;Pelarco&#x27; },
+        { id: &#x27;0907&#x27;, nombre: &#x27;Pencahue&#x27;, ciudad: &#x27;Pencahue&#x27; },
+        { id: &#x27;0908&#x27;, nombre: &#x27;Río Claro&#x27;, ciudad: &#x27;Río Claro&#x27; },
+        { id: &#x27;0909&#x27;, nombre: &#x27;San Clemente&#x27;, ciudad: &#x27;San Clemente&#x27; },
+        { id: &#x27;0910&#x27;, nombre: &#x27;San Rafael&#x27;, ciudad: &#x27;San Rafael&#x27; },
+        { id: &#x27;0911&#x27;, nombre: &#x27;Cauquenes&#x27;, ciudad: &#x27;Cauquenes&#x27; },
+        { id: &#x27;0912&#x27;, nombre: &#x27;Chanco&#x27;, ciudad: &#x27;Chanco&#x27; },
+        { id: &#x27;0913&#x27;, nombre: &#x27;Pelluhue&#x27;, ciudad: &#x27;Pelluhue&#x27; },
+        { id: &#x27;0914&#x27;, nombre: &#x27;Curicó&#x27;, ciudad: &#x27;Curicó&#x27; },
+        { id: &#x27;0915&#x27;, nombre: &#x27;Hualañé&#x27;, ciudad: &#x27;Hualañé&#x27; },
+        { id: &#x27;0916&#x27;, nombre: &#x27;Licantén&#x27;, ciudad: &#x27;Licantén&#x27; },
+        { id: &#x27;0917&#x27;, nombre: &#x27;Molina&#x27;, ciudad: &#x27;Molina&#x27; },
+        { id: &#x27;0918&#x27;, nombre: &#x27;Rauco&#x27;, ciudad: &#x27;Rauco&#x27; },
+        { id: &#x27;0919&#x27;, nombre: &#x27;Romeral&#x27;, ciudad: &#x27;Romeral&#x27; },
+        { id: &#x27;0920&#x27;, nombre: &#x27;Sagrada Familia&#x27;, ciudad: &#x27;Sagrada Familia&#x27; },
+        { id: &#x27;0921&#x27;, nombre: &#x27;Teno&#x27;, ciudad: &#x27;Teno&#x27; },
+        { id: &#x27;0922&#x27;, nombre: &#x27;Vichuquén&#x27;, ciudad: &#x27;Vichuquén&#x27; },
+        { id: &#x27;0923&#x27;, nombre: &#x27;Linares&#x27;, ciudad: &#x27;Linares&#x27; },
+        { id: &#x27;0924&#x27;, nombre: &#x27;Colbún&#x27;, ciudad: &#x27;Colbún&#x27; },
+        { id: &#x27;0925&#x27;, nombre: &#x27;Longaví&#x27;, ciudad: &#x27;Longaví&#x27; },
+        { id: &#x27;0926&#x27;, nombre: &#x27;Parral&#x27;, ciudad: &#x27;Parral&#x27; },
+        { id: &#x27;0927&#x27;, nombre: &#x27;Retiro&#x27;, ciudad: &#x27;Retiro&#x27; },
+        { id: &#x27;0928&#x27;, nombre: &#x27;San Javier&#x27;, ciudad: &#x27;San Javier&#x27; },
+        { id: &#x27;0929&#x27;, nombre: &#x27;Villa Alegre&#x27;, ciudad: &#x27;Villa Alegre&#x27; },
+        { id: &#x27;0930&#x27;, nombre: &#x27;Yerbas Buenas&#x27;, ciudad: &#x27;Yerbas Buenas&#x27; },
+      ],
+    },
+    {
+      id: &#x27;10&#x27;,
+      nombre: &#x27;Ñuble&#x27;,
+      comunas: [
+        { id: &#x27;1001&#x27;, nombre: &#x27;Chillán&#x27;, ciudad: &#x27;Chillán&#x27; },
+        { id: &#x27;1002&#x27;, nombre: &#x27;Bulnes&#x27;, ciudad: &#x27;Bulnes&#x27; },
+        { id: &#x27;1003&#x27;, nombre: &#x27;Chillán Viejo&#x27;, ciudad: &#x27;Chillán&#x27; },
+        { id: &#x27;1004&#x27;, nombre: &#x27;El Carmen&#x27;, ciudad: &#x27;El Carmen&#x27; },
+        { id: &#x27;1005&#x27;, nombre: &#x27;Pemuco&#x27;, ciudad: &#x27;Pemuco&#x27; },
+        { id: &#x27;1006&#x27;, nombre: &#x27;Pinto&#x27;, ciudad: &#x27;Pinto&#x27; },
+        { id: &#x27;1007&#x27;, nombre: &#x27;Quillón&#x27;, ciudad: &#x27;Quillón&#x27; },
+        { id: &#x27;1008&#x27;, nombre: &#x27;San Ignacio&#x27;, ciudad: &#x27;San Ignacio&#x27; },
+        { id: &#x27;1009&#x27;, nombre: &#x27;Yungay&#x27;, ciudad: &#x27;Yungay&#x27; },
+        { id: &#x27;1010&#x27;, nombre: &#x27;Cobquecura&#x27;, ciudad: &#x27;Cobquecura&#x27; },
+        { id: &#x27;1011&#x27;, nombre: &#x27;Coelemu&#x27;, ciudad: &#x27;Coelemu&#x27; },
+        { id: &#x27;1012&#x27;, nombre: &#x27;Ninhue&#x27;, ciudad: &#x27;Ninhue&#x27; },
+        { id: &#x27;1013&#x27;, nombre: &#x27;Portezuelo&#x27;, ciudad: &#x27;Portezuelo&#x27; },
+        { id: &#x27;1014&#x27;, nombre: &#x27;Quirihue&#x27;, ciudad: &#x27;Quirihue&#x27; },
+        { id: &#x27;1015&#x27;, nombre: &#x27;Ránquil&#x27;, ciudad: &#x27;Ránquil&#x27; },
+        { id: &#x27;1016&#x27;, nombre: &#x27;Treguaco&#x27;, ciudad: &#x27;Treguaco&#x27; },
+        { id: &#x27;1017&#x27;, nombre: &#x27;San Carlos&#x27;, ciudad: &#x27;San Carlos&#x27; },
+        { id: &#x27;1018&#x27;, nombre: &#x27;Coihueco&#x27;, ciudad: &#x27;Coihueco&#x27; },
+        { id: &#x27;1019&#x27;, nombre: &#x27;Ñiquén&#x27;, ciudad: &#x27;Ñiquén&#x27; },
+        { id: &#x27;1020&#x27;, nombre: &#x27;San Fabián&#x27;, ciudad: &#x27;San Fabián&#x27; },
+        { id: &#x27;1021&#x27;, nombre: &#x27;San Nicolás&#x27;, ciudad: &#x27;San Nicolás&#x27; },
+      ],
+    },
+    {
+      id: &#x27;11&#x27;,
+      nombre: &#x27;Biobío&#x27;,
+      comunas: [
+        { id: &#x27;1101&#x27;, nombre: &#x27;Concepción&#x27;, ciudad: &#x27;Concepción&#x27; },
+        { id: &#x27;1102&#x27;, nombre: &#x27;Coronel&#x27;, ciudad: &#x27;Coronel&#x27; },
+        { id: &#x27;1103&#x27;, nombre: &#x27;Chiguayante&#x27;, ciudad: &#x27;Chiguayante&#x27; },
+        { id: &#x27;1104&#x27;, nombre: &#x27;Florida&#x27;, ciudad: &#x27;Florida&#x27; },
+        { id: &#x27;1105&#x27;, nombre: &#x27;Hualqui&#x27;, ciudad: &#x27;Hualqui&#x27; },
+        { id: &#x27;1106&#x27;, nombre: &#x27;Lota&#x27;, ciudad: &#x27;Lota&#x27; },
+        { id: &#x27;1107&#x27;, nombre: &#x27;Penco&#x27;, ciudad: &#x27;Penco&#x27; },
+        { id: &#x27;1108&#x27;, nombre: &#x27;San Pedro de la Paz&#x27;, ciudad: &#x27;San Pedro de la Paz&#x27; },
+        { id: &#x27;1109&#x27;, nombre: &#x27;Santa Juana&#x27;, ciudad: &#x27;Santa Juana&#x27; },
+        { id: &#x27;1110&#x27;, nombre: &#x27;Talcahuano&#x27;, ciudad: &#x27;Talcahuano&#x27; },
+        { id: &#x27;1111&#x27;, nombre: &#x27;Tomé&#x27;, ciudad: &#x27;Tomé&#x27; },
+        { id: &#x27;1112&#x27;, nombre: &#x27;Hualpén&#x27;, ciudad: &#x27;Hualpén&#x27; },
+        { id: &#x27;1113&#x27;, nombre: &#x27;Lebu&#x27;, ciudad: &#x27;Lebu&#x27; },
+        { id: &#x27;1114&#x27;, nombre: &#x27;Arauco&#x27;, ciudad: &#x27;Arauco&#x27; },
+        { id: &#x27;1115&#x27;, nombre: &#x27;Cañete&#x27;, ciudad: &#x27;Cañete&#x27; },
+        { id: &#x27;1116&#x27;, nombre: &#x27;Contulmo&#x27;, ciudad: &#x27;Contulmo&#x27; },
+        { id: &#x27;1117&#x27;, nombre: &#x27;Curanilahue&#x27;, ciudad: &#x27;Curanilahue&#x27; },
+        { id: &#x27;1118&#x27;, nombre: &#x27;Los Álamos&#x27;, ciudad: &#x27;Los Álamos&#x27; },
+        { id: &#x27;1119&#x27;, nombre: &#x27;Tirúa&#x27;, ciudad: &#x27;Tirúa&#x27; },
+        { id: &#x27;1120&#x27;, nombre: &#x27;Los Ángeles&#x27;, ciudad: &#x27;Los Ángeles&#x27; },
+        { id: &#x27;1121&#x27;, nombre: &#x27;Antuco&#x27;, ciudad: &#x27;Antuco&#x27; },
+        { id: &#x27;1122&#x27;, nombre: &#x27;Cabrero&#x27;, ciudad: &#x27;Cabrero&#x27; },
+        { id: &#x27;1123&#x27;, nombre: &#x27;Laja&#x27;, ciudad: &#x27;Laja&#x27; },
+        { id: &#x27;1124&#x27;, nombre: &#x27;Mulchén&#x27;, ciudad: &#x27;Mulchén&#x27; },
+        { id: &#x27;1125&#x27;, nombre: &#x27;Nacimiento&#x27;, ciudad: &#x27;Nacimiento&#x27; },
+        { id: &#x27;1126&#x27;, nombre: &#x27;Negrete&#x27;, ciudad: &#x27;Negrete&#x27; },
+        { id: &#x27;1127&#x27;, nombre: &#x27;Quilaco&#x27;, ciudad: &#x27;Quilaco&#x27; },
+        { id: &#x27;1128&#x27;, nombre: &#x27;Quilleco&#x27;, ciudad: &#x27;Quilleco&#x27; },
+        { id: &#x27;1129&#x27;, nombre: &#x27;San Rosendo&#x27;, ciudad: &#x27;San Rosendo&#x27; },
+        { id: &#x27;1130&#x27;, nombre: &#x27;Santa Bárbara&#x27;, ciudad: &#x27;Santa Bárbara&#x27; },
+        { id: &#x27;1131&#x27;, nombre: &#x27;Tucapel&#x27;, ciudad: &#x27;Tucapel&#x27; },
+        { id: &#x27;1132&#x27;, nombre: &#x27;Yumbel&#x27;, ciudad: &#x27;Yumbel&#x27; },
+        { id: &#x27;1133&#x27;, nombre: &#x27;Alto Biobío&#x27;, ciudad: &#x27;Alto Biobío&#x27; },
+      ],
+    },
+    {
+      id: &#x27;12&#x27;,
+      nombre: &#x27;La Araucanía&#x27;,
+      comunas: [
+        { id: &#x27;1201&#x27;, nombre: &#x27;Temuco&#x27;, ciudad: &#x27;Temuco&#x27; },
+        { id: &#x27;1202&#x27;, nombre: &#x27;Carahue&#x27;, ciudad: &#x27;Carahue&#x27; },
+        { id: &#x27;1203&#x27;, nombre: &#x27;Cholchol&#x27;, ciudad: &#x27;Cholchol&#x27; },
+        { id: &#x27;1204&#x27;, nombre: &#x27;Cunco&#x27;, ciudad: &#x27;Cunco&#x27; },
+        { id: &#x27;1205&#x27;, nombre: &#x27;Curarrehue&#x27;, ciudad: &#x27;Curarrehue&#x27; },
+        { id: &#x27;1206&#x27;, nombre: &#x27;Freire&#x27;, ciudad: &#x27;Freire&#x27; },
+        { id: &#x27;1207&#x27;, nombre: &#x27;Galvarino&#x27;, ciudad: &#x27;Galvarino&#x27; },
+        { id: &#x27;1208&#x27;, nombre: &#x27;Gorbea&#x27;, ciudad: &#x27;Gorbea&#x27; },
+        { id: &#x27;1209&#x27;, nombre: &#x27;Lautaro&#x27;, ciudad: &#x27;Lautaro&#x27; },
+        { id: &#x27;1210&#x27;, nombre: &#x27;Loncoche&#x27;, ciudad: &#x27;Loncoche&#x27; },
+        { id: &#x27;1211&#x27;, nombre: &#x27;Melipeuco&#x27;, ciudad: &#x27;Melipeuco&#x27; },
+        { id: &#x27;1212&#x27;, nombre: &#x27;Nueva Imperial&#x27;, ciudad: &#x27;Nueva Imperial&#x27; },
+        { id: &#x27;1213&#x27;, nombre: &#x27;Padre Las Casas&#x27;, ciudad: &#x27;Padre Las Casas&#x27; },
+        { id: &#x27;1214&#x27;, nombre: &#x27;Perquenco&#x27;, ciudad: &#x27;Perquenco&#x27; },
+        { id: &#x27;1215&#x27;, nombre: &#x27;Pitrufquén&#x27;, ciudad: &#x27;Pitrufquén&#x27; },
+        { id: &#x27;1216&#x27;, nombre: &#x27;Pucón&#x27;, ciudad: &#x27;Pucón&#x27; },
+        { id: &#x27;1217&#x27;, nombre: &#x27;Saavedra&#x27;, ciudad: &#x27;Saavedra&#x27; },
+        { id: &#x27;1218&#x27;, nombre: &#x27;Teodoro Schmidt&#x27;, ciudad: &#x27;Teodoro Schmidt&#x27; },
+        { id: &#x27;1219&#x27;, nombre: &#x27;Toltén&#x27;, ciudad: &#x27;Toltén&#x27; },
+        { id: &#x27;1220&#x27;, nombre: &#x27;Vilcún&#x27;, ciudad: &#x27;Vilcún&#x27; },
+        { id: &#x27;1221&#x27;, nombre: &#x27;Villarrica&#x27;, ciudad: &#x27;Villarrica&#x27; },
+        { id: &#x27;1222&#x27;, nombre: &#x27;Angol&#x27;, ciudad: &#x27;Angol&#x27; },
+        { id: &#x27;1223&#x27;, nombre: &#x27;Collipulli&#x27;, ciudad: &#x27;Collipulli&#x27; },
+        { id: &#x27;1224&#x27;, nombre: &#x27;Curacautín&#x27;, ciudad: &#x27;Curacautín&#x27; },
+        { id: &#x27;1225&#x27;, nombre: &#x27;Ercilla&#x27;, ciudad: &#x27;Ercilla&#x27; },
+        { id: &#x27;1226&#x27;, nombre: &#x27;Lonquimay&#x27;, ciudad: &#x27;Lonquimay&#x27; },
+        { id: &#x27;1227&#x27;, nombre: &#x27;Los Sauces&#x27;, ciudad: &#x27;Los Sauces&#x27; },
+        { id: &#x27;1228&#x27;, nombre: &#x27;Lumaco&#x27;, ciudad: &#x27;Lumaco&#x27; },
+        { id: &#x27;1229&#x27;, nombre: &#x27;Purén&#x27;, ciudad: &#x27;Purén&#x27; },
+        { id: &#x27;1230&#x27;, nombre: &#x27;Renaico&#x27;, ciudad: &#x27;Renaico&#x27; },
+        { id: &#x27;1231&#x27;, nombre: &#x27;Traiguén&#x27;, ciudad: &#x27;Traiguén&#x27; },
+        { id: &#x27;1232&#x27;, nombre: &#x27;Victoria&#x27;, ciudad: &#x27;Victoria&#x27; },
+      ],
+    },
+    {
+      id: &#x27;14&#x27;,
+      nombre: &#x27;Los Ríos&#x27;,
+      comunas: [
+        { id: &#x27;1401&#x27;, nombre: &#x27;Valdivia&#x27;, ciudad: &#x27;Valdivia&#x27; },
+        { id: &#x27;1402&#x27;, nombre: &#x27;Corral&#x27;, ciudad: &#x27;Corral&#x27; },
+        { id: &#x27;1403&#x27;, nombre: &#x27;Lanco&#x27;, ciudad: &#x27;Lanco&#x27; },
+        { id: &#x27;1404&#x27;, nombre: &#x27;Los Lagos&#x27;, ciudad: &#x27;Los Lagos&#x27; },
+        { id: &#x27;1405&#x27;, nombre: &#x27;Máfil&#x27;, ciudad: &#x27;Máfil&#x27; },
+        { id: &#x27;1406&#x27;, nombre: &#x27;Mariquina&#x27;, ciudad: &#x27;Mariquina&#x27; },
+        { id: &#x27;1407&#x27;, nombre: &#x27;Paillaco&#x27;, ciudad: &#x27;Paillaco&#x27; },
+        { id: &#x27;1408&#x27;, nombre: &#x27;Panguipulli&#x27;, ciudad: &#x27;Panguipulli&#x27; },
+        { id: &#x27;1409&#x27;, nombre: &#x27;La Unión&#x27;, ciudad: &#x27;La Unión&#x27; },
+        { id: &#x27;1410&#x27;, nombre: &#x27;Futrono&#x27;, ciudad: &#x27;Futrono&#x27; },
+        { id: &#x27;1411&#x27;, nombre: &#x27;Lago Ranco&#x27;, ciudad: &#x27;Lago Ranco&#x27; },
+        { id: &#x27;1412&#x27;, nombre: &#x27;Río Bueno&#x27;, ciudad: &#x27;Río Bueno&#x27; },
+      ],
+    },
+    {
+      id: &#x27;15&#x27;,
+      nombre: &#x27;Los Lagos&#x27;,
+      comunas: [
+        { id: &#x27;1501&#x27;, nombre: &#x27;Puerto Montt&#x27;, ciudad: &#x27;Puerto Montt&#x27; },
+        { id: &#x27;1502&#x27;, nombre: &#x27;Calbuco&#x27;, ciudad: &#x27;Calbuco&#x27; },
+        { id: &#x27;1503&#x27;, nombre: &#x27;Cochamó&#x27;, ciudad: &#x27;Cochamó&#x27; },
+        { id: &#x27;1504&#x27;, nombre: &#x27;Fresia&#x27;, ciudad: &#x27;Fresia&#x27; },
+        { id: &#x27;1505&#x27;, nombre: &#x27;Frutillar&#x27;, ciudad: &#x27;Frutillar&#x27; },
+        { id: &#x27;1506&#x27;, nombre: &#x27;Los Muermos&#x27;, ciudad: &#x27;Los Muermos&#x27; },
+        { id: &#x27;1507&#x27;, nombre: &#x27;Llanquihue&#x27;, ciudad: &#x27;Llanquihue&#x27; },
+        { id: &#x27;1508&#x27;, nombre: &#x27;Maullín&#x27;, ciudad: &#x27;Maullín&#x27; },
+        { id: &#x27;1509&#x27;, nombre: &#x27;Puerto Varas&#x27;, ciudad: &#x27;Puerto Varas&#x27; },
+        { id: &#x27;1510&#x27;, nombre: &#x27;Castro&#x27;, ciudad: &#x27;Castro&#x27; },
+        { id: &#x27;1511&#x27;, nombre: &#x27;Ancud&#x27;, ciudad: &#x27;Ancud&#x27; },
+        { id: &#x27;1512&#x27;, nombre: &#x27;Chonchi&#x27;, ciudad: &#x27;Chonchi&#x27; },
+        { id: &#x27;1513&#x27;, nombre: &#x27;Curaco de Vélez&#x27;, ciudad: &#x27;Curaco de Vélez&#x27; },
+        { id: &#x27;1514&#x27;, nombre: &#x27;Dalcahue&#x27;, ciudad: &#x27;Dalcahue&#x27; },
+        { id: &#x27;1515&#x27;, nombre: &#x27;Puqueldón&#x27;, ciudad: &#x27;Puqueldón&#x27; },
+        { id: &#x27;1516&#x27;, nombre: &#x27;Queilén&#x27;, ciudad: &#x27;Queilén&#x27; },
+        { id: &#x27;1517&#x27;, nombre: &#x27;Quellón&#x27;, ciudad: &#x27;Quellón&#x27; },
+        { id: &#x27;1518&#x27;, nombre: &#x27;Quemchi&#x27;, ciudad: &#x27;Quemchi&#x27; },
+        { id: &#x27;1519&#x27;, nombre: &#x27;Quinchao&#x27;, ciudad: &#x27;Quinchao&#x27; },
+        { id: &#x27;1520&#x27;, nombre: &#x27;Osorno&#x27;, ciudad: &#x27;Osorno&#x27; },
+        { id: &#x27;1521&#x27;, nombre: &#x27;Puerto Octay&#x27;, ciudad: &#x27;Puerto Octay&#x27; },
+        { id: &#x27;1522&#x27;, nombre: &#x27;Purranque&#x27;, ciudad: &#x27;Purranque&#x27; },
+        { id: &#x27;1523&#x27;, nombre: &#x27;Puyehue&#x27;, ciudad: &#x27;Puyehue&#x27; },
+        { id: &#x27;1524&#x27;, nombre: &#x27;Río Negro&#x27;, ciudad: &#x27;Río Negro&#x27; },
+        { id: &#x27;1525&#x27;, nombre: &#x27;San Juan de la Costa&#x27;, ciudad: &#x27;San Juan de la Costa&#x27; },
+        { id: &#x27;1526&#x27;, nombre: &#x27;San Pablo&#x27;, ciudad: &#x27;San Pablo&#x27; },
+        { id: &#x27;1527&#x27;, nombre: &#x27;Chaitén&#x27;, ciudad: &#x27;Chaitén&#x27; },
+        { id: &#x27;1528&#x27;, nombre: &#x27;Futaleufú&#x27;, ciudad: &#x27;Futaleufú&#x27; },
+        { id: &#x27;1529&#x27;, nombre: &#x27;Hualaihué&#x27;, ciudad: &#x27;Hualaihué&#x27; },
+        { id: &#x27;1530&#x27;, nombre: &#x27;Palena&#x27;, ciudad: &#x27;Palena&#x27; },
+      ],
+    },
+    {
+      id: &#x27;16&#x27;,
+      nombre: &#x27;Aysén del General Carlos Ibáñez del Campo&#x27;,
+      comunas: [
+        { id: &#x27;1601&#x27;, nombre: &#x27;Coyhaique&#x27;, ciudad: &#x27;Coyhaique&#x27; },
+        { id: &#x27;1602&#x27;, nombre: &#x27;Lago Verde&#x27;, ciudad: &#x27;Lago Verde&#x27; },
+        { id: &#x27;1603&#x27;, nombre: &#x27;Aysén&#x27;, ciudad: &#x27;Aysén&#x27; },
+        { id: &#x27;1604&#x27;, nombre: &#x27;Cisnes&#x27;, ciudad: &#x27;Cisnes&#x27; },
+        { id: &#x27;1605&#x27;, nombre: &#x27;Guaitecas&#x27;, ciudad: &#x27;Guaitecas&#x27; },
+        { id: &#x27;1606&#x27;, nombre: &#x27;Cochrane&#x27;, ciudad: &#x27;Cochrane&#x27; },
+        { id: &#x27;1607&#x27;, nombre: &#x27;O\&#x27;Higgins&#x27;, ciudad: &#x27;O\&#x27;Higgins&#x27; },
+        { id: &#x27;1608&#x27;, nombre: &#x27;Tortel&#x27;, ciudad: &#x27;Tortel&#x27; },
+        { id: &#x27;1609&#x27;, nombre: &#x27;Chile Chico&#x27;, ciudad: &#x27;Chile Chico&#x27; },
+        { id: &#x27;1610&#x27;, nombre: &#x27;Río Ibáñez&#x27;, ciudad: &#x27;Río Ibáñez&#x27; },
+      ],
+    },
+    {
+      id: &#x27;17&#x27;,
+      nombre: &#x27;Magallanes y de la Antártica Chilena&#x27;,
+      comunas: [
+        { id: &#x27;1701&#x27;, nombre: &#x27;Punta Arenas&#x27;, ciudad: &#x27;Punta Arenas&#x27; },
+        { id: &#x27;1702&#x27;, nombre: &#x27;Laguna Blanca&#x27;, ciudad: &#x27;Laguna Blanca&#x27; },
+        { id: &#x27;1703&#x27;, nombre: &#x27;Río Verde&#x27;, ciudad: &#x27;Río Verde&#x27; },
+        { id: &#x27;1704&#x27;, nombre: &#x27;San Gregorio&#x27;, ciudad: &#x27;San Gregorio&#x27; },
+        { id: &#x27;1705&#x27;, nombre: &#x27;Cabo de Hornos&#x27;, ciudad: &#x27;Puerto Williams&#x27; },
+        { id: &#x27;1706&#x27;, nombre: &#x27;Antártica&#x27;, ciudad: &#x27;Puerto Williams&#x27; },
+        { id: &#x27;1707&#x27;, nombre: &#x27;Porvenir&#x27;, ciudad: &#x27;Porvenir&#x27; },
+        { id: &#x27;1708&#x27;, nombre: &#x27;Primavera&#x27;, ciudad: &#x27;Primavera&#x27; },
+        { id: &#x27;1709&#x27;, nombre: &#x27;Timaukel&#x27;, ciudad: &#x27;Timaukel&#x27; },
+        { id: &#x27;1710&#x27;, nombre: &#x27;Natales&#x27;, ciudad: &#x27;Puerto Natales&#x27; },
+        { id: &#x27;1711&#x27;, nombre: &#x27;Torres del Paine&#x27;, ciudad: &#x27;Torres del Paine&#x27; },
+      ],
+    },
+  ];
+
+  constructor() {}
+
+  getRegiones(): Region[] {
+    return this.regiones;
+  }
+
+  getRegionesSelect(): Array&lt;{ value: string; label: string }&gt; {
+    return this.regiones.map((r) &#x3D;&gt; ({
+      value: r.id,
+      label: r.nombre,
+    }));
+  }
+
+  getComunasByRegion(regionId: string): Comuna[] {
+    const region &#x3D; this.regiones.find((r) &#x3D;&gt; r.id &#x3D;&#x3D;&#x3D; regionId);
+    return region ? region.comunas : [];
+  }
+
+  getComunasSelect(regionId?: string): Array&lt;{ value: string; label: string }&gt; {
+    if (!regionId) {
+      return this.regiones.flatMap((r) &#x3D;&gt;
+        r.comunas.map((c) &#x3D;&gt; ({
+          value: c.id,
+          label: &#x60;${c.nombre} (${r.nombre})&#x60;,
+        }))
+      );
+    }
+    const region &#x3D; this.regiones.find((r) &#x3D;&gt; r.id &#x3D;&#x3D;&#x3D; regionId);
+    return region
+      ? region.comunas.map((c) &#x3D;&gt; ({
+          value: c.id,
+          label: c.nombre,
+        }))
+      : [];
+  }
+
+  getCiudadesByRegion(regionId: string): string[] {
+    const region &#x3D; this.regiones.find((r) &#x3D;&gt; r.id &#x3D;&#x3D;&#x3D; regionId);
+    if (!region) return [];
+    const ciudadesSet &#x3D; new Set(region.comunas.map((c) &#x3D;&gt; c.ciudad || c.nombre));
+    return Array.from(ciudadesSet).sort();
+  }
+
+  getCiudadesSelect(regionId?: string): Array&lt;{ value: string; label: string }&gt; {
+    if (!regionId) {
+      const ciudadesSet &#x3D; new Set&lt;string&gt;();
+      this.regiones.forEach((r) &#x3D;&gt;
+        r.comunas.forEach((c) &#x3D;&gt; ciudadesSet.add(c.ciudad || c.nombre))
+      );
+      return Array.from(ciudadesSet)
+        .sort()
+        .map((ciudad) &#x3D;&gt; ({
+          value: ciudad,
+          label: ciudad,
+        }));
+    }
+    return this.getCiudadesByRegion(regionId).map((ciudad) &#x3D;&gt; ({
+      value: ciudad,
+      label: ciudad,
+    }));
+  }
+
+  getComunaById(comunaId: string): Comuna | undefined {
+    for (const region of this.regiones) {
+      const comuna &#x3D; region.comunas.find((c) &#x3D;&gt; c.id &#x3D;&#x3D;&#x3D; comunaId);
+      if (comuna) return comuna;
+    }
+    return undefined;
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Region.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

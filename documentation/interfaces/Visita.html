@@ -1,0 +1,626 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Visita</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/components/visitas/visitas.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#dia" 
+>
+                                            dia
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#estado" 
+>
+                                            estado
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#local" 
+>
+                                            local
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#tecnico" 
+>
+                                            tecnico
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#tiempo" 
+>
+                                            tiempo
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#titulo" 
+>
+                                            titulo
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="dia"></a>
+                                        <span class="name "><b>dia</b>
+                                            <a href="#dia">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>dia:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="estado"></a>
+                                        <span class="name "><b>estado</b>
+                                            <a href="#estado">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>estado:     <code>&quot;Pendiente&quot; | &quot;Completada&quot; | &quot;Programada&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;Pendiente&quot; | &quot;Completada&quot; | &quot;Programada&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="local"></a>
+                                        <span class="name "><b>local</b>
+                                            <a href="#local">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>local:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="tecnico"></a>
+                                        <span class="name "><b>tecnico</b>
+                                            <a href="#tecnico">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>tecnico:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="tiempo"></a>
+                                        <span class="name "><b>tiempo</b>
+                                            <a href="#tiempo">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>tiempo:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="titulo"></a>
+                                        <span class="name "><b>titulo</b>
+                                            <a href="#titulo">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>titulo:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { FilterService } from &#x27;../../core/services/filter.service&#x27;;
+import { ViewSearchFiltersComponent } from &#x27;../view-search-filters/view-search-filters.component&#x27;;
+
+interface Visita {
+  tiempo: string;
+  dia: string;
+  titulo: string;
+  local: string;
+  tecnico: string;
+  estado: &#x27;Pendiente&#x27; | &#x27;Completada&#x27; | &#x27;Programada&#x27;;
+}
+
+@Component({
+  selector: &#x27;app-visitas&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, ViewSearchFiltersComponent],
+  templateUrl: &#x27;./visitas.html&#x27;,
+  styleUrls: [&#x27;./visitas.css&#x27;],
+})
+export class Visitas implements OnInit {
+  activeTab: &#x27;list&#x27; | &#x27;create&#x27; &#x3D; &#x27;list&#x27;;
+  isEditing &#x3D; false;
+  editingIndex: number | null &#x3D; null;
+
+  visitas: Visita[] &#x3D; [
+    {
+      tiempo: &#x27;09:00&#x27;,
+      dia: &#x27;Hoy&#x27;,
+      titulo: &#x27;Mantenimiento Preventivo&#x27;,
+      local: &#x27;Bodegón El Sol&#x27;,
+      tecnico: &#x27;Carlos M.&#x27;,
+      estado: &#x27;Pendiente&#x27;
+    },
+    {
+      tiempo: &#x27;07:30&#x27;,
+      dia: &#x27;Hoy&#x27;,
+      titulo: &#x27;Revisión de Compresor&#x27;,
+      local: &#x27;Supermercado Norte&#x27;,
+      tecnico: &#x27;Luis A.&#x27;,
+      estado: &#x27;Completada&#x27;
+    },
+    {
+      tiempo: &#x27;11:30&#x27;,
+      dia: &#x27;Mañana&#x27;,
+      titulo: &#x27;Instalación NFC Tag&#x27;,
+      local: &#x27;Minimarket Central&#x27;,
+      tecnico: &#x27;Pedro V.&#x27;,
+      estado: &#x27;Programada&#x27;
+    }
+  ];
+
+  estados &#x3D; [&#x27;Pendiente&#x27;, &#x27;Completada&#x27;, &#x27;Programada&#x27;];
+  dias &#x3D; [&#x27;Hoy&#x27;, &#x27;Mañana&#x27;, &#x27;En 2 días&#x27;, &#x27;En 3 días&#x27;];
+  tecnicos &#x3D; [&#x27;Carlos M.&#x27;, &#x27;Luis A.&#x27;, &#x27;Pedro V.&#x27;, &#x27;Juan D.&#x27;];
+
+  newVisita: Visita &#x3D; {
+    tiempo: &#x27;&#x27;,
+    dia: &#x27;&#x27;,
+    titulo: &#x27;&#x27;,
+    local: &#x27;&#x27;,
+    tecnico: &#x27;&#x27;,
+    estado: &#x27;Pendiente&#x27;
+  };
+
+  constructor(private filterService: FilterService) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView(&#x27;visitas&#x27;);
+  }
+
+  setActiveTab(tab: &#x27;list&#x27; | &#x27;create&#x27;): void {
+    this.activeTab &#x3D; tab;
+    if (tab &#x3D;&#x3D;&#x3D; &#x27;list&#x27;) {
+      this.cancelEdit();
+    } else if (tab &#x3D;&#x3D;&#x3D; &#x27;create&#x27; &amp;&amp; !this.isEditing) {
+      this.resetForm();
+    }
+  }
+
+  createVisita(): void {
+    if (this.newVisita.tiempo &amp;&amp; this.newVisita.titulo &amp;&amp; this.newVisita.local &amp;&amp; this.newVisita.tecnico) {
+      if (this.isEditing &amp;&amp; this.editingIndex !&#x3D;&#x3D; null) {
+        this.visitas[this.editingIndex] &#x3D; { ...this.newVisita };
+        this.cancelEdit();
+      } else {
+        this.visitas.push({ ...this.newVisita });
+        this.resetForm();
+      }
+      this.activeTab &#x3D; &#x27;list&#x27;;
+    }
+  }
+
+  editVisita(index: number): void {
+    this.newVisita &#x3D; { ...this.visitas[index] };
+    this.isEditing &#x3D; true;
+    this.editingIndex &#x3D; index;
+    this.activeTab &#x3D; &#x27;create&#x27;;
+  }
+
+  deleteVisita(index: number): void {
+    if (confirm(&#x27;¿Estás seguro de que deseas eliminar esta visita? Esta acción no puede deshacerse.&#x27;)) {
+      this.visitas.splice(index, 1);
+    }
+  }
+
+  cancelEdit(): void {
+    this.resetForm();
+    this.isEditing &#x3D; false;
+    this.editingIndex &#x3D; null;
+  }
+
+  resetForm(): void {
+    this.newVisita &#x3D; {
+      tiempo: &#x27;&#x27;,
+      dia: &#x27;&#x27;,
+      titulo: &#x27;&#x27;,
+      local: &#x27;&#x27;,
+      tecnico: &#x27;&#x27;,
+      estado: &#x27;Pendiente&#x27;
+    };
+  }
+
+  getStatusClass(estado: string): string {
+    const map: Record&lt;string, string&gt; &#x3D; {
+      &#x27;Pendiente&#x27;: &#x27;pending&#x27;,
+      &#x27;Completada&#x27;: &#x27;done&#x27;,
+      &#x27;Programada&#x27;: &#x27;scheduled&#x27;
+    };
+    return map[estado] ?? &#x27;&#x27;;
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Visita.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

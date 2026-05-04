@@ -1,0 +1,339 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content readme">
+                   <div class="content-data">
+
+
+<h1>FríaCheck - Frontend Angular</h1>
+<p>Aplicación web frontend desarrollada en Angular para el sistema de gestión FríaCheck. Incluye funcionalidades de dashboard, gestión de usuarios, locales, pedidos, reportes y más.</p>
+<h2>🚀 Características Principales</h2>
+<h3>Gestión de Usuarios y Roles</h3>
+<ul>
+<li>Sistema de autenticación con RBAC (Role-Based Access Control)</li>
+<li>Gestión de usuarios con diferentes niveles de permisos</li>
+<li>Perfiles de usuario personalizables</li>
+</ul>
+<h3>Dashboard Interactivo</h3>
+<ul>
+<li>Métricas globales en tiempo real</li>
+<li>Visualización de datos con gráficos y estadísticas</li>
+<li>Tema oscuro/claro con persistencia automática</li>
+</ul>
+<h3>Gestión de Locales</h3>
+<ul>
+<li>Mapa interactivo de locales</li>
+<li>Información detallada de cada ubicación</li>
+<li>Gestión de activos por local</li>
+</ul>
+<h3>Sistema de Pedidos y Tickets</h3>
+<ul>
+<li>Seguimiento de pedidos</li>
+<li>Sistema de tickets de soporte</li>
+<li>Reportes y métricas de rendimiento</li>
+</ul>
+<h2>🛠️ Tecnologías Utilizadas</h2>
+<ul>
+<li><strong>Framework</strong>: Angular 17+</li>
+<li><strong>Lenguaje</strong>: TypeScript</li>
+<li><strong>Estilos</strong>: CSS/SCSS con Material Design</li>
+<li><strong>Arquitectura</strong>: Componentes standalone</li>
+<li><strong>Estado</strong>: Servicios inyectables</li>
+<li><strong>Routing</strong>: Angular Router con guards</li>
+</ul>
+<h2>📁 Estructura del Proyecto</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">src/
+├── app/
+│   ├── components/          # Componentes de UI
+│   │   ├── dashboard/       # Dashboard principal
+│   │   ├── sidebar/         # Navegación lateral
+│   │   ├── topbar/          # Barra superior
+│   │   ├── logo/            # Componente logo con temas
+│   │   └── ...
+│   ├── core/                # Servicios core y guards
+│   ├── features/            # Módulos de características
+│   └── styles/              # Estilos globales
+├── assets/                  # Recursos estáticos
+│   └── images/
+│       └── logo/            # Archivos SVG del logo
+└── environments/            # Configuraciones por entorno</code></pre></div><h2>🎨 Tema y Diseño</h2>
+<h3>Modos de Visualización</h3>
+<ul>
+<li><strong>Light Mode</strong>: Tema claro con colores suaves</li>
+<li><strong>Dark Mode</strong>: Tema oscuro optimizado para uso nocturno</li>
+<li><strong>Responsive</strong>: Diseño adaptativo para móviles y desktop</li>
+</ul>
+<h3>Logo Dinámico</h3>
+<p>El componente logo automáticamente selecciona el archivo SVG apropiado según:</p>
+<ul>
+<li>Modo de tema activo (light/dark)</li>
+<li>Estado del sidebar (expandido/colapsado)</li>
+</ul>
+<p><strong>Archivos SVG utilizados</strong>:</p>
+<ul>
+<li><code>logo-light.svg</code> / <code>logo-dark.svg</code>: Logo completo</li>
+<li><code>logo-icon-light.svg</code> / <code>logo-icon-dark.svg</code>: Ícono para sidebar colapsado</li>
+</ul>
+<h2>🔧 Instalación y Desarrollo</h2>
+<h3>Prerrequisitos</h3>
+<ul>
+<li>Node.js 18+</li>
+<li>Angular CLI 17+</li>
+<li>npm o yarn</li>
+</ul>
+<h3>Instalación</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install</code></pre></div><h3>Desarrollo Local</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm start
+# La aplicación estará disponible en http://localhost:4200</code></pre></div><h3>Build de Producción</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm run build</code></pre></div><h3>Tests</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm test</code></pre></div><h2>📋 Scripts Disponibles</h2>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm start</code></td>
+<td>Inicia servidor de desarrollo</td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>Construye la aplicación para producción</td>
+</tr>
+<tr>
+<td><code>npm test</code></td>
+<td>Ejecuta los tests unitarios</td>
+</tr>
+<tr>
+<td><code>npm run lint</code></td>
+<td>Ejecuta el linter de código</td>
+</tr>
+</tbody>
+</table>
+<h2>🔒 Seguridad y RBAC</h2>
+<p>Implementa un sistema completo de control de acceso basado en roles:</p>
+<ul>
+<li><strong>Guards</strong> para protección de rutas</li>
+<li><strong>Directivas</strong> para control de elementos UI</li>
+<li><strong>Servicios</strong> para gestión de permisos</li>
+<li><strong>Modelos</strong> para definición de roles y permisos</li>
+</ul>
+<h2>📊 Métricas y Reportes</h2>
+<ul>
+<li>Dashboard con métricas globales</li>
+<li>Reportes de rendimiento</li>
+<li>Visualización de datos con gráficos</li>
+<li>Exportación de datos</li>
+</ul>
+<h2>🌐 Despliegue</h2>
+<p>La aplicación está configurada para despliegue en múltiples entornos:</p>
+<ul>
+<li><strong>Desarrollo</strong>: Configuración local</li>
+<li><strong>Staging</strong>: Entorno de pruebas</li>
+<li><strong>Producción</strong>: Entorno final</li>
+</ul>
+<h2>🤝 Contribución</h2>
+<ol>
+<li>Fork el proyecto</li>
+<li>Crea una rama para tu feature (<code>git checkout -b feature/AmazingFeature</code>)</li>
+<li>Commit tus cambios (<code>git commit -m &#39;Add some AmazingFeature&#39;</code>)</li>
+<li>Push a la rama (<code>git push origin feature/AmazingFeature</code>)</li>
+<li>Abre un Pull Request</li>
+</ol>
+<h2>📝 Licencia</h2>
+<p>Este proyecto está bajo la Licencia MIT - ver el archivo <a href="LICENSE">LICENSE</a> para más detalles.</p>
+<h2>📞 Soporte</h2>
+<p>Para soporte técnico o preguntas sobre el proyecto, contactar al equipo de desarrollo.</p>
+<hr>
+<p><strong>Última actualización</strong>: Abril 2026
+<strong>Versión</strong>: 1.0.0</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'readme';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

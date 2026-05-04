@@ -1,0 +1,1838 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MapaLocalesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/mapa-locales/mapa-locales.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-mapa-locales</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                            <code>GoogleMapsModule</code>
+                            <code>MatCardModule</code>
+                            <code>MatIconModule</code>
+                            <code>MatButtonModule</code>
+                            <code>MatProgressSpinnerModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./mapa-locales.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./mapa-locales.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#center" >center</a>
+                            </li>
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#infoWindows" >infoWindows</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#machines" >machines</a>
+                            </li>
+                            <li>
+                                <a href="#mapOptions" >mapOptions</a>
+                            </li>
+                            <li>
+                                <a href="#markers" >markers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#nativeMap" >nativeMap</a>
+                            </li>
+                            <li>
+                                <a href="#selectedMachine" >selectedMachine</a>
+                            </li>
+                            <li>
+                                <a href="#zoom" >zoom</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#centerMapOnMarkers" >centerMapOnMarkers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clearMarkers" >clearMarkers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#closeAllInfoWindows" >closeAllInfoWindows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createInfoWindowContent" >createInfoWindowContent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createMarkers" >createMarkers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initializeExampleData" >initializeExampleData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadMachines" >loadMachines</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onMapReady" >onMapReady</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refresh" >refresh</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(machinesService: <a href="../injectables/MachinesService.html" target="_self">MachinesService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>machinesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MachinesService.html" target="_self" >MachinesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="centerMapOnMarkers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>centerMapOnMarkers</b></span>
+                        <a href="#centerMapOnMarkers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>centerMapOnMarkers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="164"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:164</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearMarkers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clearMarkers</b></span>
+                        <a href="#clearMarkers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearMarkers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeAllInfoWindows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>closeAllInfoWindows</b></span>
+                        <a href="#closeAllInfoWindows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>closeAllInfoWindows()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createInfoWindowContent"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createInfoWindowContent</b></span>
+                        <a href="#createInfoWindowContent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createInfoWindowContent(machine: <a href="../interfaces/Machine.html" target="_self">Machine</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>machine</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Machine.html" target="_self" >Machine</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createMarkers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createMarkers</b></span>
+                        <a href="#createMarkers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createMarkers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeExampleData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initializeExampleData</b></span>
+                        <a href="#initializeExampleData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initializeExampleData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadMachines"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loadMachines</b></span>
+                        <a href="#loadMachines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadMachines()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onMapReady"></a>
+                    <span class="name">
+                        <span ><b>onMapReady</b></span>
+                        <a href="#onMapReady"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onMapReady(map: google.maps.Map | Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>map</td>
+                                            <td>
+                                                        <code>google.maps.Map | Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>refresh</b></span>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refresh()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="198"
+                                    class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:198</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="center"></a>
+                    <span class="name">
+                        <span ><b>center</b></span>
+                        <a href="#center"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>google.maps.LatLngLiteral</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ lat: -33.4489, lng: -70.6693 }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMessage"></a>
+                    <span class="name">
+                        <span ><b>errorMessage</b></span>
+                        <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="infoWindows"></a>
+                    <span class="name">
+                        <span ><b>infoWindows</b></span>
+                        <a href="#infoWindows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>google.maps.InfoWindow[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="machines"></a>
+                    <span class="name">
+                        <span ><b>machines</b></span>
+                        <a href="#machines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Machine.html" target="_self" >Machine[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapOptions"></a>
+                    <span class="name">
+                        <span ><b>mapOptions</b></span>
+                        <a href="#mapOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>google.maps.MapOptions</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    center: this.center,
+    zoom: this.zoom,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    zoomControl: true,
+    minZoom: 4,
+    maxZoom: 18,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markers"></a>
+                    <span class="name">
+                        <span ><b>markers</b></span>
+                        <a href="#markers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>google.maps.Marker[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nativeMap"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>nativeMap</b></span>
+                        <a href="#nativeMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>google.maps.Map</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedMachine"></a>
+                    <span class="name">
+                        <span ><b>selectedMachine</b></span>
+                        <a href="#selectedMachine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Machine.html" target="_self" >Machine | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zoom"></a>
+                    <span class="name">
+                        <span ><b>zoom</b></span>
+                        <a href="#zoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>12</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/mapa-locales/mapa-locales.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, AfterViewInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { GoogleMapsModule } from &#x27;@angular/google-maps&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatProgressSpinnerModule } from &#x27;@angular/material/progress-spinner&#x27;;
+import { MachinesService } from &#x27;../../core/services/machines.service&#x27;;
+import { Machine } from &#x27;../../core/models/machine.model&#x27;;
+
+@Component({
+  selector: &#x27;app-mapa-locales&#x27;,
+  standalone: true,
+  imports: [
+    CommonModule,
+    GoogleMapsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+  ],
+  templateUrl: &#x27;./mapa-locales.component.html&#x27;,
+  styleUrls: [&#x27;./mapa-locales.component.scss&#x27;],
+})
+export class MapaLocalesComponent implements OnInit, AfterViewInit {
+  machines: Machine[] &#x3D; [];
+  loading &#x3D; false; // Inicializar como false para mostrar mapa inmediatamente
+  errorMessage &#x3D; &#x27;&#x27;;
+  selectedMachine: Machine | null &#x3D; null;
+
+  center: google.maps.LatLngLiteral &#x3D; { lat: -33.4489, lng: -70.6693 };
+  zoom &#x3D; 12;
+  mapOptions: google.maps.MapOptions &#x3D; {
+    center: this.center,
+    zoom: this.zoom,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    zoomControl: true,
+    minZoom: 4,
+    maxZoom: 18,
+  };
+
+  markers: google.maps.Marker[] &#x3D; [];
+  infoWindows: google.maps.InfoWindow[] &#x3D; [];
+  private nativeMap?: google.maps.Map;
+
+  constructor(private machinesService: MachinesService) {}
+
+  ngOnInit(): void {
+    // Cargar datos de ejemplo inmediatamente para mostrar mapa funcional
+    this.initializeExampleData();
+    // Intentar cargar datos reales en segundo plano
+    this.loadMachines();
+  }
+
+  ngAfterViewInit(): void {
+    // El mapa se inicializará cuando el DOM esté listo
+    // No necesitamos cambiar loading aquí ya que se muestra inmediatamente
+  }
+
+  private initializeExampleData(): void {
+    // Crear datos de ejemplo para mostrar mapa funcional
+    this.machines &#x3D; [
+      {
+        id: &#x27;1&#x27;,
+        tenantId: &#x27;tenant-1&#x27;,
+        name: &#x27;Máquina Ejemplo 1&#x27;,
+        type: &#x27;Refrigerador&#x27;,
+        brand: &#x27;Samsung&#x27;,
+        model: &#x27;RT38K5932S8&#x27;,
+        serialNumber: &#x27;SN123456789&#x27;,
+        nfcTagId: &#x27;FC001&#x27;,
+        nfcCode: &#x27;FRIOCHECK001&#x27;,
+        clientName: &#x27;Oficina Central FrioCheck&#x27;,
+        clientId: &#x27;client-1&#x27;,
+        clientAddress: &#x27;Av. Providencia 123, Santiago, Chile&#x27;,
+        clientPhone: &#x27;+56912345678&#x27;,
+        clientRut: &#x27;12.345.678-9&#x27;,
+        status: &#x27;OPERATIVE&#x27;,
+        latitude: -33.4489,
+        longitude: -70.6693,
+        isActive: true
+      }
+    ];
+  }
+
+  public loadMachines(): void {
+    // No cambiar loading aquí para mantener el mapa visible con datos de ejemplo
+    this.errorMessage &#x3D; &#x27;&#x27;;
+
+    this.machinesService.getMachines().subscribe({
+      next: (response) &#x3D;&gt; {
+        const realData &#x3D; response.data || [];
+        if (realData.length &gt; 0) {
+          // Si hay datos reales, reemplazar los de ejemplo
+          this.machines &#x3D; realData;
+          if (this.nativeMap) {
+            this.createMarkers();
+          }
+        }
+        // No cambiar loading ya que el mapa ya está visible
+      },
+      error: () &#x3D;&gt; {
+        // En caso de error, mantener datos de ejemplo y mostrar mensaje
+        this.errorMessage &#x3D; &#x27;Mostrando datos de ejemplo - No se pudo conectar al servicio&#x27;;
+      },
+    });
+  }
+
+  onMapReady(map: google.maps.Map | Event): void {
+    this.nativeMap &#x3D; map as google.maps.Map;
+
+    // Crear marcadores inmediatamente con datos de ejemplo
+    this.createMarkers();
+  }
+
+  private createMarkers(): void {
+    if (!this.nativeMap) return;
+
+    const nativeMap &#x3D; this.nativeMap;
+    this.clearMarkers();
+
+    this.machines.forEach((machine) &#x3D;&gt; {
+      if (machine.latitude !&#x3D; null &amp;&amp; machine.longitude !&#x3D; null) {
+        const marker &#x3D; new google.maps.Marker({
+          position: { lat: machine.latitude, lng: machine.longitude },
+          map: nativeMap,
+          title: machine.clientName,
+        });
+
+        const infoWindow &#x3D; new google.maps.InfoWindow({
+          content: this.createInfoWindowContent(machine),
+        });
+
+        marker.addListener(&#x27;click&#x27;, () &#x3D;&gt; {
+          this.closeAllInfoWindows();
+          infoWindow.open(nativeMap, marker);
+          this.selectedMachine &#x3D; machine;
+        });
+
+        this.markers.push(marker);
+        this.infoWindows.push(infoWindow);
+      }
+    });
+
+    // Center map on markers after creating them
+    this.centerMapOnMarkers();
+  }
+
+  private createInfoWindowContent(machine: Machine): string {
+    return &#x60;
+      &lt;div class&#x3D;&quot;info-window-content&quot;&gt;
+        &lt;h3&gt;${machine.clientName}&lt;/h3&gt;
+        &lt;p&gt;&lt;strong&gt;Dirección:&lt;/strong&gt; ${machine.clientAddress}&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;NFC ID:&lt;/strong&gt; ${machine.nfcTagId || &#x27;N/A&#x27;}&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;NFC Code:&lt;/strong&gt; ${machine.nfcCode || &#x27;N/A&#x27;}&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Estado:&lt;/strong&gt; &lt;span class&#x3D;&quot;status-badge status-${machine.status.toLowerCase()}&quot;&gt;${machine.status}&lt;/span&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Tipo:&lt;/strong&gt; ${machine.type || &#x27;N/A&#x27;}&lt;/p&gt;
+      &lt;/div&gt;
+    &#x60;;
+  }
+
+  private centerMapOnMarkers(): void {
+    if (!this.nativeMap || this.markers.length &#x3D;&#x3D;&#x3D; 0) return;
+
+    const nativeMap &#x3D; this.nativeMap;
+    const bounds &#x3D; new google.maps.LatLngBounds();
+    
+    this.markers.forEach((marker) &#x3D;&gt; {
+      const position &#x3D; marker.getPosition();
+      if (position) {
+        bounds.extend(position);
+      }
+    });
+
+    if (this.markers.length &#x3D;&#x3D;&#x3D; 1) {
+      const position &#x3D; this.markers[0].getPosition();
+      if (position) {
+        nativeMap.setCenter(position);
+        nativeMap.setZoom(13);
+      }
+    } else if (!bounds.isEmpty()) {
+      nativeMap.fitBounds(bounds, 32);
+    }
+  }
+
+  private closeAllInfoWindows(): void {
+    this.infoWindows.forEach((infoWindow) &#x3D;&gt; infoWindow.close());
+  }
+
+  private clearMarkers(): void {
+    this.markers.forEach((marker) &#x3D;&gt; marker.setMap(null));
+    this.markers &#x3D; [];
+    this.infoWindows &#x3D; [];
+  }
+
+  public refresh(): void {
+    this.loadMachines();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;mapa-locales-widget&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;loading&quot; class&#x3D;&quot;loading-spinner&quot;&gt;
+    &lt;mat-spinner diameter&#x3D;&quot;40&quot;&gt;&lt;/mat-spinner&gt;
+    &lt;p&gt;Cargando mapa...&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div *ngIf&#x3D;&quot;errorMessage &amp;&amp; machines.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;error-message&quot;&gt;
+    &lt;mat-icon&gt;error&lt;/mat-icon&gt;
+    &lt;p&gt;{{ errorMessage }}&lt;/p&gt;
+    &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;loadMachines()&quot;&gt;
+      Reintentar
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div *ngIf&#x3D;&quot;!loading&quot; class&#x3D;&quot;map-wrapper&quot;&gt;
+    &lt;google-map
+      #map
+      [options]&#x3D;&quot;mapOptions&quot;
+      (mapReady)&#x3D;&quot;onMapReady($event)&quot;
+      width&#x3D;&quot;100%&quot;
+      height&#x3D;&quot;100%&quot;
+    &gt;
+    &lt;/google-map&gt;
+
+    &lt;aside *ngIf&#x3D;&quot;selectedMachine&quot; class&#x3D;&quot;machine-card&quot;&gt;
+      &lt;mat-card&gt;
+        &lt;mat-card-header&gt;
+          &lt;mat-card-title&gt;{{ selectedMachine.clientName }}&lt;/mat-card-title&gt;
+        &lt;/mat-card-header&gt;
+        &lt;mat-card-content&gt;
+          &lt;div class&#x3D;&quot;machine-info&quot;&gt;
+            &lt;div class&#x3D;&quot;info-row&quot;&gt;
+              &lt;span class&#x3D;&quot;label&quot;&gt;&lt;mat-icon&gt;location_on&lt;/mat-icon&gt;Dirección:&lt;/span&gt;
+              &lt;span class&#x3D;&quot;value&quot;&gt;{{ selectedMachine.clientAddress }}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;info-row&quot;&gt;
+              &lt;span class&#x3D;&quot;label&quot;&gt;&lt;mat-icon&gt;nfc&lt;/mat-icon&gt;NFC ID:&lt;/span&gt;
+              &lt;span class&#x3D;&quot;value&quot;&gt;{{ selectedMachine.nfcTagId }}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;info-row&quot;&gt;
+              &lt;span class&#x3D;&quot;label&quot;&gt;NFC Code:&lt;/span&gt;
+              &lt;span class&#x3D;&quot;value&quot;&gt;{{ selectedMachine.nfcCode }}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;info-row&quot;&gt;
+              &lt;span class&#x3D;&quot;label&quot;&gt;&lt;mat-icon&gt;info&lt;/mat-icon&gt;Estado:&lt;/span&gt;
+              &lt;span class&#x3D;&quot;value status&quot; [ngClass]&#x3D;&quot;&#x27;status-&#x27; + selectedMachine.status.toLowerCase()&quot;&gt;{{ selectedMachine.status }}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;info-row&quot;&gt;
+              &lt;span class&#x3D;&quot;label&quot;&gt;&lt;mat-icon&gt;devices&lt;/mat-icon&gt;Tipo:&lt;/span&gt;
+              &lt;span class&#x3D;&quot;value&quot;&gt;{{ selectedMachine.type }}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;info-row&quot;&gt;
+              &lt;span class&#x3D;&quot;label&quot;&gt;Marca:&lt;/span&gt;
+              &lt;span class&#x3D;&quot;value&quot;&gt;{{ selectedMachine.brand }}&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/mat-card-content&gt;
+      &lt;/mat-card&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./mapa-locales.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.mapa-locales-widget {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+@media (max-width: 1100px) {
+  .mapa-locales-widget {
+    height: 400px;
+    min-height: 400px;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  color: #666;
+
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  color: #d32f2f;
+  padding: 1rem;
+  text-align: center;
+
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 0.5rem;
+  color: #999;
+
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    opacity: 0.5;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+.map-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  position: relative;
+
+  google-map {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.machine-card {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 320px;
+  max-height: 360px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow-y: auto;
+  background: white;
+  z-index: 10;
+
+  mat-card {
+    margin: 0;
+    box-shadow: none;
+  }
+
+  mat-card-header {
+    margin-bottom: 0.5rem;
+  }
+
+  mat-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  mat-card-content {
+    padding: 0.5rem 0;
+  }
+}
+
+.machine-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 12px;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+
+  &amp;:last-child {
+    border-bottom: none;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 600;
+    color: #444;
+    min-width: 80px;
+    flex-shrink: 0;
+
+    mat-icon {
+      font-size: 14px;
+      width: 14px;
+      height: 14px;
+      color: #1976d2;
+    }
+  }
+
+  .value {
+    color: #666;
+    word-break: break-word;
+    flex: 1;
+
+    &amp;.status {
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    &amp;.status-operative {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    &amp;.status-maintenance {
+      background: #fff3e0;
+      color: #f57c00;
+    }
+
+    &amp;.status-out_of_service {
+      background: #ffebee;
+      color: #c62828;
+    }
+
+    &amp;.status-pending_install {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    &amp;.status-inactive {
+      background: #f3e5f5;
+      color: #6a1b9a;
+    }
+  }
+}
+
+/* Info window styling */
+::ng-deep .info-window-content {
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+
+  h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1976d2;
+  }
+
+  p {
+    margin: 4px 0;
+    color: #666;
+
+    strong {
+      color: #333;
+    }
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .status-operative {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+
+  .status-maintenance {
+    background: #fff3e0;
+    color: #f57c00;
+  }
+
+  .status-out_of_service {
+    background: #ffebee;
+    color: #c62828;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="mapa-locales-widget">  <div *ngIf="loading" class="loading-spinner">    <mat-spinner diameter="40"></mat-spinner>    <p>Cargando mapa...</p>  </div>  <div *ngIf="errorMessage && machines.length === 0" class="error-message">    <mat-icon>error</mat-icon>    <p>{{ errorMessage }}</p>    <button mat-raised-button color="primary" (click)="loadMachines()">      Reintentar    </button>  </div>  <div *ngIf="!loading" class="map-wrapper">    <google-map      #map      [options]="mapOptions"      (mapReady)="onMapReady($event)"      width="100%"      height="100%"    >    </google-map>    <aside *ngIf="selectedMachine" class="machine-card">      <mat-card>        <mat-card-header>          <mat-card-title>{{ selectedMachine.clientName }}</mat-card-title>        </mat-card-header>        <mat-card-content>          <div class="machine-info">            <div class="info-row">              <span class="label"><mat-icon>location_on</mat-icon>Dirección:</span>              <span class="value">{{ selectedMachine.clientAddress }}</span>            </div>            <div class="info-row">              <span class="label"><mat-icon>nfc</mat-icon>NFC ID:</span>              <span class="value">{{ selectedMachine.nfcTagId }}</span>            </div>            <div class="info-row">              <span class="label">NFC Code:</span>              <span class="value">{{ selectedMachine.nfcCode }}</span>            </div>            <div class="info-row">              <span class="label"><mat-icon>info</mat-icon>Estado:</span>              <span class="value status" [ngClass]="\'status-\' + selectedMachine.status.toLowerCase()">{{ selectedMachine.status }}</span>            </div>            <div class="info-row">              <span class="label"><mat-icon>devices</mat-icon>Tipo:</span>              <span class="value">{{ selectedMachine.type }}</span>            </div>            <div class="info-row">              <span class="label">Marca:</span>              <span class="value">{{ selectedMachine.brand }}</span>            </div>          </div>        </mat-card-content>      </mat-card>    </aside>  </div></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'MapaLocalesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MapaLocalesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

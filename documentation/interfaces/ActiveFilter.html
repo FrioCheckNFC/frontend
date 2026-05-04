@@ -1,0 +1,1037 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ActiveFilter</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/components/filters/filters.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#displayLabel" 
+>
+                                            displayLabel
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#key" 
+>
+                                            key
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#label" 
+>
+                                            label
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#value" 
+>
+                                            value
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="displayLabel"></a>
+                                        <span class="name "><b>displayLabel</b>
+                                            <a href="#displayLabel">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>displayLabel:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="key"></a>
+                                        <span class="name "><b>key</b>
+                                            <a href="#key">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>key:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="label"></a>
+                                        <span class="name "><b>label</b>
+                                            <a href="#label">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>label:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="value"></a>
+                                        <span class="name "><b>value</b>
+                                            <a href="#value">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>value:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { MatSelectModule } from &#x27;@angular/material/select&#x27;;
+import { MatFormFieldModule } from &#x27;@angular/material/form-field&#x27;;
+import { FilterService, type FilterOption } from &#x27;../../core/services/filter.service&#x27;;
+import { ChileLocationsService } from &#x27;../../core/services/chile-locations.service&#x27;;
+
+interface ActiveFilter {
+  key: string;
+  label: string;
+  value: string;
+  displayLabel: string;
+}
+
+@Component({
+  selector: &#x27;app-filters&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, MatSelectModule, MatFormFieldModule],
+  template: &#x60;
+    &lt;div class&#x3D;&quot;filters-section&quot; *ngIf&#x3D;&quot;filters.length &gt; 0 &amp;&amp; !hidePrimary&quot;&gt;
+      &lt;!-- Main Filter Bar --&gt;
+      &lt;div class&#x3D;&quot;filters-main-bar&quot;&gt;
+        &lt;div class&#x3D;&quot;filters-primary&quot;&gt;
+          &lt;!-- Primary Filters --&gt;
+          &lt;div class&#x3D;&quot;filter-item&quot; *ngFor&#x3D;&quot;let filter of primaryFilters&quot;&gt;
+            &lt;label class&#x3D;&quot;filter-label&quot;&gt;{{ filter.label }}&lt;/label&gt;
+
+            &lt;div *ngIf&#x3D;&quot;filter.type &#x3D;&#x3D;&#x3D; &#x27;input&#x27;&quot; class&#x3D;&quot;filter-input-wrapper&quot;&gt;
+              &lt;input
+                type&#x3D;&quot;text&quot;
+                [placeholder]&#x3D;&quot;filter.placeholder&quot;
+                class&#x3D;&quot;filter-input&quot;
+                [(ngModel)]&#x3D;&quot;filterValues[filter.key]&quot;
+                (change)&#x3D;&quot;applyFilters()&quot;
+              /&gt;
+            &lt;/div&gt;
+
+            &lt;div *ngIf&#x3D;&quot;filter.type &#x3D;&#x3D;&#x3D; &#x27;select&#x27;&quot; class&#x3D;&quot;filter-select-wrapper&quot;&gt;
+              &lt;mat-form-field appearance&#x3D;&quot;outline&quot;&gt;
+                &lt;mat-select
+                  [(ngModel)]&#x3D;&quot;filterValues[filter.key]&quot;
+                  (selectionChange)&#x3D;&quot;filter.key &#x3D;&#x3D;&#x3D; &#x27;region&#x27; ? onRegionChange() : applyFilters()&quot;
+                  [placeholder]&#x3D;&quot;filter.placeholder || &#x27;&#x27;&quot;
+                &gt;
+                  &lt;mat-option *ngFor&#x3D;&quot;let opt of getFilterOptions(filter)&quot; [value]&#x3D;&quot;opt.value&quot;&gt;
+                    {{ opt.label }}
+                  &lt;/mat-option&gt;
+                &lt;/mat-select&gt;
+              &lt;/mat-form-field&gt;
+            &lt;/div&gt;
+
+            &lt;div *ngIf&#x3D;&quot;filter.type &#x3D;&#x3D;&#x3D; &#x27;date&#x27;&quot; class&#x3D;&quot;filter-date-wrapper&quot;&gt;
+              &lt;input
+                type&#x3D;&quot;date&quot;
+                class&#x3D;&quot;filter-date&quot;
+                [(ngModel)]&#x3D;&quot;filterValues[filter.key]&quot;
+                (change)&#x3D;&quot;applyFilters()&quot;
+              /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Advanced Filters Button --&gt;
+        &lt;div class&#x3D;&quot;filters-actions&quot; *ngIf&#x3D;&quot;secondaryFilters.length &gt; 0&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;btn-advanced-filters&quot;
+            [class.active]&#x3D;&quot;showAdvancedFilters&quot;
+            (click)&#x3D;&quot;toggleAdvancedFilters()&quot;
+          &gt;
+            &lt;svg viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+              &lt;line x1&#x3D;&quot;4&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;20&quot; y2&#x3D;&quot;6&quot; /&gt;
+              &lt;line x1&#x3D;&quot;4&quot; y1&#x3D;&quot;12&quot; x2&#x3D;&quot;20&quot; y2&#x3D;&quot;12&quot; /&gt;
+              &lt;line x1&#x3D;&quot;4&quot; y1&#x3D;&quot;18&quot; x2&#x3D;&quot;20&quot; y2&#x3D;&quot;18&quot; /&gt;
+            &lt;/svg&gt;
+            Filtros Avanzados
+            &lt;span class&#x3D;&quot;badge&quot; *ngIf&#x3D;&quot;getSecondaryActiveCount() &gt; 0&quot;&gt;{{
+              getSecondaryActiveCount()
+            }}&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Advanced Filters Panel --&gt;
+      &lt;div
+        class&#x3D;&quot;filters-advanced-panel&quot;
+        *ngIf&#x3D;&quot;showAdvancedFilters &amp;&amp; secondaryFilters.length &gt; 0&quot;
+      &gt;
+        &lt;div class&#x3D;&quot;advanced-filters-grid&quot;&gt;
+          &lt;div class&#x3D;&quot;filter-item&quot; *ngFor&#x3D;&quot;let filter of secondaryFilters&quot;&gt;
+            &lt;label class&#x3D;&quot;filter-label&quot;&gt;{{ filter.label }}&lt;/label&gt;
+
+            &lt;div *ngIf&#x3D;&quot;filter.type &#x3D;&#x3D;&#x3D; &#x27;input&#x27;&quot; class&#x3D;&quot;filter-input-wrapper&quot;&gt;
+              &lt;input
+                type&#x3D;&quot;text&quot;
+                [placeholder]&#x3D;&quot;filter.placeholder&quot;
+                class&#x3D;&quot;filter-input&quot;
+                [(ngModel)]&#x3D;&quot;filterValues[filter.key]&quot;
+                (change)&#x3D;&quot;applyFilters()&quot;
+              /&gt;
+            &lt;/div&gt;
+
+            &lt;div *ngIf&#x3D;&quot;filter.type &#x3D;&#x3D;&#x3D; &#x27;select&#x27;&quot; class&#x3D;&quot;filter-select-wrapper&quot;&gt;
+              &lt;mat-form-field appearance&#x3D;&quot;outline&quot;&gt;
+                &lt;mat-select
+                  [(ngModel)]&#x3D;&quot;filterValues[filter.key]&quot;
+                  (selectionChange)&#x3D;&quot;filter.key &#x3D;&#x3D;&#x3D; &#x27;region&#x27; ? onRegionChange() : applyFilters()&quot;
+                  [placeholder]&#x3D;&quot;filter.placeholder || &#x27;&#x27;&quot;
+                &gt;
+                  &lt;mat-option *ngFor&#x3D;&quot;let opt of getFilterOptions(filter)&quot; [value]&#x3D;&quot;opt.value&quot;&gt;
+                    {{ opt.label }}
+                  &lt;/mat-option&gt;
+                &lt;/mat-select&gt;
+              &lt;/mat-form-field&gt;
+            &lt;/div&gt;
+
+            &lt;div *ngIf&#x3D;&quot;filter.type &#x3D;&#x3D;&#x3D; &#x27;date&#x27;&quot; class&#x3D;&quot;filter-date-wrapper&quot;&gt;
+              &lt;input
+                type&#x3D;&quot;date&quot;
+                class&#x3D;&quot;filter-date&quot;
+                [(ngModel)]&#x3D;&quot;filterValues[filter.key]&quot;
+                (change)&#x3D;&quot;applyFilters()&quot;
+              /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Active Filters Chips --&gt;
+      &lt;div class&#x3D;&quot;filters-active&quot; *ngIf&#x3D;&quot;activeFilters.length &gt; 0&quot;&gt;
+        &lt;div class&#x3D;&quot;filters-chips&quot;&gt;
+          &lt;div class&#x3D;&quot;filter-chip&quot; *ngFor&#x3D;&quot;let filter of activeFilters&quot;&gt;
+            &lt;span class&#x3D;&quot;chip-label&quot;&gt;{{ filter.displayLabel }}: {{ filter.value }}&lt;/span&gt;
+            &lt;button class&#x3D;&quot;chip-remove&quot; (click)&#x3D;&quot;removeFilter(filter.key)&quot; title&#x3D;&quot;Eliminar&quot;&gt;
+              &lt;svg viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+                &lt;line x1&#x3D;&quot;18&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;6&quot; y2&#x3D;&quot;18&quot; /&gt;
+                &lt;line x1&#x3D;&quot;6&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;18&quot; y2&#x3D;&quot;18&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class&#x3D;&quot;btn-clear-all&quot; (click)&#x3D;&quot;clearFilters()&quot;&gt;Limpiar todo&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Loading Indicator --&gt;
+      &lt;div class&#x3D;&quot;filters-loading&quot; *ngIf&#x3D;&quot;isLoading&quot;&gt;
+        &lt;div class&#x3D;&quot;spinner&quot;&gt;&lt;/div&gt;
+        &lt;span&gt;Actualizando resultados...&lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Results Counter --&gt;
+      &lt;div class&#x3D;&quot;filters-results&quot; *ngIf&#x3D;&quot;totalResults &gt; 0&quot;&gt;
+        Mostrando &lt;strong&gt;{{ filteredResults }}&lt;/strong&gt; de
+        &lt;strong&gt;{{ totalResults }}&lt;/strong&gt; resultados
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &#x60;,
+  styles: [
+    &#x60;
+      .filters-section {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .filters-main-bar {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-end;
+        padding: 0.5rem 1rem;
+        flex-wrap: wrap;
+      }
+
+      .filters-section:has(.filters-main-bar:only-child) {
+        display: none;
+      }
+
+      .filters-primary {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .filter-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .filter-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .filter-input-wrapper,
+      .filter-select-wrapper,
+      .filter-date-wrapper {
+        display: flex;
+        align-items: center;
+      }
+
+      .filter-input,
+      .filter-select,
+      .filter-date {
+        border: 1px solid var(--border);
+        padding: 3px;
+        border-radius: 6px;
+        background-color: var(--surface-lowest);
+        color: var(--text-primary);
+        font-size: 0.875rem;
+        transition: all 0.2s ease;
+        min-width: 140px;
+        max-height: 36px;
+      }
+
+      .filter-input:focus,
+      .filter-select:focus,
+      .filter-date:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(242, 101, 34, 0.1);
+      }
+
+      .filter-select-wrapper mat-form-field {
+        min-width: 160px;
+        --mat-form-field-container-height: 36px;
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+        display: none;
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-text-field-wrapper {
+        --mdc-filled-text-field-container-color: var(--surface-lowest);
+        --mdc-filled-text-field-label-text-color: var(--text-secondary);
+        --mdc-filled-text-field-input-text-color: var(--text-primary);
+        --mat-form-field-state-layer-bg: var(--surface-lowest);
+        background-color: var(--surface-lowest);
+        border-radius: 6px;
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-form-field-flex {
+        height: 36px;
+        padding: 0 8px;
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-select-value-text {
+        color: var(--text-primary);
+      }
+
+      .filter-select-wrapper ::ng-deep .mat-mdc-select-arrow {
+        color: var(--primary);
+      }
+
+      [data-theme&#x3D;&#x27;dark&#x27;] .filter-select-wrapper ::ng-deep .mat-mdc-text-field-wrapper {
+        background-color: var(--surface);
+      }
+
+      .filters-actions {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .btn-advanced-filters {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background-color: var(--surface-lowest);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        height: 36px;
+      }
+
+      .btn-advanced-filters:hover,
+      .btn-advanced-filters.active {
+        background-color: var(--hover-bg);
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-advanced-filters svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 20px;
+        height: 20px;
+        padding: 0 0.35rem;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .filters-advanced-panel {
+        padding: 1rem;
+        background-color: var(--surface-low);
+        border-top: 1px solid var(--border);
+        animation: slideDown 0.2s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .advanced-filters-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+      }
+
+      .filters-active {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        background-color: var(--surface-low);
+        border-top: 1px solid var(--border);
+      }
+
+      .filters-chips {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        flex: 1;
+      }
+
+      .filter-chip {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.65rem;
+        background-color: rgba(242, 101, 34, 0.1);
+        border: 1px solid rgba(242, 101, 34, 0.3);
+        border-radius: 16px;
+        font-size: 0.8rem;
+      }
+
+      .chip-label {
+        color: var(--text-primary);
+        font-weight: 500;
+      }
+
+      .chip-remove {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .chip-remove:hover {
+        transform: scale(1.2);
+      }
+
+      .chip-remove svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .btn-clear-all {
+        padding: 0.35rem 0.75rem;
+        background-color: var(--surface-lowest);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .btn-clear-all:hover {
+        background-color: var(--hover-bg);
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .filters-loading {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        background-color: rgba(242, 101, 34, 0.05);
+        border-top: 1px solid var(--border);
+        font-size: 0.8rem;
+        color: var(--primary);
+      }
+
+      .spinner {
+        width: 14px;
+        height: 14px;
+        border: 2px solid rgba(242, 101, 34, 0.2);
+        border-top-color: var(--primary);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .filters-results {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        border-top: 1px solid var(--border);
+      }
+
+      [data-theme&#x3D;&#x27;dark&#x27;] .filter-input,
+      [data-theme&#x3D;&#x27;dark&#x27;] .filter-select,
+      [data-theme&#x3D;&#x27;dark&#x27;] .filter-date {
+        background-color: var(--surface);
+        color: var(--text-primary);
+      }
+
+      [data-theme&#x3D;&#x27;dark&#x27;] .filter-select-wrapper ::ng-deep .mat-mdc-text-field-wrapper {
+        background-color: var(--surface);
+      }
+
+      @media (max-width: 768px) {
+        .filters-main-bar {
+          flex-direction: column;
+        }
+
+        .advanced-filters-grid {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+      }
+    &#x60;,
+  ],
+})
+export class FiltersComponent implements OnInit {
+  filters: FilterOption[] &#x3D; [];
+  primaryFilters: FilterOption[] &#x3D; [];
+  secondaryFilters: FilterOption[] &#x3D; [];
+  filterValues: { [key: string]: string } &#x3D; {};
+  activeFilters: ActiveFilter[] &#x3D; [];
+  showAdvancedFilters &#x3D; false;
+  isLoading &#x3D; false;
+  filteredResults &#x3D; 0;
+  totalResults &#x3D; 100; // Este valor debería venir de la vista
+  private currentView &#x3D; &#x27;dashboard&#x27;;
+
+  @Input() hidePrimary &#x3D; false;
+
+  // Opciones dinámicas para filtros dependientes
+  ciudadesOptions: Array&lt;{ value: string; label: string }&gt; &#x3D; [];
+  comunasOptions: Array&lt;{ value: string; label: string }&gt; &#x3D; [];
+
+  constructor(
+    private filterService: FilterService,
+    private chileLocations: ChileLocationsService
+  ) {}
+
+  ngOnInit(): void {
+    this.filterService.activeView$.subscribe((view) &#x3D;&gt; {
+      this.currentView &#x3D; view;
+      this.filters &#x3D; this.filterService.getFiltersForView(view);
+      this.categorizeFilters();
+      this.filterValues &#x3D; {};
+      this.activeFilters &#x3D; [];
+      this.showAdvancedFilters &#x3D; false;
+      // Resetear opciones dinámicas
+      this.ciudadesOptions &#x3D; this.chileLocations.getCiudadesSelect();
+      this.comunasOptions &#x3D; this.chileLocations.getComunasSelect();
+    });
+
+    this.filterService.filters$.subscribe(() &#x3D;&gt; {
+      this.updateActiveFilters();
+      this.updateDependentFilters();
+    });
+
+    this.filterService.results$.subscribe((results) &#x3D;&gt; {
+      this.filteredResults &#x3D; results.filtered;
+      this.totalResults &#x3D; results.total;
+    });
+  }
+
+  // Actualiza ciudad/comuna cuando cambia la región
+  onRegionChange(): void {
+    const regionId &#x3D; this.filterValues[&#x27;region&#x27;];
+    if (regionId) {
+      this.ciudadesOptions &#x3D; this.chileLocations.getCiudadesSelect(regionId);
+      this.comunasOptions &#x3D; this.chileLocations.getComunasSelect(regionId);
+      // Limpiar ciudad y comuna si cambió la región
+      if (this.filterValues[&#x27;city&#x27;]) this.filterValues[&#x27;city&#x27;] &#x3D; &#x27;&#x27;;
+      if (this.filterValues[&#x27;commune&#x27;]) this.filterValues[&#x27;commune&#x27;] &#x3D; &#x27;&#x27;;
+    } else {
+      this.ciudadesOptions &#x3D; this.chileLocations.getCiudadesSelect();
+      this.comunasOptions &#x3D; this.chileLocations.getComunasSelect();
+    }
+    this.applyFilters();
+  }
+
+  private categorizeFilters(): void {
+    // Primeros 1-2 filtros como principales, el resto como secundarios
+    const mainFilterCount &#x3D; Math.min(2, this.filters.length);
+    this.primaryFilters &#x3D; this.filters.slice(0, mainFilterCount);
+    this.secondaryFilters &#x3D; this.filters.slice(mainFilterCount);
+  }
+
+  toggleAdvancedFilters(): void {
+    this.showAdvancedFilters &#x3D; !this.showAdvancedFilters;
+  }
+
+  applyFilters(): void {
+    this.isLoading &#x3D; true;
+    this.updateActiveFilters();
+
+    const activeFilters &#x3D; Object.entries(this.filterValues)
+      .filter(([_, value]) &#x3D;&gt; value !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; value !&#x3D;&#x3D; null &amp;&amp; value !&#x3D;&#x3D; undefined)
+      .reduce(
+        (acc, [key, value]) &#x3D;&gt; {
+          acc[key] &#x3D; value;
+          return acc;
+        },
+        {} as { [key: string]: string },
+      );
+
+    this.filterService.updateFilters(activeFilters);
+
+    // Simular carga
+    setTimeout(() &#x3D;&gt; {
+      this.isLoading &#x3D; false;
+      this.filteredResults &#x3D; Math.max(
+        0,
+        this.totalResults - Object.keys(activeFilters).length * 10,
+      );
+    }, 500);
+  }
+
+  private updateActiveFilters(): void {
+    this.activeFilters &#x3D; Object.entries(this.filterValues)
+      .filter(([_, value]) &#x3D;&gt; value !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; value !&#x3D;&#x3D; null &amp;&amp; value !&#x3D;&#x3D; undefined)
+      .map(([key, value]) &#x3D;&gt; {
+        const filter &#x3D; this.filters.find((f) &#x3D;&gt; f.key &#x3D;&#x3D;&#x3D; key);
+        const optionLabel &#x3D; filter?.options?.find((o) &#x3D;&gt; o.value &#x3D;&#x3D;&#x3D; value)?.label || value;
+        return {
+          key,
+          label: filter?.label || key,
+          value: optionLabel,
+          displayLabel: filter?.label || key,
+        };
+      });
+  }
+
+  removeFilter(key: string): void {
+    this.filterValues[key] &#x3D; &#x27;&#x27;;
+    this.applyFilters();
+  }
+
+  clearFilters(): void {
+    this.filterValues &#x3D; {};
+    this.filterService.updateFilters({});
+    this.activeFilters &#x3D; [];
+    this.isLoading &#x3D; false;
+  }
+
+  getSecondaryActiveCount(): number {
+    return this.secondaryFilters.filter(
+      (f) &#x3D;&gt;
+        this.filterValues[f.key] !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp;
+        this.filterValues[f.key] !&#x3D;&#x3D; null &amp;&amp;
+        this.filterValues[f.key] !&#x3D;&#x3D; undefined,
+    ).length;
+  }
+
+  hasActiveFilters(): boolean {
+    return Object.values(this.filterValues).some((v) &#x3D;&gt; v !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; v !&#x3D;&#x3D; null &amp;&amp; v !&#x3D;&#x3D; undefined);
+  }
+
+  private updateDependentFilters(): void {
+    const regionId &#x3D; this.filterValues[&#x27;region&#x27;];
+    if (regionId) {
+      this.ciudadesOptions &#x3D; this.chileLocations.getCiudadesSelect(regionId);
+      this.comunasOptions &#x3D; this.chileLocations.getComunasSelect(regionId);
+    } else {
+      this.ciudadesOptions &#x3D; this.chileLocations.getCiudadesSelect();
+      this.comunasOptions &#x3D; this.chileLocations.getComunasSelect();
+    }
+  }
+
+  getFilterOptions(filter: FilterOption): Array&lt;{ value: string; label: string }&gt; {
+    if (filter.key &#x3D;&#x3D;&#x3D; &#x27;city&#x27;) {
+      return this.ciudadesOptions;
+    }
+    if (filter.key &#x3D;&#x3D;&#x3D; &#x27;commune&#x27;) {
+      return this.comunasOptions;
+    }
+    return filter.options || [];
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ActiveFilter.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

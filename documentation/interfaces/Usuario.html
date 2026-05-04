@@ -1,0 +1,1037 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Usuario</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/components/usuarios/usuarios.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#email" 
+>
+                                            email
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#id" 
+>
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#name" 
+>
+                                            name
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#password" 
+>
+                                            password
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#phone" 
+>
+                                            phone
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#role" 
+>
+                                            role
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#roleLabel" 
+>
+                                            roleLabel
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#status" 
+>
+                                            status
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="email"></a>
+                                        <span class="name "><b>email</b>
+                                            <a href="#email">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>email:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="name"></a>
+                                        <span class="name "><b>name</b>
+                                            <a href="#name">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="password"></a>
+                                        <span class="name "><b>password</b>
+                                            <a href="#password">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>password:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="phone"></a>
+                                        <span class="name "><b>phone</b>
+                                            <a href="#phone">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>phone:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="role"></a>
+                                        <span class="name "><b>role</b>
+                                            <a href="#role">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>role:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="roleLabel"></a>
+                                        <span class="name "><b>roleLabel</b>
+                                            <a href="#roleLabel">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>roleLabel:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="status"></a>
+                                        <span class="name "><b>status</b>
+                                            <a href="#status">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>status:         <code><a href="../interfaces/Activo.html" target="_self" >&quot;Activo&quot; | &quot;Inactivo&quot;</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/Activo.html" target="_self" >&quot;Activo&quot; | &quot;Inactivo&quot;</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
+import { Subscription, debounceTime, distinctUntilChanged, finalize, map } from &#x27;rxjs&#x27;;
+import { FilterService } from &#x27;../../core/services/filter.service&#x27;;
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
+import {
+  UsersService,
+  type BackendUser,
+  type CreateUserRequest,
+  type UpdateUserRequest,
+} from &#x27;../../core/services/users.service&#x27;;
+import { ConfirmDialogService } from &#x27;../../core/services/confirm-dialog.service&#x27;;
+import { ViewSearchFiltersComponent } from &#x27;../view-search-filters/view-search-filters.component&#x27;;
+
+interface Usuario {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  phone: string;
+  role: string;
+  roleLabel: string;
+  status: &#x27;Activo&#x27; | &#x27;Inactivo&#x27;;
+}
+
+@Component({
+  selector: &#x27;app-usuarios&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, ViewSearchFiltersComponent],
+  templateUrl: &#x27;./usuarios.html&#x27;,
+  styleUrls: [&#x27;./usuarios.css&#x27;]
+})
+export class Usuarios implements OnInit, OnDestroy {
+  activeTab: &#x27;list&#x27; | &#x27;create&#x27; &#x3D; &#x27;list&#x27;;
+  isEditing &#x3D; false;
+  editingIndex: number | null &#x3D; null;
+  private readonly subscriptions &#x3D; new Subscription();
+  private allUsuarios: Usuario[] &#x3D; [];
+  private currentSearchQuery &#x3D; &#x27;&#x27;;
+  
+  usuarios: Usuario[] &#x3D; [];
+  loadError: string | null &#x3D; null;
+  createError: string | null &#x3D; null;
+  actionError: string | null &#x3D; null;
+  isCreating &#x3D; false;
+  deletingUserId: string | null &#x3D; null;
+
+  newUsuario: Usuario &#x3D; {
+    id: &#x27;&#x27;,
+    name: &#x27;&#x27;,
+    email: &#x27;&#x27;,
+    password: &#x27;&#x27;,
+    phone: &#x27;&#x27;,
+    role: &#x27;&#x27;,
+    roleLabel: &#x27;&#x27;,
+    status: &#x27;Activo&#x27;
+  };
+
+  roles: string[] &#x3D; [&#x27;TECHNICIAN&#x27;, &#x27;DRIVER&#x27;, &#x27;VENDOR&#x27;, &#x27;RETAILER&#x27;, &#x27;SUPPORT&#x27;, &#x27;ADMIN&#x27;];
+
+  private readonly roleLabels: Record&lt;string, string&gt; &#x3D; {
+    TECHNICIAN: &#x27;Tecnico&#x27;,
+    DRIVER: &#x27;Conductor&#x27;,
+    VENDOR: &#x27;Vendedor&#x27;,
+    RETAILER: &#x27;Retail&#x27;,
+    SUPPORT: &#x27;Soporte&#x27;,
+    ADMIN: &#x27;Administrador&#x27;,
+    TENANT_ADMIN: &#x27;Administrador&#x27;,
+    SUPER_ADMIN: &#x27;Super Administrador&#x27;,
+  };
+
+  constructor(
+    private filterService: FilterService,
+    private usersService: UsersService,
+    private authService: AuthService,
+    private confirmDialog: ConfirmDialogService,
+  ) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView(&#x27;usuarios&#x27;);
+    this.subscriptions.add(
+      this.filterService.filters$
+        .pipe(
+          map((filters) &#x3D;&gt; this.normalizeSearchQuery(filters[&#x27;search&#x27;])),
+          debounceTime(200),
+          distinctUntilChanged(),
+        )
+        .subscribe((query) &#x3D;&gt; {
+          this.applySearchFilter(query);
+        }),
+    );
+
+    this.loadUsers();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  private loadUsers(): void {
+    this.loadError &#x3D; null;
+    this.actionError &#x3D; null;
+
+    this.subscriptions.add(this.usersService.getUsers().subscribe({
+      next: (users) &#x3D;&gt; {
+        this.allUsuarios &#x3D; users.map((user) &#x3D;&gt; this.mapBackendUserToTableUser(user));
+        this.applySearchFilter(this.currentSearchQuery);
+      },
+      error: (error: HttpErrorResponse) &#x3D;&gt; {
+        this.allUsuarios &#x3D; [];
+        this.usuarios &#x3D; [];
+        this.loadError &#x3D; this.buildLoadErrorMessage(error, &#x27;usuarios&#x27;);
+      },
+    }));
+  }
+
+  private buildLoadErrorMessage(error: HttpErrorResponse, resource: &#x27;usuarios&#x27; | &#x27;tenants&#x27;): string {
+    const backendMessage &#x3D;
+      (typeof error.error?.message &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; error.error.message.trim()) ||
+      (typeof error.error &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; error.error.trim()) ||
+      &#x27;&#x27;;
+
+    if (error.status &#x3D;&#x3D;&#x3D; 403) {
+      const detail &#x3D; backendMessage ? &#x60; Detalle backend: ${backendMessage}.&#x60; : &#x27;&#x27;;
+      return &#x60;No tienes permisos para cargar ${resource} con el rol o tenant actual.${detail}&#x60;;
+    }
+
+    if (backendMessage) {
+      return &#x60;No fue posible cargar ${resource}. Detalle backend: ${backendMessage}.&#x60;;
+    }
+
+    return &#x60;No fue posible cargar ${resource}. Intenta nuevamente.&#x60;;
+  }
+
+  private mapBackendUserToTableUser(user: BackendUser): Usuario {
+    const fullName &#x3D; &#x60;${user.firstName ?? &#x27;&#x27;} ${user.lastName ?? &#x27;&#x27;}&#x60;.trim();
+    const roleCodes &#x3D; this.extractRoleCodes(user);
+
+    return {
+      id: user.id,
+      name: fullName || user.email,
+      email: user.email,
+      password: &#x27;&#x27;,
+      phone: user.phone ?? &#x27;&#x27;,
+      role: roleCodes[0] ?? &#x27;&#x27;,
+      roleLabel: roleCodes.length ? roleCodes.map((role) &#x3D;&gt; this.getRoleLabel(role)).join(&#x27;, &#x27;) : &#x27;Sin rol&#x27;,
+      status: user.active ? &#x27;Activo&#x27; : &#x27;Inactivo&#x27;,
+    };
+  }
+
+  getRoleLabel(roleCode: string): string {
+    const normalizedRole &#x3D; this.normalizeRoleCode(roleCode);
+    if (!normalizedRole) {
+      return &#x27;Sin rol&#x27;;
+    }
+
+    const directLabel &#x3D; this.roleLabels[normalizedRole];
+    if (directLabel) {
+      return directLabel;
+    }
+
+    if (normalizedRole.includes(&#x27;SUPER&#x27;) &amp;&amp; normalizedRole.includes(&#x27;ADMIN&#x27;)) {
+      return &#x27;Super Administrador&#x27;;
+    }
+
+    if (normalizedRole.includes(&#x27;ADMIN&#x27;)) {
+      return &#x27;Administrador&#x27;;
+    }
+
+    if (normalizedRole.includes(&#x27;SUPPORT&#x27;) 
+    ) {
+      return &#x27;Soporte&#x27;;
+    }
+
+    if (normalizedRole.includes(&#x27;TECH&#x27;) 
+    ) {
+      return &#x27;Tecnico&#x27;;
+    }
+
+    if (
+      normalizedRole.includes(&#x27;DRIVER&#x27;)
+    ) {
+      return &#x27;Conductor&#x27;;
+    }
+
+    if (
+      normalizedRole.includes(&#x27;VENDOR&#x27;)
+    ) {
+      return &#x27;Vendedor&#x27;;
+    }
+
+    if (normalizedRole.includes(&#x27;RETAIL&#x27;) 
+    ) {
+      return &#x27;Retail&#x27;;
+    }
+
+    return this.humanizeRole(normalizedRole);
+  }
+
+  private extractRoleCodes(user: BackendUser): string[] {
+    const roleValues &#x3D; [
+      ...this.flattenRoleValues(user.role),
+      ...this.flattenRoleValues(user.roles),
+    ];
+
+    const normalizedRoles &#x3D; roleValues
+      .map((role) &#x3D;&gt; this.normalizeRoleCode(role))
+      .filter((role): role is string &#x3D;&gt; !!role);
+
+    return Array.from(new Set(normalizedRoles));
+  }
+
+  private flattenRoleValues(value: unknown): string[] {
+    if (!value) {
+      return [];
+    }
+
+    if (typeof value &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+      const trimmed &#x3D; value.trim();
+      return trimmed ? [trimmed] : [];
+    }
+
+    if (Array.isArray(value)) {
+      return value.flatMap((item) &#x3D;&gt; this.flattenRoleValues(item));
+    }
+
+    if (typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+      const record &#x3D; value as Record&lt;string, unknown&gt;;
+      return [
+        ...this.flattenRoleValues(record[&#x27;role&#x27;]),
+        ...this.flattenRoleValues(record[&#x27;roles&#x27;]),
+        ...this.flattenRoleValues(record[&#x27;name&#x27;]),
+        ...this.flattenRoleValues(record[&#x27;code&#x27;]),
+        ...this.flattenRoleValues(record[&#x27;value&#x27;]),
+      ];
+    }
+
+    return [];
+  }
+
+  private normalizeRoleCode(roleValue: string | null | undefined): string {
+    if (!roleValue) {
+      return &#x27;&#x27;;
+    }
+
+    return roleValue
+      .trim()
+      .toUpperCase()
+      .replace(/^ROLE_/, &#x27;&#x27;)
+      .replace(/[\s-]+/g, &#x27;_&#x27;);
+  }
+
+  private humanizeRole(roleCode: string): string {
+    return roleCode
+      .split(&#x27;_&#x27;)
+      .filter(Boolean)
+      .map((word) &#x3D;&gt; word.charAt(0) + word.slice(1).toLowerCase())
+      .join(&#x27; &#x27;);
+  }
+
+  setActiveTab(tab: &#x27;list&#x27; | &#x27;create&#x27;): void {
+    this.activeTab &#x3D; tab;
+    this.createError &#x3D; null;
+  }
+
+  private applySearchFilter(searchQuery: string): void {
+    this.currentSearchQuery &#x3D; searchQuery;
+
+    if (!searchQuery) {
+      this.usuarios &#x3D; [...this.allUsuarios];
+      return;
+    }
+
+    const normalizedQuery &#x3D; this.normalizeText(searchQuery);
+    this.usuarios &#x3D; this.allUsuarios.filter((user) &#x3D;&gt; {
+      const values &#x3D; [user.name, user.email, user.phone, user.roleLabel, user.status, user.id];
+      return values.some((value) &#x3D;&gt; this.normalizeText(value).includes(normalizedQuery));
+    });
+  }
+
+  private normalizeSearchQuery(value: unknown): string {
+    return typeof value &#x3D;&#x3D;&#x3D; &#x27;string&#x27; ? value.trim() : &#x27;&#x27;;
+  }
+
+  private normalizeText(value: string): string {
+    return value
+      .normalize(&#x27;NFD&#x27;)
+      .replace(/[\u0300-\u036f]/g, &#x27;&#x27;)
+      .toLowerCase()
+      .trim();
+  }
+
+  createUsuario(): void {
+    if (this.isEditing &amp;&amp; this.editingIndex !&#x3D;&#x3D; null) {
+      const editingUser &#x3D; this.usuarios[this.editingIndex];
+
+      if (!editingUser?.id) {
+        this.createError &#x3D; &#x27;No se pudo identificar el usuario a editar.&#x27;;
+        return;
+      }
+
+      const name &#x3D; this.newUsuario.name.trim();
+      const email &#x3D; this.newUsuario.email.trim();
+      const phone &#x3D; this.newUsuario.phone.trim();
+      const normalizedRole &#x3D; this.normalizeRoleCode(this.newUsuario.role);
+
+      if (!name || !email || !phone || !normalizedRole) {
+        this.createError &#x3D; &#x27;Debes completar Nombre, Email, Teléfono y Rol.&#x27;;
+        return;
+      }
+
+      const [firstName, ...lastNameParts] &#x3D; name.split(/\s+/);
+      const lastName &#x3D; lastNameParts.join(&#x27; &#x27;).trim();
+
+      const payload: UpdateUserRequest &#x3D; {
+        email,
+        firstName: firstName ?? &#x27;&#x27;,
+        lastName,
+        phone,
+        role: normalizedRole,
+        active: this.newUsuario.status &#x3D;&#x3D;&#x3D; &#x27;Activo&#x27;,
+      };
+
+      this.createError &#x3D; null;
+      this.isCreating &#x3D; true;
+
+      this.usersService
+        .updateUser(editingUser.id, payload)
+        .pipe(finalize(() &#x3D;&gt; (this.isCreating &#x3D; false)))
+        .subscribe({
+          next: () &#x3D;&gt; {
+            this.cancelEdit();
+            this.activeTab &#x3D; &#x27;list&#x27;;
+            this.loadUsers();
+          },
+          error: (error: HttpErrorResponse) &#x3D;&gt; {
+            this.createError &#x3D; this.buildLoadErrorMessage(error, &#x27;usuarios&#x27;);
+          },
+        });
+
+      return;
+    }
+
+    const name &#x3D; this.newUsuario.name.trim();
+    const email &#x3D; this.newUsuario.email.trim();
+    const password &#x3D; this.newUsuario.password;
+    const phone &#x3D; this.newUsuario.phone.trim();
+    const role &#x3D; this.normalizeRoleCode(this.newUsuario.role);
+
+    if (!name || !email || !password || !role || !phone) {
+      this.createError &#x3D; &#x27;Debes completar Nombre, Email, Password, Teléfono y Rol.&#x27;;
+      return;
+    }
+
+    const [firstName, ...lastNameParts] &#x3D; name.split(/\s+/);
+    const lastName &#x3D; lastNameParts.join(&#x27; &#x27;).trim();
+
+    const payload: CreateUserRequest &#x3D; {
+      email,
+      password,
+      firstName: firstName ?? &#x27;&#x27;,
+      lastName,
+      role,
+      tenantId: this.authService.getTenantId() ?? undefined,
+      phone,
+    };
+
+    this.createError &#x3D; null;
+    this.isCreating &#x3D; true;
+
+    this.usersService
+      .createUser(payload)
+      .pipe(finalize(() &#x3D;&gt; (this.isCreating &#x3D; false)))
+      .subscribe({
+        next: () &#x3D;&gt; {
+          this.resetForm();
+          this.activeTab &#x3D; &#x27;list&#x27;;
+          this.loadUsers();
+        },
+        error: (error: HttpErrorResponse) &#x3D;&gt; {
+          this.createError &#x3D; this.buildLoadErrorMessage(error, &#x27;usuarios&#x27;);
+        },
+      });
+  }
+
+  editUsuario(index: number): void {
+    this.actionError &#x3D; null;
+
+    const usuario &#x3D; this.usuarios[index];
+    this.newUsuario &#x3D; {
+      ...usuario,
+      password: &#x27;&#x27;,
+      roleLabel: this.getRoleLabel(usuario.role),
+    };
+
+    this.isEditing &#x3D; true;
+    this.editingIndex &#x3D; index;
+    this.activeTab &#x3D; &#x27;create&#x27;;
+    this.createError &#x3D; null;
+  }
+
+  async deleteUsuario(index: number): Promise&lt;void&gt; {
+    const usuario &#x3D; this.usuarios[index];
+
+    if (!usuario?.id) {
+      this.actionError &#x3D; &#x27;No se pudo identificar el usuario a desactivar.&#x27;;
+      return;
+    }
+
+    const confirmed &#x3D; await this.confirmDialog.confirm({
+      title: &#x27;Desactivar usuario&#x27;,
+      message: &#x27;El usuario dejara de tener acceso al sistema hasta que sea reactivado.&#x27;,
+      confirmText: &#x27;Desactivar&#x27;,
+      cancelText: &#x27;Cancelar&#x27;,
+      variant: &#x27;warning&#x27;,
+    });
+
+    if (!confirmed) {
+      return;
+    }
+
+    this.actionError &#x3D; null;
+    this.deletingUserId &#x3D; usuario.id;
+
+    this.usersService
+      .deactivateUser(usuario.id)
+      .pipe(finalize(() &#x3D;&gt; (this.deletingUserId &#x3D; null)))
+      .subscribe({
+        next: () &#x3D;&gt; {
+          this.loadUsers();
+        },
+        error: (error: HttpErrorResponse) &#x3D;&gt; {
+          this.actionError &#x3D; this.buildLoadErrorMessage(error, &#x27;usuarios&#x27;);
+        },
+      });
+  }
+
+  cancelEdit(): void {
+    this.resetForm();
+    this.isEditing &#x3D; false;
+    this.editingIndex &#x3D; null;
+  }
+
+  resetForm(): void {
+    this.newUsuario &#x3D; {
+      id: &#x27;&#x27;,
+      name: &#x27;&#x27;,
+      email: &#x27;&#x27;,
+      password: &#x27;&#x27;,
+      phone: &#x27;&#x27;,
+      role: &#x27;&#x27;,
+      roleLabel: &#x27;&#x27;,
+      status: &#x27;Activo&#x27;
+    };
+    this.createError &#x3D; null;
+  }
+
+  getInitials(name: string): string {
+    return name
+      .split(&#x27; &#x27;)
+      .map(word &#x3D;&gt; word.charAt(0))
+      .join(&#x27;&#x27;)
+      .toUpperCase();
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Usuario.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

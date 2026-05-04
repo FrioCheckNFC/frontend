@@ -1,0 +1,1854 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Tickets</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/tickets/tickets.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-tickets</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="../components/ViewSearchFiltersComponent.html" target="_self" >ViewSearchFiltersComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./tickets.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./tickets.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#allTickets" >allTickets</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#selectedTicket" >selectedTicket</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#subscriptions" >subscriptions</a>
+                            </li>
+                            <li>
+                                <a href="#tickets" >tickets</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applyActiveFilters" >applyActiveFilters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadTickets" >loadTickets</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapBackendTicket" >mapBackendTicket</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapPriority" >mapPriority</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapStatus" >mapStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#matchesPriorityFilter" >matchesPriorityFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#matchesStatusFilter" >matchesStatusFilter</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#selectTicket" >selectTicket</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#toRelativeDate" >toRelativeDate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>, ticketsService: <a href="../injectables/TicketsService.html" target="_self">TicketsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/tickets/tickets.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ticketsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TicketsService.html" target="_self" >TicketsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyActiveFilters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>applyActiveFilters</b></span>
+                        <a href="#applyActiveFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyActiveFilters(filters: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filters</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTickets"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadTickets</b></span>
+                        <a href="#loadTickets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadTickets()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapBackendTicket"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapBackendTicket</b></span>
+                        <a href="#mapBackendTicket"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapBackendTicket(ticket: <a href="../interfaces/BackendTicket.html" target="_self">BackendTicket</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ticket</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BackendTicket.html" target="_self" >BackendTicket</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Ticket.html" target="_self" >Ticket</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapPriority"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapPriority</b></span>
+                        <a href="#mapPriority"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapPriority(priority: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>priority</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapStatus</b></span>
+                        <a href="#mapStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapStatus(status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="170"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matchesPriorityFilter"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>matchesPriorityFilter</b></span>
+                        <a href="#matchesPriorityFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>matchesPriorityFilter(currentPriority: <a href="../interfaces/Ticket.html" target="_self">Ticket</a>, filterValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentPriority</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Ticket.html" target="_self" >Ticket</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>filterValue</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matchesStatusFilter"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>matchesStatusFilter</b></span>
+                        <a href="#matchesStatusFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>matchesStatusFilter(currentStatus: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, filterValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentStatus</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>filterValue</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectTicket"></a>
+                    <span class="name">
+                        <span ><b>selectTicket</b></span>
+                        <a href="#selectTicket"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectTicket(ticket: <a href="../interfaces/Ticket.html" target="_self">Ticket</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ticket</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Ticket.html" target="_self" >Ticket</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toRelativeDate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>toRelativeDate</b></span>
+                        <a href="#toRelativeDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toRelativeDate(dateIso: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">src/app/components/tickets/tickets.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dateIso</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allTickets"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>allTickets</b></span>
+                        <a href="#allTickets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Ticket.html" target="_self" >Ticket[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/tickets/tickets.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedTicket"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>selectedTicket</b></span>
+                        <a href="#selectedTicket"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Ticket.html" target="_self" >Ticket</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/tickets/tickets.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>subscriptions</b></span>
+                        <a href="#subscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/tickets/tickets.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tickets"></a>
+                    <span class="name">
+                        <span ><b>tickets</b></span>
+                        <a href="#tickets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Ticket.html" target="_self" >Ticket[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/tickets/tickets.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FilterService } from &#x27;../../core/services/filter.service&#x27;;
+import { BackendTicket, TicketsService } from &#x27;../../core/services/tickets.service&#x27;;
+import { ViewSearchFiltersComponent } from &#x27;../view-search-filters/view-search-filters.component&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+
+interface Ticket {
+  id: string;
+  asunto: string;
+  prioridad: &#x27;Alta&#x27; | &#x27;Media&#x27; | &#x27;Baja&#x27;;
+  equipo: string;
+  creacion: string;
+  estado: string;
+  descripcion: string;
+}
+
+@Component({
+  selector: &#x27;app-tickets&#x27;,
+  standalone: true,
+  imports: [CommonModule, ViewSearchFiltersComponent],
+  templateUrl: &#x27;./tickets.html&#x27;,
+  styleUrls: [&#x27;./tickets.css&#x27;],
+})
+export class Tickets implements OnInit {
+  tickets: Ticket[] &#x3D; [];
+  private allTickets: Ticket[] &#x3D; [];
+  private readonly subscriptions &#x3D; new Subscription();
+
+  selectedTicket?: Ticket;
+
+  constructor(
+    private filterService: FilterService,
+    private ticketsService: TicketsService,
+  ) {}
+
+  ngOnInit(): void {
+    this.filterService.setActiveView(&#x27;tickets&#x27;);
+
+    this.subscriptions.add(
+      this.filterService.filters$.subscribe((filters) &#x3D;&gt; {
+        this.applyActiveFilters(filters);
+      }),
+    );
+
+    this.loadTickets();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  selectTicket(ticket: Ticket): void {
+    if (this.selectedTicket?.id &#x3D;&#x3D;&#x3D; ticket.id) {
+      this.selectedTicket &#x3D; undefined;
+      return;
+    }
+
+    this.ticketsService.getTicketById(ticket.id).subscribe((backendTicket) &#x3D;&gt; {
+      this.selectedTicket &#x3D; backendTicket ? this.mapBackendTicket(backendTicket) : ticket;
+    });
+  }
+
+  private loadTickets(): void {
+    this.ticketsService.getTickets().subscribe((backendTickets) &#x3D;&gt; {
+      this.allTickets &#x3D; backendTickets.map((ticket) &#x3D;&gt; this.mapBackendTicket(ticket));
+      this.applyActiveFilters(this.filterService.getFilters());
+
+      if (this.selectedTicket) {
+        this.selectedTicket &#x3D; this.tickets.find((t) &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; this.selectedTicket?.id);
+      }
+    });
+  }
+
+  private applyActiveFilters(filters: { [key: string]: string }): void {
+    const normalizedSearch &#x3D; (filters[&#x27;search&#x27;] ?? &#x27;&#x27;).toLowerCase().trim();
+    const normalizedStatus &#x3D; (filters[&#x27;status&#x27;] ?? &#x27;&#x27;).toLowerCase().trim();
+    const normalizedPriority &#x3D; (filters[&#x27;priority&#x27;] ?? &#x27;&#x27;).toLowerCase().trim();
+
+    this.tickets &#x3D; this.allTickets.filter((ticket) &#x3D;&gt; {
+      const matchesSearch &#x3D;
+        !normalizedSearch ||
+        [
+          ticket.id,
+          ticket.asunto,
+          ticket.descripcion,
+          ticket.equipo,
+          ticket.estado,
+          ticket.prioridad,
+        ]
+          .join(&#x27; &#x27;)
+          .toLowerCase()
+          .includes(normalizedSearch);
+
+      const matchesStatus &#x3D;
+        !normalizedStatus ||
+        this.matchesStatusFilter(ticket.estado, normalizedStatus);
+
+      const matchesPriority &#x3D;
+        !normalizedPriority ||
+        this.matchesPriorityFilter(ticket.prioridad, normalizedPriority);
+
+      return matchesSearch &amp;&amp; matchesStatus &amp;&amp; matchesPriority;
+    });
+
+    if (this.selectedTicket &amp;&amp; !this.tickets.some((ticket) &#x3D;&gt; ticket.id &#x3D;&#x3D;&#x3D; this.selectedTicket?.id)) {
+      this.selectedTicket &#x3D; undefined;
+    }
+  }
+
+  private matchesStatusFilter(currentStatus: string, filterValue: string): boolean {
+    const normalizedCurrent &#x3D; currentStatus.toLowerCase();
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;sin-resolver&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;abierto&#x27; || normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;en-proceso&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;en progreso&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;resuelto&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;cerrado&#x27;;
+    }
+
+    return normalizedCurrent &#x3D;&#x3D;&#x3D; filterValue;
+  }
+
+  private matchesPriorityFilter(currentPriority: Ticket[&#x27;prioridad&#x27;], filterValue: string): boolean {
+    const normalizedCurrent &#x3D; currentPriority.toLowerCase();
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;alta&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;alta&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;media&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;media&#x27;;
+    }
+
+    if (filterValue &#x3D;&#x3D;&#x3D; &#x27;baja&#x27;) {
+      return normalizedCurrent &#x3D;&#x3D;&#x3D; &#x27;baja&#x27;;
+    }
+
+    return normalizedCurrent &#x3D;&#x3D;&#x3D; filterValue;
+  }
+
+  private mapBackendTicket(ticket: BackendTicket): Ticket {
+    return {
+      id: ticket.id,
+      asunto: ticket.title,
+      prioridad: this.mapPriority(ticket.priority),
+      equipo: ticket.machineId,
+      creacion: this.toRelativeDate(ticket.createdAt),
+      estado: this.mapStatus(ticket.status),
+      descripcion: ticket.description,
+    };
+  }
+
+  private mapPriority(priority: string): Ticket[&#x27;prioridad&#x27;] {
+    switch ((priority ?? &#x27;&#x27;).toLowerCase()) {
+      case &#x27;high&#x27;:
+        return &#x27;Alta&#x27;;
+      case &#x27;low&#x27;:
+        return &#x27;Baja&#x27;;
+      default:
+        return &#x27;Media&#x27;;
+    }
+  }
+
+  private mapStatus(status: string): string {
+    switch ((status ?? &#x27;&#x27;).toLowerCase()) {
+      case &#x27;open&#x27;:
+        return &#x27;Abierto&#x27;;
+      case &#x27;in_progress&#x27;:
+      case &#x27;in-progress&#x27;:
+        return &#x27;En Progreso&#x27;;
+      case &#x27;pending&#x27;:
+        return &#x27;Pendiente&#x27;;
+      case &#x27;closed&#x27;:
+        return &#x27;Cerrado&#x27;;
+      default:
+        return status || &#x27;Sin estado&#x27;;
+    }
+  }
+
+  private toRelativeDate(dateIso: string): string {
+    const date &#x3D; new Date(dateIso);
+    if (Number.isNaN(date.getTime())) {
+      return &#x27;Fecha desconocida&#x27;;
+    }
+
+    const now &#x3D; new Date();
+    const diffMs &#x3D; date.getTime() - now.getTime();
+    const diffSeconds &#x3D; Math.round(diffMs / 1000);
+    const absSeconds &#x3D; Math.abs(diffSeconds);
+
+    const rtf &#x3D; new Intl.RelativeTimeFormat(&#x27;es-CL&#x27;, { numeric: &#x27;auto&#x27; });
+
+    if (absSeconds &lt; 60) {
+      return rtf.format(diffSeconds, &#x27;second&#x27;);
+    }
+
+    const diffMinutes &#x3D; Math.round(diffSeconds / 60);
+    if (Math.abs(diffMinutes) &lt; 60) {
+      return rtf.format(diffMinutes, &#x27;minute&#x27;);
+    }
+
+    const diffHours &#x3D; Math.round(diffMinutes / 60);
+    if (Math.abs(diffHours) &lt; 24) {
+      return rtf.format(diffHours, &#x27;hour&#x27;);
+    }
+
+    const diffDays &#x3D; Math.round(diffHours / 24);
+    if (Math.abs(diffDays) &lt; 30) {
+      return rtf.format(diffDays, &#x27;day&#x27;);
+    }
+
+    const diffMonths &#x3D; Math.round(diffDays / 30);
+    if (Math.abs(diffMonths) &lt; 12) {
+      return rtf.format(diffMonths, &#x27;month&#x27;);
+    }
+
+    const diffYears &#x3D; Math.round(diffMonths / 12);
+    return rtf.format(diffYears, &#x27;year&#x27;);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-container&quot;&gt;
+  &lt;div class&#x3D;&quot;page-header&quot;&gt;
+    &lt;h2&gt;Tickets de Falla&lt;/h2&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Search and Filters --&gt;
+  &lt;app-view-search-filters&gt;&lt;/app-view-search-filters&gt;
+
+  &lt;div class&#x3D;&quot;table-container&quot;&gt;
+    &lt;div class&#x3D;&quot;table-scroll&quot;&gt;
+      &lt;table class&#x3D;&quot;data-table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;ID&lt;/th&gt;
+            &lt;th&gt;Asunto&lt;/th&gt;
+            &lt;th&gt;Prioridad&lt;/th&gt;
+            &lt;th&gt;Equipo NFC&lt;/th&gt;
+            &lt;th&gt;Creación&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr *ngFor&#x3D;&quot;let ticket of tickets&quot; (click)&#x3D;&quot;selectTicket(ticket)&quot; [class.selected]&#x3D;&quot;selectedTicket?.id &#x3D;&#x3D;&#x3D; ticket.id&quot;&gt;
+            &lt;td class&#x3D;&quot;mono&quot;&gt;{{ ticket.id }}&lt;/td&gt;
+            &lt;td&gt;{{ ticket.asunto }}&lt;/td&gt;
+            &lt;td&gt;&lt;span class&#x3D;&quot;prio&quot; [ngClass]&#x3D;&quot;{ high: ticket.prioridad &#x3D;&#x3D;&#x3D; &#x27;Alta&#x27;, medium: ticket.prioridad &#x3D;&#x3D;&#x3D; &#x27;Media&#x27;, low: ticket.prioridad &#x3D;&#x3D;&#x3D; &#x27;Baja&#x27; }&quot;&gt;{{ ticket.prioridad }}&lt;/span&gt;&lt;/td&gt;
+            &lt;td class&#x3D;&quot;mono muted&quot;&gt;{{ ticket.equipo }}&lt;/td&gt;
+            &lt;td class&#x3D;&quot;muted&quot;&gt;{{ ticket.creacion }}&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;ticket-detail-overlay&quot; *ngIf&#x3D;&quot;selectedTicket&quot; (click)&#x3D;&quot;selectedTicket &#x3D; undefined&quot;&gt;
+    &lt;div class&#x3D;&quot;ticket-detail-window&quot; (click)&#x3D;&quot;$event.stopPropagation()&quot;&gt;
+      &lt;button class&#x3D;&quot;ticket-detail-close&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;selectedTicket &#x3D; undefined&quot; aria-label&#x3D;&quot;Cerrar detalles del ticket&quot;&gt;×&lt;/button&gt;
+      &lt;h3&gt;Detalles del Ticket&lt;/h3&gt;
+      &lt;div class&#x3D;&quot;ticket-info-grid&quot;&gt;
+        &lt;div&gt;&lt;strong&gt;ID:&lt;/strong&gt; {{ selectedTicket.id }}&lt;/div&gt;
+        &lt;div&gt;&lt;strong&gt;Estado:&lt;/strong&gt; {{ selectedTicket.estado }}&lt;/div&gt;
+        &lt;div&gt;&lt;strong&gt;Asunto:&lt;/strong&gt; {{ selectedTicket.asunto }}&lt;/div&gt;
+        &lt;div&gt;&lt;strong&gt;Equipo NFC:&lt;/strong&gt; {{ selectedTicket.equipo }}&lt;/div&gt;
+        &lt;div&gt;&lt;strong&gt;Prioridad:&lt;/strong&gt; {{ selectedTicket.prioridad }}&lt;/div&gt;
+        &lt;div&gt;&lt;strong&gt;Creación:&lt;/strong&gt; {{ selectedTicket.creacion }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;info-full&quot;&gt;&lt;strong&gt;Descripción:&lt;/strong&gt; {{ selectedTicket.descripcion }}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./tickets.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.page-container {
+  padding: 2rem;
+}
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+.page-header h2 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.select-filter {
+  background-color: var(--surface-lowest);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.8rem;
+  border-radius: 7px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.table-container {
+  background-color: var(--surface-lowest);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-scroll {
+  overflow: auto;
+  width: 100%;
+  max-height: clamp(260px, 40vh, 460px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.2) transparent;
+}
+
+.table-scroll::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.32);
+}
+
+.data-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.data-table thead th {
+  background-color: var(--hover-overlay-2);
+  padding: 0.85rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table tbody td {
+  padding: 0.9rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.data-table tbody tr {
+  cursor: pointer;
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--hover-overlay-1);
+}
+
+.data-table tbody tr.selected {
+  background-color: var(--hover-overlay-2);
+}
+
+.ticket-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 40;
+}
+
+.ticket-detail-window {
+  width: min(820px, 100%);
+  background-color: var(--surface-lowest);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.14);
+  padding: 2rem;
+  position: relative;
+}
+
+.ticket-detail-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ticket-detail-close:hover,
+.ticket-detail-close:focus-visible {
+  background: var(--hover-overlay-1);
+  color: var(--primary);
+  outline: none;
+}
+
+.ticket-detail-window h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 1.15rem;
+}
+
+.ticket-info-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ticket-info-grid div {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--text-primary);
+}
+
+.ticket-info-grid strong {
+  color: var(--text-secondary);
+}
+
+.info-full {
+  grid-column: span 2;
+}
+
+.mono {
+  font-family: &#x27;Courier New&#x27;, monospace;
+  font-size: 0.82rem;
+}
+.muted {
+  color: var(--text-muted) !important;
+}
+
+.prio {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.prio.high {
+  background: var(--status-high-bg);
+  color: var(--status-high-text);
+  border: 1px solid var(--status-high-border);
+}
+.prio.medium {
+  background: var(--status-medium-bg);
+  color: var(--status-medium-text);
+  border: 1px solid var(--status-medium-border);
+}
+.prio.low {
+  background: var(--status-low-bg);
+  color: var(--status-low-text);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1.25rem;
+  }
+
+  .page-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .page-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .ticket-detail-window {
+    padding: 1.25rem;
+  }
+
+  .ticket-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-full {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .page-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .ticket-detail-overlay {
+    padding: 1rem;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="page-container">  <div class="page-header">    <h2>Tickets de Falla</h2>  </div>  <!-- Search and Filters -->  <app-view-search-filters></app-view-search-filters>  <div class="table-container">    <div class="table-scroll">      <table class="data-table">        <thead>          <tr>            <th>ID</th>            <th>Asunto</th>            <th>Prioridad</th>            <th>Equipo NFC</th>            <th>Creación</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let ticket of tickets" (click)="selectTicket(ticket)" [class.selected]="selectedTicket?.id === ticket.id">            <td class="mono">{{ ticket.id }}</td>            <td>{{ ticket.asunto }}</td>            <td><span class="prio" [ngClass]="{ high: ticket.prioridad === \'Alta\', medium: ticket.prioridad === \'Media\', low: ticket.prioridad === \'Baja\' }">{{ ticket.prioridad }}</span></td>            <td class="mono muted">{{ ticket.equipo }}</td>            <td class="muted">{{ ticket.creacion }}</td>          </tr>        </tbody>      </table>    </div>  </div>  <div class="ticket-detail-overlay" *ngIf="selectedTicket" (click)="selectedTicket = undefined">    <div class="ticket-detail-window" (click)="$event.stopPropagation()">      <button class="ticket-detail-close" type="button" (click)="selectedTicket = undefined" aria-label="Cerrar detalles del ticket">×</button>      <h3>Detalles del Ticket</h3>      <div class="ticket-info-grid">        <div><strong>ID:</strong> {{ selectedTicket.id }}</div>        <div><strong>Estado:</strong> {{ selectedTicket.estado }}</div>        <div><strong>Asunto:</strong> {{ selectedTicket.asunto }}</div>        <div><strong>Equipo NFC:</strong> {{ selectedTicket.equipo }}</div>        <div><strong>Prioridad:</strong> {{ selectedTicket.prioridad }}</div>        <div><strong>Creación:</strong> {{ selectedTicket.creacion }}</div>        <div class="info-full"><strong>Descripción:</strong> {{ selectedTicket.descripcion }}</div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'Tickets'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Tickets.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,2792 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontendweb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontendweb documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ViewSearchFiltersComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/view-search-filters/view-search-filters.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-view-search-filters</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/forms/FormsModule" target="_blank" >FormsModule</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">styles</td>
+                <td class="col-md-9"><code>
+    .view-search-filters {
+      --surface-color: var(--surface-lowest, #ffffff);
+      --input-bg: var(--surface-lowest, #ffffff);
+      --text-color: var(--text-primary, #333333);
+      --border-color: var(--border, #e0e0e0);
+      --button-bg: var(--surface-low, #f8f9fa);
+      --primary-color: var(--primary, #007bff);
+      --accent-color: var(--error-alt, #dc3545);
+      --secondary-bg: var(--text-secondary, #6c757d);
+      --secondary-hover: var(--text-primary, #5a6268);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--surface-color, #ffffff);
+      color: var(--text-color, #333);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1rem;
+    }
+
+    /* Search Section */
+    .search-section {
+      width: 100%;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      width: 20px;
+      height: 20px;
+      color: var(--text-secondary, #666);
+      z-index: 1;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 40px 12px 44px;
+      border: 2px solid var(--border-color, #e0e0e0);
+      border-radius: 8px;
+      font-size: 14px;
+      background: var(--input-bg, #ffffff);
+      color: var(--text-color, #333);
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input::placeholder,
+    .filter-input::placeholder,
+    .filter-date::placeholder,
+    .filter-select:invalid {
+      color: var(--text-muted, #94a3b8);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary-color, #007bff);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 12px;
+      width: 20px;
+      height: 20px;
+      background: none;
+      border: none;
+      color: var(--text-secondary, #666);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .clear-search-btn:hover {
+      background-color: var(--hover-bg, #f5f5f5);
+      color: var(--text-color, #333);
+    }
+
+    /* Filters Section */
+    .filters-section {
+      width: 100%;
+    }
+
+    .filters-header {
+      margin-bottom: 0.5rem;
+    }
+
+    .filters-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--button-bg, #f8f9fa);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      color: var(--text-color, #333);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .filters-toggle-btn:hover {
+      background: var(--hover-bg, #e9ecef);
+    }
+
+    .filters-toggle-btn.active {
+      background: var(--primary-color, #007bff);
+      color: white;
+      border-color: var(--primary-color, #007bff);
+    }
+
+    .filters-count {
+      background: var(--accent-color, #dc3545);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .chevron-icon {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .chevron-icon.rotated {
+      transform: rotate(180deg);
+    }
+
+    .filters-panel {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--surface-color, #ffffff);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 8px;
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .filter-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-color, #333);
+      margin-bottom: 4px;
+    }
+
+    .filter-input,
+    .filter-select,
+    .filter-date {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      font-size: 14px;
+      background: var(--input-bg, #ffffff);
+      color: var(--text-color, #333);
+      transition: border-color 0.2s ease;
+    }
+
+    .filter-select option {
+      background: var(--input-bg, #ffffff);
+      color: var(--text-color, #333);
+    }
+
+    .filter-input:focus,
+    .filter-select:focus,
+    .filter-date:focus {
+      outline: none;
+      border-color: var(--primary-color, #007bff);
+    }
+
+    .filter-select-wrapper,
+    .filter-input-wrapper,
+    .filter-date-wrapper {
+      position: relative;
+    }
+
+    /* Multiselect */
+    .filter-multiselect-wrapper {
+      position: relative;
+    }
+
+    .multiselect-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      background: var(--input-bg, #ffffff);
+      cursor: pointer;
+      min-height: 36px;
+      transition: border-color 0.2s ease;
+    }
+
+    .multiselect-display:hover {
+      border-color: var(--primary-color, #007bff);
+    }
+
+    .multiselect-display .placeholder {
+      color: var(--text-secondary, #666);
+    }
+
+    .multiselect-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--surface-color, #ffffff);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 2px;
+    }
+
+    .multiselect-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .multiselect-option:hover {
+      background: var(--hover-bg, #f5f5f5);
+    }
+
+    .multiselect-option input[type&#x3D;&quot;checkbox&quot;] {
+      margin: 0;
+    }
+
+    .filters-actions {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color, #e0e0e0);
+    }
+
+    .clear-filters-btn {
+      padding: 8px 16px;
+      background: var(--secondary-bg, #6c757d);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .clear-filters-btn:hover {
+      background: var(--secondary-hover, #5a6268);
+    }
+
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .search-input,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-input,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-select,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-date,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .multiselect-display,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .multiselect-dropdown,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filters-panel {
+      background: var(--surface-lowest, #1E2A3A);
+      border-color: var(--border, #2E3E52);
+      color: var(--text-primary, #FFFFFF);
+    }
+
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-select option,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .multiselect-option {
+      background: var(--surface-lowest, #1E2A3A);
+      color: var(--text-primary, #FFFFFF);
+    }
+
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-date {
+      color-scheme: dark;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .view-search-filters {
+        padding: 0.75rem;
+        gap: 0.75rem;
+      }
+
+      .filters-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .search-input {
+        padding: 10px 36px 10px 40px;
+        font-size: 16px; /* Prevent zoom on iOS */
+      }
+
+      .filters-panel {
+        padding: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .view-search-filters {
+        padding: 0.5rem;
+      }
+
+      .filters-toggle-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+
+      .filter-input,
+      .filter-select,
+      .filter-date {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+
+      .multiselect-display {
+        padding: 6px 10px;
+        min-height: 32px;
+      }
+    }
+  </code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;view-search-filters&quot; *ngIf&#x3D;&quot;shouldShowFilters&quot;&gt;
+  &lt;!-- Search Bar --&gt;
+  &lt;div class&#x3D;&quot;search-section&quot;&gt;
+    &lt;div class&#x3D;&quot;search-input-wrapper&quot;&gt;
+      &lt;svg class&#x3D;&quot;search-icon&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+        &lt;circle cx&#x3D;&quot;11&quot; cy&#x3D;&quot;11&quot; r&#x3D;&quot;8&quot; /&gt;
+        &lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;16.65&quot; y2&#x3D;&quot;16.65&quot; /&gt;
+      &lt;/svg&gt;
+      &lt;input
+        type&#x3D;&quot;text&quot;
+        class&#x3D;&quot;search-input&quot;
+        [placeholder]&#x3D;&quot;getSearchPlaceholder()&quot;
+        [(ngModel)]&#x3D;&quot;searchQuery&quot;
+        (input)&#x3D;&quot;onSearchChange()&quot;
+      /&gt;
+      &lt;button
+        *ngIf&#x3D;&quot;searchQuery&quot;
+        class&#x3D;&quot;clear-search-btn&quot;
+        (click)&#x3D;&quot;clearSearch()&quot;
+        type&#x3D;&quot;button&quot;
+      &gt;
+        &lt;svg viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+          &lt;line x1&#x3D;&quot;18&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;6&quot; y2&#x3D;&quot;18&quot; /&gt;
+          &lt;line x1&#x3D;&quot;6&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;18&quot; y2&#x3D;&quot;18&quot; /&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#FILTER_VIEWS" >FILTER_VIEWS</a>
+                            </li>
+                            <li>
+                                <a href="#filters" >filters</a>
+                            </li>
+                            <li>
+                                <a href="#filterValues" >filterValues</a>
+                            </li>
+                            <li>
+                                <a href="#openMultiSelect" >openMultiSelect</a>
+                            </li>
+                            <li>
+                                <a href="#searchQuery" >searchQuery</a>
+                            </li>
+                            <li>
+                                <a href="#shouldShowFilters" >shouldShowFilters</a>
+                            </li>
+                            <li>
+                                <a href="#showFilters" >showFilters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#subscription" >subscription</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applyFilters" >applyFilters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#checkIfShouldShowFilters" >checkIfShouldShowFilters</a>
+                            </li>
+                            <li>
+                                <a href="#clearFilters" >clearFilters</a>
+                            </li>
+                            <li>
+                                <a href="#clearSearch" >clearSearch</a>
+                            </li>
+                            <li>
+                                <a href="#getActiveFiltersCount" >getActiveFiltersCount</a>
+                            </li>
+                            <li>
+                                <a href="#getFilterOptions" >getFilterOptions</a>
+                            </li>
+                            <li>
+                                <a href="#getMultiSelectDisplay" >getMultiSelectDisplay</a>
+                            </li>
+                            <li>
+                                <a href="#getSearchPlaceholder" >getSearchPlaceholder</a>
+                            </li>
+                            <li>
+                                <a href="#isSelected" >isSelected</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onSearchChange" >onSearchChange</a>
+                            </li>
+                            <li>
+                                <a href="#toggleFilters" >toggleFilters</a>
+                            </li>
+                            <li>
+                                <a href="#toggleMultiSelect" >toggleMultiSelect</a>
+                            </li>
+                            <li>
+                                <a href="#toggleMultiSelectValue" >toggleMultiSelectValue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="410" class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:410</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyFilters"></a>
+                    <span class="name">
+                        <span ><b>applyFilters</b></span>
+                        <a href="#applyFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>applyFilters()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="536"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:536</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkIfShouldShowFilters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>checkIfShouldShowFilters</b></span>
+                        <a href="#checkIfShouldShowFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkIfShouldShowFilters()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="452"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:452</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearFilters"></a>
+                    <span class="name">
+                        <span ><b>clearFilters</b></span>
+                        <a href="#clearFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearFilters()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="549"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:549</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearSearch"></a>
+                    <span class="name">
+                        <span ><b>clearSearch</b></span>
+                        <a href="#clearSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearSearch()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="483"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:483</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getActiveFiltersCount"></a>
+                    <span class="name">
+                        <span ><b>getActiveFiltersCount</b></span>
+                        <a href="#getActiveFiltersCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getActiveFiltersCount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="492"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:492</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFilterOptions"></a>
+                    <span class="name">
+                        <span ><b>getFilterOptions</b></span>
+                        <a href="#getFilterOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFilterOptions(filter: <a href="../interfaces/FilterOption.html" target="_self">FilterOption</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="500"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:500</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filter</td>
+                                            <td>
+                                                            <code><a href="../interfaces/FilterOption.html" target="_self" >FilterOption</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Array&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMultiSelectDisplay"></a>
+                    <span class="name">
+                        <span ><b>getMultiSelectDisplay</b></span>
+                        <a href="#getMultiSelectDisplay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMultiSelectDisplay(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="504"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:504</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSearchPlaceholder"></a>
+                    <span class="name">
+                        <span ><b>getSearchPlaceholder</b></span>
+                        <a href="#getSearchPlaceholder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSearchPlaceholder()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="466"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:466</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSelected"></a>
+                    <span class="name">
+                        <span ><b>isSelected</b></span>
+                        <a href="#isSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isSelected(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="512"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:512</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="448"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:448</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="417"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:417</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSearchChange"></a>
+                    <span class="name">
+                        <span ><b>onSearchChange</b></span>
+                        <a href="#onSearchChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSearchChange()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="479"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:479</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleFilters"></a>
+                    <span class="name">
+                        <span ><b>toggleFilters</b></span>
+                        <a href="#toggleFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleFilters()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="488"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:488</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleMultiSelect"></a>
+                    <span class="name">
+                        <span ><b>toggleMultiSelect</b></span>
+                        <a href="#toggleMultiSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleMultiSelect(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="520"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:520</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleMultiSelectValue"></a>
+                    <span class="name">
+                        <span ><b>toggleMultiSelectValue</b></span>
+                        <a href="#toggleMultiSelectValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleMultiSelectValue(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="524"
+                                    class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:524</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FILTER_VIEWS"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>FILTER_VIEWS</b></span>
+                        <a href="#FILTER_VIEWS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;activos&#x27;,
+    &#x27;visitas&#x27;,
+    &#x27;tickets&#x27;,
+    &#x27;pedidos&#x27;,
+    &#x27;locales&#x27;,
+    &#x27;usuarios&#x27;
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="403" class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:403</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filters"></a>
+                    <span class="name">
+                        <span ><b>filters</b></span>
+                        <a href="#filters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/FilterOption.html" target="_self" >FilterOption[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="396" class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:396</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterValues"></a>
+                    <span class="name">
+                        <span ><b>filterValues</b></span>
+                        <a href="#filterValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="397" class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:397</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openMultiSelect"></a>
+                    <span class="name">
+                        <span ><b>openMultiSelect</b></span>
+                        <a href="#openMultiSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="398" class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:398</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchQuery"></a>
+                    <span class="name">
+                        <span ><b>searchQuery</b></span>
+                        <a href="#searchQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="395" class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:395</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldShowFilters"></a>
+                    <span class="name">
+                        <span ><b>shouldShowFilters</b></span>
+                        <a href="#shouldShowFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="393" class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:393</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showFilters"></a>
+                    <span class="name">
+                        <span ><b>showFilters</b></span>
+                        <a href="#showFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="394" class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:394</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscription"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>subscription</b></span>
+                        <a href="#subscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="400" class="link-to-prism">src/app/components/view-search-filters/view-search-filters.component.ts:400</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { FilterService, type FilterOption } from &#x27;../../core/services/filter.service&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+
+@Component({
+  selector: &#x27;app-view-search-filters&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: &#x60;
+    &lt;div class&#x3D;&quot;view-search-filters&quot; *ngIf&#x3D;&quot;shouldShowFilters&quot;&gt;
+      &lt;!-- Search Bar --&gt;
+      &lt;div class&#x3D;&quot;search-section&quot;&gt;
+        &lt;div class&#x3D;&quot;search-input-wrapper&quot;&gt;
+          &lt;svg class&#x3D;&quot;search-icon&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+            &lt;circle cx&#x3D;&quot;11&quot; cy&#x3D;&quot;11&quot; r&#x3D;&quot;8&quot; /&gt;
+            &lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;16.65&quot; y2&#x3D;&quot;16.65&quot; /&gt;
+          &lt;/svg&gt;
+          &lt;input
+            type&#x3D;&quot;text&quot;
+            class&#x3D;&quot;search-input&quot;
+            [placeholder]&#x3D;&quot;getSearchPlaceholder()&quot;
+            [(ngModel)]&#x3D;&quot;searchQuery&quot;
+            (input)&#x3D;&quot;onSearchChange()&quot;
+          /&gt;
+          &lt;button
+            *ngIf&#x3D;&quot;searchQuery&quot;
+            class&#x3D;&quot;clear-search-btn&quot;
+            (click)&#x3D;&quot;clearSearch()&quot;
+            type&#x3D;&quot;button&quot;
+          &gt;
+            &lt;svg viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;&gt;
+              &lt;line x1&#x3D;&quot;18&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;6&quot; y2&#x3D;&quot;18&quot; /&gt;
+              &lt;line x1&#x3D;&quot;6&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;18&quot; y2&#x3D;&quot;18&quot; /&gt;
+            &lt;/svg&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &#x60;,
+  styles: [&#x60;
+    .view-search-filters {
+      --surface-color: var(--surface-lowest, #ffffff);
+      --input-bg: var(--surface-lowest, #ffffff);
+      --text-color: var(--text-primary, #333333);
+      --border-color: var(--border, #e0e0e0);
+      --button-bg: var(--surface-low, #f8f9fa);
+      --primary-color: var(--primary, #007bff);
+      --accent-color: var(--error-alt, #dc3545);
+      --secondary-bg: var(--text-secondary, #6c757d);
+      --secondary-hover: var(--text-primary, #5a6268);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--surface-color, #ffffff);
+      color: var(--text-color, #333);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1rem;
+    }
+
+    /* Search Section */
+    .search-section {
+      width: 100%;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      width: 20px;
+      height: 20px;
+      color: var(--text-secondary, #666);
+      z-index: 1;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 40px 12px 44px;
+      border: 2px solid var(--border-color, #e0e0e0);
+      border-radius: 8px;
+      font-size: 14px;
+      background: var(--input-bg, #ffffff);
+      color: var(--text-color, #333);
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input::placeholder,
+    .filter-input::placeholder,
+    .filter-date::placeholder,
+    .filter-select:invalid {
+      color: var(--text-muted, #94a3b8);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary-color, #007bff);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 12px;
+      width: 20px;
+      height: 20px;
+      background: none;
+      border: none;
+      color: var(--text-secondary, #666);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .clear-search-btn:hover {
+      background-color: var(--hover-bg, #f5f5f5);
+      color: var(--text-color, #333);
+    }
+
+    /* Filters Section */
+    .filters-section {
+      width: 100%;
+    }
+
+    .filters-header {
+      margin-bottom: 0.5rem;
+    }
+
+    .filters-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--button-bg, #f8f9fa);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      color: var(--text-color, #333);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .filters-toggle-btn:hover {
+      background: var(--hover-bg, #e9ecef);
+    }
+
+    .filters-toggle-btn.active {
+      background: var(--primary-color, #007bff);
+      color: white;
+      border-color: var(--primary-color, #007bff);
+    }
+
+    .filters-count {
+      background: var(--accent-color, #dc3545);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .chevron-icon {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .chevron-icon.rotated {
+      transform: rotate(180deg);
+    }
+
+    .filters-panel {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--surface-color, #ffffff);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 8px;
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .filter-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-color, #333);
+      margin-bottom: 4px;
+    }
+
+    .filter-input,
+    .filter-select,
+    .filter-date {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      font-size: 14px;
+      background: var(--input-bg, #ffffff);
+      color: var(--text-color, #333);
+      transition: border-color 0.2s ease;
+    }
+
+    .filter-select option {
+      background: var(--input-bg, #ffffff);
+      color: var(--text-color, #333);
+    }
+
+    .filter-input:focus,
+    .filter-select:focus,
+    .filter-date:focus {
+      outline: none;
+      border-color: var(--primary-color, #007bff);
+    }
+
+    .filter-select-wrapper,
+    .filter-input-wrapper,
+    .filter-date-wrapper {
+      position: relative;
+    }
+
+    /* Multiselect */
+    .filter-multiselect-wrapper {
+      position: relative;
+    }
+
+    .multiselect-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      background: var(--input-bg, #ffffff);
+      cursor: pointer;
+      min-height: 36px;
+      transition: border-color 0.2s ease;
+    }
+
+    .multiselect-display:hover {
+      border-color: var(--primary-color, #007bff);
+    }
+
+    .multiselect-display .placeholder {
+      color: var(--text-secondary, #666);
+    }
+
+    .multiselect-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--surface-color, #ffffff);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 2px;
+    }
+
+    .multiselect-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .multiselect-option:hover {
+      background: var(--hover-bg, #f5f5f5);
+    }
+
+    .multiselect-option input[type&#x3D;&quot;checkbox&quot;] {
+      margin: 0;
+    }
+
+    .filters-actions {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color, #e0e0e0);
+    }
+
+    .clear-filters-btn {
+      padding: 8px 16px;
+      background: var(--secondary-bg, #6c757d);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .clear-filters-btn:hover {
+      background: var(--secondary-hover, #5a6268);
+    }
+
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .search-input,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-input,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-select,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-date,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .multiselect-display,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .multiselect-dropdown,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filters-panel {
+      background: var(--surface-lowest, #1E2A3A);
+      border-color: var(--border, #2E3E52);
+      color: var(--text-primary, #FFFFFF);
+    }
+
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-select option,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .multiselect-option {
+      background: var(--surface-lowest, #1E2A3A);
+      color: var(--text-primary, #FFFFFF);
+    }
+
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-date {
+      color-scheme: dark;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .view-search-filters {
+        padding: 0.75rem;
+        gap: 0.75rem;
+      }
+
+      .filters-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .search-input {
+        padding: 10px 36px 10px 40px;
+        font-size: 16px; /* Prevent zoom on iOS */
+      }
+
+      .filters-panel {
+        padding: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .view-search-filters {
+        padding: 0.5rem;
+      }
+
+      .filters-toggle-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+
+      .filter-input,
+      .filter-select,
+      .filter-date {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+
+      .multiselect-display {
+        padding: 6px 10px;
+        min-height: 32px;
+      }
+    }
+  &#x60;]
+})
+export class ViewSearchFiltersComponent implements OnInit, OnDestroy {
+  shouldShowFilters &#x3D; false;
+  showFilters &#x3D; false;
+  searchQuery &#x3D; &#x27;&#x27;;
+  filters: FilterOption[] &#x3D; [];
+  filterValues: { [key: string]: any } &#x3D; {};
+  openMultiSelect: string | null &#x3D; null;
+
+  private subscription: Subscription &#x3D; new Subscription();
+
+  // Vistas que deben mostrar los filtros de búsqueda
+  private readonly FILTER_VIEWS &#x3D; [
+    &#x27;activos&#x27;,
+    &#x27;visitas&#x27;,
+    &#x27;tickets&#x27;,
+    &#x27;pedidos&#x27;,
+    &#x27;locales&#x27;,
+    &#x27;usuarios&#x27;
+  ];
+
+  constructor(
+    private router: Router,
+    private filterService: FilterService
+  ) {}
+
+  ngOnInit(): void {
+    // Verificar si la vista actual debe mostrar filtros
+    this.checkIfShouldShowFilters();
+
+    // Suscribirse a cambios de ruta
+    this.subscription.add(
+      this.router.events.subscribe(() &#x3D;&gt; {
+        this.checkIfShouldShowFilters();
+      })
+    );
+
+    // Suscribirse a cambios en los filtros del servicio
+    this.subscription.add(
+      this.filterService.filters$.subscribe((filters) &#x3D;&gt; {
+        this.filterValues &#x3D; { ...filters };
+      })
+    );
+
+    // Suscribirse a cambios de vista activa
+    this.subscription.add(
+      this.filterService.activeView$.subscribe((view) &#x3D;&gt; {
+        if (this.FILTER_VIEWS.includes(view)) {
+          this.filters &#x3D; this.filterService.getFiltersForView(view);
+          this.shouldShowFilters &#x3D; true;
+        } else {
+          this.shouldShowFilters &#x3D; false;
+        }
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  private checkIfShouldShowFilters(): void {
+    const currentView &#x3D; this.filterService.getActiveView();
+    this.shouldShowFilters &#x3D; this.FILTER_VIEWS.includes(currentView);
+
+    if (this.shouldShowFilters) {
+      this.filters &#x3D; this.filterService.getFiltersForView(currentView);
+      const currentFilters &#x3D; this.filterService.getFilters();
+      this.filterValues &#x3D; { ...currentFilters };
+
+      // Extraer búsqueda del filtro general si existe
+      this.searchQuery &#x3D; currentFilters[&#x27;search&#x27;] || &#x27;&#x27;;
+    }
+  }
+
+  getSearchPlaceholder(): string {
+    const view &#x3D; this.filterService.getActiveView();
+    const placeholders: { [key: string]: string } &#x3D; {
+      &#x27;activos&#x27;: &#x27;Buscar por código NFC, local, técnico...&#x27;,
+      &#x27;visitas&#x27;: &#x27;Buscar por local, técnico, fecha...&#x27;,
+      &#x27;tickets&#x27;: &#x27;Buscar por número, descripción, técnico...&#x27;,
+      &#x27;pedidos&#x27;: &#x27;Buscar por número, cliente, producto...&#x27;,
+      &#x27;locales&#x27;: &#x27;Buscar por nombre, dirección, comuna...&#x27;,
+      &#x27;usuarios&#x27;: &#x27;Buscar por nombre, email, rol...&#x27;
+    };
+    return placeholders[view] || &#x27;Buscar...&#x27;;
+  }
+
+  onSearchChange(): void {
+    this.applyFilters();
+  }
+
+  clearSearch(): void {
+    this.searchQuery &#x3D; &#x27;&#x27;;
+    this.applyFilters();
+  }
+
+  toggleFilters(): void {
+    this.showFilters &#x3D; !this.showFilters;
+  }
+
+  getActiveFiltersCount(): number {
+    return Object.entries(this.filterValues).filter(([key, value]) &#x3D;&gt; {
+      if (key &#x3D;&#x3D;&#x3D; &#x27;search&#x27;) return false; // No contar la búsqueda
+      if (Array.isArray(value)) return value.length &gt; 0;
+      return value !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; value !&#x3D;&#x3D; null &amp;&amp; value !&#x3D;&#x3D; undefined;
+    }).length;
+  }
+
+  getFilterOptions(filter: FilterOption): Array&lt;{ value: string; label: string }&gt; {
+    return filter.options || [];
+  }
+
+  getMultiSelectDisplay(key: string): string {
+    const value &#x3D; this.filterValues[key];
+    if (Array.isArray(value) &amp;&amp; value.length &gt; 0) {
+      return value.join(&#x27;, &#x27;);
+    }
+    return &#x27;&#x27;;
+  }
+
+  isSelected(key: string, value: string): boolean {
+    const val &#x3D; this.filterValues[key];
+    if (Array.isArray(val)) {
+      return val.includes(value);
+    }
+    return false;
+  }
+
+  toggleMultiSelect(key: string): void {
+    this.openMultiSelect &#x3D; this.openMultiSelect &#x3D;&#x3D;&#x3D; key ? null : key;
+  }
+
+  toggleMultiSelectValue(key: string, value: string): void {
+    const val &#x3D; this.filterValues[key];
+    if (!val || !Array.isArray(val)) {
+      this.filterValues[key] &#x3D; [value];
+    } else if (val.includes(value)) {
+      this.filterValues[key] &#x3D; val.filter(v &#x3D;&gt; v !&#x3D;&#x3D; value);
+    } else {
+      this.filterValues[key] &#x3D; [...val, value];
+    }
+    this.applyFilters();
+  }
+
+  applyFilters(): void {
+    const activeFilters &#x3D; { ...this.filterValues };
+
+    // Agregar búsqueda si existe
+    if (this.searchQuery.trim()) {
+      activeFilters[&#x27;search&#x27;] &#x3D; this.searchQuery.trim();
+    } else {
+      delete activeFilters[&#x27;search&#x27;];
+    }
+
+    this.filterService.updateFilters(activeFilters);
+  }
+
+  clearFilters(): void {
+    this.filterValues &#x3D; {};
+    this.searchQuery &#x3D; &#x27;&#x27;;
+    this.filterService.updateFilters({});
+  }
+}</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="styleData">
+            <pre class="line-numbers"><code class="language-scss">
+    .view-search-filters {
+      --surface-color: var(--surface-lowest, #ffffff);
+      --input-bg: var(--surface-lowest, #ffffff);
+      --text-color: var(--text-primary, #333333);
+      --border-color: var(--border, #e0e0e0);
+      --button-bg: var(--surface-low, #f8f9fa);
+      --primary-color: var(--primary, #007bff);
+      --accent-color: var(--error-alt, #dc3545);
+      --secondary-bg: var(--text-secondary, #6c757d);
+      --secondary-hover: var(--text-primary, #5a6268);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--surface-color, #ffffff);
+      color: var(--text-color, #333);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1rem;
+    }
+
+    /* Search Section */
+    .search-section {
+      width: 100%;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      width: 20px;
+      height: 20px;
+      color: var(--text-secondary, #666);
+      z-index: 1;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 40px 12px 44px;
+      border: 2px solid var(--border-color, #e0e0e0);
+      border-radius: 8px;
+      font-size: 14px;
+      background: var(--input-bg, #ffffff);
+      color: var(--text-color, #333);
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input::placeholder,
+    .filter-input::placeholder,
+    .filter-date::placeholder,
+    .filter-select:invalid {
+      color: var(--text-muted, #94a3b8);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary-color, #007bff);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 12px;
+      width: 20px;
+      height: 20px;
+      background: none;
+      border: none;
+      color: var(--text-secondary, #666);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .clear-search-btn:hover {
+      background-color: var(--hover-bg, #f5f5f5);
+      color: var(--text-color, #333);
+    }
+
+    /* Filters Section */
+    .filters-section {
+      width: 100%;
+    }
+
+    .filters-header {
+      margin-bottom: 0.5rem;
+    }
+
+    .filters-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--button-bg, #f8f9fa);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      color: var(--text-color, #333);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .filters-toggle-btn:hover {
+      background: var(--hover-bg, #e9ecef);
+    }
+
+    .filters-toggle-btn.active {
+      background: var(--primary-color, #007bff);
+      color: white;
+      border-color: var(--primary-color, #007bff);
+    }
+
+    .filters-count {
+      background: var(--accent-color, #dc3545);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .chevron-icon {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .chevron-icon.rotated {
+      transform: rotate(180deg);
+    }
+
+    .filters-panel {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--surface-color, #ffffff);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 8px;
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .filter-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-color, #333);
+      margin-bottom: 4px;
+    }
+
+    .filter-input,
+    .filter-select,
+    .filter-date {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      font-size: 14px;
+      background: var(--input-bg, #ffffff);
+      color: var(--text-color, #333);
+      transition: border-color 0.2s ease;
+    }
+
+    .filter-select option {
+      background: var(--input-bg, #ffffff);
+      color: var(--text-color, #333);
+    }
+
+    .filter-input:focus,
+    .filter-select:focus,
+    .filter-date:focus {
+      outline: none;
+      border-color: var(--primary-color, #007bff);
+    }
+
+    .filter-select-wrapper,
+    .filter-input-wrapper,
+    .filter-date-wrapper {
+      position: relative;
+    }
+
+    /* Multiselect */
+    .filter-multiselect-wrapper {
+      position: relative;
+    }
+
+    .multiselect-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      background: var(--input-bg, #ffffff);
+      cursor: pointer;
+      min-height: 36px;
+      transition: border-color 0.2s ease;
+    }
+
+    .multiselect-display:hover {
+      border-color: var(--primary-color, #007bff);
+    }
+
+    .multiselect-display .placeholder {
+      color: var(--text-secondary, #666);
+    }
+
+    .multiselect-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--surface-color, #ffffff);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 2px;
+    }
+
+    .multiselect-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .multiselect-option:hover {
+      background: var(--hover-bg, #f5f5f5);
+    }
+
+    .multiselect-option input[type&#x3D;&quot;checkbox&quot;] {
+      margin: 0;
+    }
+
+    .filters-actions {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color, #e0e0e0);
+    }
+
+    .clear-filters-btn {
+      padding: 8px 16px;
+      background: var(--secondary-bg, #6c757d);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .clear-filters-btn:hover {
+      background: var(--secondary-hover, #5a6268);
+    }
+
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .search-input,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-input,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-select,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-date,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .multiselect-display,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .multiselect-dropdown,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filters-panel {
+      background: var(--surface-lowest, #1E2A3A);
+      border-color: var(--border, #2E3E52);
+      color: var(--text-primary, #FFFFFF);
+    }
+
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-select option,
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .multiselect-option {
+      background: var(--surface-lowest, #1E2A3A);
+      color: var(--text-primary, #FFFFFF);
+    }
+
+    :host-context([data-theme&#x3D;&#x27;dark&#x27;]) .filter-date {
+      color-scheme: dark;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .view-search-filters {
+        padding: 0.75rem;
+        gap: 0.75rem;
+      }
+
+      .filters-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .search-input {
+        padding: 10px 36px 10px 40px;
+        font-size: 16px; /* Prevent zoom on iOS */
+      }
+
+      .filters-panel {
+        padding: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .view-search-filters {
+        padding: 0.5rem;
+      }
+
+      .filters-toggle-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+
+      .filter-input,
+      .filter-select,
+      .filter-date {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+
+      .multiselect-display {
+        padding: 6px 10px;
+        min-height: 32px;
+      }
+    }
+  
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="view-search-filters" *ngIf="shouldShowFilters">  <!-- Search Bar -->  <div class="search-section">    <div class="search-input-wrapper">      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">        <circle cx="11" cy="11" r="8" />        <line x1="21" y1="21" x2="16.65" y2="16.65" />      </svg>      <input        type="text"        class="search-input"        [placeholder]="getSearchPlaceholder()"        [(ngModel)]="searchQuery"        (input)="onSearchChange()"      />      <button        *ngIf="searchQuery"        class="clear-search-btn"        (click)="clearSearch()"        type="button"      >        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">          <line x1="18" y1="6" x2="6" y2="18" />          <line x1="6" y1="6" x2="18" y2="18" />        </svg>      </button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'Activos', 'selector': 'app-activos'},{'name': 'App', 'selector': 'app-root'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'Dashboard', 'selector': 'app-dashboard'},{'name': 'FiltersComponent', 'selector': 'app-filters'},{'name': 'Locales', 'selector': 'app-locales'},{'name': 'Login', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MapaLocalesComponent', 'selector': 'app-mapa-locales'},{'name': 'MetricasGlobales', 'selector': 'app-metricas-globales'},{'name': 'Pedidos', 'selector': 'app-pedidos'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Reportes', 'selector': 'app-reportes'},{'name': 'RoleSelector', 'selector': 'app-role-selector'},{'name': 'Sidebar', 'selector': 'app-sidebar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'},{'name': 'TenantDetail', 'selector': 'app-tenant-detail'},{'name': 'Tenants', 'selector': 'app-tenants'},{'name': 'ThemeSwitcher', 'selector': 'app-theme-switcher'},{'name': 'TicketDetail', 'selector': 'app-ticket-detail'},{'name': 'Tickets', 'selector': 'app-tickets'},{'name': 'Topbar', 'selector': 'app-topbar'},{'name': 'TopbarMobile', 'selector': 'app-topbar-mobile'},{'name': 'Unauthorized', 'selector': 'app-unauthorized'},{'name': 'Usuarios', 'selector': 'app-usuarios'},{'name': 'ViewSearchFiltersComponent', 'selector': 'app-view-search-filters'},{'name': 'Visitas', 'selector': 'app-visitas'}];
+    var DIRECTIVES = [{'name': 'ClickOutsideDirective', 'selector': '[clickOutside]'}];
+    var ACTUAL_COMPONENT = {'name': 'ViewSearchFiltersComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ViewSearchFiltersComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

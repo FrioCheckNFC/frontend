@@ -1,0 +1,137 @@
+<div class="tenant-detail-wrapper">
+  <div class="tenant-detail-header">
+    <div class="header-title">
+      <a class="btn-back" [routerLink]="['/tenants']">← Volver</a>
+      <h1>Detalle del Tenant</h1>
+    </div>
+  </div>
+
+  <div class="load-error" *ngIf="loadError">{{ loadError }}</div>
+  <div class="load-error" *ngIf="actionError">{{ actionError }}</div>
+
+  <!-- Loading state -->
+  <div class="loading-card" *ngIf="isLoading">
+    <div class="spinner"></div>
+    <p>Cargando información del tenant...</p>
+  </div>
+
+  <ng-container *ngIf="tenant && !isLoading">
+    <!-- Info Card -->
+    <div class="tenant-card">
+      <div class="card-header">
+        <div class="tenant-info">
+          <div class="tenant-logo" *ngIf="tenant.logoUrl">
+            <img [src]="tenant.logoUrl" [alt]="tenant.name">
+          </div>
+          <div>
+            <h2>{{ tenant.name }}</h2>
+            <span class="tenant-slug">/{{ tenant.slug }}</span>
+          </div>
+        </div>
+        <span class="estado-badge" [class.active]="isActive" [class.inactive]="!isActive">
+          {{ tenant.estado }}
+        </span>
+      </div>
+
+      <!-- View mode -->
+      <div class="tenant-grid" *ngIf="!isEditing">
+        <div class="info-item">
+          <label>ID</label>
+          <span class="id-code">{{ tenant.id }}</span>
+        </div>
+        <div class="info-item">
+          <label>Creado</label>
+          <span>{{ tenant.createdAt || '—' }}</span>
+        </div>
+        <div class="info-item">
+          <label>Última actualización</label>
+          <span>{{ tenant.updatedAt || '—' }}</span>
+        </div>
+        <div class="info-item">
+          <label>Usuarios</label>
+          <span>{{ tenant.usersCount }}</span>
+        </div>
+        <div class="info-item full-width">
+          <label>Descripción</label>
+          <span>{{ tenant.description || 'Sin descripción' }}</span>
+        </div>
+      </div>
+
+      <!-- Edit mode -->
+      <form class="tenant-edit-form" *ngIf="isEditing">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input id="name" type="text" [(ngModel)]="editTenantForm.name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="slug">Slug *</label>
+            <input id="slug" type="text" [(ngModel)]="editTenantForm.slug" name="slug" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Descripción</label>
+          <textarea id="description" [(ngModel)]="editTenantForm.description" name="description" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="logoUrl">Logo URL</label>
+          <input id="logoUrl" type="url" [(ngModel)]="editTenantForm.logoUrl" name="logoUrl">
+        </div>
+      </form>
+
+      <!-- Actions -->
+      <div class="card-actions">
+        <ng-container *ngIf="!isEditing">
+          <button class="btn-action" (click)="startEdit()">Editar</button>
+          <button 
+            class="btn-action" 
+            [class.btn-activate]="!isActive" 
+            [class.btn-deactivate]="isActive"
+            [disabled]="isToggling"
+            (click)="toggleStatus()">
+            {{ isToggling ? 'Procesando...' : (isActive ? 'Desactivar' : 'Activar') }}
+          </button>
+          <button class="btn-action btn-danger" (click)="deleteTenant()">Eliminar</button>
+        </ng-container>
+        <ng-container *ngIf="isEditing">
+          <button class="btn-action" (click)="saveChanges()">Guardar</button>
+          <button class="btn-action" (click)="cancelEdit()">Cancelar</button>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Users list card -->
+    <div class="users-card" *ngIf="tenantUsers.length > 0">
+      <div class="card-header">
+        <h3>Usuarios del Tenant</h3>
+        <span class="user-count">{{ tenantUsers.length }}</span>
+      </div>
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of tenantUsers">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td>
+              <span class="user-status" [class.active]="user.active" [class.inactive]="!user.active">
+                {{ user.active ? 'Activo' : 'Inactivo' }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="empty-users" *ngIf="tenantUsers.length === 0">
+      <p>Este tenant aún no tiene usuarios asignados.</p>
+    </div>
+  </ng-container>
+</div>
